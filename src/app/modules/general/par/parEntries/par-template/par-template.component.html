@@ -1,0 +1,243 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+
+      <!-- card header start -->
+      <div class="card-header">
+        <h5 class="card-title">Schedule New PAR</h5>
+
+        <div class="card-tools">
+          <button type="button" class="btn btn-tool" data-widget="collapse">
+            <i class="fa fa-minus"></i>
+          </button>
+          <button type="button" class="btn btn-tool" data-widget="remove">
+            <i class="fa fa-times"></i>
+          </button>
+        </div>
+      </div>
+      <!-- card-header end -->
+
+      <!-- card body start -->
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card card-primary">
+
+              <!-- form start -->
+              <div>
+
+                <!-- card body start -->
+                
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="row">
+                        <div class="col-md-4">
+                          <div class="form-group">
+                              <label for="department">Department</label>
+                              <input type="text" class="form-control" name="department" id="department" value="HR" readonly>
+      
+                            </div>
+                            <div class="form-group">
+                                <label for="possition">Position</label>
+                                <input type="text" class="form-control" name="possition" id="possition" value="Accountant"
+                                  readonly>
+        
+                              </div>
+                              <div class="form-group">
+                                  <label for="employeeName">Employee Name</label>
+                                  <input type="text" class="form-control" name="employeeName" id="employeeName" value="Raja" readonly>
+                              </div>
+                              <div class="form-group">
+                                  <label for="employeeId">Employee Id</label>
+                                  <input type="text" class="form-control" name="employeeId" id="employeeId" value="SGIC/2018/0021"
+                                    readonly>
+                                </div>
+
+                          </div>
+                          <div class="col-md-4">
+                              <div class="form-group">
+                                  <label for="dueDate">Due Date</label>
+                                  <input type="date" class="form-control" id="dueDate" placeholder="yyyy-mm-dd">
+                                </div>
+
+                                <div class="form-group" id='TextBoxDiv1'>
+                                    <label for="appraisers">Appraisers No 1</label>
+                                    <input type="text" class="form-control" id='textbox1' placeholder="Appraisers">
+                                  </div>
+                            
+                          </div>
+                          <div class="col-md-4">
+                              <div class="card">
+                                <div class="card-body">
+                                    <div class="row"> 
+                                      <div class="col-md-3">
+                                        <app-rating-star-comp [rating]="1"></app-rating-star-comp>
+                                       
+                                      </div>
+                                      <div class="col-md-9">
+                                          
+                                          <h6> : Very Little Knowledge </h6>
+                                        </div>
+                                    </div>
+                                    <div class="row"> 
+                                        <div class="col-md-3">
+                                          <app-rating-star-comp [rating]="2"></app-rating-star-comp>
+                                         
+                                        </div>
+                                        <div class="col-md-9">
+                                            
+                                            <h6> : Little below expected level </h6>
+                                          </div>
+                                      </div>
+                                      <div class="row"> 
+                                          <div class="col-md-3">
+                                            <app-rating-star-comp [rating]="3"></app-rating-star-comp>
+                                           
+                                          </div>
+                                          <div class="col-md-9">
+                                              
+                                              <h6> : expected level </h6>
+                                            </div>
+                                        </div>
+                                        <div class="row"> 
+                                            <div class="col-md-3">
+                                              <app-rating-star-comp [rating]="4"></app-rating-star-comp>
+                                             
+                                            </div>
+                                            <div class="col-md-9">
+                                                
+                                                <h6>  : Exceed Expectectation</h6>
+                                              </div>
+                                          </div>
+                                          <div class="row"> 
+                                              <div class="col-md-3">
+                                                <app-rating-star-comp [rating]="5"></app-rating-star-comp> 
+                                               
+                                              </div>
+                                              <div class="col-md-9">
+                                                  
+                                                  <h6>  : Exceptional</h6>
+                                                </div>
+                                            </div>
+                                </div>
+                            </div>
+                          </div>
+                      </div>
+                     
+                   </div>
+                   </div>
+                
+                <div class="col-md-9">
+                    <div class="row">
+                      <div class="col-md-6">
+                        <ul class="list-group">
+                          <li class="list-group-item d-flex justify-content-between align-items-center">
+                            Administration
+                          <app-rating-star-comp></app-rating-star-comp>
+                          </li>
+
+                          <li class="list-group-item d-flex justify-content-between align-items-center">
+                            Knowledge of work
+                            <app-rating-star-comp></app-rating-star-comp>
+                          </li>
+
+                          <li class="list-group-item d-flex justify-content-between align-items-center">
+                            Communication
+                            <app-rating-star-comp></app-rating-star-comp>
+                          </li>
+
+                          <li class="list-group-item d-flex justify-content-between align-items-center">
+                            Managing change and improvements
+                            <app-rating-star-comp></app-rating-star-comp>
+
+                          </li>
+
+                          <li class="list-group-item d-flex justify-content-between align-items-center">
+                            Decision making
+                            <app-rating-star-comp></app-rating-star-comp>
+
+                          </li>
+
+                          <li class="list-group-item d-flex justify-content-between align-items-center">
+                            Punctuality
+                            <app-rating-star-comp></app-rating-star-comp>
+
+                          </li>
+
+                          <li class="list-group-item d-flex justify-content-between align-items-center">
+                            Out of the box thinking
+                            <app-rating-star-comp></app-rating-star-comp>
+
+                          </li>
+                        </ul>
+                      </div>
+
+                      <div class="col-md-6">
+                        <ul class="list-group">
+                          <li class="list-group-item d-flex justify-content-between align-items-center">
+                            Expense management
+                            <app-rating-star-comp></app-rating-star-comp>
+
+                          </li>
+
+                          <li class="list-group-item d-flex justify-content-between align-items-center">
+                            Human resource management
+                            <app-rating-star-comp></app-rating-star-comp>
+
+                          </li>
+
+                          <li class="list-group-item d-flex justify-content-between align-items-center">
+                            Leadership
+                            <app-rating-star-comp></app-rating-star-comp>
+
+                          </li>
+
+                          <li class="list-group-item d-flex justify-content-between align-items-center">
+                            Team Work
+                            <app-rating-star-comp></app-rating-star-comp>
+
+                          </li>
+
+                          <li class="list-group-item d-flex justify-content-between align-items-center">
+                            Personal appearance
+                            <app-rating-star-comp></app-rating-star-comp>
+
+                          </li>
+
+                          <li class="list-group-item d-flex justify-content-between align-items-center">
+                            Dependability
+                            <app-rating-star-comp></app-rating-star-comp>
+
+                          </li>
+
+                          <li class="list-group-item d-flex justify-content-between align-items-center">
+                            Safety
+                            <app-rating-star-comp></app-rating-star-comp>
+
+                          </li>
+                        </ul>
+                      </div>
+
+                    </div>
+                </div>
+            </div>    
+                <!-- card body end -->
+
+                <div class="card-footer">
+                  <button type="button" class="btn btn-primary">Send</button>
+                  &nbsp;
+                  <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete-modal">Cancel</button>
+                </div>
+              </div>
+              <!-- form end -->
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <!-- card body end -->
+
+    </div>
+  </div>
+</div>

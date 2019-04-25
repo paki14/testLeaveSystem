@@ -1,0 +1,174 @@
+<!-- card body start -->
+<div class="card-body">
+  <div class="mat-elevation-z8">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Work Name </th>
+          <th>Period Year <br>(From)</th>
+          <th>Period Year <br>(To)</th>
+          <th>Reasons for <br>leaving<br>course</th>
+          <th>Leaving/Present <br>salary <br> passed</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let recodOfEmps of recodOfEmp">
+          <td>{{recodOfEmps.workName}}</td>
+          <td>{{recodOfEmps.periodYearFrom}}</td>
+          <td>{{recodOfEmps.periodYearTo}}</td>
+          <td>{{recodOfEmps.reasonForLeaving}}</td>
+          <td>{{recodOfEmps.leavingSalary}}</td>
+          <td *ngIf="info.authorities=='HR'">
+            <div class="row">
+              <a href="" data-toggle="modal" data-target="#editrecord" (click)="getrecordOfEmploymentId(recodOfEmps)">
+                <span>
+                  <i class="large material-icons icon-edit">edit</i>
+                </span>
+              </a>
+              <a href="" data-toggle="modal" data-target="#daleterecord" (click)=" getrecordOfEmploymentId(recodOfEmps)">
+                <span class="">
+                  <i class="material-icons icon-delete">delete_forever</i>
+                </span>
+              </a>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<!-- card body end -->
+
+<!-- delete Role and Responsibility -->
+<div class="modal fade" id="daleterecord" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header model-header-primary card-header-danger">
+        <h6 class="modal-title" id="exampleModalCenterTitle">Confirmation</h6>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="col-md-12">
+        <div class="form-group">
+          <label for="message-text" class="col-form-label">Really Want to Delete? it can not undone!</label>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <div>
+          <button type="button" (click)="deleterecordOfEmployment()" class="btn btn-danger " data-toggle="modal"
+            data-dismiss="modal">Yes</button>
+        </div>
+        <div>
+          <button type="button" class="btn btn-success " data-toggle="modal" data-dismiss="modal">No</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- edit Role and Responsibility -->
+<div class="modal fade" id="editrecord" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h6 class="modal-title">Edit Record Of Employment</h6>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <form>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-12">
+              <!-- card body start -->
+              <div class="row">
+
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="name-school">Name of Work</label>
+                    <input type="text" class="form-control" id="primary-year-form" placeholder="Name of Work" name="name"
+                      [(ngModel)]="recordObj.workName">
+
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="">Period Year</label>
+                    <div class="row">
+                      <div class="col-md-6">
+                        <input type="text" class="form-control" id="school-from" placeholder="From" name="periodYearFrom"
+                          [(ngModel)]="recordObj.periodYearFrom">
+
+                      </div>
+                      <div class="col-md-6">
+                        <input type="text" class="form-control" id="school-to" placeholder="To" name="periodYearTo"
+                          [(ngModel)]="recordObj.periodYearTo">
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="name-school">Address of Work</label>
+                    <input type="text" class="form-control" id="primary-year-form" placeholder="Address of Work" name="workPlace"
+                      [(ngModel)]="recordObj.workPlace">
+
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="school-subject">Designation of Work</label>
+                    <input type="text" class="form-control" id="subject" placeholder="Designation of Work" name="designation"
+                      [(ngModel)]="recordObj.designation">
+
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="school-subject">Type of Work</label>
+                    <input type="text" class="form-control" id="subject" placeholder="Type of Work" name="workType"
+                      [(ngModel)]="recordObj.workType">
+
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="reason-leaving">Reason for Leaving</label>
+                    <textarea class="form-control" name="reasonForLeaving" [(ngModel)]="recordObj.reasonForLeaving"></textarea>
+
+                  </div>
+                </div>
+
+
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="leaving-salary">Leaving Salary</label>
+                    <input type="text" class="form-control" id="leaving-salary" placeholder="Leaving Salary" name="leavingSalary"
+                      [(ngModel)]="recordObj.leavingSalary">
+
+                  </div>
+                </div>
+              </div>
+
+              <!-- card body end -->
+            </div>
+          </div>
+        </div>
+
+      </form>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="editrecordOfEmployment()">Update</button>
+
+      </div>
+    </div>
+
+  </div>
+</div>

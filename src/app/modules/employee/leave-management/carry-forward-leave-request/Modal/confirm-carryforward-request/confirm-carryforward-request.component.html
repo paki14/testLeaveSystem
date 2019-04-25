@@ -1,0 +1,35 @@
+<!-- leave conform modal start -->
+<div id="conform-carryforward-request" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <!-- modal content start -->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h6 class="modal-title">Leave Request</h6>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div *ngIf="error; else confirm">
+        <div class="modal-body">
+          <div class="col-md-12">
+            Please choose valid no of days.
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary btn-sm" data-dismiss="modal">OK</button>
+        </div>
+      </div>
+      <ng-template #confirm>
+        <div class="modal-body">
+          <div class="col-md-12">
+            Are you sure you want to carryforward {{carryforwardResquest?.carryforwardDays}} days ?
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class=" btn btn-primary btn-sm" data-dismiss="modal" (click)="sendCarryforwardLeaveRequest()">Yes</button>
+          <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">No</button>
+        </div>
+      </ng-template>
+    </div>
+    <!-- modal content end -->
+  </div>
+</div>
+<!-- leave conform modal end -->

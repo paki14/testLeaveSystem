@@ -1,0 +1,271 @@
+<div class="row" *ngIf="info.authorities=='HR'||info.authorities=='ADMIN'" >
+  <div class="col-md-12">
+
+    <!-- 1st Form Start -->
+    <div class="card-body" >
+     
+      <div *ngFor="let employee of employees ">
+      <div class="panel panel-primary">
+        <div *ngIf="employee.role.id===1||employee.role.id===2||employee.role.id===3||employee.role.id===4||employee.role.id===5||employee.role.id===6||employee.role.id===7">
+        <div class="panel-heading" >
+          <h3 class="panel-title">{{employee.fullName}}</h3>
+        </div>
+        <div class="panel-body"  >
+          <div class="col-md-10">
+            <div class="row verticalAlign">
+              <div class="col-md-3">
+                <img class="imageClass" src="../../../../../../assets/images/john.jfif" />
+              </div>
+
+              <div class="col-md-9">
+                <div class="row">
+                  <div class="col-md-3">
+                    Employee Id 
+                  </div>
+                  <div class="col-md-3">
+                    {{employee.id}}
+                  </div>
+                  <div class="col-md-3">
+                    Employee Name 
+                  </div>
+                  <div class="col-md-3">
+                    {{employee.fullName}}
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-3">
+                    Gender 
+                  </div>
+                  <div class="col-md-3">
+                    {{employee.gender}}
+                  </div>
+                  <div class="col-md-3">
+                    Marital Status 
+                  </div>
+                  <div class="col-md-3">
+                    {{employee.maritalStatus}}
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-3">
+                    Email 
+                  </div>
+                  <div class="col-md-3">
+                    {{employee.email}}
+                  </div>
+                  <!-- <div class="col-md-3">
+                    Blood Group
+                  </div>
+                  <div class="col-md-3">
+                    {{employee.blg}}
+                  </div> -->
+                </div>
+                <div class="row">
+                  <div class="col-md-3">
+                    Contact No (Mobile) 
+                  </div>
+                  <div class="col-md-3">
+                    {{employee.mobileNumber}}
+                  </div>
+                  <div class="col-md-3">
+                    Contact No (Residential)
+                  </div>
+                  <div class="col-md-3">
+                    {{employee.telephoneNumber}}
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-3">
+                    Address (Permanent) 
+                  </div>
+                  <div class="col-md-3">
+                    {{employee.permenentAddress}}
+                  </div>
+                  <div class="col-md-3">
+                    Address (Residential) 
+                  </div>
+                  <div class="col-md-3">
+                    {{employee.residentialAddress}}
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-3">
+                    Appoinment Date 
+                  </div>
+                  <div class="col-md-3">
+                    {{employee.joinDate | date}}
+                  </div>
+                  <div class="col-md-3">
+                    Date Of Birth
+                  </div>
+                  <div class="col-md-3">
+                    {{employee.dateOfBirth | date}}
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-3">
+                    Role
+                  </div>
+                  <div class="col-md-3">
+                    {{employee.role.name}}
+                  </div>
+                  <div class="col-md-3">
+                   Department
+                  </div>
+                  <div class="col-md-3">
+                    {{employee.department.departmentName}}
+                  </div>
+                </div>
+              
+              <!-- <a class="btn btn-info pull-right" routerLink="emp">View More</a> -->
+              <a class="btn btn-info pull-right" (click)="onClick(employee.id)">View More</a>
+
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="row" *ngIf="info.authorities=='EMPLOYEE'">
+    <div class="col-md-12">
+  
+      <!-- 1st Form Start -->
+      <div class="card-body">
+        
+        <!-- <mat-form-field>
+          <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Department Name">
+        </mat-form-field> &nbsp;
+        <mat-form-field>
+          <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Employee Name">
+        </mat-form-field> -->
+        <div class="panel panel-primary"  >
+          <div class="panel-heading">
+            <h3 class="panel-title">{{users.fullName}}</h3>
+          </div>
+          <div class="panel-body" >
+            <div class="col-md-10">
+              <div class="row verticalAlign">
+                <div class="col-md-3">
+                  <img class="imageClass" src="../../../../../../assets/images/john.jfif" />
+                </div>
+  
+                <div class="col-md-9">
+                  <div class="row">
+                    <div class="col-md-3">
+                      Employee Id 
+                    </div>
+                    <div class="col-md-3">
+                      {{users.id}}
+                    </div>
+                    <div class="col-md-3">
+                      Employee Name 
+                    </div>
+                    <div class="col-md-3">
+                      {{users.fullName}}
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-3">
+                      Gender 
+                    </div>
+                    <div class="col-md-3">
+                      {{users.gender}}
+                    </div>
+                    <div class="col-md-3">
+                      Marital Status 
+                    </div>
+                    <div class="col-md-3">
+                      {{users.maritalStatus}}
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-3">
+                      Email 
+                    </div>
+                    <div class="col-md-3">
+                      {{users.email}}
+                    </div>
+                    <!-- <div class="col-md-3">
+                      Blood Group
+                    </div>
+                    <div class="col-md-3">
+                      {{employee.blg}}
+                    </div> -->
+                  </div>
+                  <div class="row">
+                    <div class="col-md-3">
+                      Contact No (Mobile) 
+                    </div>
+                    <div class="col-md-3">
+                      {{users.mobileNumber}}
+                    </div>
+                    <div class="col-md-3">
+                      Contact No (Residential)
+                    </div>
+                    <div class="col-md-3">
+                      {{users.telephoneNumber}}
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-3">
+                      Address (Permanent) 
+                    </div>
+                    <div class="col-md-3">
+                      {{users.permenentAddress}}
+                    </div>
+                    <div class="col-md-3">
+                      Address (Residential) 
+                    </div>
+                    <div class="col-md-3">
+                      {{users.residentialAddress}}
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-3">
+                      Appoinment Date 
+                    </div>
+                    <div class="col-md-3">
+                      {{users.joinDate | date}}
+                    </div>
+                    <div class="col-md-3">
+                      Date Of Birth
+                    </div>
+                    <div class="col-md-3">
+                      {{users.dateOfBirth | date}}
+                    </div>
+                  </div>
+                  <div class="row">
+                      <div class="col-md-3">
+                        Role
+                      </div>
+                      <div class="col-md-3">
+                        {{employee.role.name}}
+                      </div>
+                      <div class="col-md-3">
+                       Department
+                      </div>
+                      <div class="col-md-3">
+                        {{employee.department.departmentName}}
+                      </div>
+                    </div>
+                
+                <!-- <a class="btn btn-info pull-right" routerLink="emp">View More</a> -->
+                <a class="btn btn-info pull-right" (click)="onClick(users.id)">View More</a>
+  
+                </div>
+              </div>
+            </div>
+          </div>
+  
+        </div>
+      </div>
+    </div>
+  </div>
+  

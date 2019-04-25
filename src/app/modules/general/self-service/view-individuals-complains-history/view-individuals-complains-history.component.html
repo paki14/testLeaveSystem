@@ -1,0 +1,80 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+
+      <!-- card header start -->
+      <div class="card-header">
+        <h5 class="card-title"></h5>
+      </div>
+      <!-- card header end -->
+
+      <!-- card body start -->
+
+      <div class="card-body">
+
+        <mat-form-field>
+          <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+        </mat-form-field>
+
+        <div class="mat-elevation-z8">
+          <mat-table [dataSource]="dataSource" matSort>
+
+            <!-- column 1 start -->
+            <ng-container matColumnDef="fullname">
+              <mat-header-cell *matHeaderCellDef mat-sort-header> Full Name </mat-header-cell>
+              <mat-cell *matCellDef="let history"> {{history.relevantIndividual.fullName}} </mat-cell>
+            </ng-container>
+            <!-- column 1 end -->
+            <ng-container matColumnDef="type">
+              <mat-header-cell *matHeaderCellDef mat-sort-header> Type </mat-header-cell>
+              <mat-cell *matCellDef="let history"> {{history.selfService.selfServiceType.selfServiceTypeName}}</mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="departmentName">
+              <mat-header-cell *matHeaderCellDef mat-sort-header> Department</mat-header-cell>
+              <mat-cell *matCellDef="let history"> {{history.relevantDepartment.departmentName}}</mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="createdAt">
+              <mat-header-cell *matHeaderCellDef mat-sort-header> Date </mat-header-cell>
+              <mat-cell *matCellDef="let history"> {{history.createdAt}}</mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="responseMessage">
+              <mat-header-cell *matHeaderCellDef mat-sort-header> Response</mat-header-cell>
+              <mat-cell *matCellDef="let history"> {{history.responseMessage}}</mat-cell>
+            </ng-container>
+
+            <!-- <ng-container matColumnDef="attach">
+                  <mat-header-cell *matHeaderCellDef mat-sort-header> Attach</mat-header-cell>
+                  <mat-cell *matCellDef="let history">
+                        <button type="button" class="btn btn-primary" data-target="#modal-view-files"
+                        data-toggle="modal">View</button>
+                      </mat-cell>
+                </ng-container> -->
+
+            <!-- <ng-container matColumnDef="sendReply">
+                      <mat-header-cell *matHeaderCellDef mat-sort-header>Send Reply</mat-header-cell>
+                      <mat-cell *matCellDef="let history">
+                        <button type="button" class="btn btn-primary" data-target="#add-reply"
+                        data-toggle="modal">Reply</button></mat-cell>
+                    </ng-container> -->
+
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+          </mat-table>
+
+          <!-- pagination start -->
+          <mat-paginator [pageSizeOptions]="[3, 5, 10, 25]"></mat-paginator>
+          <!-- pagination end -->
+        </div>
+
+      </div>
+      <!-- card body end -->
+
+    </div>
+  </div>
+</div>
+
+<app-add-reply></app-add-reply>
+<app-view-files></app-view-files>

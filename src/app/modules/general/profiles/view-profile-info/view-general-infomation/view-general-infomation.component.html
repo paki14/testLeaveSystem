@@ -1,0 +1,134 @@
+<div class="" *ngFor="let employee of employees ">
+<div class="row">
+    <div class="col-md-2">
+        <label for="">Employee Id</label>
+    </div>
+    <div class="col-md-1">
+        <label for="">:</label>
+    </div>
+    <div class="col-md-3">
+        {{employee.empId}}
+    </div>
+    <div class="col-md-2">
+        <label for="">Employee Name</label>
+    </div>
+    <div class="col-md-1">
+        <label for="">:</label>
+    </div>
+    <div class="col-md-3">
+        {{employee.empName}}
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-2">
+        <label for="">Gender</label>
+    </div>
+    <div class="col-md-1">
+        <label for="">:</label>
+    </div>
+    <div class="col-md-3">
+        {{employee.gender}}
+    </div>
+    <div class="col-md-2">
+        <label for="">Marital Status</label>
+    </div>
+    <div class="col-md-1">
+        <label for="">:</label>
+    </div>
+    <div class="col-md-3">
+        {{employee.maritalStatus}}
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-2">
+       <label for=""> Email</label>
+    </div>
+    <div class="col-md-1">
+        <label for="">:</label>
+    </div>
+    <div class="col-md-3">
+        {{employee.email}}
+    </div>
+    
+</div>
+<div class="row">
+    <div class="col-md-2">
+        <label for="">Contact No (Mobile)</label>
+    </div>
+    <div class="col-md-1">
+        <label for="">:</label>
+    </div>
+    <div class="col-md-3">
+        {{employee.contactNo}}
+    </div>
+    <div class="col-md-2">
+        <label for="">Contact No (Residential)</label>
+    </div>
+    <div class="col-md-1">
+        <label for="">:</label>
+    </div>
+    <div class="col-md-3">
+        {{employee.telephoneNumber}}
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-2">
+       <label for=""> Address (Permanent)</label>
+    </div>
+    <div class="col-md-1">
+        <label for="">:</label>
+    </div>
+    <div class="col-md-3">
+        {{employee.permenentAddress}}
+    </div>
+    <div class="col-md-2">
+        <label for="">Address (Residential)</label>
+    </div>
+    <div class="col-md-1">
+        <label for="">:</label>
+    </div>
+    <div class="col-md-3">
+        {{employee.addressR}}
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-2">
+        <label for="">Appoinment Date</label>
+    </div>
+    <div class="col-md-1">
+        <label for="">:</label>
+    </div>
+    <div class="col-md-3">
+        {{employee.joinDate | date}}
+    </div>
+    <div class="col-md-2">
+        <label for="">Date Of Birth</label>
+    </div>
+    <div class="col-md-1">
+        <label for="">:</label>
+    </div>
+    <div class="col-md-3">
+        {{employee.dateOfBirth | date}}
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-2">
+        <label for="">Role</label>
+    </div>
+    <div class="col-md-1">
+        <label for="">:</label>
+    </div>
+    <div class="col-md-3">
+        {{employee.role}}
+    </div>
+    <div class="col-md-2">
+        <label for="">Basic Salary</label>
+    </div>
+    <div class="col-md-1">
+        <label for="">:</label>
+    </div>
+    <div class="col-md-3">
+        {{employee.salary}}
+    </div>
+</div>
+</div>

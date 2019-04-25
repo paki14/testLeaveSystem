@@ -1,0 +1,72 @@
+
+
+
+      <!-- card-header end -->
+
+      <!-- card body start -->
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card card-primary">
+
+              <!-- form start -->
+              <div>
+
+                <!-- card body start -->
+                <div class="card-body">
+                 
+                  <mat-form-field>
+                    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+                  </mat-form-field>
+                  <!-- <span class="mat-form-padding">
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#view-Par">View Par</button>
+                    </span> -->
+                  <div class="mat-elevation-z8">
+                    <mat-table [dataSource]="dataSource" matSort>
+          
+                      <!-- column 1 start -->
+                      <ng-container matColumnDef="id">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header> Id </mat-header-cell>
+                        <mat-cell *matCellDef="let parHistory"> {{parHistory.id}} </mat-cell>
+                      </ng-container>
+                      <!-- column 1 end -->
+          
+                      <!-- column 2 start -->
+                      <ng-container matColumnDef="name">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>
+                        <mat-cell *matCellDef="let parHistory"> {{parHistory.name}}</mat-cell>
+                      </ng-container>
+                      <!-- column 2 end -->
+          
+                    
+                      <ng-container matColumnDef="select">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header>  </mat-header-cell>
+                        <mat-cell *matCellDef="let parHistory">  <span><mat-checkbox></mat-checkbox></span></mat-cell>
+                      </ng-container>
+                      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+                    </mat-table>
+          
+          
+                    <!-- pagination start -->
+                    <mat-paginator [pageSizeOptions]="[3, 5, 10, 25]"></mat-paginator>
+                    <!-- pagination end -->
+                  </div>
+                </div>
+                <!-- card body end -->
+
+                <div class="card-footer">
+                  <button type="button" class="btn btn-primary">Next</button>
+                  <!-- &nbsp;
+                  <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete-modal">Cancel</button> -->
+                </div>
+              </div>
+              <!-- form end -->
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <!-- card body end -->
+
+

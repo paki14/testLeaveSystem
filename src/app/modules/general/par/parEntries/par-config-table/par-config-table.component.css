@@ -1,0 +1,13 @@
+.btnpadding{
+    margin-left: 350px !important;
+    padding-bottom: 2px;
+    padding-top: 2px;
+}
+.icon-edit{
+    color: blue;
+    font-size: 30px !important;
+}
+.icon-delete{
+    color: red;
+    font-size: 30px !important;
+}

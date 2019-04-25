@@ -1,0 +1,20 @@
+<!-- <app-header *ngIf="loggedIn === 'true'"></app-header>
+<app-sidebar *ngIf="loggedIn === 'true'"></app-sidebar>
+<app-dashboard *ngIf="loggedIn === 'true'"></app-dashboard>
+<app-login *ngIf="loggedIn === 'false'"></app-login> -->
+
+<!--  -->
+<ng-container *ngIf="info.token; else loggedOut">
+    <app-header></app-header>
+    <app-sidebar></app-sidebar>
+
+    <div class="content-wrapper">
+        <div class="col-md-12">
+            <div class="dashboard-top">
+                <app-dashboard></app-dashboard>               
+            </div>
+        </div>
+    </div>
+    <app-footer></app-footer>
+</ng-container>
+<app-login *ngIf="!isLoggedIn"></app-login>

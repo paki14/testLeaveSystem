@@ -1,0 +1,274 @@
+<!-- 3rd Form Start -->
+<div class="card">
+  <!-- card header start -->
+  <!-- <div class="card-header">
+        <h5 class="card-title">Professional Qualification</h5>
+
+        <div class="card-tools">
+          <button type="button" class="btn btn-tool" data-widget="collapse">
+            <i class="fa fa-minus"></i>
+          </button>
+          <button type="button" class="btn btn-tool" data-widget="remove">
+            <i class="fa fa-times"></i>
+          </button>
+        </div>
+      </div> -->
+  <!-- card-header end -->
+
+  <!-- card body start -->
+  <div class="card-body nopadding">
+    <form [formGroup]="addUserForm">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="alert alert-success notification" id="alert-success" *ngIf="responseMsg === 'success'">
+              <span class="bold-font">Success:</span> All records were processed correctly! Ignore click Next
+            </div>
+            <div class="alert alert-danger notification" id="alert-danger" *ngIf="responseMsg === 'fail'">
+              <span class="bold-font">Error:</span> Something went wrong.
+            </div>
+            <!-- form start -->
+
+            <fieldset>
+              <!-- card body start -->
+              <legend>University Qualification</legend>
+
+              <!-- <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="name-school">Name of School</label>
+                        <input type="text" class="form-control" id="primary-year-form" placeholder="Name of School">
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="">Period Year</label>
+                        <div class="row">
+                          <div class="col-md-6">
+                            <input type="text" class="form-control" id="school-from" placeholder="From">
+                          </div>
+                          <div class="col-md-6">
+                            <input type="text" class="form-control" id="school-to" placeholder="To">
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="school-subject">Subject Examinations Passed</label>
+                        <input type="text" class="form-control" id="subject" placeholder="Enter Subject Examinations Passed">
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="university-grading">Subject offered & Grading</label>
+                        <input type="text" class="form-control" id="university-grading" placeholder="Subject offered & Grading">
+                      </div>
+                    </div> -->
+
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Employee Name</label>
+                    <!-- <input name="funame" list="options" class=" form-control" [(ngModel)]="refObj.user">
+                            <datalist id="options">
+                              <option selected disabled>Select a Employee Name</option>
+                              <option *ngFor="let users of user" data-value="{{users.id}}">{{users.fullName}}</option>
+                            </datalist> -->
+                    <select _ngcontent-c5="" class="form-control form-control-md" formControlName="fullName"
+                      [class.is-invalid]="addUserForm.get('fullName').invalid && addUserForm.get('fullName').touched "
+                      name="fullname" [(ngModel)]="profesionalObj.user">
+                      <option selected disabled value="0">Select Employee Name</option>
+                      <option _ngcontent-c5="" selected="" *ngFor="let us of user" value="{{us.id}}" (click)="getUserId()">
+                        {{us.fullName}}</option>
+                    </select>
+                    <div *ngIf="addUserForm.get('fullName').invalid && addUserForm.get('fullName').touched ">
+                      <small class="text-danger" *ngIf="addUserForm.get('fullName').errors?.required">Full Name is
+                        Required </small>
+                      <small class="text-danger" *ngIf="addUserForm.get('fullName').errors?.pattern">Please Enter Name
+                      </small>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="name-university">Name of University/Institution</label>
+                    <input type="text" class="form-control" formControlName="universityName" [class.is-invalid]="addUserForm.get('universityName').invalid && addUserForm.get('universityName').touched "
+                      id="primary-year-form" placeholder="Name of University/Institution" name="name" [(ngModel)]="profesionalObj.insituteName">
+                    <div *ngIf="addUserForm.get('universityName').invalid && addUserForm.get('universityName').touched ">
+                      <small class="text-danger" *ngIf="addUserForm.get('universityName').errors?.required">University
+                        Name is Required </small>
+                      <small class="text-danger" *ngIf="addUserForm.get('universityName').errors?.pattern">Please Enter
+                        University Name
+                      </small>
+                      <small class="text-danger" *ngIf="addUserForm.get('universityName').errors?.minLength">Please
+                        Enter min 5 charator
+                      </small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="name-university">Course Name</label>
+                    <input type="text" class="form-control" formControlName="courseName" id="primary-year-form"
+                      placeholder="Name of Course" name="courseName" [(ngModel)]="profesionalObj.courseName">
+                  </div>
+                  <div *ngIf="addUserForm.get('courseName').invalid && addUserForm.get('courseName').touched ">
+                    <small class="text-danger" *ngIf="addUserForm.get('courseName').errors?.required">Course Name is
+                      Required </small>
+                    <small class="text-danger" *ngIf="addUserForm.get('courseName').errors?.pattern">Please Enter
+                      Course Name
+                    </small>
+                  </div>
+
+                </div>
+
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="univesity-period">Period Year</label>
+                    <div class="row">
+                      <div class="col-md-6">
+                        <input type="Year" class="form-control" id="university-from" placeholder="From" name="periodYearFrom"
+                          formControlName="from" [(ngModel)]="profesionalObj.periodYearFrom">
+                        <div *ngIf="addUserForm.get('from').invalid && addUserForm.get('from').touched ">
+                          <small class="text-danger" *ngIf="addUserForm.get('from').errors?.required">Year-From is
+                            Required </small>
+                          <small class="text-danger" *ngIf="addUserForm.get('from').errors?.pattern">Please Enter
+                            Year-From
+                          </small>
+                          <!-- <small class="text-danger" *ngIf="addUserForm.get('from').errors?.minLength">Please Enter
+                            min 4 charator
+                          </small> -->
+                          <small class="text-danger" *ngIf="addUserForm.get('from').errors?.maxLength">Please Enter
+                            max 4 charator
+                          </small>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <input type="text" class="form-control" id="university-to" formControlName="to" placeholder="To"
+                          name="periodYearTo" [(ngModel)]="profesionalObj.periodYearTo">
+                        <div *ngIf="addUserForm.get('to').invalid && addUserForm.get('to').touched ">
+                          <small class="text-danger" *ngIf="addUserForm.get('to').errors?.required">Year-To is
+                            Required </small>
+                          <small class="text-danger" *ngIf="addUserForm.get('to').errors?.pattern">Please Enter
+                            Year-To
+                          </small>
+                          <!-- <small class="text-danger" *ngIf="addUserForm.get('to').errors?.minLength">Please Enter
+                            min 4 charator
+                          </small> -->
+                          <small class="text-danger" *ngIf="addUserForm.get('to').errors?.maxLength">Please Enter
+                            max 4 charator
+                          </small>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="university-subject">Course Type</label>
+                    <input type="text" class="form-control" id="courseType" formControlName="courseType" placeholder="Enter Course Type"
+                      name="courseType" [(ngModel)]="profesionalObj.courseType">
+                    <div *ngIf="addUserForm.get('courseType').invalid && addUserForm.get('courseType').touched ">
+                      <small class="text-danger" *ngIf="addUserForm.get('courseType').errors?.required">Course Type is
+                        Required </small>
+                      <small class="text-danger" *ngIf="addUserForm.get('courseType').errors?.pattern">Please Enter
+                        Course Type
+                      </small>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="university-grading">Examination Year</label>
+                    <input type="text" class="form-control" formControlName="examinationYear" id="examinationYear"
+                      placeholder="Examination Year" name="examinationYear" [(ngModel)]="profesionalObj.examinationYear">
+                    <div *ngIf="addUserForm.get('examinationYear').invalid && addUserForm.get('examinationYear').touched ">
+                      <small class="text-danger" *ngIf="addUserForm.get('examinationYear').errors?.required">Examination
+                        Year is
+                        Required </small>
+                      <small class="text-danger" *ngIf="addUserForm.get('examinationYear').errors?.pattern">Please
+                        Enter
+                        Examination Year
+                      </small>
+                      <!-- <small class="text-danger" *ngIf="addUserForm.get('examinationYear').errors?.minLength">Please Enter
+                        min 4 charator
+                      </small> -->
+                      <small class="text-danger" *ngIf="addUserForm.get('examinationYear').errors?.maxLength">Please
+                        Enter
+                        max 4 charator
+                      </small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="university-subject">Subject Examinations Passed</label>
+                    <input type="text" class="form-control" formControlName="subject" id="university-subject"
+                      placeholder="Enter Subject Examinations Passed" name="result" [(ngModel)]="profesionalObj.result">
+                    <div *ngIf="addUserForm.get('subject').invalid && addUserForm.get('subject').touched ">
+                      <small class="text-danger" *ngIf="addUserForm.get('subject').errors?.required">Subject is
+                        Required </small>
+                      <small class="text-danger" *ngIf="addUserForm.get('subject').errors?.pattern">Please Enter
+                        Subject
+                      </small>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="university-grading">GPA</label>
+                    <input type="text" class="form-control" id="university-grading" formControlName="gpa" placeholder="Enter GPA"
+                      name="gpa" [(ngModel)]="profesionalObj.gpa">
+                    <div *ngIf="addUserForm.get('gpa').invalid && addUserForm.get('gpa').touched ">
+                      <small class="text-danger" *ngIf="addUserForm.get('gpa').errors?.required">GPA is
+                        Required </small>
+                      <small class="text-danger" *ngIf="addUserForm.get('gpa').errors?.pattern">Please Enter
+                        GPA
+                      </small>
+                      <small class="text-danger" *ngIf="addUserForm.get('gpa').errors?.maxLength">Please Enter
+                        max 4 charator
+                      </small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-12">
+
+                  <button type="button" class="btn btn-primary pull-right" (click)="addEmpProQualification()"
+                    [disabled]="!addUserForm.valid">Save</button>
+                </div>
+              </div>
+              <!-- card body end -->
+
+
+
+            </fieldset>
+
+            <!-- card body end -->
+
+
+
+
+          </div>
+        </div>
+      </div>
+      <div class="card-footer">
+
+      </div>
+    </form>
+    <!-- form end -->
+  </div>
+  <!-- card body end -->
+</div>
+<!-- 3rd Form End -->

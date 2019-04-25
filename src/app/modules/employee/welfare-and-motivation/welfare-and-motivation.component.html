@@ -1,0 +1,44 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="tab" role="tabpanel">
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs" role="tablist">
+
+          <li role="presentation" routerLinkActive="active">
+            <a routerLink="generalWelfareUser" aria-controls="home" role="tab" data-toggle="tab" *ngIf="info.authorities=='EMPLOYEE'">
+              General Welfare</a></li>
+
+          <li role="presentation" routerLinkActive="active">
+            <a routerLink="generalWelfare" aria-controls="home" role="tab" data-toggle="tab" *ngIf="info.authorities=='HR'">
+              General Welfare</a></li>
+
+          <li role="presentation" routerLinkActive="active">
+            <a class="active" routerLink="individualWelfareUser" aria-controls="home" role="tab" data-toggle="tab"
+              *ngIf="info.authorities=='EMPLOYEE'">
+              Individual Welfare</a></li>
+
+          <li role="presentation" routerLinkActive="active">
+            <a routerLink="individualWelfare" aria-controls="home" role="tab" data-toggle="tab" *ngIf="info.authorities=='HR'">
+              individual Welfare</a></li>
+
+          <li role="presentation" routerLinkActive="active">
+            <a routerLink="welfareEvent" aria-controls="profile" role="tab" data-toggle="tab" *ngIf="info.authorities=='HR'" > 
+              Welfare Event
+              </a></li>
+
+              <li role="presentation" routerLinkActive="active">
+                  <a routerLink="welfareEventUser" aria-controls="profile" role="tab" data-toggle="tab" *ngIf="info.authorities=='EMPLOYEE'" > 
+                    Welfare Event
+                    </a></li>
+      
+
+          <!-- <li role="presentation" routerLinkActive="active">
+            <a routerLink="manageCDP" aria-controls="profile" role="tab" data-toggle="tab">
+              Welfare Usage Histry</a></li> -->
+        </ul>
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+</div>

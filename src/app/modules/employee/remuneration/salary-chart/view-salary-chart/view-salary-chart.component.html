@@ -1,0 +1,109 @@
+<section class="content">
+  <!-- tab content start -->
+  <div class="tab-content" id="myTabContent">
+    <div class="tab-pane fade show active" id="tab1_content" aria-labelledby="tab1_content">
+
+      <!-- salaryChart start -->
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card">
+
+            <!-- card header start -->
+            <div class="card-header">
+              <h5 class="card-title">SALARY CHART</h5>
+            </div>
+            <!-- card header end -->
+
+            <!-- card body start -->
+            <div class="card-body">
+              <mat-form-field>
+                <input matInput (keyup)="getSalaryChartByName($event.target.value)" placeholder="Search by Employee Name">
+              </mat-form-field>
+              <!-- <button class="btn btn-primary" (click)="getSalaryChartByName(name)">Search</button> -->
+
+              <div class="mat-elevation-z8">
+                <mat-table [dataSource]="dataSource" matSort>
+
+                  <ng-container matColumnDef="id">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header> ID </mat-header-cell>
+                    <mat-cell *matCellDef="let salaryChart"> {{salaryChart.id}} </mat-cell>
+                  </ng-container>
+
+                  <ng-container matColumnDef="empName" *ngIf="role === 'hr'">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header>Employee Name </mat-header-cell>
+                    <mat-cell *matCellDef="let salaryChart"> {{salaryChart.empName}} </mat-cell>
+                  </ng-container>
+
+                  <ng-container matColumnDef="basicSalary">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header> Basic <br>Salary </mat-header-cell>
+                    <mat-cell *matCellDef="let salaryChart"> Rs.{{salaryChart.basicSalary}}</mat-cell>
+                  </ng-container>
+
+                  <ng-container matColumnDef="epf8">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header> EPF 8% </mat-header-cell>
+                    <mat-cell *matCellDef="let salaryChart"> Rs.{{salaryChart.epf8}}</mat-cell>
+                  </ng-container>
+
+                  <ng-container matColumnDef="payee">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header> Name of the PAYE </mat-header-cell>
+                    <mat-cell *matCellDef="let salaryChart"> {{salaryChart.payee }}</mat-cell>
+                  </ng-container>
+
+                  <ng-container matColumnDef="stampDuty">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header> Stamp<br> duty </mat-header-cell>
+                    <mat-cell *matCellDef="let salaryChart"> Rs.{{salaryChart.stampDuty}}</mat-cell>
+                  </ng-container>
+
+                  <!-- <ng-container matColumnDef="advance">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header> Loan </mat-header-cell>
+                    <mat-cell *matCellDef="let salaryChart"> {{salaryChart.loan}}</mat-cell>
+                  </ng-container> -->
+
+                  <ng-container matColumnDef="loan">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header> Loan </mat-header-cell>
+                    <mat-cell *matCellDef="let salaryChart"> Rs.{{salaryChart.loan}}</mat-cell>
+                  </ng-container>
+
+                  <ng-container matColumnDef="netSalary">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header> Net Salary </mat-header-cell>
+                    <mat-cell *matCellDef="let salaryChart"> Rs.{{salaryChart.netSalary}}</mat-cell>
+                  </ng-container>
+                  <!-- 
+                  <ng-container matColumnDef="epf12">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header> EPF 12% </mat-header-cell>
+                    <mat-cell *matCellDef="let salaryChart"> {{salaryChart.epf12}}</mat-cell>
+                  </ng-container> -->
+
+                  <!-- <ng-container matColumnDef="etf3">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header> ETF 3% </mat-header-cell>
+                    <mat-cell *matCellDef="let salaryChart"> {{salaryChart.etf3}}</mat-cell>
+                  </ng-container> -->
+
+                  <ng-container matColumnDef="statutoryPayment">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header> Statutory Payment </mat-header-cell>
+                    <mat-cell *matCellDef="let salaryChart"> Rs.{{salaryChart.statutoryPayment}}</mat-cell>
+                  </ng-container>
+
+                  <ng-container *ngIf="role === 'hr'">
+                    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+                  </ng-container>
+                  <ng-container *ngIf="role === 'employee'">
+                    <mat-header-row *matHeaderRowDef="displayedColumnsForEmployee"></mat-header-row>
+                    <mat-row *matRowDef="let row; columns: displayedColumnsForEmployee;"></mat-row>
+                  </ng-container>
+                </mat-table>
+
+                <!-- pagination start -->
+                <mat-paginator [pageSizeOptions]="[2, 5, 10, 25]"></mat-paginator>
+                <!-- pagination end -->
+              </div>
+            </div>
+            <!-- card body end -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- tab content end -->
+</section>

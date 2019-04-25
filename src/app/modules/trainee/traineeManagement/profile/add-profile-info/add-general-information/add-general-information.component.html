@@ -1,0 +1,369 @@
+<!-- 1st Form Start -->
+<div class="card">
+
+  <!-- card header start -->
+  <div class="card-header">
+    <h5 class="card-title">General Information</h5>
+
+    <div class="card-tools">
+      <button type="button" class="btn btn-tool" data-widget="collapse">
+        <i class="fa fa-minus"></i>
+      </button>
+      <button type="button" class="btn btn-tool" data-widget="remove">
+        <i class="fa fa-times"></i>
+      </button>
+    </div>
+  </div>
+  <!-- card-header end -->
+
+  <!-- card body start -->
+  <div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="alert alert-success notification" id="alert-success" *ngIf="responseMsg === 'success'">
+          <span class="bold-font">Success:</span> All records were processed correctly! Ignore click Next
+        </div>
+        <div class="alert alert-danger notification" id="alert-danger" *ngIf="responseMsg === 'fail'">
+          <span class="bold-font">Error:</span> Something went wrong.
+        </div>
+        <div class="card card-primary">
+
+          <!-- form start -->
+          <form [formGroup]="addUserForm">
+
+            <!-- card body start -->
+            <div class="card-body">
+              <div class="row">
+                <div class="card card-primary">
+
+                  <!-- form start -->
+                  <form [formGroup]="addUserForm">
+
+                    <!-- card body start -->
+                    <div class="card-body">
+                      <div class="row">
+
+                        <div class="form-group col-md-6">
+                          <label for="inputtraineeName">Trainee Name</label>
+                          <input formControlName="traineeName" placeholder="Enter Trainee name" type="text" class="form-control form-control-sm"
+                            [class.is-invalid]="addUserForm.get('traineeName').invalid && addUserForm.get('traineeName').touched "
+                            [(ngModel)]="proObj.fullName">
+                          <div *ngIf="addUserForm.get('traineeName').invalid && addUserForm.get('traineeName').touched ">
+                            <small class="text-danger" *ngIf="addUserForm.get('traineeName').errors?.required">traineeName
+                              is Required
+                            </small>
+                            <small class="text-danger" *ngIf="addUserForm.get('traineeName').errors?.minlength">Please
+                              Enter must be
+                              atleast 3 characters </small>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label for="email">Email </label>
+                            <!-- <input type="text" class="form-control" id="email" placeholder="Enter your Email"name="email"  [(ngModel)]="proObj.email"> -->
+                            <input formControlName="email" type="email" placeholder="Email (abc123@email.com)" class="form-control form-control-sm"
+                              [class.is-invalid]="addUserForm.get('email').invalid && addUserForm.get('email').touched "
+                              [(ngModel)]="proObj.email">
+                            <div *ngIf="addUserForm.get('email').invalid && addUserForm.get('email').touched ">
+                              <small class="text-danger" *ngIf="addUserForm.get('email').errors?.required">Email is
+                                Required </small>
+                              <small class="text-danger" *ngIf="addUserForm.get('email').errors?.pattern">Please Enter
+                                Valid Email
+                                Address </small>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                          <label for="department">Field Of Interest</label>
+                          <select formControlName="department" placeholder="Enter Department" type="text" class="form-control form-control-sm"
+                            [class.is-invalid]="addUserForm.get('department').invalid && addUserForm.get('department').touched "
+                            name="result" [(ngModel)]="proObj.traineeDepartment">
+                            <option selected disabled value="0">Select Department</option>
+                            <option _ngcontent-c5="" selected="" *ngFor="let dept of departments" value="{{dept.id}}">
+                              {{dept.departmentName}}</option>
+                          </select>
+                          <div *ngIf="addUserForm.get('department').invalid && addUserForm.get('department').touched ">
+                            <small class="text-danger" *ngIf="addUserForm.get('department').errors?.required">Department
+                              is Required
+                            </small>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label for="appointment-date">Joined Date</label>
+                            <input type="date" formControlName="date" [class.is-invalid]="addUserForm.get('date').invalid && addUserForm.get('date').touched "
+                              class="form-control" name="start-date" id="appointment-date" placeholder="dd/mm/yyyy"
+                              name="join" [(ngModel)]="proObj.joinDate">
+                            <div *ngIf="addUserForm.get('date').invalid && addUserForm.get('date').touched ">
+                              <small class="text-danger" *ngIf="addUserForm.get('date').errors?.required">date is
+                                Required
+                              </small>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label for="nic">NIC</label>
+                            <input type="text" formControlName="nic" [class.is-invalid]="addUserForm.get
+                        ('nic').invalid && addUserForm.get('nic').touched "
+                              class="form-control" id="nic" formControlName="nic" placeholder="Enter your NIC Number"
+                              name="nat" [(ngModel)]="proObj.nic" [class.is-invalid]="addUserForm.
+                        get('nic').invalid && addUserForm.get('nic').touched ">
+                            <div *ngIf="addUserForm.get('nic').invalid && addUserForm.get('nic').touched ">
+                              <small class="text-danger" *ngIf="addUserForm.get('nic').errors?.required">NIC is
+                                Required
+                              </small>
+                              <small class="text-danger" *ngIf="addUserForm.get('nic').errors?.minlength">Please Enter
+                                must be
+                                atleast 9 characters </small>
+                              <small class="text-danger" *ngIf="addUserForm.get('nic').errors?.pattern">Please Enter
+                                Valid NIC
+                                Number</small>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label for="nic">Nationality</label>
+                            <input type="text" formControlName="nationality" [class.is-invalid]="addUserForm.get('nationality')
+                        .invalid && addUserForm.get('nationality').touched "
+                              class="form-control" id="nic" placeholder="Enter Your Nationality" name="nic" [(ngModel)]="proObj.nationality">
+                            <div *ngIf="addUserForm.get('nationality').invalid && addUserForm.get('nationality').touched ">
+                              <small class="text-danger" *ngIf="addUserForm.get('nationality').errors?.required">nationality
+                                is
+                                Required
+                              </small>
+                              <small class="text-danger" *ngIf="addUserForm.get('nationality').errors?.minlength">Please
+                                Enter
+                                must be
+                                atleast 3 characters </small>
+                              <!-- <small class="text-danger" *ngIf="addUserForm.get('nationality').errors?.pattern">Please Enter Nationality 
+                              </small> -->
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label for="religion">Religion</label>
+                            <input type="text" formControlName="religion" [class.is-invalid]="addUserForm.get('religion').invalid && addUserForm.get('religion').touched "
+                              class="form-control" id="religion" placeholder="Enter your Religion" name="religion"
+                              [(ngModel)]="proObj.religion">
+                            <div *ngIf="addUserForm.get('religion').invalid && addUserForm.get('religion').touched ">
+                              <small class="text-danger" *ngIf="addUserForm.get('religion').errors?.required">religion
+                                is
+                                Required
+                              </small>
+                              <small class="text-danger" *ngIf="addUserForm.get('religion').errors?.minlength">Please
+                                Enter
+                                must be
+                                atleast 3 characters </small>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label for="gender">Gender</label><br><br>
+                            <div class="row">
+                              <div class="col-sm-3">
+                                <input type="radio" formControlName="gender" name="gender" [class.is-invalid]="addUserForm.get('gender').invalid && addUserForm.get('gender').touched "
+                                  [(ngModel)]="proObj.gender" value="Male">
+                                Male
+                              </div>
+                              <div class="col-sm-3">
+                                <input type="radio" formControlName="gender" name="gender" [class.is-invalid]="addUserForm.get('gender').invalid && addUserForm.get('gender').touched "
+                                  [(ngModel)]="proObj.gender" value="Female">
+                                Female
+                              </div>
+                              <div *ngIf="addUserForm.get('gender').invalid && addUserForm.get('gender').touched ">
+                                <small class="text-danger" *ngIf="addUserForm.get('gender').errors?.required">gender is
+                                  Required
+                                </small>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+
+
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label for="dateofbirth"> Date of Birth</label>
+                            <input type="date" formControlName="dateofbirth" [class.is-invalid]="addUserForm.get('dateofbirth').invalid && addUserForm.get('dateofbirth').touched "
+                              class="form-control" name="start-date" id="date-of-birth" placeholder="dd/mm/yyyy" name="dob"
+                              [(ngModel)]="proObj.dateOfBirth">
+                            <div *ngIf="addUserForm.get('dateofbirth').invalid && addUserForm.get('dateofbirth').touched ">
+                              <small class="text-danger" *ngIf="addUserForm.get('dateofbirth').errors?.required">dateofbirth
+                                is
+                                Required
+                              </small>
+
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label for="permanentaddress">Permanent Address</label>
+                            <textarea class="form-control" name="addressP" placeholder="Enter your Permanent Address"
+                              formControlName="permanentaddress" [class.is-invalid]="addUserForm.get('permanentaddress').invalid && addUserForm.get('permanentaddress').touched "
+                              [(ngModel)]="proObj.permenentAddress"></textarea>
+                            <div *ngIf="addUserForm.get('permanentaddress').invalid && addUserForm.get('nationality').touched ">
+                              <small class="text-danger" *ngIf="addUserForm.get('permanentaddress').errors?.required">Permanent
+                                Address is Required
+                              </small>
+                              <small class="text-danger" *ngIf="addUserForm.get('permanentaddress').errors?.minlength">Please
+                                Enter must be
+                                atleast 3 characters </small>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label for="residential-address">Residential Address</label>
+                            <textarea class="form-control" name="addressR" placeholder="Enter your Residential Address"
+                              formControlName="residentialAddress" [class.is-invalid]="addUserForm.get('residentialAddress').invalid && addUserForm.get('residentialAddress').touched "
+                              [(ngModel)]="proObj.residentialAddress"></textarea>
+                            <div *ngIf="addUserForm.get('residentialAddress').invalid && addUserForm.get('residentialAddress').touched ">
+                              <small class="text-danger" *ngIf="addUserForm.get('residentialAddress').errors?.required">Residential
+                                Address is Required
+                              </small>
+                              <small class="text-danger" *ngIf="addUserForm.get('residentialAddress').errors?.minlength">Please
+                                Enter must be
+                                atleast 3 characters </small>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label for="mobile">Mobile</label>
+                            <input type="text" class="form-control" formControlName="mobile" [class.is-invalid]="addUserForm.get('mobile').invalid && addUserForm.get('mobile').touched "
+                              id="mobile" placeholder="Enter your Mobile Number" name="mobile" [(ngModel)]="proObj.mobileNumber">
+                            <div *ngIf="addUserForm.get('mobile').invalid && addUserForm.get('mobile').touched ">
+                              <small class="text-danger" *ngIf="addUserForm.get('mobile').errors?.required">Mobile is
+                                Required
+                              </small>
+                              <small class="text-danger" *ngIf="addUserForm.get('mobile').errors?.minlength">Please
+                                Enter must
+                                be
+                                atleast 9 characters </small>
+                              <small class="text-danger" *ngIf="addUserForm.get('mobile').errors?.pattern">Please Enter
+                                Valid
+                                Mobile
+                                Number</small>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label for="residential-number">Telephone Number</label>
+                            <input type="text" class="form-control" formControlName="telephoneNumber"
+                              [class.is-invalid]="addUserForm.get('telephoneNumber').invalid && addUserForm.get('telephoneNumber').touched "
+                              id="residential-number" placeholder="Enter your Residential Mobile Number" name="telephone"
+                              [(ngModel)]="proObj.telephoneNumber">
+                            <div *ngIf="addUserForm.get('telephoneNumber').invalid && addUserForm.get('telephoneNumber').touched ">
+                              <small class="text-danger" *ngIf="addUserForm.get('telephoneNumber').errors?.required">Telephone
+                                Number is Required
+                              </small>
+                              <small class="text-danger" *ngIf="addUserForm.get('telephoneNumber').errors?.minlength">Please
+                                Enter must be
+                                atleast 9 characters </small>
+                              <small class="text-danger" *ngIf="addUserForm.get('telephoneNumber').errors?.pattern">Please
+                                Enter Valid Telephone Number
+                              </small>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label for="marital-status">Marital Status</label>
+                            <input type="text" class="form-control" formControlName="maritalStatus" [class.is-invalid]="addUserForm.get('maritalStatus').invalid && addUserForm.get('maritalStatus').touched "
+                              id="marital-status" placeholder="Enter your Marital Status" name="marital-status"
+                              [(ngModel)]="proObj.maritalStatus">
+                            <div *ngIf="addUserForm.get('maritalStatus').invalid && addUserForm.get('maritalStatus').touched ">
+                              <small class="text-danger" *ngIf="addUserForm.get('maritalStatus').errors?.required">Marital
+                                Status is Required
+                              </small>
+                              <small class="text-danger" *ngIf="addUserForm.get('maritalStatus').errors?.minlength">Please
+                                Enter must be
+                                atleast 3 characters </small>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label for="exampleInputEmail1">Employeement </label>
+                            <div class="row">
+                              <div class="col-sm-3">
+                                <input type="radio" formControlName="employment" name="empl" [class.is-invalid]="addUserForm.get('employment').invalid && addUserForm.get('employment').touched "
+                                  [(ngModel)]="proObj.employment" value="Employee">
+                                Employee
+                              </div>
+                              <div class="col-sm-3">
+                                <input type="radio" formControlName="employment" name="unempl" [class.is-invalid]="addUserForm.get('employment').invalid && addUserForm.get('employment').touched "
+                                  [(ngModel)]="proObj.employment" value="UnEmployee">
+                                UnEmployee
+                              </div>
+                              <div *ngIf="addUserForm.get('employment').invalid && addUserForm.get('employment').touched ">
+                                <small class="text-danger" *ngIf="addUserForm.get('employment').errors?.required">Employment
+                                  is Required
+                                </small>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label for="qualification">Qualification Level </label>
+                            <div class="row">
+                              <div class="col-sm-3">
+                                <input type="radio" formControlName="qualification" name="degree" [class.is-invalid]="addUserForm.get('qualification').invalid && addUserForm.get('qualification').touched "
+                                  [(ngModel)]="proObj.qualificationLevel" value="Degree">
+                                  Degree
+                              </div>
+                              <div class="col-sm-3">
+                                <input type="radio" formControlName="qualification" name="diploma" [class.is-invalid]="addUserForm.get('qualification').invalid && addUserForm.get('qualification').touched "
+                                  [(ngModel)]="proObj.qualificationLevel" value="Diploma">
+                                  Diploma
+                              </div>
+                              <div *ngIf="addUserForm.get('qualification').invalid && addUserForm.get('qualification').touched ">
+                                <small class="text-danger" *ngIf="addUserForm.get('qualification').errors?.required">qualificationLevel
+                                  is Required
+                                </small>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label for="occupation">If yes Occupation</label>
+                            <input type="text" class="form-control" formControlName="occupation" [class.is-invalid]="addUserForm.get('occupation').invalid && addUserForm.get('occupation').touched "
+                              id="occupation" placeholder="Enter your Occupation" name="occupation" [(ngModel)]="proObj.occupation">
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- card body end -->
+
+                    <div class="card-footer">
+                      <!-- <button type="button" class="btn btn-primary" (click)="addProfileGeneralInfo()">Save</button> -->
+
+                      <button type="button" id="nextBtn" class="btn btn-primary" (click)="addProfileGeneralInfo()">Save</button>
+                      &nbsp;
+                      <!-- <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete-modal">Delete</button> -->
+                    </div>
+                  </form>
+                  <!-- form end -->
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+        <!-- card body end -->
+      </div>
+      <!-- 1st Form End -->
+    </div>
+  </div>

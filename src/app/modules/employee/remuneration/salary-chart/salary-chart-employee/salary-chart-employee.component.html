@@ -1,0 +1,61 @@
+<section class="content">
+  <!-- tab content start -->
+  <div class="tab-content" id="myTabContent">
+    <div class="tab-pane fade show active" id="tab1_content" aria-labelledby="tab1_content">
+      <!-- <app-request-leave></app-request-leave> -->
+
+      <!-- salaryChart start -->
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card">
+
+            <!-- card header start -->
+            <div class="card-header">
+              <h5 class="card-title"> Salary Chart</h5>
+              
+            </div>
+            
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">Basic Salary</th>
+                    <th scope="col">Loan</th>
+                    <th scope="col">Net Salary</th>
+                    <th scope="col">Payee</th>
+                    <th scope="col">Stamp Duty</th>
+                    <th scope="col">Statutory Payment</th>
+                    <th scope="col">EPF 12%</th>
+                    <th scope="col">EPF 8%</th>
+                    <th scope="col">ETF 3%</th>
+
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    
+                    <td>Rs.{{viewSalaryChart.basicSalary}}</td>
+                    <td>Rs.{{viewSalaryChart.loan}}</td>
+                    <td>Rs.{{viewSalaryChart.netSalary}}</td>
+                    <td>{{viewSalaryChart.payee}}</td>
+                    <td>Rs.{{viewSalaryChart.stampDuty}}</td>
+                    <td>Rs.{{viewSalaryChart.statutoryPayment}}</td>
+                    <td>Rs.{{viewSalaryChart.epf12}}</td>
+                    <td>Rs.{{viewSalaryChart.epf8}}</td>
+                    <td>Rs.{{viewSalaryChart.etf3}}</td>
+                  </tr>
+                  
+                </tbody>
+              </table>
+
+          </div>
+        </div>
+      </div>
+
+
+
+    </div>
+
+  </div>
+
+</section>
+

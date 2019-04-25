@@ -1,0 +1,37 @@
+<p>
+  track-par works!
+</p>
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+
+      <!-- card header start -->
+      <div class="card-header">
+        <h5 class="card-title">Track Par</h5>
+      </div>
+      <!-- card header end -->
+
+      <!-- card body start -->
+      <div class="card-body">
+          <mat-form-field>
+              <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Employee id">
+            </mat-form-field>
+            <div class="col-md-12">
+                <ol class="progtrckr" data-progtrckr-steps="3">
+                    <li class="progtrckr-done">Trainee</li>
+                 <li class="progtrckr-done">Lead</li>
+                 <li class="progtrckr-todo">HR Manager</li>
+                 <!-- <li class="progtrckr-todo">Shipped</li>
+                 <li class="progtrckr-todo">Delivered</li> -->
+                </ol>
+            </div>
+      </div>
+      <br>
+      <br>
+
+      <div class="card-footer">
+
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,300 @@
+<div class="container">
+  <div class="card">
+    <div class="card-header">
+      <h5 class="card-title">Feedback Form</h5>
+    </div>
+
+    <div class="card-body">
+      <form>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-12">
+
+              <fieldset>
+                <div class="row">
+
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <label for="exampleInputEmail1">Trainer</label>
+                      <select class="form-control departmentDropdown" [(ngModel)]="feedbackObj.trainer" name="fullName">
+                        <option value="0"></option>
+                        <option *ngFor="let trainer of trainer" data-value="{{trainer.id}}">{{trainer.fullName}}</option>
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputEmail1">feedback</label><br><br><br>
+                      <li>Objective Of The Training Was Clearly Defined</li><br>
+                      <li>Participation And Interaction Were Encouraged</li><br>
+                      <li>Content Was Well Organized And Easy To Follow</li><br>
+                      <li>Meterials Distributed Were Helpfull</li><br>
+                      <li>This Training Will Helpfull For My Work</li><br>
+                      <li>Trainer Was Good knowladge In Topic</li><br>
+                      <li>Trainer Was Prepared</li><br>
+                      <li>Training Objective Were Met</li><br>
+                      <li>Allocated Time Were sufficient</li><br>
+                      <li>Interaction With Trainee</li><br>
+                      <li>How would you Rate For The Training</li><br>
+                      <li>Recomending this course to others</li><br>
+                      <li>The Trainer Given References was usefull</li><br>
+                      <li>The trainer uses study meterials was help full </li><br>
+                      <li>Was Trainer kept Functuality</li><br>
+                      <li>Give Any Other Suggestion/Feedbacks</li><br>
+                    </div>
+                  </div>
+
+                  <div class="col-md-4">
+                    <div class="form-group">
+
+                      <br><br><br><br>
+                      <label for="exampleInputEmail1">Select You Ratings</label><br>
+                      <div>&nbsp; &nbsp; &nbsp;
+                        1&nbsp; &nbsp; &nbsp;&nbsp; &nbsp;
+                        2&nbsp; &nbsp; &nbsp;&nbsp;
+                        3&nbsp; &nbsp; &nbsp;&nbsp;
+                        4&nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+                        5</div><br>
+
+                      <div class="radio radio-primary">
+
+                        <input [(ngModel)]="feedbackObj.rate1" type="radio" name="radio1" id="radio1" value="1">
+                        <input [(ngModel)]="feedbackObj.rate1" type="radio" name="radio1" id="radio1" value="2">
+                        <input [(ngModel)]="feedbackObj.rate1" type="radio" name="radio1" id="radio1" value="3">
+                        <input [(ngModel)]="feedbackObj.rate1" type="radio" name="radio1" id="radio1" value="4">
+                        <input [(ngModel)]="feedbackObj.rate1" type="radio" name="radio1" id="radio1" value="5">
+                      </div><br>
+
+                      <div class="radio radio-primary">
+                        <input [(ngModel)]="feedbackObj.rate2" type="radio" name="radio2" id="radio1" value="1">
+                        <input [(ngModel)]="feedbackObj.rate2" type="radio" name="radio2" id="radio1" value="2">
+                        <input [(ngModel)]="feedbackObj.rate2" type="radio" name="radio2" id="radio1" value="3">
+                        <input [(ngModel)]="feedbackObj.rate2" type="radio" name="radio2" id="radio1" value="4">
+                        <input [(ngModel)]="feedbackObj.rate2" type="radio" name="radio2" id="radio1" value="5">
+                      </div><br>
+
+                      <div class="radio radio-primary">
+                        <input [(ngModel)]="feedbackObj.rate3" type="radio" name="radio3" id="radio1" value="1">
+                        <input [(ngModel)]="feedbackObj.rate3" type="radio" name="radio3" id="radio1" value="2">
+                        <input [(ngModel)]="feedbackObj.rate3" type="radio" name="radio3" id="radio1" value="3">
+                        <input [(ngModel)]="feedbackObj.rate3" type="radio" name="radio3" id="radio1" value="4">
+                        <input [(ngModel)]="feedbackObj.rate3" type="radio" name="radio3" id="radio1" value="5">
+                      </div><br>
+
+                      <div class="radio radio-primary">
+                        <input [(ngModel)]="feedbackObj.rate4" type="radio" name="radio4" id="radio1" value="1">
+                        <input [(ngModel)]="feedbackObj.rate4" type="radio" name="radio4" id="radio1" value="2">
+                        <input [(ngModel)]="feedbackObj.rate4" type="radio" name="radio4" id="radio1" value="3">
+                        <input [(ngModel)]="feedbackObj.rate4" type="radio" name="radio4" id="radio1" value="4">
+                        <input [(ngModel)]="feedbackObj.rate4" type="radio" name="radio4" id="radio1" value="5">
+                      </div><br>
+
+                      <div class="radio radio-primary">
+                        <input [(ngModel)]="feedbackObj.rate5" type="radio" name="radio5" id="radio1" value="1">
+                        <input [(ngModel)]="feedbackObj.rate5" type="radio" name="radio5" id="radio1" value="2">
+                        <input [(ngModel)]="feedbackObj.rate5" type="radio" name="radio5" id="radio1" value="3">
+                        <input [(ngModel)]="feedbackObj.rate5" type="radio" name="radio5" id="radio1" value="4">
+                        <input [(ngModel)]="feedbackObj.rate5" type="radio" name="radio5" id="radio1" value="5">
+                      </div><br>
+
+                      <div class="radio radio-primary">
+                        <input [(ngModel)]="feedbackObj.rate6" type="radio" name="radio6" id="radio1" value="1">
+                        <input [(ngModel)]="feedbackObj.rate6" type="radio" name="radio6" id="radio1" value="2">
+                        <input [(ngModel)]="feedbackObj.rate6" type="radio" name="radio6" id="radio1" value="3">
+                        <input [(ngModel)]="feedbackObj.rate6" type="radio" name="radio6" id="radio1" value="4">
+                        <input [(ngModel)]="feedbackObj.rate6" type="radio" name="radio" id="radio1" value="5">
+                      </div><br>
+
+                      <div class="radio radio-primary">
+                        <input [(ngModel)]="feedbackObj.rate7" type="radio" name="radio7" id="radio1" value="1">
+                        <input [(ngModel)]="feedbackObj.rate7" type="radio" name="radio7" id="radio1" value="2">
+                        <input [(ngModel)]="feedbackObj.rate7" type="radio" name="radio7" id="radio1" value="3">
+                        <input [(ngModel)]="feedbackObj.rate7" type="radio" name="radio7" id="radio1" value="4">
+                        <input [(ngModel)]="feedbackObj.rate7" type="radio" name="radio7" id="radio1" value="5">
+                      </div><br>
+
+                      <div class="radio radio-primary">
+                        <input [(ngModel)]="feedbackObj.rate8" type="radio" name="radio8" id="radio1" value="1">
+                        <input [(ngModel)]="feedbackObj.rate8" type="radio" name="radio8" id="radio1" value="2">
+                        <input [(ngModel)]="feedbackObj.rate8" type="radio" name="radio8" id="radio1" value="3">
+                        <input [(ngModel)]="feedbackObj.rate8" type="radio" name="radio8" id="radio1" value="4">
+                        <input [(ngModel)]="feedbackObj.rate8" type="radio" name="radio8" id="radio1" value="5">
+                      </div><br>
+
+                      <div class="radio radio-primary">
+                        <input [(ngModel)]="feedbackObj.rate9" type="radio" name="radio9" id="radio1" value="1">
+                        <input [(ngModel)]="feedbackObj.rate9" type="radio" name="radio9" id="radio1" value="2">
+                        <input [(ngModel)]="feedbackObj.rate9" type="radio" name="radio9" id="radio1" value="3">
+                        <input [(ngModel)]="feedbackObj.rate9" type="radio" name="radio9" id="radio1" value="4">
+                        <input [(ngModel)]="feedbackObj.rate9" type="radio" name="radio9" id="radio1" value="5">
+                      </div><br>
+
+                      <div class="radio radio-primary">
+                        <input [(ngModel)]="feedbackObj.rate10" type="radio" name="radio10" id="radio1" value="1">
+                        <input [(ngModel)]="feedbackObj.rate10" type="radio" name="radio10" id="radio1" value="2">
+                        <input [(ngModel)]="feedbackObj.rate10" type="radio" name="radio10" id="radio1" value="3">
+                        <input [(ngModel)]="feedbackObj.rate10" type="radio" name="radio10" id="radio1" value="4">
+                        <input [(ngModel)]="feedbackObj.rate10" type="radio" name="radio10" id="radio1" value="5">
+                      </div><br>
+
+                      <div class="radio radio-primary">
+                        <input [(ngModel)]="feedbackObj.rate11" type="radio" name="radio11" id="radio1" value="1">
+                        <input [(ngModel)]="feedbackObj.rate11" type="radio" name="radio11" id="radio1" value="2">
+                        <input [(ngModel)]="feedbackObj.rate11" type="radio" name="radio11" id="radio1" value="3">
+                        <input [(ngModel)]="feedbackObj.rate11" type="radio" name="radio11" id="radio1" value="4">
+                        <input [(ngModel)]="feedbackObj.rate11" type="radio" name="radio11" id="radio1" value="5">
+                      </div><br>
+
+                      <div class="radio radio-primary">
+                        <input [(ngModel)]="feedbackObj.rate12" type="radio" name="radio12" id="radio1" value="1">
+                        <input [(ngModel)]="feedbackObj.rate12" type="radio" name="radio12" id="radio1" value="2">
+                        <input [(ngModel)]="feedbackObj.rate12" type="radio" name="radio12" id="radio1" value="3">
+                        <input [(ngModel)]="feedbackObj.rate12" type="radio" name="radio12" id="radio1" value="4">
+                        <input [(ngModel)]="feedbackObj.rate12" type="radio" name="radio12" id="radio1" value="5">
+                      </div><br>
+
+                      <div class="radio radio-primary">
+                        <input [(ngModel)]="feedbackObj.rate13" type="radio" name="radio13" id="radio1" value="1">
+                        <input [(ngModel)]="feedbackObj.rate13" type="radio" name="radio13" id="radio1" value="2">
+                        <input [(ngModel)]="feedbackObj.rate13" type="radio" name="radio13" id="radio1" value="3">
+                        <input [(ngModel)]="feedbackObj.rate13" type="radio" name="radio13" id="radio1" value="4">
+                        <input [(ngModel)]="feedbackObj.rate13" type="radio" name="radio13" id="radio1" value="5">
+                      </div><br>
+
+                      <div class="radio radio-primary">
+                        <input [(ngModel)]="feedbackObj.rate14" type="radio" name="radio14" id="radio1" value="1">
+                        <input [(ngModel)]="feedbackObj.rate14" type="radio" name="radio14" id="radio1" value="2">
+                        <input [(ngModel)]="feedbackObj.rate14" type="radio" name="radio14" id="radio1" value="3">
+                        <input [(ngModel)]="feedbackObj.rate14" type="radio" name="radio14" id="radio1" value="4">
+                        <input [(ngModel)]="feedbackObj.rate14" type="radio" name="radio14" id="radio1" value="5">
+                      </div><br>
+
+                      <div class="radio radio-primary">
+                        <input [(ngModel)]="feedbackObj.rate15" type="radio" name="radio15" id="radio1" value="1">
+                        <input [(ngModel)]="feedbackObj.rate15" type="radio" name="radio15" id="radio1" value="2">
+                        <input [(ngModel)]="feedbackObj.rate15" type="radio" name="radio15" id="radio1" value="3">
+                        <input [(ngModel)]="feedbackObj.rate15" type="radio" name="radio15" id="radio1" value="4">
+                        <input [(ngModel)]="feedbackObj.rate15" type="radio" name="radio15" id="radio1" value="5">
+                      </div><br>
+                      <div class="col-md-8">
+                        <textarea class="form-control" [(ngModel)]="feedbackObj.suggestions" name="suggestions"></textarea>
+                      </div>
+                    </div>
+
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <p> In here you can rate your trainers perfomence according to your satisfaction.
+                        and you can let them to know how is the sender, If you wish.</p>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-6">
+                        <h6>Excelent</h6>
+                        <h6>Very Good</h6>
+                        <h6>Good</h6>
+                        <h6>Fair</h6>
+                        <h6>Poor</h6>
+                      </div>
+                      <div class="col-md-4">
+                        <h6>5</h6>
+                        <h6>4</h6>
+                        <h6>3</h6>
+                        <h6>2</h6>
+                        <h6>1</h6>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </fieldset>
+
+              <!-- </fieldset> -->
+            </div>
+          </div>
+
+        </div>
+      </form>
+    </div>
+
+    <div class="card-footer">
+      <button type="button" class="btn btn-primary" (click)="createFeedback();">Send</button>
+      &nbsp;
+      <button type="button" class="btn btn-primary">Cancel</button>
+      &nbsp;
+    </div>
+
+  </div>
+</div>
+
+
+
+
+
+<!-- <div class="card">
+  <div class="card-header">
+    <h5 class="card-title">Suggestion & Feedback</h5>
+    <div class="card-tools">
+    </div>
+  </div>
+  <div class="card-body nopadding">
+    <form role="form" #suggestionForm="ngForm">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-12">
+            <fieldset>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Select a type</label>
+                    <select class="form-control departmentDropdown" [(ngModel)]="feedbackObj.type" name="type">
+                      <option value="suggestion">suggestion</option>
+                      <option value="feedback">feedbacks</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="">Description</label>
+                    <textarea required type="text" class="form-control" placeholder="Description Name" [(ngModel)]="feedbackObj.description"
+                      name="description">
+                                              </textarea>
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Relevant Department</label>
+                    <select class="form-control departmentDropdown" [(ngModel)]="feedbackObj.department" name="department">
+                      <option selected disabled value="0"></option>
+                      <option *ngFor="let department of department" data-value="{{department.id}}">{{department.departmentName}}</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Relevant Individuals</label>
+                    <select class="form-control departmentDropdown" [(ngModel)]="feedbackObj.user" name="fullName"
+                      placeholder="suggestion/feedback" >
+                      <option selected disabled value="0"></option>
+                      <option *ngFor="let user of users"  data-value="{{user.id}}">{{user.fullName}}</option>
+                    </select>
+                  </div>
+                </div>
+
+              </div>
+            </fieldset>
+          </div>
+        </div>
+
+      </div>
+    </form>
+  </div>
+  <div class="card-footer">
+    <button type="button" class="btn btn-primary" (click)="createSuggestion();suggestionForm.reset()">Send</button>
+    &nbsp;
+    <button type="button" class="btn btn-primary">Cancel</button> &nbsp;
+    <div class="alert alert-success notification" id="alert-success" *ngIf="responseMsg === 'success'">
+      <span class="bold-font">Success:</span> All records were processed correctly!
+    </div>
+    <div class="alert alert-danger notification" id="alert-danger" *ngIf="responseMsg === 'fail'">
+      <span class="bold-font">Error:</span> Something went wrong.
+    </div>
+  </div>
+</div> -->

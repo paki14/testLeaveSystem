@@ -1,0 +1,65 @@
+<div class="mat-elevation-z8 mb-3">
+  <mat-table [dataSource]="dataSource" matSort>
+    <!-- column 1 start -->
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Employee Name </mat-header-cell>
+      <mat-cell *matCellDef="let rejectedLeave"> {{rejectedLeave.leaveRequest.user.fullName}} </mat-cell>
+    </ng-container>
+    <!-- column 1 end -->
+
+    <!-- column 2 start -->
+    <ng-container matColumnDef="startdate">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Start Date </mat-header-cell>
+      <mat-cell *matCellDef="let rejectedLeave"> {{rejectedLeave.leaveRequest.startDate | date : 'yyyy-MM-dd'}}</mat-cell>
+    </ng-container>
+    <!-- column 2 end -->
+
+    <!-- column 2 start -->
+    <ng-container matColumnDef="enddate">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> End Date </mat-header-cell>
+      <mat-cell *matCellDef="let rejectedLeave"> {{rejectedLeave.leaveRequest.endDate | date : 'yyyy-MM-dd'}}</mat-cell>
+    </ng-container>
+    <!-- column 2 end -->
+
+    <!-- column 3 start -->
+    <ng-container matColumnDef="numberofdays">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Number of Days </mat-header-cell>
+      <mat-cell *matCellDef="let rejectedLeave"> {{rejectedLeave.leaveRequest.noOfDays}}</mat-cell>
+    </ng-container>
+    <!-- column 3 end -->
+
+    <!-- column 4 start -->
+    <ng-container matColumnDef="type">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Leave Type</mat-header-cell>
+      <mat-cell *matCellDef="let rejectedLeave"> {{rejectedLeave.leaveRequest.leaveAllocation.leaveType.leaveTypeValue}}</mat-cell>
+    </ng-container>
+    <!-- column 4 end -->
+
+    <!-- column 5 start -->
+    <ng-container matColumnDef="reason">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Reason </mat-header-cell>
+      <mat-cell *matCellDef="let rejectedLeave"> {{rejectedLeave.leaveRequest.reason}} </mat-cell>
+    </ng-container>
+    <!-- column 5 end -->
+
+    <!-- column 5 start -->
+    <ng-container matColumnDef="rejectedby">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Rejected By </mat-header-cell>
+      <mat-cell *matCellDef="let rejectedLeave"> {{rejectedLeave.rejectedBy.fullName}} </mat-cell>
+    </ng-container>
+    <!-- column 5 end -->
+    <!-- column 5 start -->
+    <ng-container matColumnDef="rejectreason">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Reject Reason </mat-header-cell>
+        <mat-cell *matCellDef="let rejectedLeave"> {{rejectedLeave.reason}} </mat-cell>
+      </ng-container>
+      <!-- column 5 end -->
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+
+  <!-- pagination start -->
+  <mat-paginator [pageSizeOptions]="[5, 10, 25]"></mat-paginator>
+  <!-- pagination end -->
+</div>

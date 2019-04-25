@@ -1,0 +1,150 @@
+<div class="row" *ngIf="info.authorities=='HR'||info.authorities=='ADMIN'" >
+  <div class="col-md-12">
+
+    <!-- 1st Form Start -->
+    <div class="card-body" >
+     <div class="form-group">
+           <input type="text" [(ngModel)]="searchTerm" placeholder="Search Trainee"/>
+     </div>
+     <!-- <div class="form-group">
+        Employee <input type="checkbox"  (click)="viewEmpTrainee(isEmployee==true)"/>
+     </div> -->
+     <section class="example-section">
+        <mat-checkbox class="example-margin" (click)="viewEmpTrainee()" >Trainee</mat-checkbox>
+       </section>
+       
+      <div *ngFor="let trainer of trainers  | employeefilter:searchTerm">
+      <div class="panel panel-primary">
+        <div >
+        <div class="panel-heading" >
+          <h3 class="panel-title">{{trainer.fullName}}</h3>
+        </div>
+        <div class="panel-body"  >
+          <div class="col-md-10">
+            <div class="row verticalAlign">
+              <div class="col-md-3">
+                <img class="imageClass" src="../../../../../../assets/images/john.jfif" />
+              </div>
+
+              <div class="col-md-9">
+                <div class="row">
+                  <div class="col-md-3">
+                    trainer Id 
+                  </div>
+                  <div class="col-md-3">
+                    {{trainer.id}}
+                  </div>
+                  <div class="col-md-3">
+                    trainer Name 
+                  </div>
+                  <div class="col-md-3">
+                    {{trainer.fullName}}
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-3">
+                    Gender 
+                  </div>
+                  <div class="col-md-3">
+                    {{trainer.gender}}
+                  </div>
+                  <div class="col-md-3">
+                    Marital Status 
+                  </div>
+                  <div class="col-md-3">
+                    {{trainer.maritalStatus}}
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-3">
+                    Email 
+                  </div>
+                  <div class="col-md-3">
+                    {{trainer.email}}
+                  </div>
+                  <!-- <div class="col-md-3">
+                    Blood Group
+                  </div>
+                  <div class="col-md-3">
+                    {{trainer.blg}}
+                  </div> -->
+                </div>
+                <div class="row">
+                  <div class="col-md-3">
+                    Contact No (Mobile) 
+                  </div>
+                  <div class="col-md-3">
+                    {{trainer.mobileNumber}}
+                  </div>
+                  <div class="col-md-3">
+                    Contact No (Residential)
+                  </div>
+                  <div class="col-md-3">
+                    {{trainer.telephoneNumber}}
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-3">
+                    Address (Permanent) 
+                  </div>
+                  <div class="col-md-3">
+                    {{trainer.permenentAddress}}
+                  </div>
+                  <div class="col-md-3">
+                    Address (Residential) 
+                  </div>
+                  <div class="col-md-3">
+                    {{trainer.residentialAddress}}
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-3">
+                    Appoinment Date 
+                  </div>
+                  <div class="col-md-3">
+                    {{trainer.joinDate | date}}
+                  </div>
+                  <div class="col-md-3">
+                    Date Of Birth
+                  </div>
+                  <div class="col-md-3">
+                    {{trainer.dateOfBirth | date}}
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-3">
+                   Specialized Area
+                  </div>
+                  <div class="col-md-3">
+                    {{trainer.specializedArea}}
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-3">
+                   Employment
+                  </div>
+                  <div class="col-md-3">
+                    {{trainer.employment}}
+                  </div>
+                
+                </div>
+              
+              <!-- <a class="btn btn-info pull-right" routerLink="emp">View More</a> -->
+              <a class="btn btn-info pull-right" (click)="onClick(trainer.id)">View More</a>
+
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+      </div>
+    </div>
+  
+  </div>
+</div>
+
+
+
+
+  

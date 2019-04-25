@@ -1,0 +1,22 @@
+table td, th {
+    border: none;
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+  table th {
+      width : 30%;
+  }
+  /* h5{
+    font-size: 30px !important;
+  }
+  */
+  /* materials icon */
+.icon-edit{
+  color: blue;
+  font-size: 30px !important;
+}
+.icon-delete{
+  color: red;
+  font-size: 30px !important;
+}
+ 

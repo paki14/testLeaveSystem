@@ -1,0 +1,101 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+        <div class="card-header">
+            <h5 class="card-title">{{uname}} Request History</h5>
+          </div>
+      <div class="card-body" >
+          <mat-form-field>
+              <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+            </mat-form-field>
+        <div class="mat-elevation-z8">
+          <!-- {{reqproforuser | json}} -->
+          <mat-table [dataSource]="dataSource">
+            <!-- column 1 start -->
+            <ng-container matColumnDef="id">
+              <mat-header-cell *matHeaderCellDef mat-sort-header>Request ID</mat-header-cell>
+              <mat-cell *matCellDef="let reqproforuser"> {{reqproforuser.id}} </mat-cell>
+            </ng-container>
+            <!-- column 1 end -->
+            <!-- column 2 start -->
+            <ng-container matColumnDef="userId" >
+              <mat-header-cell *matHeaderCellDef mat-sort-header>Employee Name</mat-header-cell>
+              <mat-cell *matCellDef="let reqproforuser"> {{reqproforuser.userId.fullName}} </mat-cell>
+            </ng-container>
+            <!-- column 2 end -->
+            <!-- column 3 start -->
+            <ng-container matColumnDef="designationId">
+              <mat-header-cell *matHeaderCellDef mat-sort-header>Position</mat-header-cell>
+              <mat-cell *matCellDef="let reqproforuser"> {{reqproforuser.designationId.designationName}} </mat-cell>
+            </ng-container>
+            <!-- column 3 end -->
+            <!-- column 4 start -->
+            <ng-container matColumnDef="recommendedBy">
+              <mat-header-cell *matHeaderCellDef mat-sort-header> Recommended By </mat-header-cell>
+              <mat-cell *matCellDef="let reqproforuser"> {{reqproforuser.userId.fullName}}</mat-cell>
+            </ng-container>
+            <!-- column 4 end -->
+            <!-- column 5 start -->
+            <ng-container matColumnDef="promotionRemark">
+              <mat-header-cell *matHeaderCellDef mat-sort-header> Remark </mat-header-cell>
+              <mat-cell *matCellDef="let reqproforuser"> {{reqproforuser.promotionRemark}}</mat-cell>
+            </ng-container>
+            <!-- column 5 end -->
+            <!-- column 7 start -->
+            <ng-container matColumnDef="createdAt">
+              <mat-header-cell *matHeaderCellDef mat-sort-header>Request Date</mat-header-cell>
+              <mat-cell *matCellDef="let reqproforuser"> {{reqproforuser.createdAt}}</mat-cell>
+            </ng-container>
+            <!-- column 7 end -->
+            <!-- <ng-container matColumnDef="check">
+              <mat-header-cell *matHeaderCellDef mat-sort-header></mat-header-cell>
+              <mat-cell *matCellDef="let reqproforuser"> -->
+                <!-- <button type="button" class="btn btn-primary btn-sm " matStepperNext>
+                  Validate
+                </button> -->
+                <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#insertPromotion">Promote</button>&nbsp;&nbsp;
+                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deniedPromotion">Deny</button>&nbsp;&nbsp; -->
+                <!-- <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#Deleterequest">Delete</button> -->
+<!-- 
+              </mat-cell>
+            </ng-container> -->
+            <!-- column 6 end -->
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+          </mat-table>
+          <!-- pagination start -->
+          <mat-paginator [pageSizeOptions]="[3, 5, 10, 25]" showFirstLastButtons></mat-paginator>
+          <!-- pagination end -->
+        </div>
+      </div>
+      <!-- card body end -->
+    </div>
+  </div>
+</div>
+
+<app-add-promotion></app-add-promotion>
+<app-add-denied-promotion></app-add-denied-promotion>
+
+<div class="modal fade" id="Deleterequest">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h6 class="modal-title">Confirmation</h6>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <P>Do you want to Delete?</P>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary btn-sm" data-dismiss="modal" (click)="deletePro(reqPromotion)">Yes</button>
+        <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">No</button>
+      </div>
+    </div>
+  </div>
+</div>

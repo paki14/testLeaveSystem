@@ -1,0 +1,164 @@
+<!-- card body start -->
+<div class="card-body">
+
+
+  <div class="mat-elevation-z8">
+
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>
+            Organization</th>
+          <th>Period Year <br>(From)</th>
+          <th>Period Year <br>(To)</th>
+          <th>Name of<br>Event</th>
+          <th>Type of<br>Event</th>
+          <th>Award</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let membership of memberships">
+          <td>{{membership.organizationName}}</td>
+          <td>{{membership.periodYearFrom}}</td>
+          <td>{{membership.periodYearTo}}</td>
+          <td>{{membership.eventName}}</td>
+          <td>{{membership.eventType}}</td>
+          <td>{{membership.award}}</td>
+          <td *ngIf="info.authorities=='HR'">
+            <div class="row">
+              <a href="" data-toggle="modal" data-target="#editmember" (click)="getProId(membership)">
+                <span>
+                  <i class="large material-icons icon-edit">edit</i>
+                </span>
+              </a>
+              <a href="" data-toggle="modal" data-target="#daletemember" (click)=" getProId(membership)">
+                <span class="">
+                  <i class="material-icons icon-delete">delete_forever</i>
+                </span>
+              </a>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+
+
+
+
+  </div>
+</div>
+
+<!-- card body end -->
+
+
+<!-- delete Role and Responsibility -->
+<div class="modal fade" id="daletemember" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header model-header-primary card-header-danger">
+        <h6 class="modal-title" id="exampleModalCenterTitle">Confirmation</h6>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="col-md-12">
+        <div class="form-group">
+          <label for="message-text" class="col-form-label">Really Want to Delete? it can not undone!</label>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <div>
+          <button type="button" (click)="deleteProMembership()" class="btn btn-danger " data-toggle="modal"
+            data-dismiss="modal">Yes</button>
+        </div>
+        <div>
+          <button type="button" class="btn btn-success " data-toggle="modal" data-dismiss="modal">No</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- edit Role and Responsibility -->
+<div class="modal fade" id="editmember" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h6 class="modal-title">Edit Membership Qualification</h6>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <form>
+
+          <div class="card-body">
+        <div class="row">
+
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="name-university">Organization Name</label>
+              <input type="text" class="form-control" id="primary-year-form" placeholder="Name of University/Institution"
+                name="university" [(ngModel)]="membershipObj.organizationName">
+
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="university-grading">Event Name</label>
+              <input type="text" class="form-control" id="university-grading" placeholder="Event Name" name="eventname"
+                [(ngModel)]="membershipObj.eventName">
+
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="">Period Year</label>
+              <div class="row">
+                <div class="col-md-6">
+                  <input type="text" class="form-control form-control-sm" placeholder="From Year" name="from"
+                    [(ngModel)]="membershipObj.periodYearFrom">
+
+
+                </div>
+                <div class="col-md-6">
+
+                  <input type="text" class="form-control form-control-sm" name="to" placeholder="To Year" [(ngModel)]="membershipObj.periodYearTo">
+
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="university-grading">Event Type</label>
+              <input type="text" class="form-control" id="university-grading" placeholder="Event Type" name="eventtype"
+                [(ngModel)]="membershipObj.eventType">
+
+            </div>
+          </div>
+        </div>
+        <div class="row">
+
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="university-grading">Number of Award</label>
+              <input type="text" class="form-control" id="university-grading" placeholder="Award" name="award"
+                [(ngModel)]="membershipObj.award">
+
+            </div>
+          </div>
+        </div>
+      </div>
+      </form>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="editProMembership()">Update</button>
+
+      </div>
+    </div>
+
+  </div>
+</div>

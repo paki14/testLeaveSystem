@@ -1,0 +1,70 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+      <!-- card header start -->
+      <div class="card-header">
+        <h5 class="card-title"> View Payment </h5>
+        <div class="card-tools">
+        </div>
+      </div>
+      <!-- card header end -->
+      <!-- card body start -->
+      <div class="card-body">
+        <mat-form-field>
+          <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+        </mat-form-field>
+
+        <div class="mat-elevation-z8">
+          <mat-table [dataSource]="dataSource" matSort>
+
+            <!-- column 1 start -->
+            <ng-container matColumnDef="trainerName">
+              <mat-header-cell *matHeaderCellDef mat-sort-header style="text-align:center">Trainer Name</mat-header-cell>
+              <mat-cell *matCellDef="let payments"> {{payments.user.fullName}} </mat-cell>
+            </ng-container>
+            <!-- column 1 end -->
+
+            <!-- column 2 start -->
+            <ng-container matColumnDef="date">
+              <mat-header-cell *matHeaderCellDef mat-sort-header style="text-align:center">Date of training
+              </mat-header-cell>
+              <mat-cell *matCellDef="let payments"> {{payments.trainingDate}} </mat-cell>
+            </ng-container>
+            <!-- column 2 end -->
+
+            <!-- column 3 start -->
+            <ng-container matColumnDef="amount">
+              <mat-header-cell *matHeaderCellDef mat-sort-header>Amount to be Paid</mat-header-cell>
+              <mat-cell *matCellDef="let payments"> {{payments.amountPaid}}</mat-cell>
+            </ng-container>
+            <!-- column 3 end -->
+
+            <!-- column 4 start -->
+            <ng-container matColumnDef="paymentStatus">
+              <mat-header-cell *matHeaderCellDef mat-sort-header>Payment Status</mat-header-cell>
+              <mat-cell *matCellDef="let payments"> {{payments.paymentStatus}}</mat-cell>
+            </ng-container>
+            <!-- column 4 end -->
+
+            <!-- column 5 start -->
+            <ng-container matColumnDef="button">
+              <mat-header-cell *matHeaderCellDef mat-sort-header> </mat-header-cell>
+              <mat-cell *matCellDef="let payments"> <button class="btn btn-primary" data-toggle="modal" data-target="#edit-view-payment-history"
+                  (click)="editPayment(payments)">Request</button>
+                </mat-cell>
+            </ng-container>
+            <!-- column 5 end -->
+
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+          </mat-table>
+
+          <!-- pagination start -->
+          <mat-paginator [pageSizeOptions]="[3, 5, 10, 25]"></mat-paginator>
+          <!-- pagination end -->
+        </div>
+      </div>
+      <!-- card body end -->
+    </div>
+  </div>
+</div>

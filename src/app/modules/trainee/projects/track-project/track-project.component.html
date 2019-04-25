@@ -1,0 +1,98 @@
+<div class="row">
+    <div class="col-md-12">
+      <div class="card">
+  
+        <!-- card header start -->
+        <div class="card-header">
+          <h5 class="card-title">Track project</h5>
+  
+          <div class="card-tools">
+            <button type="button" class="btn btn-tool" data-widget="collapse">
+              <i class="fa fa-minus"></i>
+            </button>
+            <button type="button" class="btn btn-tool" data-widget="remove">
+              <i class="fa fa-times"></i>
+            </button>
+          </div>
+        </div>
+        <!-- card-header end -->
+  
+        <!-- card body start -->
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="card card-primary">
+  
+                <!-- form start -->
+                <form role="form">
+  
+                  <!-- card body start -->
+                  <div class="card-body">
+                    <fieldset>
+                      
+                      
+                     <!-- Editable table -->
+                      <div class="card">
+     
+                        <div class="card-body">
+                          <div id="table" class="table-editable">
+                            <span class="table-add float-right mb-3 mr-2">
+                              <a class="text-success" (click)="add()">
+                                <!-- <span icon="plus" size="2x"></span> -->
+                                <span class="material-icons">add</span>
+                              </a>
+                            </span>
+                            <table class="table table-bordered table-responsive-md table-striped text-center">
+                              <tr>
+                                <th class="text-center">Project Name</th>
+                                <th class="text-center">Date</th>
+                                <th class="text-center">Status</th>
+                                
+                                  <!-- <th class="text-center">City</th>
+                                  <th class="text-center">Sort</th> -->
+                                  <th class="text-center">Remove</th>
+                                </tr>
+                                <tr *ngFor="let person of personList; let id = index">
+                                  <td contenteditable="true" ><input type="email" class="form-control" id="track-project-id" name="track-project-name" placeholder="Enter Project Name"></td>
+                                  <td contenteditable="true"  ><input type="email" class="form-control" id="track-project-id" name="track-project-name" placeholder="Enter Date"></td>
+                                  
+                                  <td contenteditable="true" ><input type="email" class="form-control" id="track-project-id" name="track-project-name" placeholder="Enter Status"></td>
+                        
+                                  <td>
+                                    <span class="table-remove">
+                                      <a class="my-0" (click)="remove(id)"><span class="material-icons btn-danger">remove</span></a>
+                                    </span>
+                                  </td>
+                                </tr>
+                              </table>
+                          </div>
+                        </div>
+                      </div>
+    <!-- Editable table -->
+                </fieldset>
+                    &nbsp;
+                  
+                  </div>
+                  <!-- card body end -->
+  
+                  
+                </form>
+                <!-- form end -->
+  
+              </div>
+            </div>
+          </div>
+
+
+          
+
+
+
+
+  
+        </div>
+        <!-- card body end -->
+  
+      </div>
+    </div>
+  </div>

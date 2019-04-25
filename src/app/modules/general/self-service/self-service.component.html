@@ -1,0 +1,31 @@
+<div class="container">
+        <div class="row">
+                <div class="col-md-12">
+                        <div class="tab" role="tabpanel">
+                                <!-- Nav tabs -->
+                                <ul class="nav nav-tabs" role="tablist">
+                                        <li role="presentation" routerLinkActive="active" *ngIf="info.authorities=='EMPLOYEE'||info.authorities=='HR'">
+                                                <a class="active" routerLink="addIndividualComplaint" aria-controls="home"
+                                                        role="tab" data-toggle="tab">Self Service</a></li>
+                                        <li role="presentation" routerLinkActive="active" *ngIf="info.authorities=='ADMIN'||info.authorities=='DIRECTOR'||info.authorities=='HR_MANAGER'">
+                                                <a routerLink="viewIndividualComplaint" aria-controls="profile" role="tab"
+                                                        data-toggle="tab">Individual Self Service</a></li>
+                                        <li role="presentation" routerLinkActive="active" *ngIf="info.authorities=='EMPLOYEE'||info.authorities=='HR'||info.authorities=='MANAGER'">
+                                                <a routerLink="viewIndividualComplainHistory" aria-controls="messages"
+                                                        role="tab" data-toggle="tab">Individual Self Service History</a></li>
+                                        <li role="presentation" routerLinkActive="active" *ngIf="info.authorities=='ADMIN'||info.authorities=='DIRECTOR'||info.authorities=='HR_MANAGER'">
+                                                <a routerLink="viewAllComplainHistory" aria-controls="messages" role="tab"
+                                                        data-toggle="tab">Self Service History</a></li>
+                                        <li role="presentation" routerLinkActive="active" *ngIf="info.authorities=='ADMIN'||info.authorities=='DIRECTOR'||info.authorities=='HR_MANAGER'">
+                                                <a routerLink="viewResponse" aria-controls="messages" role="tab"
+                                                        data-toggle="tab">Response</a></li>
+                                        <li role="presentation" routerLinkActive="active" *ngIf="info.authorities=='HR'">
+                                                <a routerLinkActive="active" routerLink="selfServiceType" aria-controls="messages"
+                                                        role="tab" data-toggle="tab">Self Service Type</a></li>
+
+                                </ul>
+                                <router-outlet></router-outlet>
+                        </div>
+                </div>
+        </div>
+</div>

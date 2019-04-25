@@ -1,0 +1,69 @@
+<!-- Carry Forward leave start -->
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+      <!-- Carry Forward leave card header start -->
+      <div class="card-header">
+        <h5 class="card-title">Carry Forward Leave</h5>
+        <div class="card-tools">
+          <button type="button" class="btn btn-tool" data-widget="collapse">
+            <i class="fa fa-minus"></i>
+          </button>
+          <button type="button" class="btn btn-tool" data-widget="remove">
+            <i class="fa fa-times"></i>
+          </button>
+        </div>
+      </div>
+      <!-- Carry Forward leave card header end -->
+      <!-- Carry Forward leave card body start -->
+      <div class="card-body">
+        <div class="mat-elevation-z8">
+          <mat-table [dataSource]="dataSource" matSort>
+            <!-- carryforwarded column start -->
+            <ng-container matColumnDef="carryforwarded">
+              <mat-header-cell *matHeaderCellDef mat-sort-header> No of Days </mat-header-cell>
+              <mat-cell *matCellDef="let carryLeave"> {{carryLeave.carryForwardDays}} </mat-cell>
+            </ng-container>
+            <!-- carry forwarded column end -->
+            <!-- employee name column start -->
+            <ng-container matColumnDef="employeename">
+              <mat-header-cell *matHeaderCellDef mat-sort-header> Employee Name </mat-header-cell>
+              <mat-cell *matCellDef="let carryLeave"> {{carryLeave.user.fullName}}</mat-cell>
+            </ng-container>
+            <!-- employee name column end -->
+            
+            <!-- Employee Id column start -->
+            <ng-container matColumnDef="employeeid">
+              <mat-header-cell *matHeaderCellDef mat-sort-header> Employee Id </mat-header-cell>
+              <mat-cell *matCellDef="let carryLeave"> {{carryLeave.user.id}}</mat-cell>
+            </ng-container>
+            <!-- Employee Id column end -->
+            <!-- Department column start -->
+            <!-- <ng-container matColumnDef="department">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Department</mat-header-cell>
+            <mat-cell *matCellDef="let carryLeave"> {{carryLeave.carryforwardRequest.department.departmentName}}</mat-cell>
+          </ng-container> -->
+            <!-- Department column end -->
+
+            <!-- column for carry forward start -->
+            <ng-container matColumnDef="status">
+              <mat-header-cell *matHeaderCellDef mat-sort-header> </mat-header-cell>
+              <mat-cell *matCellDef="let carryLeave"> 
+                <button class="btn btn-primary" (click)="sendCarryforward(carryLeave)" data-toggle = "modal" data-target = "#accept-carryforward-request-modal">Accept</button>&nbsp;&nbsp;
+               <button class="btn btn-danger" (click)="sendCarryforward(carryLeave)" data-toggle = "modal" data-target = "#reject-carryforward-request-modal">Reject</button>
+              </mat-cell>
+            </ng-container>
+            <!-- accecptCarryforwardRequestMethod(carryLeave) -->
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+          </mat-table>
+          <!-- column for carry forward end -->
+          <!-- pagination start -->
+          <mat-paginator [pageSizeOptions]="[3, 5, 10, 25]"></mat-paginator>
+          <!-- pagination end -->
+        </div>
+      </div>
+      <!-- card body end -->
+    </div>
+  </div>
+</div>

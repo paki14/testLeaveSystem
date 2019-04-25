@@ -1,0 +1,98 @@
+<div class="row">
+  <div class="col-md-11">
+    <div class="card">
+      <div class="card-header">
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card card-primary ">
+              <!-- form start -->
+              <form role="form" #roleForm="ngForm" [formGroup]="addUserForm">
+                <div class="container-fluid">
+                  <!-- card body start -->
+                  <!-- <fieldset> -->
+                  <legend></legend>
+                  <div class="row add">
+                    <!-- <div class="col-md-1">
+                        <label for="exampleInputEmail1">Add Type</label>
+                      </div> -->
+                    <div class="col-md-5">
+                      <div class="form-group">
+                        <input type="Number of copies " formControlName="selfServiceTypeName" class="form-control"
+                          placeholder="Add SelfService Type" name="selfServiceTypeName" id="selfServiceTypeName"
+                          [(ngModel)]="selfServiceTypeObj.selfServiceTypeName">
+                        <div *ngIf="addUserForm.get('selfServiceTypeName').invalid && addUserForm.get('selfServiceTypeName').touched ">
+                          <small class="text-danger" *ngIf="addUserForm.get('selfServiceTypeName').errors?.required">Type
+                            is
+                            Required </small>
+                          <small class="text-danger" *ngIf="addUserForm.get('selfServiceTypeName').errors?.pattern">Please
+                            Enter
+                            Type
+                          </small>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- </div> -->
+                    <div class="col-md-2">
+                      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#alert-success"
+                        (click)="createSelfServiceType();roleForm.reset()" [disabled]="!addUserForm.valid">Add</button>
+                    </div>
+
+                    <div class="alert alert-success notification" id="alert-success" *ngIf="responseMsg === 'success'">
+                      <span class="bold-font">Success:</span> All records were processed correctly!
+                    </div>
+                    <div class="alert alert-danger notification" id="alert-danger" *ngIf="responseMsg === 'fail'">
+                      <span class="bold-font">Error:</span> Something went wrong.
+                    </div>
+
+
+                  </div>
+                  <div class="col-md-8">
+                    <div class="form-group">
+                      <table class="table">
+                        <tr>
+                          <!-- <th>Self Service Type ID</th> -->
+                          <th>Self Service Type</th>
+
+                        </tr>
+                        <tr *ngFor="let types of selfServiceType">
+                          <!-- <td>{{types.id}}</td> -->
+                          <td>{{types.selfServiceTypeName}}</td>
+                          <td>
+                            <a href="" data-toggle="modal" data-target="#edit-modal" (click)="getSelfServiceTypeById(types)">
+                              <span>
+                                <i class="large material-icons icon-edit">edit</i>
+                              </span>
+                            </a>
+                          </td>
+                          <td>
+                            <a href="" data-toggle="modal" data-target="#delete-modal" (click)=" getSelfServiceTypeById(types)">
+                              <span class="">
+                                <i class="material-icons icon-delete">delete_forever</i>
+                              </span>
+                            </a>
+                          </td>
+                          <!-- <td> <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#delete-modal" name="delete" id="delete"
+                              (click)="getSelfServiceTypeById(types)">Delete</button>
+                          </td> -->
+                        </tr>
+
+                      </table>
+                    </div>
+                  </div>
+                  <!-- </fieldset> -->
+                </div>
+              </form>
+              <!-- form end -->
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- card body end -->
+    </div>
+  </div>
+</div>
+
+<app-delet-type></app-delet-type>
+<app-edit-type></app-edit-type>

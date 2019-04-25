@@ -1,0 +1,160 @@
+<!-- card body start -->
+<div class="card-body">
+  
+  <div class="mat-elevation-z8">
+    <table class="table ">
+      <thead >
+        <tr>
+          <th>Job Title</th>
+          <th>Responsibility</th>
+          <th>Location</th>
+          <th>Key Activity</th>
+          <th>Over All Purpose</th>
+         
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let rol of roles">
+          <td>{{rol.job.jobName}}</td>
+          <td>{{rol.responsibility}}</td>
+          <td>{{rol.location.locationName}}</td>
+          <td>{{rol.keyActivity.name}}</td>
+          <td>{{rol.overAllPurpose}}</td>
+          <td *ngIf="info.authorities=='HR'">
+              <!-- <button type="button" class="btn btn-primary" data-dismiss="modal"data-toggle="modal" data-target="#" (click)="" >Edit</button>
+          
+              <a href="" data-toggle="modal" data-target="#daleteRole" (click)="deleteDepartmentById(department)">
+                  <span class="input-group-addon trash"> </span></a>
+              <button type="button" class="btn btn-danger"data-toggle="modal" data-target="#" data-dismiss="modal" (click)="" >Delete</button> -->
+              <div class="row">
+
+                  <a href="" data-toggle="modal" data-target="#editRole" (click)="getDeleteId(rol)"> 
+                    <span>
+                      <i class="large material-icons icon-edit">edit</i>
+                    </span>
+                  </a>
+                
+               
+                  <a href="" data-toggle="modal" data-target="#daleteRole" (click)=" getDeleteId(rol)">
+                    <span class="">
+                      <i  class="material-icons icon-delete">delete_forever</i>
+                    </span>
+                  </a>
+  
+                  </div>
+            </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- pagination start -->
+    <!-- <mat-paginator [pageSizeOptions]="[3, 5, 10, 25]"></mat-paginator> -->
+    <!-- pagination end -->
+  </div>
+</div>
+<!-- card body end -->
+<!-- delete Role and Responsibility -->
+<div class="modal fade" id="daleteRole" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header model-header-primary card-header-danger">
+        <h5 class="modal-title" id="exampleModalCenterTitle">Confirmation</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="col-md-12">
+        <div class="form-group">
+          <label for="message-text" class="col-form-label">Really Want to Delete? it can not undone!</label>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <div>
+          <button type="button" (click)="deleteRolesAndResponsibilities()" class="btn btn-danger " data-toggle="modal" data-dismiss="modal">Yes</button>
+        </div>
+        <div>
+          <button type="button" class="btn btn-success " data-toggle="modal" data-dismiss="modal">No</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  <!-- edit Role and Responsibility -->
+  <div class="modal fade" id="editRole" role="dialog">
+      <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <h6 class="modal-title">Edit Roles and Responsibility</h6>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+          <form role="form">
+             
+              <!-- card body start -->
+              <div class="card-body">
+                
+                <div class="row">
+                  <!-- {{rolesandResObj|json}} -->
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="end-date">Job Title</label>
+                      <!-- <input type="text" class="form-control" name="start-date" id="end-date" [(ngModel)]="rolesandResObj.job.jobName"> -->
+                      <select _ngcontent-c5="" class="form-control form-control-md"  name="job" [(ngModel)]="rolesandResObj.job">
+                          <option _ngcontent-c5="" selected="" *ngFor="let jobs of job" value="{{jobs.id}}" >
+                            {{jobs.jobName}}</option>
+                        </select>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="leave-type">Key Activity</label>
+                      <!-- <input type="text" class="form-control" name="keyActivity" id="end-date" [(ngModel)]="rolesandResObj.keyActivity"> -->
+                      <select _ngcontent-c5="" class="form-control form-control-md"  name="keyActivity" [(ngModel)]="rolesandResObj.keyActivity">
+                          <option _ngcontent-c5="" selected="" *ngFor="let key of keyActivity" value="{{key.id}}" >
+                            {{key.name}}</option>
+                        </select>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="leave-days">Responsibility for</label>
+                      <input type="text" class="form-control" name="res" id="end-date" [(ngModel)]="rolesandResObj.responsibility">
+
+                      
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="exampleInputEmail1">Location</label>
+                      <!-- <input type="text" class="form-control" name="location" id="end-date" [(ngModel)]="rolesandResObj.location"> -->
+                      <select _ngcontent-c5="" class="form-control form-control-md"  name="location" [(ngModel)]="rolesandResObj.location">
+                          <option _ngcontent-c5="" selected="" *ngFor="let location of locations" value="{{location.id}}" >
+                            {{location.locationName}}</option>
+                        </select>
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label for="exampleInputEmail1">Overall purpose of the job:</label>
+                      
+                      <input type="text" class="form-control" name="overAllPurpose" id="end-date" [(ngModel)]="rolesandResObj.overAllPurpose">
+
+                    </div>
+                  </div>
+                 
+                </div>
+              </div>
+              <!-- card body end -->
+
+  
+            </form>
+            
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="editRolesAndResponse()" >Update</button>
+              
+            </div>
+        </div>
+  
+      </div>
+    </div>

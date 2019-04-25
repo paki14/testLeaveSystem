@@ -1,0 +1,50 @@
+
+      <!-- card body start -->
+      <div class="card-body">
+        <!-- <mat-form-field>
+          <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+        </mat-form-field> -->
+
+        <div class="mat-elevation-z8">
+          <mat-table [dataSource]="dataSource" matSort>
+
+            <!-- column 1 start -->
+            <ng-container matColumnDef="attachment">
+              <mat-header-cell *matHeaderCellDef mat-sort-header> Attachments </mat-header-cell>
+              <mat-cell *matCellDef="let checklist"> {{checklist.attachment}} </mat-cell>
+            </ng-container>
+            <!-- column 1 end -->
+
+            <!-- column 2 start -->
+            <ng-container matColumnDef="original">
+              <mat-header-cell *matHeaderCellDef mat-sort-header> Original  </mat-header-cell>
+              <mat-cell *matCellDef="let checklist"> 
+              <section>
+                <mat-checkbox></mat-checkbox>
+              </section>
+            </mat-cell>
+            </ng-container>
+            <!-- column 2 end -->
+
+            <!-- column 3 start -->
+            <ng-container matColumnDef="copy">
+              <mat-header-cell *matHeaderCellDef mat-sort-header> Copies </mat-header-cell>
+              <mat-cell *matCellDef="let checklist">
+                <section>
+                  <mat-checkbox></mat-checkbox>
+                </section></mat-cell>
+            </ng-container>
+            <!-- column 3 end -->
+
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+          </mat-table>
+
+          <!-- pagination start -->
+          <mat-paginator class="mat-table" [pageSizeOptions]="[3, 5, 10, 25]"></mat-paginator>
+          <!-- pagination end -->
+        </div>
+      </div>
+      <!-- card body end -->
+
+

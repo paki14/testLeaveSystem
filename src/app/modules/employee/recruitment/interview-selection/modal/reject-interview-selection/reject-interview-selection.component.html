@@ -1,0 +1,50 @@
+<!-- add modal start -->
+<div id="reject" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- modal content start -->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h6 class="modal-title">Reason For Rejection</h6>
+
+      </div>
+
+      <!-- {{rejectInterviewSelection.value|json}} -->
+      <!-- Body start -->
+      <!-- <form [formGroup]="rejectInterviewSelection"> -->
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="start-date">Name</label>
+              <input type="text" class="form-control" name="rejectName" readonly>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="start-date">Email</label>
+              <input type="email" class="form-control"  name="rejectEmail" readonly>
+            </div>
+          </div>
+
+          <div class="col-md-12">
+            <div class="form-group">
+              <label for="start-date">Reason</label>
+              <input type="text" class="form-control"  name="rejectReason">
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <!-- </form> -->
+      <!-- Body end -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Add</button>
+      </div>
+    </div>
+    <!-- modal content end -->
+
+  </div>
+</div>
+<!-- add modal end -->

@@ -1,0 +1,196 @@
+<!-- 2nd Form Start -->
+<div class="card">
+  <!-- card header start -->
+  <div class="card-header">
+    <h5 class="card-title">Academic Qualification</h5>
+
+    <div class="card-tools">
+      <button type="button" class="btn btn-tool" data-widget="collapse">
+        <i class="fa fa-minus"></i>
+      </button>
+      <button type="button" class="btn btn-tool" data-widget="remove">
+        <i class="fa fa-times"></i>
+      </button>
+    </div>
+  </div>
+  <!-- card-header end -->
+
+  <!-- card body start -->
+  <div class="card-body nopadding">
+    <!-- form start -->
+    <form [formGroup]="addAcademicForm">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="alert alert-success notification" id="alert-success" *ngIf="responseMsg === 'success'">
+              <span class="bold-font">Success:</span> All records were processed correctly! Ignore click Next
+            </div>
+            <div class="alert alert-danger notification" id="alert-danger" *ngIf="responseMsg === 'fail'">
+              <span class="bold-font">Error:</span> Something went wrong.
+            </div>
+            <fieldset>
+
+              <!-- card body start -->
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="traineeName">Trainee Name</label>
+                    <select formControlName="traineeName" form class="form-control form-control-sm" [class.is-invalid]="addAcademicForm.get('traineeName').invalid && addAcademicForm.get('traineeName').touched "
+                      name="traineeName" [(ngModel)]="academicObj.trainee">
+                      <option selected disabled value="0">Select Trainee Name</option>
+                      <option _ngcontent-c5="" selected="" *ngFor="let us of user" value="{{us.id}}" (click)="getUserId()">
+                        {{us.fullName}}</option>
+                    </select>
+                    <div *ngIf="addAcademicForm.get('traineeName').invalid && addAcademicForm.get('traineeName').touched ">
+                      <small class="text-danger" *ngIf="addAcademicForm.get('traineeName').errors?.required">Trainee Name
+                        is Required
+                      </small>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="name-school">Name of School</label>
+                    <input formControlName="school" type="text" class="form-control form-control-sm" [class.is-invalid]="addAcademicForm.get('school').invalid && addAcademicForm.get('school').touched "
+                      placeholder="Name of School" [(ngModel)]="academicObj.schoolName">
+                    <div *ngIf="addAcademicForm.get('school').invalid && addAcademicForm.get('school').touched ">
+                      <small class="text-danger" *ngIf="addAcademicForm.get('school').errors?.required">School Name is
+                        Required
+                      </small>
+                      <small class="text-danger" *ngIf="addAcademicForm.get('school').errors?.minlength">Please Enter
+                        must be
+                        atleast 3 characters </small>
+                      <small class="text-danger" *ngIf="addAcademicForm.get('school').errors?.maxlength">Please Enter
+                        below 50 characters </small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="">Period Year</label>
+                    <div class="row">
+                      <div class="col-md-6">
+                        <input formControlName="fromyear" type="text" class="form-control form-control-sm"
+                          [class.is-invalid]="addAcademicForm.get('fromyear').invalid && addAcademicForm.get('fromyear').touched "
+                          placeholder="From Year" [(ngModel)]="academicObj.periodYearFrom">
+                        <div *ngIf="addAcademicForm.get('fromyear').invalid && addAcademicForm.get('fromyear').touched ">
+                          <small class="text-danger" *ngIf="addAcademicForm.get('fromyear').errors?.required">From year
+                            is Required
+                          </small>
+                          <small class="text-danger" *ngIf="addAcademicForm.get('fromyear').errors?.pattern">Year only
+                            4 digits </small>
+                          <small class="text-danger" *ngIf="addAcademicForm.get('fromyear').errors?.maxlength"> Year
+                            only
+                            4 digits </small>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <input formControlName="toyear" type="text" class="form-control form-control-sm"
+                          [class.is-invalid]="addAcademicForm.get('toyear').invalid && addAcademicForm.get('toyear').touched "
+                          placeholder="To Year" [(ngModel)]="academicObj.periodYearTo">
+                        <div *ngIf="addAcademicForm.get('toyear').invalid && addAcademicForm.get('toyear').touched ">
+                          <small class="text-danger" *ngIf="addAcademicForm.get('toyear').errors?.required">To year is
+                            Required
+                          </small>
+                          <small class="text-danger" *ngIf="addAcademicForm.get('toyear').errors?.pattern">Year only
+                            4 digits </small>
+                          <small class="text-danger" *ngIf="addAcademicForm.get('toyear').errors?.maxlength"> Year only
+                            4 digits </small>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <div class="form-group result">
+                    <label for="position">Result:</label>
+                    <select class="form-control" formControlName="resultOpt" form class="form-control form-control-sm"
+                      [class.is-invalid]="addAcademicForm.get('resultOpt').invalid && addAcademicForm.get('resultOpt').touched "
+                      placeholder="Result" name="result" [(ngModel)]="academicObj.result">
+
+                      <option selected disabled value="0">Select result </option>
+                      <option value="Passed">Passed</option>
+                      <option value="Failed">Failed</option>
+                    </select>
+                    <div *ngIf="addAcademicForm.get('resultOpt').invalid && addAcademicForm.get('resultOpt').touched ">
+                      <small class="text-danger" *ngIf="addAcademicForm.get('resultOpt').errors?.required">Result is
+                        Required
+                      </small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="school-year-graduation">Year of Examination</label>
+                    <input formControlName="examYear" type="text" class="form-control form-control-sm"
+                      [class.is-invalid]="addAcademicForm.get('examYear').invalid && addAcademicForm.get('examYear').touched "
+                      placeholder="Year of Examination" [(ngModel)]="academicObj.examinationYear">
+                    <div *ngIf="addAcademicForm.get('examYear').invalid && addAcademicForm.get('examYear').touched ">
+                      <small class="text-danger" *ngIf="addAcademicForm.get('examYear').errors?.required">Exam year is
+                        Required
+                      </small>
+                      <small class="text-danger" *ngIf="addAcademicForm.get('examYear').errors?.pattern">Year only
+                        4 digits </small>
+                      <small class="text-danger" *ngIf="addAcademicForm.get('examYear').errors?.maxlength"> Year only
+                        4 digits </small>
+                    </div>
+                  </div>
+                </div>
+                <!-- <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="university-grading">Subject offered & Grading</label>
+                        <input type="text" class="form-control" id="university-grading" placeholder="Subject offered & Grading">
+                      </div>
+                    </div> -->
+
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <label for="position">Exam Type:</label>
+                    <select class="form-control" name="examType" formControlName="examType" form class="form-control form-control-sm"
+                      [class.is-invalid]="addAcademicForm.get('examType').invalid && addAcademicForm.get('examType').touched "
+                      [(ngModel)]="academicObj.examType">
+
+                      <option selected disabled value="0">Select Exam Type </option>
+                      <option *ngFor="let examtype of examtypes" value="{{examtype.id}}">
+                        {{examtype.examTypeName}}
+                      </option>
+                    </select>
+                    <div *ngIf="addAcademicForm.get('examType').invalid && addAcademicForm.get('examType').touched ">
+                      <small class="text-danger" *ngIf="addAcademicForm.get('examType').errors?.required">Exam Type is
+                        Required
+                      </small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12 btnpadding">
+
+                  <button type="button" class="btn btn-primary pull-right" (click)="createAcademicQualification()"
+                    [disabled]="!addAcademicForm.valid">Save</button>
+                </div>
+              </div>
+            </fieldset>
+
+            <!-- card body end -->
+          </div>
+        </div>
+      </div>
+      <!-- card body end -->
+      <div class="card-footer">
+        <!-- <button type="button" id="prevBtn" class="btn btn-primary" onclick="nextPrev(-1)" (click)="previous()">Previous</button>
+        &nbsp;
+        <button type="button" id="nextBtn" class="btn btn-primary" onclick="nextPrev(1)" (click)="next()">Next</button> -->
+
+        <!-- <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete-modal">Delete</button> -->
+      </div>
+    </form>
+    <!-- form end -->
+  </div>
+</div>
+<!-- 2nd Form End -->

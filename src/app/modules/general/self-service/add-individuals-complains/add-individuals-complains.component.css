@@ -1,0 +1,11 @@
+.mat-radio-button {
+    margin-left: 17px;
+}
+
+.no-border{
+    border: none !important;
+}
+
+select.form-control:not([size]):not([multiple]) {
+    height: auto !important;
+}

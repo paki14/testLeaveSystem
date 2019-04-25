@@ -1,0 +1,100 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+
+      <!-- card header start -->
+      <div class="card-header">
+        <h5 class="card-title">View final assesment score</h5>
+        <div class="card-tools">
+          <button type="button" class="btn btn-tool" data-widget="collapse">
+            <i class="fa fa-minus"></i>
+          </button>
+          <button type="button" class="btn btn-tool" data-widget="remove">
+            <i class="fa fa-times"></i>
+          </button>
+        </div>
+      </div>
+      <!-- card header end -->
+
+      <!-- card body start -->
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-3">
+            <input type="text" class="form-control" id="matricesmeasured" placeholder="Trainee Number">
+          </div>
+          <div class="col-md-3">
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#searchfinalassesment">Search</button>
+          </div>
+        </div>
+        <br>
+        <div class="mat-elevation-z8">
+          <mat-table [dataSource]="dataSource">
+
+            <!-- column 1 start -->
+            <ng-container matColumnDef="traineenum">
+              <mat-header-cell *matHeaderCellDef mat-sort-header>Trainee ID</mat-header-cell>
+              <mat-cell *matCellDef="let finalassesment"> {{finalassesment.traineenum}} </mat-cell>
+            </ng-container>
+            <!-- column 1 end -->
+
+            <!-- column 2 start -->
+            <ng-container matColumnDef="traineename">
+              <mat-header-cell *matHeaderCellDef mat-sort-header>Trainee Name</mat-header-cell>
+              <mat-cell *matCellDef="let finalassesment"> {{finalassesment.traineename}} </mat-cell>
+            </ng-container>
+            <!-- column 2 end -->
+
+            <!-- column 3 start -->
+            <ng-container matColumnDef="matricesmeasured">
+              <mat-header-cell *matHeaderCellDef mat-sort-header>Matrices Measured </mat-header-cell>
+              <mat-cell *matCellDef="let finalassesment"> {{finalassesment.matricesmeasured}} </mat-cell>
+            </ng-container>
+            <!-- column 3 end -->
+
+            <!-- column 4 start -->
+            <ng-container matColumnDef="relevantscromatrics">
+              <mat-header-cell *matHeaderCellDef mat-sort-header>Relevant score for the matrices</mat-header-cell>
+              <mat-cell *matCellDef="let finalassesment"> {{finalassesment.relevantscromatrics}} </mat-cell>
+            </ng-container>
+            <!-- column 4 end -->
+
+            <!-- column 5 start -->
+            <ng-container matColumnDef="finalscore">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>Final Score </mat-header-cell>
+                <mat-cell *matCellDef="let finalassesment"> {{finalassesment.finalscore}} </mat-cell>
+              </ng-container>
+              <!-- column 5 end -->
+
+              <!-- column 6 start -->
+            <ng-container matColumnDef="remarks">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Remark</mat-header-cell>
+                <mat-cell *matCellDef="let finalassesment"> {{finalassesment.remarks}} </mat-cell>
+              </ng-container>
+              <!-- column 6 end -->
+
+              
+            <!-- column 8 start -->
+            <ng-container matColumnDef="edit/delete">
+              <mat-header-cell *matHeaderCellDef mat-sort-header> Edit/Delete </mat-header-cell>
+              <mat-cell *matCellDef="let finalassesment">
+                  <!-- <a href="#" ><span class="material-icons">edit</span></a> &nbsp;&nbsp;&nbsp;
+                  <a href="#" ><span class="material-icons">delete</span></a> -->
+                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editfinalassesment" >Edit</button>&nbsp;&nbsp;
+                  <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deletefinalassesment" >Delete</button>&nbsp;&nbsp;
+              </mat-cell>
+            </ng-container>
+            <!-- column 8 end -->
+
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+          </mat-table>
+
+        </div>
+      </div>
+      
+      <!-- card body end -->
+    </div>
+  </div>
+</div>
+
+<!-- <app-view-final-assesment-score-model></app-view-final-assesment-score-model> -->

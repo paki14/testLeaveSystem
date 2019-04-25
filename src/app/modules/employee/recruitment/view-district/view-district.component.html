@@ -1,0 +1,149 @@
+
+<section class="content">
+    <!-- tab content start -->
+    <div class="tab-content" id="myTabContent">
+      <div class="tab-pane fade show active" id="tab1_content" aria-labelledby="tab1_content">
+        <!-- <app-request-leave></app-request-leave> -->
+  
+        <!-- appoinment start -->
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card">
+  
+              <!-- card header start -->
+              <div class="card-header">
+                <h5 class="card-title">View District Details</h5>
+                <div class="card-tools">
+  
+                </div>
+              </div>
+              <!-- card header end -->
+  
+              <!-- card body start -->
+              <div class="card-body">
+                <mat-form-field>
+                  <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+                </mat-form-field>
+  
+                <div class="mat-elevation-z8">
+                  <mat-table [dataSource]="dataSource" matSort>
+  
+                    <!-- column 1 start -->
+                    <ng-container matColumnDef="d_id">
+                      <mat-header-cell *matHeaderCellDef mat-sort-header> District Id </mat-header-cell>
+                      <mat-cell *matCellDef="let district"> {{district.id}} </mat-cell>
+                    </ng-container>
+                    <!-- column 1 end -->
+  
+                    <!-- coloumn 2 start -->
+                    <ng-container matColumnDef="d_name">
+                      <mat-header-cell *matHeaderCellDef mat-sort-header> District</mat-header-cell>
+                      <mat-cell *matCellDef="let district"> {{district.districtName}} </mat-cell>
+                    </ng-container>
+                    <!-- coloumn 2 end -->
+  
+                    <!-- coloumn 11 start -->
+                    <ng-container matColumnDef="d_button">
+                      <mat-header-cell *matHeaderCellDef mat-sort-header> </mat-header-cell>
+                      <mat-cell *matCellDef="let district"> <button class="btn btn-primary" data-toggle="modal"
+                          data-target="#updateDistrict" (click)="editDistrict(district)">Edit</button>&nbsp;&nbsp;
+                        <button class="btn btn-danger" data-toggle="modal" data-target="#deleteDistrict" (click)="editDistrict(district)">Delete</button>
+                      </mat-cell>
+                    </ng-container>
+                    <!-- coloumn 11 end -->
+  
+                    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+                  </mat-table>
+  
+  
+                  <!-- pagination start -->
+                  <mat-paginator [pageSizeOptions]="[3, 5, 10, 25]"></mat-paginator>
+                  <!-- pagination end -->
+                </div>
+              </div>
+              <!-- card body end -->
+            </div>
+          </div>
+        </div>
+  
+  
+  
+      </div>
+  
+    </div>
+    <!-- tab content end -->
+  
+  </section>
+
+  <!-- <app-edit-view-district></app-edit-view-district>
+  <app-delete-view-district></app-delete-view-district>
+
+   -->
+
+
+<!-- Edit modal start -->
+<div id="updateDistrict" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- modal content start -->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h6 class="modal-title">District</h6>
+   
+      </div>
+      <!-- Body start -->
+      
+      <div class="modal-body">
+          <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="start-date">District Id</label>
+                  <input type="text" class="form-control" name="editDistrictId" readonly id="id"  [(ngModel)]="districtObj.id">
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="start-date">District</label>
+                  <input type="district" class="form-control" name="editDistrict" id="id" name="Id" [(ngModel)]="districtObj.districtName">
+                </div>
+              </div>
+
+            </div>
+      </div>
+    
+      <!-- Body end -->
+      <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="updateDistrictById(districtObj)">Update</button>
+      </div>
+    </div>
+  </div>
+    <!-- modal content end -->
+
+  </div>
+
+<!-- Edit modal end -->
+  <!-- </div>
+</div> -->
+
+<!-- DeleteModal -->
+<div class="modal fade" id="deleteDistrict" tabindex="-1" role="dialog" aria-labelledby="delete1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Delete</h5>
+        
+      </div>
+      <!-- Modal Body -->
+      <div class="modal-body">
+        <h6>Are you sure do you want to delete?</h6>
+      </div>
+      <!-- Modal Footer -->
+      <div class="modal-footer">
+          <button class="btn btn-danger" (click)="deleteDistrictById(districtObj)" data-dismiss="modal">Yes</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="DeleteMsg(districtObj)">No</button>
+      </div>
+    </div>
+  </div>
+</div>

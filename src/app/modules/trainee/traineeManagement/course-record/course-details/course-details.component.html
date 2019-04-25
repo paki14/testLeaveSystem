@@ -1,0 +1,80 @@
+<!--   Apply leave  start -->
+<div class="row">
+  <div class="col-md-6">
+    <div class="card">
+
+      <!-- card header start -->
+      <div class="card-header">
+        <h5 class="card-title">Add Course Details </h5>
+
+        <div class="card-tools">
+          <button type="button" class="btn btn-tool" data-widget="collapse">
+            <i class="fa fa-minus"></i>
+          </button>
+          <button type="button" class="btn btn-tool" data-widget="remove">
+            <i class="fa fa-times"></i>
+          </button>
+        </div>
+      </div>
+      <!-- card-header end -->
+
+      <!-- card body start -->
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card card-primary">
+              <!-- form start -->
+              <form role="form">
+                <!-- card body start -->
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-md-3">
+                      <div class="form-group">
+                        <label for="moduleRef">Module Ref</label>
+                        <input type="text" class="form-control" id="moduleRef" name="moduleRef">
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="title">Title</label>
+                        <input type="text" class="form-control" name="title" id="title">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-3">
+                      <div class="form-group">
+                        <label for="creditValue">Credit Value</label>
+                        <input type="number" class="form-control" name="creditValue" id="creditValue" placeholder="Credit Value" min="1">
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <label for="hours">Hours</label>
+                        <input type="number" class="form-control" name="hours" id="hours" placeholder="Hours" min="1">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- card body end -->
+
+
+              </form>
+              <!-- form end -->
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="card-footer">
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#confirm-modal">Add</button>
+        &nbsp;
+        <button type="reset" class="btn btn-danger">Reset</button>
+      </div>
+      <!-- card body end -->
+
+    </div>
+  </div>
+</div>
+<!-- apply leave end -->

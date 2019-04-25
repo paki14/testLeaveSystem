@@ -1,0 +1,197 @@
+<div class="row">
+  <div class="col-md-11">
+    <div class="card">
+      <div class="card-header">
+        <h6>Career Development Plan</h6>
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card card-primary ">
+              <!-- form start -->
+              <form role="form">
+                <div class="container-fluid">
+                  <!-- card body start -->
+                  <fieldset>
+                    <legend></legend>
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="exampleInputEmail1">Employee Name</label>
+                          <select class="form-control select2" [(ngModel)]="careerDevPlanObj.userId" name="userID"
+                            (change)="getCareerDevPlanByUserId(careerDevPlanObj.userId)">
+                            <option selected disabled value="0">Select User</option>
+                            <option *ngFor="let users of users" value="{{users.id}}">{{users.fullName}}</option>
+                          </select>
+                        </div>
+                      </div>
+
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="exampleInputEmail1">Career Development Plan</label>
+                          <select class="form-control select2" [(ngModel)]="careerDevPlanObj.cdpId" name="careerDevPlanId">
+                            <option selected disabled value="0">Select Plan</option>
+                            <option value="1">Communication skill</option>
+                            <option value="2">WSO2</option>
+                            <option value="3">Database designing</option>
+                            <option value="4">Project mangement</option>
+                            <option value="4">QA Automation</option>
+                          </select>
+                        </div>
+                      </div>
+
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="exampleInputEmail1"> Status </label>
+                          <select class="form-control select2" name="status" [(ngModel)]="careerDevPlanObj.status">
+                            <option selected disabled value="0">Select Status</option>
+                            <option value="Planning">Planning</option>
+                            <option value="Process">Processing</option>
+                            <option value="Finish">Finished</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="float-right">
+                          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#add-modal"
+                            (click)="createCareerDevPlan()">Add</button>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <table class="table">
+                        <tr>
+                          <th>Employee's Name</th>
+                          <th>Career Plans</th>
+                          <th>Status</th>
+                        </tr>
+                        <tr *ngFor="let plans of careerDevPlanByUser">
+                          <td>{{plans.userId.fullName}}</td>
+                          <td>{{plans.cdpId.name}}</td>
+                          <td>{{plans.status}}</td>
+                          <td>
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#edit-modal"
+                              (click)="editCareerDev(plans)">edit
+                            </button>
+                          </td>
+                          <td> <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deletemodal"
+                              (click)="editCareerDev(plans)">Delete</button>
+                          </td>
+                        </tr>
+                      </table>
+                    </div>
+                  </fieldset>
+                </div>
+              </form>
+              <!-- form end -->
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- card body end -->
+    </div>
+  </div>
+</div>
+
+
+
+<!-- <app-career-development-plan-form></app-career-development-plan-form> -->
+
+<!-- Edit Model -->
+<div id="edit-modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <!-- modal content start -->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h6 class="modal-title">Edit Career Plans</h6>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body">
+
+        <div class="col-md-12">
+          <!-- form start -->
+          <form role="form" #roleForm="ngForm">
+            <div class="container-fluid">
+              <!-- card body start -->
+              <fieldset>
+                <legend></legend>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="exampleInputEmail1">Employee Name</label>
+                      <select class="form-control select1" [(ngModel)]="careerDevPlanObjEdit.userId" name="edituserID">
+                        <option selected disabled value="0">{{careerDevPlanObjEdit.userId.fullName}}</option>
+                        <option *ngFor="let users of users" value="{{users.id}}">{{users.fullName}}</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="exampleInputEmail1">Career Development Plan</label>
+                      <select class="form-control select2" [(ngModel)]="careerDevPlanObjEdit.cdpId" name="editcareerDevPlanId">
+                        <option selected disabled value="0">{{careerDevPlanObjEdit.cdpId.name}}</option>
+                        <option value="1">WSO2</option>
+                        <option value="2">QA</option>
+                        <option value="3">Jenkins</option>
+                        <!-- <option *ngFor="let selfServiceType of selfServiceType" value="{{selfServiceType.id}}">{{selfServiceType.selfServiceTypeName}}</option> -->
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="exampleInputEmail1"> Status </label>
+                      <select class="form-control select3" name="editstatus" [(ngModel)]="careerDevPlanObjEdit.status">
+                        <option selected disabled>{{careerDevPlanObjEdit.status}}</option>
+                        <option value="Planning">Planning</option>
+                        <option value="Process">Process</option>
+                        <option value="Finish">Finish</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </fieldset>
+            </div>
+          </form>
+          <!-- form end -->
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="updateCareerDevPlans()">Update</button>
+      </div>
+    </div>
+    <!-- modal content end -->
+  </div>
+</div>
+
+
+<!-- delete model -->
+<div class="container">
+  <!-- The Modal -->
+  <div class="modal fade" id="deletemodal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h5 class="modal-title">Delete Career Development Plan</h5>
+          <!-- <button type="button" class="close" data-dismiss="modal">&times;</button> -->
+        </div>
+        <!-- Modal body -->
+        <div class="modal-body">
+          Do you want to delete? </div>
+
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button class="btn btn-danger" data-dismiss="modal" (click)="deleteCareerDev(careerDevPlanObjEdit)"> Yes
+          </button>
+          <button class="btn btn-primary" data-dismiss="modal"> No </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,97 @@
+<div id="deniedPromotion" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <!-- modal content start -->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 class="card-title">Denied Promotion</h3>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <div class="col-md-12">
+            <!-- card body start -->
+            <form #addDeProForm="ngForm">
+              <!-- <pre>
+                  {{addDePro.value | json}}
+              {{deniedPromotionObj  | json}}
+              </pre> -->
+              
+              <div class="card-body">
+                <div class="row">
+                 
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="desiid">Employee Name</label>
+                      <input type="text" class="form-control" id="designationId" name="designationId"  [(ngModel)]="deniedPromotionObj.userId.id" >
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="position">position</label>
+                      <select class="form-control" id="position" name="position"[(ngModel)]="deniedPromotionObj.desinationId.designationName">
+                        <option defult hidden selected>select</option>
+                        <option *ngFor="let designation of designation"
+                        [value] = designation.designationName> {{designation.designationName}}</option>
+                        <!-- <option>PM</option>
+                        <option>BA</option>
+                        <option>ASE</option> -->
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="denieddate">Denied Date</label>
+                      <input type="Date" class="form-control" id="deniedDate" name="deniedDate" [(ngModel)]="deniedPromotionObj.deniedDate">
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="deniedremark">Denied Remark</label>
+                      <textarea class="form-control" id="deniedRemark" name="deniedRemark" [(ngModel)]="deniedPromotionObj.deniedRemark" ></textarea>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="deniedby">Denied By</label>
+                      <input class="form-control" id="deniedBy" name="deniedBy" [(ngModel)]="deniedPromotionObj.deniedBy">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- card body end -->
+              <div class="card-footer">
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#"  data-dismiss="modal"  (click)="addDeniedPromortion()" >Save</button>&nbsp;&nbsp;
+                <button type="button" class="btn btn-danger" data-toggle="modal" data-dismiss="modal" data-target="#cancelpromotion">Cancel</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <!-- modal content end -->
+    </div>
+  </div>
+
+
+
+<div class="modal fade" id="denSuccess">
+    <div class="modal-dialog">
+      <div class="modal-content">
+  
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h6 class="modal-title">Confirmation</h6>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+  
+        <!-- Modal body -->
+        <div class="modal-body">
+          <P>Do you want to promote?</P>
+        </div>
+  
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary btn-sm" data-dismiss="modal" (click)="addDeniedPromortion()" >Yes</button>
+          <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">No</button>
+        </div>
+      </div>
+    </div>
+  </div>

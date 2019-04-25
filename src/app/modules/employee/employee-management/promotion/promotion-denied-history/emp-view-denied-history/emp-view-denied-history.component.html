@@ -1,0 +1,196 @@
+<!-- add modal start -->
+<div class="row">
+    <div class="col-md-12">
+      <div class="card">
+  
+        <!-- card header start -->
+        <div class="card-header">
+          <h5 class="card-title">{{uname}} Promotion Denied History</h5>
+        </div>
+        <div class="card-body">
+  
+          <mat-form-field>
+            <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+          </mat-form-field>
+          <div class="mat-elevation-z8">
+            <mat-table [dataSource]="dataSource">
+  
+              <!-- column 1 start -->
+              <ng-container matColumnDef="deniedID">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>Denied ID</mat-header-cell>
+                <mat-cell *matCellDef="let deproforuser"> {{deproforuser.id}} </mat-cell>
+              </ng-container>
+              <!-- column 1 end -->
+  
+              <!-- column 1 start -->
+              <ng-container matColumnDef="empname">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>Employee Name</mat-header-cell>
+                <mat-cell *matCellDef="let deproforuser"> {{deproforuser.userId.fullName}} </mat-cell>
+              </ng-container>
+              <!-- column 1 end -->
+  
+              <!-- column 2 start -->
+              <!-- <ng-container matColumnDef="reqID">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>Request ID</mat-header-cell>
+                <mat-cell *matCellDef="let AddDeniedPromotion"> {{AddDeniedPromotion.requsetId}} </mat-cell>
+              </ng-container> -->
+              <!-- column 2 end -->
+  
+              <!-- column 4 start -->
+              <ng-container matColumnDef="position">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>Position</mat-header-cell>
+                <mat-cell *matCellDef="let deproforuser"> {{deproforuser.desinationId.designationName}}
+                </mat-cell>
+              </ng-container>
+              <!-- column 4 end -->
+  
+              <!-- column 5 start -->
+              <ng-container matColumnDef="denieddate">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>Denied Date</mat-header-cell>
+                <mat-cell *matCellDef="let deproforuser"> {{deproforuser.deniedDate}} </mat-cell>
+              </ng-container>
+              <!-- column 5 end -->
+  
+              <!-- column 6 start -->
+              <ng-container matColumnDef="deniedremark">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>Denied Remark</mat-header-cell>
+                <mat-cell *matCellDef="let deproforuser"> {{deproforuser.deniedRemark}} </mat-cell>
+              </ng-container>
+              <!-- column 6 end -->
+  
+              <!-- column 6 start -->
+              <ng-container matColumnDef="deniedBy">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>Denied By</mat-header-cell>
+                <mat-cell *matCellDef="let deproforuser"> {{deproforuser.userId.fullName}} </mat-cell>
+              </ng-container>
+              <!-- column 6 end -->
+  
+              <!-- column 5 start -->
+              <!-- <ng-container matColumnDef="edit/delete">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Edit/Delete </mat-header-cell>
+                <mat-cell *matCellDef="let denhist"> -->
+                  <!-- <a href="#" ><span class="material-icons">edit</span></a> &nbsp;&nbsp;&nbsp;
+                      <a href="#" ><span class="material-icons">delete</span></a> -->
+                  <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editdenied" (click)=editStatus(denhist)>Edit</button>&nbsp;&nbsp;
+                  <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteDenied" (click)=editStatus(denhist)>Delete</button>&nbsp;&nbsp;
+  
+                </mat-cell>
+              </ng-container> -->
+              <!-- column 5 end -->
+  
+              <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+              <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+            </mat-table>
+  
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- modal content end -->
+  
+  <!-- add modal end -->
+  
+  <!-- <app-edit-promotion-denied-history></app-edit-promotion-denied-history> -->
+  
+  
+  
+  <!-- edit model -->
+  <div id="editdenied" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+  
+      <!-- modal content start -->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 class="card-title">Edit Promotion Denied</h3>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <div class="col-md-12">
+            <!-- {{editpromotiondenied.value | json}} -->
+            <div class="card-body">
+  
+              <div class="row">
+  
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="id">Denied ID</label>
+                    <input type="text" class="form-control" id="denid" name="denid" disabled [(ngModel)]="editObj.id">
+                  </div>
+                </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="reqId">Employee Name</label>
+                      <input type="text" class="form-control" id="empname" name="empname" [(ngModel)]="editObj.userId.fullName">
+                    </div>
+                  </div>
+                  <!-- <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="desiid">Designation ID</label>
+                        <input type="text" class="form-control" id="desiid" name="desiid" [(ngModel)]="editObj.designationId">
+                      </div>
+                    </div> -->
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="position">position</label>
+                      <select class="form-control" id="positionname" name="positionname" [(ngModel)]="editObj.desinationId.designationName">
+                        <option defult hidden selected>select</option>
+                        <option *ngFor="let designation of designation" [value]=designation.designationName>
+                          {{designation.designationName}}</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="denieddate">Denied Date</label>
+                      <input type="text" class="form-control" id="denieddate" name="denieddate" [(ngModel)]="editObj.deniedDate">
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="deniedremark">Denied Remark</label>
+                      <textarea class="form-control" id="Deniedremark" name="Deniedremark" [(ngModel)]="editObj.deniedRemark"></textarea>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="deniedby">Denied By</label>
+                      <input type="text" class="form-control" id="deniedby" name="deniedby" [(ngModel)]="editObj.userId.fullName">
+                    </div>
+                  </div>
+                <!-- </div> -->
+              </div>
+              <div class="card-footer">
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-dismiss="modal" data-target="#"
+                  (click)="updateUserById(editObj)">Update</button>&nbsp;&nbsp;
+                <button type="button" class="btn btn-danger" data-toggle="modal" data-dismiss="modal" data-target="#canceleditdenied">Cancel</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- modal content end -->
+      </div>
+    </div>
+  </div>
+  
+  
+  <!-- DeleteModal -->
+  <div class="modal fade" id="deleteDenied" tabindex="-1" role="dialog" aria-labelledby="delete1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Delete</h5>
+  
+        </div>
+        <!-- Modal Body -->
+        <div class="modal-body">
+          <h6>Are you sure do you want to delete?</h6>
+        </div>
+        <!-- Modal Footer -->
+        <div class="modal-footer">
+          <button class="btn btn-danger" (click)="deleteUserById(editObj)" data-dismiss="modal">Yes</button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal">No</button>
+        </div>
+      </div>
+    </div>
+  </div>

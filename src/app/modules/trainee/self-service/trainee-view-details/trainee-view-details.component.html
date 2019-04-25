@@ -1,0 +1,68 @@
+<div id="view-traineemodal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- modal content start -->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="card-title">View Promotion History</h3>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="col-md-12">
+
+          <div class="mat-elevation-z8">
+            <mat-table [dataSource]="dataSource" matSort>
+              <!-- column 0 start -->
+              <ng-container matColumnDef="emp-id">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>Trainee ID </mat-header-cell>
+                <mat-cell *matCellDef="let viewTrainee">{{viewTrainee.emp-id}}</mat-cell>
+              </ng-container>
+
+              <ng-container matColumnDef="ftname">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>Full Name </mat-header-cell>
+                <mat-cell *matCellDef="let viewTrainee">{{viewTrainee.ftname}}</mat-cell>
+              </ng-container>
+              <!-- column 0 end -->
+
+              <!-- column 1 start -->
+              <ng-container matColumnDef="appoinmentDate">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>Appoinment Date </mat-header-cell>
+                <mat-cell *matCellDef="let viewTrainee">{{viewTrainee.appoinmentDate}}</mat-cell>
+              </ng-container>
+
+              <ng-container matColumnDef="nic">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>NIC/Passport </mat-header-cell>
+                <mat-cell *matCellDef="let viewTrainee">{{viewTrainee.nic}}</mat-cell>
+              </ng-container>
+
+              <ng-container matColumnDef="permanent-address">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>Permanent Address </mat-header-cell>
+                <mat-cell *matCellDef="let viewTrainee">{{viewTrainee.permanent-address}}</mat-cell>
+              </ng-container>
+
+              <ng-container matColumnDef="mobile">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>Contact No </mat-header-cell>
+                <mat-cell *matCellDef="let viewTrainee">{{viewTrainee.mobile}}</mat-cell>
+              </ng-container>
+
+              <ng-container matColumnDef="email">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>E-mail</mat-header-cell>
+                <mat-cell *matCellDef="let viewTrainee">{{viewTrainee.email}}</mat-cell>
+              </ng-container>
+
+              <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+            </mat-table>
+
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+    <!-- modal content end -->
+
+  </div>
+</div>

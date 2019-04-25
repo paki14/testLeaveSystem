@@ -1,0 +1,38 @@
+<!-- <app-employee-add-termination-record></app-employee-add-termination-record>
+
+<app-employee-request-termination></app-employee-request-termination>
+<app-employee-termination-history></app-employee-termination-history>
+<app-employee-termination-requests></app-employee-termination-requests>
+<app-employee-discussion-schedule></app-employee-discussion-schedule> -->
+
+
+<div id="hr-leave-tab-group">
+    <mat-tab-group>
+            <mat-tab label="Add Termination Record" *ngIf="info.authorities=='ADMIN'">
+                    <app-employee-add-termination-record></app-employee-add-termination-record>
+                    
+            </mat-tab>
+            <mat-tab label="Request Termination">
+                    <app-employee-request-termination></app-employee-request-termination>
+                    
+            </mat-tab>
+            <mat-tab label="Discussion Schedule" >
+                    <app-employee-discussion-schedule></app-employee-discussion-schedule>
+                    
+            </mat-tab>
+            <mat-tab label="Termination History" *ngIf="info.authorities=='ADMIN'">
+                    <app-employee-termination-history></app-employee-termination-history>
+
+                    
+            </mat-tab>
+            <mat-tab label="Approve Termination" *ngIf="info.authorities=='ADMIN'">
+                    <app-employee-termination-requests></app-employee-termination-requests>
+
+                    
+            </mat-tab>
+    </mat-tab-group>
+</div>
+<app-employee-arrange-discussion></app-employee-arrange-discussion>
+<app-company-policies></app-company-policies>
+<app-legal-issue-status></app-legal-issue-status>
+<app-termination-letter></app-termination-letter>

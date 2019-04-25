@@ -1,0 +1,123 @@
+<!-- car body end -->
+
+
+<div class="card">
+  <div class="card-body nopadding">
+    <div class="card-body">
+      <fieldset>
+        <div class="row">
+          <form [formGroup]="empFormGroup">
+            <div class="col-md-12">
+              <div class="row">
+                <!-- <div class="col-md-3">
+                  <div class="form-group">
+                    <label>Par Id:</label>
+                    <input type="text" class="form-control" placeholder="Par ID" formControlName="parId" name="parId"
+                      required>
+                  </div>
+                </div> -->
+                <!-- <div class="col-md-6">
+                  <div class="form-group">
+                    <label>Employee Id:</label>
+                    <input type="text" class="form-control" placeholder="Employee Id" formControlName="empId" name="empId"
+                      required>
+                  </div>
+                </div> -->
+                <!-- <div class="col-md-6">
+                  <div class="form-group">
+                    <label>Employee Name</label>
+                    <select  formControlName="empName" name="empName" class="form-control" >
+                      <option selected disabled value="0" selected="selected">find Employee</option>
+                      <option *ngFor ="let employeeDetails of employeeDetailArray" [value]="employeeDetails.empId">{{employeeDetails.empName}}</option>
+                    </select> 
+                  </div>
+                </div>  -->
+                <!-- <div class="col-md-6">
+                  <div class="form-group">
+                      <label>Employee Name</label>
+                    <input type="text" list="employeeDetails" name="empName"  class="form-control" [(ngModel)]="employeeobj.empName" onchange="getEmployeeName(employeeobj.empName)">
+                    <datalist id ="employeeDetails" formControlName="empname" name="empName" >
+                          <option selected disabled value="0" selected="selected">find Employee</option>
+                          <option *ngFor ="let employeeDetails of employeeDetailArray">{{employeeDetails.empName}}</option>
+                    </datalist>
+                  </div>
+                </div> -->
+                <div class="col-md-6">
+                  <div class="form-group">
+                      <label>Employee Name</label>
+                    <input type="text" list="employeeDetails" formControlName="empId" name="empName"  class="form-control">
+                    <datalist id ="employeeDetails"  name="empName" >
+                          <option selected disabled value="0" selected="selected">find Employee</option>
+                          <option *ngFor ="let employeeDetails of employeeDetailArray" [value]="employeeDetails.empId">{{employeeDetails.empName}}</option>
+                    </datalist>
+                  </div>
+                </div>
+                <!-- {{empFormGroup.value|json}} -->
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label>Schedule Date:</label>
+                    <input type="date" class="form-control" placeholder="Schdule Date" formControlName="parDate" name="parDate"
+                      required>
+                  </div>
+                </div>
+                <!-- <div class="col-md-3">
+                  <div class="form-group">
+                    <label>Schedule Time:</label>
+                    <input type="time" class="form-control" placeholder="Schedule Time" formControlName="parTime" name="parTime"
+                      required>
+                  </div>
+                </div> -->
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="row">
+              <div class="col-md-6">
+                <fieldset>
+                  <legend>Content to Appraised</legend>
+                  <form #formParConfig="ngForm">
+                    <!-- <table>
+                  <tr *ngFor="let parConfig of parConfigArray">
+                   
+                    <mat-checkbox [name]="parConfig.id" [(ngModel)]="parConfig.isActive">{{parConfig.contentName}}</mat-checkbox>
+                  </tr>
+
+                </table> -->
+
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="row">
+                          <div *ngFor="let parConfig of parConfigArray" class="col-md-6">
+                            <mat-checkbox [name]="parConfig.id" [(ngModel)]="parConfig.isActive">{{parConfig.contentName}}</mat-checkbox>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                </fieldset>
+              </div>
+              <div class="col-md-6">
+                <fieldset>
+                  <legend>Appraisors List</legend>
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div *ngFor="let parAppraisor of parAppraisorArray">
+                        <mat-checkbox [name]="parAppraisor.appraiserId" [(ngModel)]="parAppraisor.isActive">{{parAppraisor.empName}}</mat-checkbox>
+                      </div>
+                    </div>
+                  </div>
+                </fieldset>
+              </div>
+            </div>
+          </div>
+        </div>
+      </fieldset>
+    </div>
+  </div>
+
+  <div class="card-footer">
+    <button type="submit" class="btn btn-primary" (click)="schedulePar()">Schedule</button>
+  </div>
+</div>

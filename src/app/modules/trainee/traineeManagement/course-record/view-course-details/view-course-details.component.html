@@ -1,0 +1,170 @@
+<section class="content">
+  <!-- tab content start -->
+
+  <!-- appoinment start -->
+  <div class="row">
+    <div class="col-md-9">
+      <div class="card">
+
+        <!-- card header start -->
+        <div class="card-header">
+          <h5 class="card-title">Printable Course Record</h5>
+          <div class="card-tools">
+            <button type="button" class="btn btn-tool" data-widget="collapse">
+              <i class="fa fa-minus"></i>
+            </button>
+            <button type="button" class="btn btn-tool" data-widget="remove">
+              <i class="fa fa-times"></i>
+            </button>
+          </div>
+        </div>
+        <!-- card header end -->
+
+        <!-- form start -->
+        <form role="form">
+          <!-- card body start -->
+          <div class="card-body">
+            <div class="row">
+
+              <div class="row" style="padding-left:70px">
+                <div style="padding-top: 20px">
+                  <h2 class="courseRecord"> Course Record </h2>
+                </div>
+                <div style="padding-left: 280px">
+                  <img src='\src\assets\logo.jpg' style="width: 150px; height: 100px">
+                </div>
+                <div>
+                  <h4 class='retroshadow'>Samual Gnanam<br>IT Center</h4>
+                </div>
+              </div>
+            </div>
+
+            <hr class="style18">
+            <div class="row">
+              <div style="padding-top: 10px">
+                <label for="funame">Full Name</label>
+              </div>
+              <div style="padding-bottom: 0px; padding-left: 15px">
+                <mat-form-field>
+                  <input matInput placeholder="">
+                </mat-form-field>
+              </div>
+            </div>
+
+            <div class="row">
+              <div style="padding-top: 10px">
+                <label for="funame">Trinee Id</label>
+              </div>
+              <div style="padding-bottom: 0px; padding-left: 15px">
+                <mat-form-field>
+                  <input matInput placeholder="" readonly>
+                </mat-form-field>
+              </div>
+            </div>
+
+            <div class="row">
+              <div style="padding-top: 10px">
+                <label for="funame">Duration</label>
+              </div>
+              <div style="padding-bottom: 0px; padding-left: 15px">
+                <mat-form-field>
+                  <input matInput placeholder="" readonly>
+                </mat-form-field>
+              </div>
+            </div>
+
+          </div>
+          <!-- card body end -->
+        </form>
+        <!-- form end -->
+
+        <div class="row " style="padding-bottom: 40px">
+          <div class="col-md-12">
+            <div class="mat-elevation-z8">
+              <mat-table [dataSource]="dataSource" matSort>
+
+                <ng-container matColumnDef="moduleRef">
+                  <mat-header-cell *matHeaderCellDef mat-sort-header> Module Ref </mat-header-cell>
+                  <mat-cell *matCellDef="let viewCou">{{viewCou.moduleRef}}</mat-cell>
+                </ng-container>
+
+
+                <ng-container matColumnDef="title">
+                  <mat-header-cell *matHeaderCellDef mat-sort-header>Title</mat-header-cell>
+                  <mat-cell *matCellDef="let viewCou">{{viewCou.title}}</mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="creditValue">
+                  <mat-header-cell *matHeaderCellDef mat-sort-header> Credit Value </mat-header-cell>
+                  <mat-cell *matCellDef="let viewCou">{{viewCou.creditValue}}</mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="hours">
+                  <mat-header-cell *matHeaderCellDef mat-sort-header> Hours </mat-header-cell>
+                  <mat-cell *matCellDef="let viewCou">{{viewCou.hours}}</mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="grade">
+                  <mat-header-cell *matHeaderCellDef mat-sort-header> Grade </mat-header-cell>
+                  <mat-cell *matCellDef="let viewCou">{{viewCou.grade}}</mat-cell>
+                </ng-container>
+
+                <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+              </mat-table>
+            </div>
+          </div>
+        </div>
+
+
+        <div  class="row"style="padding-top: 20px;padding-bottom: 15px;">
+
+          <p> The learner has qualified for the above award with grade </p>
+          <div class="col-md-3">
+            <div class="form-group">
+
+              <input list="gradeList" class="form-control" name="grade" id="grade" placeholder="Select Grade">
+              <datalist id="gradeList">
+                <option value="A"></option>
+                <option value="B"></option>
+                <option value="C"></option>
+                <option value="D"></option>
+              </datalist>
+            </div>
+          </div>
+          <p>in December 2018.</p>
+
+        </div>
+
+        <div class="row" style="padding-left: 45px">
+          <div class="col-md-6" >
+            ----------------------------
+          </div>
+          <div class="col-md-6" style="padding-left: 100px">
+            ----------------------------
+          </div>
+        </div>
+
+
+        <div class="row" style="padding-left: 90px">
+          <div class="col-md-6">
+            Director
+          </div>
+          <div class="col-md-6" style="padding-left: 100px">
+            HR Manager
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#print-course-modal">Generate</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- card body end -->
+</section>
+
+
+
+
+
+

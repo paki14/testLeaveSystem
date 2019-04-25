@@ -1,0 +1,137 @@
+<!-- termination request(department head, HR) view -->
+<div class="row" *ngFor="let abc of terminationRequest">
+  <div class="col-md-12">
+    <div class="card">
+      <!-- termination request(department head, HR) card header start -->
+      <div class="card-header">
+        <h5 class="card-title">Termination Request</h5>
+        <div class="card-tools">
+          <button type="button" class="btn btn-tool" data-widget="collapse">
+            <i class="fa fa-minus"></i>
+          </button>
+          <button type="button" class="btn btn-tool" data-widget="remove">
+            <i class="fa fa-times"></i>
+          </button>
+        </div>
+      </div>
+      <!-- termination request(department head, HR) card header end -->
+       <!-- termination request(department head, HR) card body start -->
+      <div class="card-body" >
+        <div class="row mb-2">
+          <div class="col-md-5 offset-1">
+            <div class="row">
+              <div class="col-md-4 custom bold-font">
+                Employee Name
+              </div>
+              <div class="col-md-1 custom">
+                :
+              </div>
+              <div class="col-md-7 custom">
+                {{abc.employee.fullName}}
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-4 custom bold-font">
+                Type of Termination
+              </div>
+              <div class="col-md-1 custom">
+                :
+              </div>
+              <div class="col-md-7 custom">
+                {{abc.terminationType.terminationType}}
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-4 custom bold-font">
+                Reason for Termination
+              </div>
+              <div class="col-md-1 custom">
+                :
+              </div>
+              <div class="col-md-7 custom">
+                {{abc.reason}}
+              </div>
+            </div>
+          </div>
+          <div class="col-md-5 offset-1">
+            <div class="row">
+              <div class="col-md-4 custom bold-font">
+                Planned date for leaving
+              </div>
+              <div class="col-md-1 custom">
+                :
+              </div>
+              <div class="col-md-7 custom">
+                {{abc.planedLeavingDate}}
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-4 custom bold-font">
+                Termination letter
+              </div>
+              <div class="col-md-1 custom">
+                :
+              </div>
+              <div class="col-md-7 custom">
+                {{abc.resignationLetter}}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="row mb-3 mt-3">
+            <div class="col-md-5 offset-1">
+              <div class="row">
+                <div class="col-md-4 custom bold-font">
+                  Date of Appointment
+                </div>
+                <div class="col-md-1 custom">
+                  :
+                </div>
+                <div class="col-md-7 custom">
+                  1/1/2015
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-4 custom bold-font">
+                  Duration of Employment
+                </div>
+                <div class="col-md-1 custom">
+                  :
+                </div>
+                <div class="col-md-7 custom">
+                  3 year and 3 month
+                </div>
+              </div>
+            </div>
+            <div class="col-md-5 offset-1">
+              <div class="row">
+                <div class="col-md-4 custom bold-font">
+                  Legal issue status
+                </div>
+                <div class="col-md-1 custom">
+                  :
+                </div>
+                <div class="col-md-7 custom">
+                  <a href="" data-toggle="modal" data-target="#lstatus">Legal issue status</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- termination request(department head, HR) card body end -->
+      <div class="card-footer">
+        <div class = "float-left">
+          <div class="custom-link">
+            <a class="" href="#" data-toggle="modal" data-target="#policy">Company Policy On Retirement</a>
+          </div>
+        </div>
+        <Button class="btn btn-primary">Forward</Button>&nbsp;
+        <button class="btn btn-success" data-toggle="modal" data-target="#plan-discucussion">Accept</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+

@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="tab" role="tabpanel">
+        <!-- Nav tabs -->
+        <div *ngIf="role=='HR'">
+          <ul class="nav nav-tabs" role="tablist">
+
+            <li role="presentationRe1" routerLinkActive="active">
+              <a class="active" routerLink="planVecancies" aria-controls="home" role="tab" data-toggle="tab">Plan
+                Vecancies</a>
+            </li>
+
+            <li role="presentationRe2" routerLinkActive="active">
+              <a class="active" routerLink="JobVecanciesTemplate" aria-controls="home" role="tab" data-toggle="tab">Job
+                Vecancies Template</a>
+            </li>
+            <li role="presentationRe3" routerLinkActive="active">
+              <a class="active" routerLink="recordOfApplicantCv" aria-controls="home" role="tab" data-toggle="tab">Record
+                of Applicant Cv</a>
+            </li>
+            <li role="presentationRe3" routerLinkActive="active">
+              <a class="active" routerLink="interviewSelection" aria-controls="home" role="tab" data-toggle="tab">Interview
+                Selection</a>
+            </li>
+            <li role="presentationRe4" routerLinkActive="active">
+              <a class="active" routerLink="interviewHistory" aria-controls="home" role="tab" data-toggle="tab">Interview History</a>
+            </li>
+            <li role="presentationRe5" routerLinkActive="active">
+              <a class="active" routerLink="admin" aria-controls="home" role="tab" data-toggle="tab">Add Types</a>
+            </li>
+          </ul>
+        </div>
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+</div>

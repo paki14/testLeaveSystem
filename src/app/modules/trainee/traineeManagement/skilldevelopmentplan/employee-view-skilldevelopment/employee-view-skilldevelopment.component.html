@@ -1,0 +1,157 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+      <!-- card header start -->
+      <div class="card-header">
+        <h5 class="card-title">Skill Development Plan</h5>
+        <div class="card-tools">
+          <button type="button" class="btn btn-tool" data-widget="collapse">
+            <i class="fa fa-minus"></i>
+          </button>
+          <button type="button" class="btn btn-tool" data-widget="remove">
+            <i class="fa fa-times"></i>
+          </button>
+        </div>
+      </div>
+      <!-- card-header end -->
+
+      <!-- card body start -->
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card card-primary">
+              <!-- form start -->
+              <form role="form">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="card">
+                      <div class="card-header">
+                        <h5 class="card-title xyz">PAR Summary</h5>
+                      </div>
+
+                      <div class="card-body">
+                        <div class="row">
+                          <div class="col-md-4">
+                            <label for="PARDate">PAR Date</label>
+                          </div>
+                          <div class="col-md-8">
+                            <input type="text" class="form-control" id="fullName" name="fullName" placeholder="PAR Date"
+                              readonly>
+                          </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                          <div class="col-md-4">
+                            <label for="PARScore">PAR Score</label>
+                          </div>
+                          <div class="col-md-8">
+                            <input type="text" class="form-control" id="PARScore" name="PARScore" placeholder="PAR Score"
+                              readonly>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-6">
+                    <div class="card">
+                      <div class="card-header">
+                        <h5 class="card-title xyz">HR's Skill Development Plan</h5>
+                      </div>
+                      <div class="card-body">
+                        <div class="row">
+                          <div class="col-md-6">
+                            <label>Plans</label>
+                          </div>
+                          <div class="col-md-6">
+                            <label>Status</label>
+                          </div>
+                        </div>
+
+                        <div class="row">
+                          <div class="col-md-6">
+                            <li> WSO2 Exam</li>
+                          </div>
+                          <div class="col-md-6">
+                            <li> Planning</li>
+                          </div>
+
+                          <div class="col-md-6">
+                            <li> Automation Exam</li>
+                          </div>
+                          <div class="col-md-6">
+                            <li> Processing</li>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Carrer Development Table -->
+<div class="card">
+  <div class="card-header">
+    <div class="row">
+      <div class="col-md-6">
+        <h5 class="card-title xyz">Career Development Plan</h5>
+      </div>
+      <div class="col-md-6">
+        <div class="float-right">
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#add-cdp-modal">Add</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="mat-elevation-z8">
+    <mat-table [dataSource]="dataSource" matSort>
+
+      <!-- column 1 start -->
+      <ng-container matColumnDef="plans">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Development Plans </mat-header-cell>
+        <mat-cell *matCellDef="let cdp"> {{cdp.plans}} </mat-cell>
+      </ng-container>
+      <!-- column 1 end -->
+
+      <!-- column 2 start -->
+      <ng-container matColumnDef="status">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Status </mat-header-cell>
+        <mat-cell *matCellDef="let cdp"> {{cdp.status}}</mat-cell>
+      </ng-container>
+      <!-- column 2 end -->
+
+      <!-- column 3 start -->
+      <ng-container matColumnDef="edit/delete">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Edit/Delete </mat-header-cell>
+        <mat-cell *matCellDef="let cdp">
+          <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#edit-cdp-modal">
+            Edit
+          </button> &nbsp;&nbsp;
+          <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#delete-cdp-modal">
+            Delete
+          </button>
+        </mat-cell>
+      </ng-container>
+      <!-- column 3 end -->
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+
+    <!-- pagination start -->
+    <mat-paginator [pageSizeOptions]="[3, 5, 10, 25]"></mat-paginator>
+    <!-- pagination end -->
+  </div>
+</div>
+</div>
+</div>
+
+<app-add-skilldevelopment></app-add-skilldevelopment>
+<app-edit-skilldevelopment></app-edit-skilldevelopment>
+<app-delete-skilldevelopment></app-delete-skilldevelopment>

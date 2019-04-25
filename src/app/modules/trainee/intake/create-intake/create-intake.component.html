@@ -1,0 +1,141 @@
+<div class="row">
+  <div class="col-md-9">
+    <div class="card">
+
+      <!-- card header start -->
+      <div class="card-header">
+        <h5 class="card-title">Create Intake</h5>
+
+        <div class="card-tools">
+          <button type="button" class="btn btn-tool" data-widget="collapse">
+            <i class="fa fa-minus"></i>
+          </button>
+          <button type="button" class="btn btn-tool" data-widget="remove">
+            <i class="fa fa-times"></i>
+          </button>
+        </div>
+      </div>
+      <!-- card-header end -->
+
+      <!-- card body start -->
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card card-primary">
+
+              <!-- form start -->
+              <form role="form">
+
+                <!-- card body start -->
+                <div class="card-body">
+
+                  <div class="row">
+
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <label for="departmentName">Titles of Training</label>
+                        <input type="text"class="form-control" placeholder="Enter Training Title">
+                     
+                      </div>
+                    </div>
+
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <label for="employeeName">Batch No</label>
+                        <input type="number"class="form-control" placeholder="Enter Batch number">
+                       
+                      </div>
+                    </div>
+
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <label for="position">Slot</label>
+                        <input type="text" class="form-control"  placeholder="" >
+                      </div>
+                    </div>
+                  </div>
+
+
+                  <div class="row">
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <label for="position">Planned course duration </label>
+                        <input list="duration" class="form-control" placeholder=" Months">
+                        <datalist id="duration">
+                            <option value="one month"></option>
+                            <option value="Three month"></option>
+                            <option value="Six month"></option>
+                            <option value="One year"></option>                            
+                          </datalist>
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <label for="position">Planned course schedule </label>
+                        <input type="text" class="form-control" name="position" id="position" placeholder=" ">
+                        
+                      </div>
+                    </div> 
+                    
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <label for="position">List of Inquire applicants </label>
+                                                                       
+                              <input type="number" class="form-control" name="position" id="position" placeholder=" ">
+                              <a href="#"data-toggle="modal" data-target="#select-inquire-modal"> <span class="material-icons" style="color:#007bff">list</span></a>
+                         
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                      <div class="col-md-8">
+                          <div class="form-group">
+                            <label for="position">expected qualification</label>
+                            <!-- <input type="text" class="form-control" name="position" id="position" placeholder=""> -->
+                            <textarea class="form-control" placeholder="Qualifications"></textarea>
+                          </div>
+                        </div> 
+                  </div>
+                 
+                  <div class="row">
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <label for="position">Application call date </label>
+                        <input type="date" class="form-control" name="position" id="position" placeholder="">
+                      </div>
+                    </div>
+                   
+                      <div class="col-md-4">
+                          <div class="form-group">
+                            <label for="position">Application dead date </label>
+                            <input type="date" class="form-control" name="position" id="position" placeholder="">
+                          </div>
+                        </div>     
+                  </div>
+
+
+
+                </div>
+                <!-- card body end -->
+
+                <div class="card-footer">
+                  <button type="button" class="btn btn-primary">Add</button>
+
+                  &nbsp;
+                  <button type="reset" class="btn btn-danger">Reset</button>
+                </div>
+              </form>
+              <!-- form end -->
+
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <!-- card body end -->
+
+    </div>
+  </div>
+</div>
+<app-select-inquire-applicant></app-select-inquire-applicant>

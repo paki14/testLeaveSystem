@@ -1,0 +1,16 @@
+<div class="tabbable">
+  <ul class="nav nav-tabs wizard">
+    <li><a routerLinkActive="active" routerLink="appointmentInformation" (click)="goGeneralInfo()" data-toggle="tab"
+        aria-expanded="false">Appointment Information</a></li>
+    <li><a routerLinkActive="active" routerLink="appointmentDetails" data-toggle="tab" aria-expanded="false">Appointment
+        Details</a></li>
+    <li><a routerLinkActive="active" routerLink="offerLetter" data-toggle="tab" aria-expanded="false">Provide Offer
+        Letter</a></li>
+    <li><a routerLinkActive="active" routerLink="rolesResponsibilities" data-toggle="tab" aria-expanded="false">Role &
+        Responsibilities</a></li>
+    <li><a routerLinkActive="active" routerLink="requestLoginCredential" data-toggle="tab" aria-expanded="true">Request
+        Login Cerdential</a></li>
+  </ul>
+</div>
+
+<router-outlet ></router-outlet>

@@ -1,0 +1,170 @@
+<!-- card body start -->
+<div class="card-body">
+  <div class="mat-elevation-z8">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Period Year <br>(from)</th>
+          <th>Period Year <br>(To)</th>
+          <th>Name Of School</th>
+          <th>Result</th>
+          <th>Year Of Exam</th>
+          <th>Exam Type</th>
+        </tr>
+        <tr *ngFor="let aca of academicQualifications">
+          <td>{{aca.periodYearFrom}}</td>
+          <td>{{aca.periodYearTo}}</td>
+          <td>{{aca.schoolName}}</td>
+          <td>{{aca.result}}</td>
+          <td>{{aca.examinationYear}}</td>
+          <td>{{aca.examType.examTypeName}}</td>
+          <td *ngIf="info.authorities=='HR'">
+            <div class="row">
+              <a href="" data-toggle="modal" data-target="#editAccadamic" (click)="getAcadamicId(aca)">
+                <span>
+                  <i class="large material-icons icon-edit">edit</i>
+                </span>
+              </a>
+              <a href="" data-toggle="modal" data-target="#daleteAccadamic" (click)=" getAcadamicId(aca)">
+                <span class="">
+                  <i class="material-icons icon-delete">delete_forever</i>
+                </span>
+              </a>
+            </div>
+          </td>
+        </tr>
+      </thead>
+    </table>
+  </div>
+</div>
+<!-- card body end -->
+
+
+
+<!-- delete Role and Responsibility -->
+<div class="modal fade" id="daleteAccadamic" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header model-header-primary card-header-danger">
+        <h6 class="modal-title" id="exampleModalCenterTitle">Confirmation</h6>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="col-md-12">
+        <div class="form-group">
+          <label for="message-text" class="col-form-label">Really Want to Delete? it can not undone!</label>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <div>
+          <button type="button" (click)="deleteAcadamicQualification()" class="btn btn-danger " data-toggle="modal"
+            data-dismiss="modal">Yes</button>
+        </div>
+        <div>
+          <button type="button" class="btn btn-success " data-toggle="modal" data-dismiss="modal">No</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- edit Role and Responsibility -->
+<div class="modal fade" id="editAccadamic" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h6 class="modal-title">Edit Academic Qualification</h6>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <form>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-12">
+
+              <!-- card body start -->
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="name-school">Name of School</label>
+                    <input type="text" class="form-control form-control-sm" name="school" placeholder="Name of School"
+                      [(ngModel)]="academicQualObj.schoolName">
+
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="">Period Year</label>
+                    <div class="row">
+                      <div class="col-md-6">
+                        <input type="text" name="period" class="form-control form-control-sm" placeholder="From Year"
+                          [(ngModel)]="academicQualObj.periodYearFrom">
+
+                      </div>
+                      <div class="col-md-6">
+                        <input type="text" name="to" class="form-control form-control-sm" placeholder="To Year"
+                          [(ngModel)]="academicQualObj.periodYearTo">
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <div class="form-group result">
+                    <label for="position">Result:</label>
+                    <select class="form-control" name="result" form class="form-control form-control-sm" placeholder="Result"
+                      name="result" [(ngModel)]="academicQualObj.result">
+                      <option selected disabled value="">Select result</option>
+                      <option value="Passed">Passed</option>
+                      <option value="Failed">Failed</option>
+                    </select>
+
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="school-year-graduation">Year of Examination</label>
+                    <input type="text" name="exyear" class="form-control form-control-sm" placeholder="Year of Examination"
+                      [(ngModel)]="academicQualObj.examinationYear">
+
+                  </div>
+                </div>
+                
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <label for="position">Exam Type:</label>
+                    <select class="form-control" name="examType" form class="form-control form-control-sm" [(ngModel)]="academicQualObj.examType">
+                      <option selected disabled value="">Select Exam Type</option>
+                      <option *ngFor="let examtype of examtypes" value="{{examtype.id}}">
+                        {{examtype.examTypeName}}
+                      </option>
+                    </select>
+
+                  </div>
+                </div>
+              </div>
+
+
+
+              <!-- card body end -->
+            </div>
+          </div>
+        </div>
+        <!-- card body end -->
+
+      </form>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="editAcademicQualification()">Update</button>
+
+      </div>
+    </div>
+
+  </div>
+</div>

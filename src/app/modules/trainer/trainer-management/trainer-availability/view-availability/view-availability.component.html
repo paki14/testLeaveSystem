@@ -1,0 +1,164 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+
+      
+
+        <!-- card header start -->
+        <div class="card-header">
+          <h5 class="card-title">Availablity Details</h5>
+          <div class="card-tools">
+            
+          </div>
+        </div>
+        <!-- card header end -->
+
+        <!-- card body start -->
+        <div class="card-body">
+        <mat-form-field>
+          <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+        </mat-form-field>
+
+
+        <div class="mat-elevation-z8">
+          <mat-table [dataSource]="dataSource" matSort>
+
+            <!-- column 1 start -->
+            <!-- <ng-container matColumnDef="id">
+              <mat-header-cell *matHeaderCellDef mat-sort-header>ID</mat-header-cell>
+              <mat-cell *matCellDef="let availabilityDetails"> {{availabilityDetails.id}} </mat-cell>
+            </ng-container> -->
+            <!-- column 1 end -->
+
+            <!-- column 2 start -->
+            <ng-container matColumnDef="startdate">
+              <mat-header-cell *matHeaderCellDef mat-sort-header>Date</mat-header-cell>
+              <mat-cell *matCellDef="let availabilityDetails "> {{availabilityDetails.date}}</mat-cell>
+            </ng-container>
+            <!-- column 2 end -->
+
+            <!-- column 2 start -->
+            <ng-container matColumnDef="enddate">
+              <mat-header-cell *matHeaderCellDef mat-sort-header>Trainer</mat-header-cell>
+              <mat-cell *matCellDef="let availabilityDetails "> {{availabilityDetails.trainerId.id}}</mat-cell>
+            </ng-container>
+            <!-- column 2 end -->
+
+            <!-- column 4 start -->
+            <ng-container matColumnDef="edit/delete">
+              <mat-header-cell *matHeaderCellDef mat-sort-header> Edit/Delete </mat-header-cell>
+
+              <mat-cell *matCellDef="let availabilityDetails">
+                <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal" (click)="editAvailability(availabilityDetails)" >
+                  Edit
+                </button> &nbsp;&nbsp;
+                <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#myModal1" (click)="editAvailability(availabilityDetails)" >
+                  Delete
+                </button>
+              </mat-cell>
+            </ng-container>
+            <!-- column 4 end -->
+
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+          </mat-table>
+
+          <!-- pagination start -->
+          <mat-paginator [pageSizeOptions]="[3, 5, 10, 25]"></mat-paginator>
+          <!-- pagination end -->
+        </div>
+        </div>
+      <!-- card body end -->
+      
+    </div>
+  </div>
+</div>
+
+
+<!-- The Edit Modal -->
+<div class="modal" id="myModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">availability Details</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <form role="form">
+        <div class="row">
+          <!-- <div class="col-md-6">
+            <div class="form-group">
+              <label for="tranier-id"> ID</label>
+              <input type="email" class="form-control" id="tranier-id" name="id" placeholder=" ID" disabled
+              [(ngModel)]="AvailabilityObj.id">
+            </div>
+          </div> -->
+
+          
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="start-date"> Date </label>
+              <input type="date" class="form-control" id="start-date" name="start-date" placeholder="Enter the date"
+              [(ngModel)]="AvailabilityObj.date">
+            </div>
+          </div>
+          <!-- &nbsp; &nbsp; -->
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="end-date"> Trainer </label>
+              <input type="text" class="form-control" id="end-date" name="end-date" placeholder="Enter end date"
+              [(ngModel)]="AvailabilityObj.trainerId.id">
+            </div>
+          </div>
+        </div>
+      </form>
+
+      <div class="modal-footer">
+      <div class="col-md-12">
+        <div class="float-right">
+          <button type="submit" class="btn btn-primary" (click)="updateAvailability()"  data-dismiss="modal">update</button>
+          <button type="submit" class="btn btn-primary"  data-dismiss="modal">cancel</button>
+        </div>
+      </div>
+    </div>
+
+    </div>
+  </div>
+</div>
+<!-- Edit model end -->
+
+
+
+<!-- The delete Modal -->
+<div class="modal" id="myModal1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Confirmation</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        Are you want to delete?
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="deleteAvailability()">Delete</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+

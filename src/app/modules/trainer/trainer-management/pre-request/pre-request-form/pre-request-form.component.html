@@ -1,0 +1,144 @@
+<!--  add termination records start -->
+<div class="row">
+  <div class="col-md-8">
+    <div class="card">
+
+      <!-- card header start -->
+      <div class="card-header">
+        <h5 class="card-title">Add Pre Request</h5>
+
+        <div class="card-tools">
+          <button type="button" class="btn btn-tool" data-widget="collapse">
+            <i class="fa fa-minus"></i>
+          </button>
+          <button type="button" class="btn btn-tool" data-widget="remove">
+            <i class="fa fa-times"></i>
+          </button>
+        </div>
+      </div>
+      <!-- card-header end -->
+
+      <!-- card body start -->
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card card-primary">
+
+              <!-- form start -->
+              <form #terminationRecordForm="ngForm">
+
+                <!-- card body start -->
+                <div class="card-body">
+                  <div class="row">
+                      <!-- <div class="col-md-6">
+                          <div class="form-group">
+                            <label for="trainingField">Field </label>
+                            <select class="form-control" id="trainingField" name="trainingField">
+                            <option default hidden selected>--Select-Field--</option>
+                            <option>Software</option>
+                            <option>QA</option>
+                            </select>
+                          </div>
+                        </div> -->
+                        <!-- <div class="col-md-6">
+                            <div class="form-group">
+                              <label for="trainingTopic"> Topic </label>
+                              <input type="text" class="form-control" id="trainingTopic" name="trainingTopic"
+                              placeholder=" Topic">
+                            </div>
+                          </div> -->
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="trainingDate">Date </label>
+                        <input type="text" mwlFlatpickr class="form-control" name="trainingDate" id="trainingDate"
+                          placeholder="select date">
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="Required_resouece">Required Resource</label>
+                        <input type="text" class="form-control" id="Required_resouece" name="Required_resouece"
+                          placeholder="Required Resouece">
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="format">Format</label><br>
+
+                        <div class="form-check-inline">
+                          <label class="form-check-label" for="radio1">
+                            <input type="radio" onclick="javascript:linkOrFile();" name="linkFile" id="fileCheck">Attachment
+                          </label>
+                        </div>
+                        <div class="form-check-inline">
+                          <label class="form-check-label" for="radio1">
+                            <input type="radio" onclick="javascript:linkOrFile();" name="linkFile" id="linkCheck">Link
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group" id="iffile" style="visibility:hidden">
+                        <label for="resource2">Resource</label>
+                        <input type="file" class="form-control" name="resource2" id="resource2" placeholder="Attachments">
+                      </div>
+                    </div>
+                    <div class="col-md-12">
+                      <div class="form-group" id="iflink" style="visibility:hidden">
+                        <label for="resource1">Resource</label>
+                        <input type="text" class="form-control" name="resource1" id="resource1" placeholder="resource">
+                      </div>
+                    </div>
+                    
+                  </div>
+                </div>
+                <!-- card body end -->
+
+                <div class="card-footer">
+                  <button type="button" class="btn btn-primary" data-dismiss="modal" data-target="#confirm-modal" data-toggle="modal">Send</button>
+                  &nbsp;
+                  
+                </div>
+              </form>
+              <!-- form end -->
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <!-- card body end -->
+
+    </div>
+  </div>
+</div>
+<!-- add termination record end -->
+
+
+<!-- add modal start -->
+<div id="confirm-modal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+  
+      <!-- modal content start -->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h6 class="modal-title">Add Pre Request</h6>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <div class="col-md-12">
+            Are you sure you want to add  ?
+          </div>
+        </div>
+        <div class="modal-footer">
+          
+          <button type="button" class=" btn btn-primary btn-sm" data-dismiss="modal">Yes</button>
+          <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">No</button>
+        </div>
+      </div>
+      <!-- modal content end -->
+  
+    </div>
+  </div>
+  <!-- add modal end -->
+  
+

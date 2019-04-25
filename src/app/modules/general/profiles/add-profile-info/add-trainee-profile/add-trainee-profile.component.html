@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="row">
+      <div class="col-md-12">
+          <div class="tab" role="tabpanel">
+              <!-- Nav tabs -->
+              <ul class="nav nav-tabs" role="tablist">
+                  <li role="presentation" routerLinkActive="active"><a class="active" routerLink="generalInfo" aria-controls="home" role="tab" data-toggle="tab">General Information</a></li>
+                  <!-- <li role="presentation" routerLinkActive="active"><a class="active" routerLink="trainee" aria-controls="home" role="tab" data-toggle="tab" *ngIf="info.authorities=='trainee'">Profile</a></li>                     -->
+                  <li role="presentation" routerLinkActive="active"><a class="active" routerLink="academicInfo"  aria-controls="profile" role="tab" data-toggle="tab">Academic Qualification</a></li>
+                  <li role="presentation" routerLinkActive="active"><a class="active" routerLink="professionalQualification" aria-controls="messages" role="tab" data-toggle="tab">Professional Qualification</a></li>
+                  <li role="presentation" routerLinkActive="active"><a class="active" routerLink="recordOfEmp" aria-controls="messages" role="tab" data-toggle="tab">Record Of Employment</a></li>
+                  <li role="presentation" routerLinkActive="active"><a class="active" routerLink="referees" aria-controls="messages" role="tab" data-toggle="tab">Referees</a></li>
+                  <li role="presentation" routerLinkActive="active"><a class="active" routerLink="attachment" aria-controls="messages" role="tab" data-toggle="tab">Attachments</a></li>
+                 </ul>
+                 <br>
+              <router-outlet></router-outlet>
+          </div>
+      </div>
+  </div>
+</div>
+

@@ -1,0 +1,168 @@
+<!-- 2nd Form Start -->
+<div class="card">
+  <!-- card header start -->
+  <div class="card-header">
+    <h5 class="card-title">Add Attendance</h5>
+
+    <div class="card-tools">
+      <button type="button" class="btn btn-tool" data-widget="collapse">
+        <i class="fa fa-minus"></i>
+      </button>
+      <button type="button" class="btn btn-tool" data-widget="remove">
+        <i class="fa fa-times"></i>
+      </button>
+    </div>
+  </div>
+  <!-- card-header end -->
+
+  <!-- card body start -->
+
+  <form [formGroup]="addAttendanceForm" >
+    <div class="card-body">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="alert alert-success notification" id="alert-success" *ngIf="responseMsg === 'success'">
+            <span class="bold-font">Success:</span> All records were processed correctly! Ignore click Next
+          </div>
+          <div class="alert alert-danger notification" id="alert-danger" *ngIf="responseMsg === 'fail'">
+            <span class="bold-font">Error:</span> Something went wrong.
+          </div>
+          <fieldset>
+            
+            <!-- {{attendanceDetailObj | json}} -->
+            <!-- card body start -->
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Trainee Name</label>
+                  <select formControlName="traineeName" form class="form-control form-control-sm" [class.is-invalid]="addAttendanceForm.get('traineeName').invalid && addAttendanceForm.get('traineeName').touched "
+                    name="result" [(ngModel)]="attendanceDetailObj.trainee">
+                    <option selected disabled value="0">Select Trainee Name</option>
+                    <option _ngcontent-c5="" selected="" *ngFor="let us of trainee" value="{{us.id}}">
+                      {{us.fullName}}</option>
+                  </select>
+                  <div *ngIf="addAttendanceForm.get('traineeName').invalid && addAttendanceForm.get('traineeName').touched ">
+                    <small class="text-danger" *ngIf="addAttendanceForm.get('traineeName').errors?.required">Employee Name
+                      is Required
+                    </small>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="form-group result">
+                  <label for="position">Attendance Type</label>
+                  <select formControlName="attendType" form class="form-control form-control-sm" [class.is-invalid]="addAttendanceForm.get('attendType').invalid && addAttendanceForm.get('attendType').touched "
+                    name="result" [(ngModel)]="attendanceDetailObj.attendType">
+                    <option selected disabled value="0">Select Attend Type</option>
+                    <option _ngcontent-c5="" selected="" *ngFor="let attendTy of attendTypes" value="{{attendTy.id}}">
+                      {{attendTy.attendType}}</option>
+                  </select>
+                  <div *ngIf="addAttendanceForm.get('attendType').invalid && addAttendanceForm.get('attendType').touched ">
+                    <small class="text-danger" *ngIf="addAttendanceForm.get('attendType').errors?.required">Result is
+                      Required
+                    </small>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="school-year-graduation">Attend Date</label>
+                  <input formControlName="attendDate" type="date" class="form-control form-control-sm" [class.is-invalid]="addAttendanceForm.get('attendDate').invalid && addAttendanceForm.get('attendDate').touched "
+                    placeholder="Year of Examination" [(ngModel)]="attendanceDetailObj.attendDate">
+                  <div *ngIf="addAttendanceForm.get('attendDate').invalid && addAttendanceForm.get('attendDate').touched ">
+                    <small class="text-danger" *ngIf="addAttendanceForm.get('attendDate').errors?.required">Exam year is
+                      Required
+                    </small>
+                    <small class="text-danger" *ngIf="addAttendanceForm.get('attendDate').errors?.pattern">Year only
+                      4 digits </small>
+                    <small class="text-danger" *ngIf="addAttendanceForm.get('attendDate').errors?.maxlength"> Year only
+                      4 digits </small>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="form-group" >
+                  <label for="">Start Time</label>
+
+                  
+                    <input formControlName="startTime" ng-controller="DateController as dateCtrl" type="text" input="name" class="form-control form-control-sm"
+                      [class.is-invalid]="addAttendanceForm.get('startTime').invalid && addAttendanceForm.get('startTime').touched "
+                      placeholder="HH:mm:ss" [(ngModel)]="attendanceDetailObj.startTime" required>
+                      <!-- {{attendanceDetailObj.startTime|date:"HH:mm:ss"}}  -->
+                      
+                      
+                      <!-- <input type="time" formControlName="startTime" id="exampleInput" name="input" [(ngModel)]="attendanceDetailObj.startTime" placeholder="HH:mm:ss"  required />{{attendanceDetailObj.startTime|json}} -->
+                    <div *ngIf="addAttendanceForm.get('startTime').invalid && addAttendanceForm.get('startTime').touched ">
+                      <small class="text-danger" *ngIf="addAttendanceForm.get('startTime').errors?.required">From year
+                        is Required
+                      </small>
+                      <small class="text-danger" *ngIf="addAttendanceForm.get('startTime').errors?.pattern">Year only
+                        4 digits </small>
+                      <small class="text-danger" *ngIf="addAttendanceForm.get('startTime').errors?.maxlength"> Year
+                        only
+                        4 digits </small>
+                    
+                  </div>
+
+
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="form-group">
+                  <label for="">End Time</label>
+
+                 
+                    <input formControlName="endTime" type="text" class="form-control form-control-sm"
+                      [class.is-invalid]="addAttendanceForm.get('endTime').invalid && addAttendanceForm.get('endTime').touched "
+                      placeholder="From Year" [(ngModel)]="attendanceDetailObj.endTime">
+                    <div *ngIf="addAttendanceForm.get('endTime').invalid && addAttendanceForm.get('endTime').touched ">
+                      <small class="text-danger" *ngIf="addAttendanceForm.get('endTime').errors?.required">From year
+                        is Required
+                      </small>
+                      <small class="text-danger" *ngIf="addAttendanceForm.get('endTime').errors?.pattern">Year only
+                        4 digits </small>
+                      <small class="text-danger" *ngIf="addAttendanceForm.get('endTime').errors?.maxlength"> Year
+                        only
+                        4 digits </small>
+                    
+                  </div>
+                  
+
+                </div>
+              </div>
+            </div>
+
+
+
+
+            <div class="row">
+              <div class="col-md-12 btnpadding">
+
+                <button type="button" class="btn btn-primary pull-right" (click)="addAttendanceDetails()"
+                  >Save</button>
+              </div>
+            </div>
+          </fieldset>
+
+          <!-- card body end -->
+        </div>
+      </div>
+    </div>
+    <!-- card body end -->
+    <div class="card-footer">
+      <!-- <button type="button" id="prevBtn" class="btn btn-primary" onclick="nextPrev(-1)" (click)="previous()">Previous</button>
+        &nbsp;
+        <button type="button" id="nextBtn" class="btn btn-primary" onclick="nextPrev(1)" (click)="next()">Next</button> -->
+
+      <!-- <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete-modal">Delete</button> -->
+    </div>
+  </form>
+  <!-- form start -->
+
+  <!-- form end -->
+
+</div>
+<!-- 2nd Form End -->

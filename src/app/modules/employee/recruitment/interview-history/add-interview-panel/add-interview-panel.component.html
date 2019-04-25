@@ -1,0 +1,173 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+
+      <!-- card header start -->
+      <div class="card-header">
+        <h5 class="card-title">Add Interview History</h5>
+      </div>
+      <!-- card-header end -->
+
+      <!-- card body start -->
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card card-primary">
+
+
+              <!-- card body start -->
+              <div class="card-body">
+                <fieldset>
+                  <legend>Add Interview Panel Details</legend>
+                  <div class="row">
+                    <div class="col-lg-4">
+                      <div class="form-group">
+                        <label for="name">Job Title</label>
+                        <select class="form-control" name="jobTitle">
+                          <option>QA</option>
+                          <option>Software Developer</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col-lg-4">
+                      <div class="form-group">
+                        <label for="name">Job Reference Number</label>
+                        <input type="text" class="form-control" name="jobTitleId" readonly>
+                      </div>
+                    </div>
+                    <div class="col-lg-4">
+                      <div class="form-group">
+                        <!-- <label for="position"> 	Age of Retirement </label> -->
+                        <label for="digit-salry">Interview Panale Number:</label>
+                        <input type="text" class="form-control" name="interviewPanelNo">
+                      </div>
+                    </div>
+                    <div class="col-lg-4">
+                      <div class="form-group">
+                        <label for="digit-salry">Date:</label> &nbsp;
+                        <input type="date" class="form-control" name="InterviewDate" placeholder="yyyy-mm-dd">
+                      </div>
+                    </div>
+                    <div class="col-lg-4">
+                      <div class="form-group">
+                        <label for="position"> Strating Time:</label>
+                        <input type="time" class="form-control" name="interviewStartTime">
+                      </div>
+                    </div>
+                    <div class="col-lg-4">
+                      <div class="form-group">
+                        <label for="position"> End Time:</label>
+                        <input type="time" class="form-control" name="interviewEndTime">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-4" id='TextBoxesGroup'>
+                      <div class="form-group" id='TextBoxDiv1'>
+
+                        <label for="Interviwers">Interviwers Name:</label>
+                        <span class="fa fa-plus-circle big-icon" aria-hidden="true" id='addButton' (click)="addDatainterviewrs()"></span>
+
+                        <table>
+                          <tr>
+                            <ng-container>
+                              <td>
+                                <input type="text" class="form-control" name="interviewrs" placeholder="Interviwers Name" />
+                              </td>
+                              <td>
+                                <span class="fa fa-minus-circle big-icon1" aria-hidden="true" (click)=" removeInterviewrs(interviersId)"></span>
+                              </td>
+
+                            </ng-container>
+                          </tr>
+
+                        </table>
+
+                      </div>
+                    </div>
+
+
+                  </div>
+                  &nbsp;
+                  <!-- Editable table -->
+                  <div class="card">
+
+                    <div class="card-body">
+                      <div id="table" class="table-editable">
+                        <span class="table-add float-right mb-3 mr-2">
+                          <a class="text-success" (click)="addData()">
+                            <!-- <span icon="plus" size="2x"></span> -->
+                            <span class="material-icons pointer">add</span>
+                          </a>
+                        </span>
+                        <table class="table table-bordered table-responsive-md table-striped text-center">
+                          <tr>
+                            <th class="text-center">Applicant Name</th>
+                            <th class="text-center">Reached Through the Call/Reached Not Through the Call</th>
+                            <th class="text-center">Attended /Absentees </th>
+                            <th class="text-center">Interview Score Card</th>
+                            <th class="text-center">Selected/Rejected</th>
+                            <th class="text-center">Reason</th>
+                            <th class="text-center">Remove</th>
+                          </tr>
+                          <tr formArrayName="datas" *ngFor="let data of interviewpanel.get('datas').controls; let id = index">
+                            <ng-container [formGroupName]="id">
+                              <td><input type="email" class="form-control" formControlName="applicantsName" name="applicantsName"
+                                  placeholder="Enter Applicant Name"></td>
+                              <td><select class="form-control" formControlName="reachedCall" name="reachedCall">
+                                  <option>Reached Through the Call</option>
+                                  <option>Reached Not Through the Call</option>
+                                </select></td>
+                              <td><select class="form-control" formControlName="attended" name="attended">
+                                  <option>Attended</option>
+                                  <option>Absentees</option>
+                                </select></td>
+                              <td><label for="file-upload" class="custom-file-upload btn-info">
+                                  <i class="fa fa-cloud-upload"></i>Upload</label>
+                                <input type="file" class="form-control" formControlName="interviewscorecard" name="interviewscorecard"
+                                  placeholder="Awards & Citations"></td>
+                              <td><select class="form-control" formControlName="selected" name="selected">
+                                  <option>Selected</option>
+                                  <option>Rejected</option>
+                                </select></td>
+                              <td><textarea class="form-control" formControlName="reasonforhire" name="reasonforhire"
+                                  placeholder="Enter Reject Reason"></textarea></td>
+                              <td>
+                                <span class="table-remove">
+                                  <a class="my-0" (click)=" removeData(id)"><span class="material-icons btn-danger pointer">remove</span></a>
+                                </span>
+                              </td>
+                            </ng-container>
+                          </tr>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Editable table -->
+                </fieldset>
+                &nbsp;
+
+              </div>
+              <!-- card body end -->
+
+              <div class="card-footer">
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#add-modal" data-target="#addapplicantmodal">ADD</button>
+
+                &nbsp;
+                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete-modal">Reset</button>
+              </div>
+              <!-- </form> -->
+              <!-- form end -->
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <!-- card body end -->
+
+    </div>
+  </div>
+</div>
+
+<app-view-interview-panel></app-view-interview-panel>

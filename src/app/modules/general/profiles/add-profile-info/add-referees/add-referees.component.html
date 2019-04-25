@@ -1,0 +1,160 @@
+<!-- 5th Form Start -->
+<div class="card">
+  <!-- card header start -->
+  <div class="card-header">
+    <h5 class="card-title">add-referees</h5>
+
+    <div class="card-tools">
+      <button type="button" class="btn btn-tool" data-widget="collapse">
+        <i class="fa fa-minus"></i>
+      </button>
+      <button type="button" class="btn btn-tool" data-widget="remove">
+        <i class="fa fa-times"></i>
+      </button>
+    </div>
+  </div>
+  <!-- card-header end -->
+
+  <!-- card body start -->
+  <div class="card-body">
+    <!-- form start -->
+    <form [formGroup]="addUserForm">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="alert alert-success notification" id="alert-success" *ngIf="responseMsg === 'success'">
+              <span class="bold-font">Success:</span> All records were processed correctly! Ignore click Next
+            </div>
+            <div class="alert alert-danger notification" id="alert-danger" *ngIf="responseMsg === 'fail'">
+              <span class="bold-font">Error:</span> Something went wrong.
+            </div>
+            <!-- card body start -->
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="name-referee">Referee Name</label>
+                  <input type="text" class="form-control" formControlName="refereeName" [class.is-invalid]="addUserForm.get('refereeName').invalid && addUserForm.get('refereeName').touched "
+                    id="name-referee" placeholder="Referee name " name="name" [(ngModel)]="refObj.refereeName">
+                  <div *ngIf="addUserForm.get('refereeName').invalid && addUserForm.get('refereeName').touched ">
+                    <small class="text-danger" *ngIf="addUserForm.get('refereeName').errors?.required">Referee Name is
+                      Required </small>
+                    <small class="text-danger" *ngIf="addUserForm.get('refereeName').errors?.pattern">Please Enter
+                      Referee Name
+                      with out space </small>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Employee Name</label>
+                  <!-- <input name="funame" list="options" class=" form-control" [(ngModel)]="refObj.user">
+                    <datalist id="options">
+                      <option selected disabled>Select a Employee Name</option>
+                      <option *ngFor="let users of user" data-value="{{users.id}}">{{users.fullName}}</option>
+                    </datalist> -->
+                  <select _ngcontent-c5="" formControlName="fullName" [class.is-invalid]="addUserForm.get('fullName').invalid && addUserForm.get('fullName').touched "
+                    class="form-control form-control-md" name="xyz" [(ngModel)]="refObj.user">
+                    <option selected disabled value="0">Select Employee Name</option>
+                    <option _ngcontent-c5="" selected="" *ngFor="let us of user" value="{{us.id}}" (click)="getUserId()">
+                      {{us.fullName}}</option>
+                  </select>
+                  <div *ngIf="addUserForm.get('fullName').invalid && addUserForm.get('fullName').touched ">
+                    <small class="text-danger" *ngIf="addUserForm.get('fullName').errors?.required">Full Name is
+                      Required </small>
+                    <small class="text-danger" *ngIf="addUserForm.get('fullName').errors?.pattern">Please Enter Name
+                    </small>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="address">Address</label>
+                  <input type="text" class="form-control" formControlName="address" [class.is-invalid]="addUserForm.get('address').invalid && addUserForm.get('address').touched "
+                    id="primary-year-form" placeholder="Address" name="add" [(ngModel)]="refObj.address">
+                  <div *ngIf="addUserForm.get('address').invalid && addUserForm.get('address').touched ">
+                    <small class="text-danger" *ngIf="addUserForm.get('address').errors?.required">Address is Required
+                    </small>
+                    <small class="text-danger" *ngIf="addUserForm.get('address').errors?.pattern">Please Enter Valid
+                      Address </small>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="email">Email</label>
+                  <input type="text" formControlName="email" class="form-control" id="email" placeholder="Email"
+                    [class.is-invalid]="addUserForm.get('email').invalid && addUserForm.get('email').touched " name="email"
+                    [(ngModel)]="refObj.email">
+                  <div *ngIf="addUserForm.get('email').invalid && addUserForm.get('email').touched ">
+                    <small class="text-danger" *ngIf="addUserForm.get('email').errors?.required">Email is Required
+                    </small>
+                    <small class="text-danger" *ngIf="addUserForm.get('email').errors?.pattern">Please Enter Valid
+                      Email
+                      Address </small>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="telephone">Contact Number</label>
+                  <input type="text" class="form-control" formControlName="telephone" [class.is-invalid]="addUserForm.get('telephone').invalid && addUserForm.get('telephone').touched "
+                    id="telephone" placeholder="Mobile Number" name="telephone" [(ngModel)]="refObj.contactNo">
+                  <div *ngIf="addUserForm.get('telephone').invalid && addUserForm.get('telephone').touched ">
+                    <small class="text-danger" *ngIf="addUserForm.get('telephone').errors?.required">Telephone is
+                      Required </small>
+                    <small class="text-danger" *ngIf="addUserForm.get('telephone').errors?.pattern">Please Enter Valid
+                      Telephone
+                      Number </small>
+                  </div>
+                </div>
+              </div>
+
+
+
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="relation">Relationship to the Employer</label>
+                  <input type="text" class="form-control" id="relation" formControlName="relationship"
+                    [class.is-invalid]="addUserForm.get('relationship').invalid && addUserForm.get('relationship').touched "
+                    placeholder="Relationship to the Employer" name="relation" [(ngModel)]="refObj.relationship">
+                  <div *ngIf="addUserForm.get('relationship').invalid && addUserForm.get('relationship').touched ">
+                    <small class="text-danger" *ngIf="addUserForm.get('relationship').errors?.required">Relationship is
+                      Required </small>
+                    <small class="text-danger" *ngIf="addUserForm.get('relationship').errors?.pattern">Please Enter
+                      Relationship
+                    </small>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12 btnpadding">
+
+
+
+                <button type="button" class="btn btn-primary pull-right" (click)="addReferee()" [disabled]="!addUserForm.valid">Save</button>
+              </div>
+
+            </div>
+            <!-- card body end -->
+          </div>
+        </div>
+      </div>
+
+      <div class="card-footer">
+        <!-- <button type="button" class="btn btn-primary" (click)="previous()">Previous</button>
+        &nbsp;
+        <button type="button" class="btn btn-primary" (click)="next()">Next</button> -->
+        <!-- <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete-modal">Delete</button> -->
+      </div>
+    </form>
+    <!-- form end -->
+
+    <!-- card body end -->
+  </div>
+  <!-- 5th Form End -->

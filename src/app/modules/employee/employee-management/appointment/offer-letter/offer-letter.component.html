@@ -1,0 +1,211 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+
+      <!-- card header start -->
+      <div class="card-header">
+        <h5 class="card-title">Offer Letter Process</h5>
+
+        <div class="card-tools">
+          <button type="button" class="btn btn-tool" data-widget="collapse">
+            <i class="fa fa-minus"></i>
+          </button>
+          <button type="button" class="btn btn-tool" data-widget="remove">
+            <i class="fa fa-times"></i>
+          </button>
+        </div>
+      </div>
+      <!-- card-header end -->
+
+      <!-- card body start -->
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card card-primary">
+
+              <!-- form start -->
+              <form [formGroup]="offerForm">
+
+                <!-- card body start -->
+                <div class="card-body">
+                  <!-- {{offerLetterdata | json}} -->
+                  <!-- 1st row -->
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <label for="given-date">Offer letter given Date :</label>
+                        <input type="date" class="form-control" name="given-date" id="given-date" placeholder="yyyy-mm-dd" [(ngModel)]="offerLetterdata.givenDate"
+                        formControlName="offerDate" class="form-control form-control-sm" [class.is-invalid]="offerForm.get('offerDate').invalid && offerForm.get('offerDate').touched ">
+                        <div *ngIf="offerForm.get('offerDate').invalid && offerForm.get('offerDate').touched ">
+                          <small class="text-danger" *ngIf="offerForm.get('offerDate').errors?.required">Employee Name is Required
+                          </small>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" class="form-control" name="name" id="name" placeholder="Enter Name" [(ngModel)]="offerLetterdata.name">
+                      </div>
+                    </div>
+                  </div>
+                  <!-- 2nd row -->
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <label for="name">Address :</label>
+                        <textarea class="form-control" name="Address" placeholder="Enter Address" [(ngModel)]="offerLetterdata.address"></textarea>
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <label for="position">Position :</label>
+                        <input type="text" class="form-control" name="position" id="position" placeholder="Enter Position" [(ngModel)]="offerLetterdata.position">
+                      </div>
+                    </div>
+                  </div>
+                  <!-- 3rd row -->
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <label for="effect-date">Effecting Date :</label>
+                        <input type="date" class="form-control" name="effect-date" id="effect-date" placeholder="yyyy-mm-dd" [(ngModel)]="offerLetterdata.effectDate">
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <label for="perquisites">Perquisites</label>
+                        <input type="text" class="form-control" id="perquisites" name="perquisites" placeholder="Enter Perquisites" [(ngModel)]="offerLetterdata.perquisity">
+                      </div>
+                    </div>
+                  </div>
+                  <!-- 4th row -->
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <label for="position">Company Name :</label>
+                        <input type="text" class="form-control" name="position" id="position" value="SGIC"  [(ngModel)]="offerLetterdata.companyName">
+
+                      </div>
+                    </div>
+                    <!-- <div class="col-sm-6">
+                      <div class="form-group">
+                        <label for="position">Designation of signatory :</label>
+                        <input type="text" class="form-control" name="position" id="position" placeholder="Enter Designation of signatory">
+                      </div>
+                    </div> -->
+                  </div>
+
+                  <!-- 5th row -->
+                  <div class="row">
+                    <div class="col-lg-9">
+                      <div class="form-group">
+                        <label for="perquisites">Salary In Letters</label>
+                        <input type="text" class="form-control" id="perquisites" name="perquisites" placeholder="Enter Salary in Letters"[(ngModel)]="offerLetterdata.salaryText">
+                      </div>
+                    </div>
+                    <div class="col-lg-3">
+                      <div class="form-group">
+                        <label for="digit-salry">Salary In Digit</label>
+                        <input type="text" class="form-control" id="digit-salry" name="digit-salry" placeholder="Enter Salary in Digit" [(ngModel)]="offerLetterdata.salaryDigit">
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- 6th row -->
+                  <div class="row">
+                    <div class="col-lg-3">
+                      <div class="form-group">
+                        <label for="digit-salry">Age of Retirement In Digit</label>
+                        <input type="text" class="form-control" id="retirement-age-digit" name="retirement-age-digit"
+                          placeholder="Enter Age of Retirement"  [(ngModel)]="offerLetterdata.retirementAgeDigit">
+                      </div>
+                    </div>
+                    <div class="col-lg-3">
+                      <div class="form-group">
+                        <label for="digit-salry">Age of Retirement In Text</label>
+                        <input type="text" class="form-control" id="retirement-age-text" name="retirement-age-text"
+                          placeholder="Enter Age of Retirement"  [(ngModel)]="offerLetterdata.retirementAgeText">
+                      </div>
+                    </div>
+                    <div class="col-lg-3">
+                      <div class="form-group">
+                        <label for="position"> Minimum retirement age:</label>
+                        <input type="text" class="form-control" name="min-retirement-age" id="position" placeholder="Enter Minimum retirement age"
+                           [(ngModel)]= "offerLetterdata.minRetirementAge">
+                      </div>
+                    </div>
+                    <div class="col-lg-3">
+                      <div class="form-group">
+                        <label for="position">Report To :</label>
+                        <select class="form-control">
+                          <option >Admin</option>
+                          <option >Manager</option>
+                        </select>
+                      </div>
+                    </div>
+
+                  </div>
+
+                  <!-- 7th row -->
+                
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <div class="row">
+                          <div class="col-lg-6">
+                            <label for="hoursofwork">Hours of Work From:</label>
+                            <input type="time" class="form-control" name="position" id="position"[(ngModel)]="offerLetterdata.fromHours">
+                          </div>
+                          <div class="col-lg-6">
+                            <label for="hoursofwork">Hours of Work To:</label>
+                            <input type="time" class="form-control" name="position" id="position"[(ngModel)]="offerLetterdata.toHours">
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="row">
+                        <div class="col-lg-6">
+                          <div class="form-group">
+                            <label for="anual-leavedays">2<sup>nd </sup>Year Anual Leave Days :</label>
+                            <input type="text" class="form-control" name="position" id="position" placeholder="Enter 2nd Year Anual Leave Days"[(ngModel)]="offerLetterdata.anualLeaveDays">
+
+                          </div>
+                        </div>
+                        <div class="col-lg-6">
+                          <div class="form-group">
+                            <label for="medical-leave">Medical Leave Days :</label>
+                            <input type="text" class="form-control" name="medical-leave" id="medical-leave" placeholder="Enter Medical Leave" [(ngModel)]="offerLetterdata.medicalLeaveDays">
+
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+                <!-- card body end -->
+
+                <div class="card-footer">
+                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#add-modal" routerLink="/appointment/generateOfferLetter" (click)="pushData()">Generate</button>
+
+                  &nbsp;
+                  <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete-modal">Reset</button>
+                </div>
+              </form>
+              <!-- form end -->
+
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <!-- card body end -->
+
+    </div>
+  </div>
+</div>
+
+

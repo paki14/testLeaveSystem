@@ -1,0 +1,110 @@
+<!--   Apply leave  start -->
+<div class="row">
+  <div class="col-md-8">
+    <div class="card">
+
+      <!-- card header start -->
+      <div class="card-header">
+        <h5 class="card-title">Add Trainee Course Record </h5>
+
+        <div class="card-tools">
+          <button type="button" class="btn btn-tool" data-widget="collapse">
+            <i class="fa fa-minus"></i>
+          </button>
+          <button type="button" class="btn btn-tool" data-widget="remove">
+            <i class="fa fa-times"></i>
+          </button>
+        </div>
+      </div>
+      <!-- card-header end -->
+
+      <!-- card body start -->
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card card-primary">
+              <!-- form start -->
+              <form role="form">
+                <!-- card body start -->
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-md-5">
+                      <div class="form-group">
+                        <label for="funame">Full Name</label>
+                        <input type="text" class="form-control" id="funame" name="funame">
+                      </div>
+                    </div>
+                    <div class="col-md-3">
+                      <div class="form-group">
+                        <label for="traineeId">Trainee Id</label>
+                        <input type="text" class="form-control" name="traineeId" id="traineeId">
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <label for="title">Title</label>
+                        <input list="titleList" class="form-control" name="title" id="title" placeholder="Select Title">
+                        <datalist id="titleList">
+                          <option value="SpringBoot"></option>
+                          <option value="Angular"></option>
+                          <option value="Servlet"></option>
+                          <option value="QA"></option>
+                        </datalist>
+                      </div>
+                    </div>
+
+                  </div>
+                  <div class="row">
+                    <div class="col-md-3">
+                      <div class="form-group">
+                        <label for="creditValue1">Credit Value</label>
+                        <input type="number" class="form-control" name="creditValue1" id="creditValue1" placeholder="Credit Value" readonly>
+                      </div>
+                    </div>
+                    <div class="col-md-3">
+                      <div class="form-group">
+                        <label for="duration">Duration</label>
+                        <input type="number" class="form-control" name="creditValue" id="creditValue" placeholder="Months/ Days" readonly>
+                      </div>
+                    </div>
+                    <div class="col-md-3">
+                      <div class="form-group">
+                        <label for="hours">Hours</label>
+                        <input type="number" class="form-control" name="hours" id="hours" placeholder="Hours" readonly>
+                      </div>
+                    </div>
+
+                    <div class="col-md-3">
+                      <div class="form-group">
+                        <label for="grade">Grade</label>
+                        <input list="gradeList" class="form-control" name="grade" id="grade" placeholder="Select Grade">
+                        <datalist id="gradeList">
+                          <option value="A"></option>
+                          <option value="B"></option>
+                          <option value="C"></option>
+                          <option value="D"></option>
+                        </datalist>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+
+                <!-- card body end -->
+
+              </form>
+              <!-- form end -->
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer">
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#confirm-modal">Add</button>
+        &nbsp;
+        <button type="reset" class="btn btn-danger">Reset</button>
+      </div>
+      <!-- card body end -->
+    </div>
+  </div>
+</div>
+<!-- apply leave end -->

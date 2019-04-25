@@ -1,0 +1,63 @@
+<div class="row">
+  <div class="col col-md-10">
+
+  </div>
+  <div class="col col-md-2 mx-auto">
+      <button type="button" class="btn btn-primary" (click)="goBack()">Back</button>
+    </div>
+  
+</div>
+
+<form [formGroup]="scoreAppraiserAssesment" (ngSubmit)="formData(scoreAppraiserAssesment)">
+  <div class="modal-body">
+    <div class="row">
+      <div class="col-md-6">
+        <!-- <label>Report Id:</label>
+        <input type="text" formControlName="reportId" name="reportId" class="form-control"> -->
+      </div>
+      <div class="col-md-6">
+        <label>Appraised By:</label>
+
+        <select formControlName="appraisedById" name="appraisedById" class="form-control">
+          <option selected disabled value="0">Select Appraiser</option>
+          <option *ngFor="let appraiser of parDataArray.scheduleParAppraisorsList" [value]="appraiser.appraiserId">{{appraiser.appraiserName}}</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <table class="table">
+          <tr>
+            <th>Content Name</th>
+            <th>Score</th>
+            <th>Comment</th>
+          </tr>
+          <tr formArrayName="scoreParAppraiserList" *ngFor="let parContent of scoreAppraiserAssesment.get('scoreParAppraiserList').controls;let i=index;">
+            <ng-container [formGroupName]="i">
+
+
+              <td><input type="text" formControlName="parContentName" name="parContentName" class="form-control"
+                  disabled /></td>
+              <td>
+                <select class="form-control" formControlName="score" class="form-control" name="score">
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                </select>
+              </td>
+              <td><input type="text" class="form-control" formControlName="comment" name="comment"></td>
+            </ng-container>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+  </div>
+  <!-- Modal footer -->
+
+  <button type="submit" class="btn btn-primary">Apply</button>
+
+</form>

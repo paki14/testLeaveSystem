@@ -1,0 +1,83 @@
+<!-- add modal start -->
+<div id="select" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+  
+      <!-- modal content start -->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h6 class="modal-title">Invitation For Interview</h6>
+  
+        </div>
+        <!-- {{selectInterviewSelection.value|json}} -->
+        <!-- Body start -->
+        <!-- <form [formGroup]="selectInterviewSelection"> -->
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="start-date">Name</label>
+                <input type="text" class="form-control"  name="selectName" readonly>
+              </div>
+            </div>
+  
+  
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="appointment-date">Date</label>
+                <input type="text" class="form-control" mwlFlatpickr   name="selectDate" placeholder="dd/mm/yyyy">
+              </div>
+            </div>
+  
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="appointment-date">Time</label>
+  
+                <input type="time" class="form-control" name="selectTime" />
+  
+              </div>
+            </div>
+  
+  
+  
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="exampleInputEmail1">Place</label>
+                <select class="form-control" name="selectPlace">
+                  <option>Location1</option>
+                  <option>Location2</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="exampleInputEmail1">Applied Post</label>
+                <select class="form-control" name="selectPost">
+                  <option>post1</option>
+                  <option>post2</option>
+                </select>
+              </div>
+            </div>
+  
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="start-date">Email</label>
+                <input type="email" class="form-control"  name="selectEmail" readonly>
+              </div>
+            </div>
+  
+  
+  
+          </div>
+        </div>
+        <!-- </form> -->
+        <!-- Body end -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-dismiss="modal">Add</button>
+        </div>
+      </div>
+      <!-- modal content end -->
+  
+    </div>
+  </div>
+
+ 

@@ -1,0 +1,84 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+
+      <!-- card header start -->
+      <div class="card-header">
+        <h5 class="card-title">View Schedule Projects and Setup Projects</h5>
+        <div class="card-tools">
+          <button type="button" class="btn btn-tool" data-widget="collapse">
+            <i class="fa fa-minus"></i>
+          </button>
+          <button type="button" class="btn btn-tool" data-widget="remove">
+            <i class="fa fa-times"></i>
+          </button>
+        </div>
+      </div>
+      <!-- card header end -->
+
+      <!-- card body start -->
+      <div class="card-body">
+        <mat-form-field>
+          <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+        </mat-form-field>
+
+        <div class="mat-elevation-z8">
+          <mat-table [dataSource]="dataSource" matSort>
+
+            <!-- column 1 start -->
+            <ng-container matColumnDef="p_name">
+              <mat-header-cell *matHeaderCellDef mat-sort-header>Project Name</mat-header-cell>
+              <mat-cell *matCellDef="let schedule"> {{schedule.p_name}} </mat-cell>
+            </ng-container>
+            <!-- column 1 end -->
+
+            <!-- column 2 start -->
+            <ng-container matColumnDef="m_name">
+              <mat-header-cell *matHeaderCellDef mat-sort-header>Manager Name</mat-header-cell>
+              <mat-cell *matCellDef="let schedule"> {{schedule.m_name}}</mat-cell>
+            </ng-container>
+            <!-- column 2 end -->
+
+            <!-- column 2 start -->
+            <ng-container matColumnDef="dead">
+              <mat-header-cell *matHeaderCellDef mat-sort-header>Dead Line</mat-header-cell>
+              <mat-cell *matCellDef="let schedule"> {{schedule.dead}}</mat-cell>
+            </ng-container>
+            <!-- column 2 end -->
+            <!-- column 2 start -->
+            <ng-container matColumnDef="milestone">
+              <mat-header-cell *matHeaderCellDef mat-sort-header>Phases & Milestone</mat-header-cell>
+              <mat-cell *matCellDef="let schedule"><a href=""> {{schedule.milestone}}</a></mat-cell>
+            </ng-container>
+            <!-- column 2 end -->
+            <!-- column 2 start -->
+            <ng-container matColumnDef="gantt">
+              <mat-header-cell *matHeaderCellDef mat-sort-header>Gant Chart</mat-header-cell>
+              <mat-cell *matCellDef="let schedule"> <a href=""> {{schedule.gantt}}</a></mat-cell>
+            </ng-container>
+            <!-- column 2 end -->
+
+            <ng-container matColumnDef="edit">
+              <mat-header-cell *matHeaderCellDef mat-sort-header> </mat-header-cell>
+              <mat-cell *matCellDef="let schedule"> <button class="btn btn-primary" data-toggle="modal" data-target="#update">{{schedule.edit}}</button></mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="delete">
+              <mat-header-cell *matHeaderCellDef mat-sort-header> </mat-header-cell>
+              <mat-cell *matCellDef="let schedule"> <button class="btn btn-danger" data-toggle="modal" data-target="#delete">{{schedule.delete}}</button></mat-cell>
+            </ng-container>
+
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+          </mat-table>
+
+          <!-- pagination start -->
+          <mat-paginator [pageSizeOptions]="[3, 5, 10, 25]"></mat-paginator>
+          <!-- pagination end -->
+        </div>
+      </div>
+      <!-- card body end -->
+
+    </div>
+  </div>
+</div>

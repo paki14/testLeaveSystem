@@ -1,0 +1,104 @@
+<!-- tab content start -->
+<div class="tab-content" id="myTabContent">
+  <div class="tab-pane fade show active" id="tab1_content" aria-labelledby="tab1_content">
+    <!-- <app-request-leave></app-request-leave> -->
+
+    <!-- appoinment start -->
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <!-- card header start -->
+          <div class="card-header">
+            <h5 class="card-title">Termination History</h5>
+            <div class="card-tools">
+              <button type="button" class="btn btn-tool" data-widget="collapse">
+                <i class="fa fa-minus"></i>
+              </button>
+              <button type="button" class="btn btn-tool" data-widget="remove">
+                <i class="fa fa-times"></i>
+              </button>
+            </div>
+          </div>
+          <!-- card header end -->
+          <!-- card body start -->
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-6">
+                <mat-form-field>
+                  <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+                </mat-form-field>
+              </div>
+              <div class="col-md-6">
+                <button type="button" class="btn btn-primary pull-right" data-toggle="modal" data-target="#termination-history-addModal">Add</button>
+              </div>
+            </div>
+            <div class="mat-elevation-z8 mb-3">
+              <mat-table [dataSource]="dataSource" matSort>
+                <!-- column 1 start -->
+                <ng-container matColumnDef="id">
+                  <mat-header-cell *matHeaderCellDef mat-sort-header> Id </mat-header-cell>
+                  <mat-cell *matCellDef="let terminationHistoryDetails"> {{terminationHistoryDetails.id}} </mat-cell>
+                </ng-container>
+                <!-- column 1 end -->
+                <!-- column 2 start -->
+                <ng-container matColumnDef="nameOfTheTrainee">
+                  <mat-header-cell *matHeaderCellDef mat-sort-header> Name</mat-header-cell>
+                  <mat-cell *matCellDef="let terminationHistoryDetails"> {{terminationHistoryDetails.nameOfTheTrainee}}</mat-cell>
+                </ng-container>
+                <!-- column 2 end -->
+                <ng-container matColumnDef="joinedDate">
+                  <mat-header-cell *matHeaderCellDef mat-sort-header> Joined Date </mat-header-cell>
+                  <mat-cell *matCellDef="let terminationHistoryDetails"> {{terminationHistoryDetails.joinedDate}}</mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="madeOfTermination">
+                  <mat-header-cell *matHeaderCellDef mat-sort-header> Made of Termination </mat-header-cell>
+                  <mat-cell *matCellDef="let terminationHistoryDetails">
+                    {{terminationHistoryDetails.madeOfTermination}}</mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="reasonForTermination">
+                  <mat-header-cell *matHeaderCellDef mat-sort-header> Reason for Termination </mat-header-cell>
+                  <mat-cell *matCellDef="let terminationHistoryDetails">
+                    {{terminationHistoryDetails.reasonForTermination }}</mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="lastDate">
+                  <mat-header-cell *matHeaderCellDef mat-sort-header>Last Date</mat-header-cell>
+                  <mat-cell *matCellDef="let terminationHistoryDetails"> {{terminationHistoryDetails.lastDate}}</mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="edit">
+                  <mat-header-cell *matHeaderCellDef mat-sort-header> </mat-header-cell>
+                  <mat-cell *matCellDef="let loan"> <a href="#" data-toggle="modal" data-target="#termination-history-edit-modal"><span
+                        class=" material-icons" style="color:blue">edit</span></a> </mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="delete">
+                  <mat-header-cell *matHeaderCellDef mat-sort-header> </mat-header-cell>
+                  <mat-cell *matCellDef="let loan"><a href="#" data-toggle="modal" data-target="#termination-histry-delete-modal"><span
+                        class="material-icons" style="color:red">delete</span></a></mat-cell>
+                </ng-container>
+                <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+              </mat-table>
+              <!-- pagination start -->
+              <mat-paginator [pageSizeOptions]="[3, 5, 10, 25]"></mat-paginator>
+              <!-- pagination end -->
+            </div>
+          </div>
+          <!-- card body end -->
+        </div>
+      </div>
+    </div>
+
+
+
+  </div>
+
+
+
+
+  <!-- <div class="tab-pane fade" id="tab2_content" aria-labelledby="tab2_content">
+            <app-leave-history></app-leave-history>
+          </div>
+          <div class="tab-pane fade" id="tab3_content" aria-labelledby="tab3_content">
+            <app-request-leave></app-request-leave>
+          </div> -->
+</div>
+<!-- tab content end -->

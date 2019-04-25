@@ -1,0 +1,160 @@
+<!-- experience letter generate -->
+<div class="row">
+  <div class="col-md-10">
+    <div class="card">
+      <!-- card header start -->
+      <div class="card-header">
+        <h3 class="card-title">Genertate Experince Letter </h3>
+        <div class="card-tools">
+          <button type="button" class="btn btn-tool" data-widget="collapse">
+            <i class="fa fa-minus"></i>
+          </button>
+          <button type="button" class="btn btn-tool" data-widget="remove">
+            <i class="fa fa-times"></i>
+          </button>
+        </div>
+      </div>
+      <!-- card-header end -->
+      <!-- card body start -->
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card card-primary">
+              <!-- form start -->
+              <form role="form">
+                <!-- card body start -->
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="employeeName">Employee Name</label>
+                        <input list="employeeList" class="form-control" name="employeeName" id="employeeName"
+                          placeholder="Select Employee" autocomplete="on">
+                        <datalist id="employeeList">
+                          <option value="Raamu"></option>
+                          <option value="Soomu"></option>
+                          <option value="Keemu"></option>
+                          <option value="Seemu"></option>
+                          <option value="Heemu"></option>
+                        </datalist>
+                      </div>
+
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="leave-type">Company Name</label>
+                        <input type="email" class="form-control" id="start-date" placeholder="Company Name">
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="date">Date</label>
+                        <input type="email" class="form-control" id="start-date" placeholder="yyyy-mm-dd">
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="leave-type"> Employee Designation</label>
+                        <input type="email" class="form-control" id="start-date" placeholder="Employee Designation">
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="leave-type">Responsibilities</label>
+                        <input type="email" class="form-control" id="start-date" placeholder="Responsibilities">
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="leave-type">Competencies </label>
+                        <input type="email" class="form-control" id="start-date" placeholder="Competencies">
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="leave-type">Name of the HR Manager </label>
+                        <input type="email" class="form-control" id="start-date" placeholder=" HR Manager Name">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- card body end -->
+                <div class="card-footer">
+                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#confirm-modal">Generate</button>
+                  <!-- <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete-modal">Refresh</button> -->
+                </div>
+              </form>
+              <!-- form end -->
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- card body end -->
+    </div>
+  </div>
+</div>
+
+
+<!-- Sucess modal start -->
+<div id="confirm-modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- modal content start -->
+    <div class="modal-content">
+
+      <!-- modal header start -->
+      <div class="modal-header">
+        <h6 class="modal-title">Success</h6>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <!-- modal header end -->
+
+      <!-- modal body start -->
+      <div class="modal-body" id="print-div">
+        <div class="col-md-12">
+          <p>
+            <b>&lt;&lt;&lt;Date&gt;&gt;&gt;</b>
+            <br/>
+            TO WHOM IT MAY CONCERN <br/>
+            Re: Mr. /Mr <b>. &lt;&lt;&lt;Name of the Employee&gt;&gt;&gt;</b> <br/>
+            This is to certify that Mr. /Mr. <b>&lt;&lt;&lt;Name of the Employee&gt;&gt;&gt;</b> was a permanent
+            employee of <b>&lt;&lt;&lt;Company Name&gt;&gt;&gt;.</b> <b>&lt;&lt;&lt;Name of the Employee&gt;&gt;&gt;</b>
+            joined <b>&lt;&lt;&lt;Company Name&gt;&gt;&gt;</b>&zwnj;on <b>&lt;&lt;&lt;Date&gt;&gt;&gt;</b> as a <b>&lt;&lt;&lt;Designation&gt;&gt;&gt;&gt;</b>
+            and was promoted to the post of <b>&lt;&lt;&lt;Designation&gt;&gt;&gt;&gt;</b> in <b>&lt;&lt;&lt;Date&gt;&gt;&gt;</b>.
+            He / She worked as a <b>&lt;&lt;&lt;Designation&gt;&gt;&gt;&gt;</b> Lead from <b>&lt;&lt;&lt;Date&gt;&gt;&gt;</b>
+            to <b>&lt;&lt;&lt;Date&gt;&gt;&gt;.</b> As a <b>&lt;&lt;&lt;Designation&gt;&gt;&gt;&gt;,</b> He / She was
+            responsible for <b>&lt;&lt;&lt;&lt;Responsibilities&gt;&gt;&gt;</b> He / She is competent on <b>&lt;
+              &lt;&lt; Competencies &gt;&gt;&gt;</b>
+              <br/>
+            <b>&lt;&lt;&lt;Name of the Employee&gt;&gt;&gt;</b> was a team-oriented individual, who developed good
+            working relationships with her/ him supervisors and colleagues. The management and her/ him peers
+            appreciated her/ him honesty, commitment and integrity which are unquestionable.
+            <br/>
+            The <b>&lt;&lt;&lt;Company Name&gt;&gt;&gt;</b>&zwnj;would like to take this opportunity to wish her the
+            very best in her future endeavours.
+            <br/>
+            Yours faithfully,<br/>
+            ......................................
+            <br/>
+            <b>&lt;&lt;&lt;&lt;Name of the HR Manager&gt;&gt;&gt;&gt;</b>
+            <br/>
+            HR Manager
+            <br/>
+            <b>&lt;&lt;&lt;Company Name&gt;&gt;&gt;.</b>
+            &nbsp;
+
+          </p>
+        </div>
+      </div>
+      <!-- modal body end -->
+
+      <!-- modal footer start -->
+      <button id="btnPrint" (click)="printComponent('component1')">Print</button>
+      <!-- modal footer end -->
+    </div>
+    <!-- modal content end -->
+  </div>
+</div>
+<!-- sucess modal end -->
+
+<!-- <app-experience-letter-template></app-experience-letter-template> -->

@@ -1,0 +1,84 @@
+<!-- add modal start -->
+<div id="afterinterview" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- modal content start -->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h6 class="modal-title"></h6>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="col-md-12">
+
+          <!-- form start -->
+          <div class="card-body">
+            <mat-form-field>
+              <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+            </mat-form-field>
+
+            <div class="mat-elevation-z8">
+              <mat-table [dataSource]="dataSource" matSort>
+
+                <!-- column 1 start -->
+                <ng-container matColumnDef="id">
+                  <mat-header-cell *matHeaderCellDef mat-sort-header> Applicant Name </mat-header-cell>
+                  <mat-cell *matCellDef="let appoinment"> {{appoinment.id}} </mat-cell>
+                </ng-container>
+                <!-- column 1 end -->
+
+                <!-- column 2 start -->
+                <ng-container matColumnDef="position">
+                  <mat-header-cell *matHeaderCellDef mat-sort-header> Attended/Absentee </mat-header-cell>
+                  <mat-cell *matCellDef="let appoinment"> {{appoinment.position}}</mat-cell>
+                </ng-container>
+                <!-- column 2 end -->
+
+                <ng-container matColumnDef="department">
+                  <mat-header-cell *matHeaderCellDef mat-sort-header> Selected/Rejected </mat-header-cell>
+                  <mat-cell *matCellDef="let appoinment"> {{appoinment.department}}</mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="jobdescription">
+                  <mat-header-cell *matHeaderCellDef mat-sort-header>Interview Score Card </mat-header-cell>
+                  <mat-cell *matCellDef="let appoinment"><a href="">Score.pdf</a></mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="dateofappoinement">
+                  <mat-header-cell *matHeaderCellDef mat-sort-header> Date Of Appoinement </mat-header-cell>
+                  <mat-cell *matCellDef="let appoinment"> {{appoinment.dateofappoinement }}</mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="typeofappoinement">
+                  <mat-header-cell *matHeaderCellDef mat-sort-header> Type Of Appoinement </mat-header-cell>
+                  <mat-cell *matCellDef="let appoinment"> {{appoinment.typeofappoinement}}</mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="salary">
+                  <mat-header-cell *matHeaderCellDef mat-sort-header> Salary </mat-header-cell>
+                  <mat-cell *matCellDef="let appoinment"> {{appoinment.salary}}</mat-cell>
+                </ng-container>
+
+
+
+                <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+              </mat-table>
+
+              <!-- pagination start -->
+              <mat-paginator [pageSizeOptions]="[3, 5, 10, 25]"></mat-paginator>
+              <!-- pagination end -->
+            </div>
+          </div>
+          <!-- form end -->
+        </div>
+      </div>
+      <div class="modal-footer">
+        
+      </div>
+    </div>
+    <!-- modal content end -->
+
+  </div>
+</div>
+<!-- add modal end -->

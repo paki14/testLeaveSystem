@@ -1,0 +1,104 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+
+      <!-- card header start -->
+      <div class="card-header">
+        <h5 class="card-title">Pre Request</h5>
+        <div class="card-tools">
+          <button type="button" class="btn btn-tool" data-widget="collapse">
+            <i class="fa fa-minus"></i>
+          </button>
+        </div>
+      </div>
+      <!-- card header end -->
+      
+      <!-- card body start -->
+      <div class="card-body">
+        <mat-form-field>
+          <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+        </mat-form-field>
+
+        <div class="mat-elevation-z8 mb-3">
+          <mat-table [dataSource]="dataSource" matSort>
+
+            <!-- column 1 start -->
+            <ng-container matColumnDef="trainerName">
+              <mat-header-cell *matHeaderCellDef mat-sort-header> Trainer Name </mat-header-cell>
+              <mat-cell *matCellDef="let termination"> {{termination.trainerName}} </mat-cell>
+            </ng-container>
+            <!-- column 1 end -->
+            <!-- column 4 start -->
+            <!-- <ng-container matColumnDef="trainingField">
+              <mat-header-cell *matHeaderCellDef mat-sort-header> Training Field </mat-header-cell>
+              <mat-cell *matCellDef="let termination"> {{termination.trainingField}}</mat-cell>
+            </ng-container> -->
+            <!-- column 4 end -->
+
+            <!-- column 2 start -->
+            <ng-container matColumnDef="trainingTopic">
+              <mat-header-cell *matHeaderCellDef mat-sort-header> Training Topic </mat-header-cell>
+              <mat-cell *matCellDef="let termination"> {{termination.trainingTopic}}</mat-cell>
+            </ng-container>
+            <!-- column 2 end -->
+
+            <!-- column 3 start -->
+            <ng-container matColumnDef="TrainingDate">
+              <mat-header-cell *matHeaderCellDef mat-sort-header>Training Date  </mat-header-cell>
+              <mat-cell *matCellDef="let termination"> {{termination.TrainingDate}} </mat-cell>
+            </ng-container>
+            <!-- column 3 end -->
+
+            <!-- column 4 start -->
+            <ng-container matColumnDef="RequiredResource">
+              <mat-header-cell *matHeaderCellDef mat-sort-header> Required Resource </mat-header-cell>
+              <mat-cell *matCellDef="let termination"> {{termination.RequiredResource}}</mat-cell>
+            </ng-container>
+            <!-- column 4 end -->
+
+            <!-- column 4 start -->
+            <ng-container matColumnDef="resource">
+              <mat-header-cell *matHeaderCellDef mat-sort-header> Resouece </mat-header-cell>
+              <mat-cell *matCellDef="let termination"> {{termination.resource}}</mat-cell>
+            </ng-container>
+            <!-- column 4 end -->
+
+             <!-- column 4 start -->
+             <!-- <ng-container matColumnDef="resource">
+              <mat-header-cell *matHeaderCellDef mat-sort-header> Resouece </mat-header-cell>
+              <mat-cell *matCellDef="let termination"> 
+                <button>Edit</button>
+              </mat-cell>
+            </ng-container> -->
+            <!-- column 4 end -->
+
+            <!-- <div class="row">
+
+              <a href="" data-toggle="modal" data-target="#editTrinerAccadamic" (click)="getAcadamicId(taca)">
+                <span>
+                  <i class="large material-icons icon-edit">edit</i>
+                </span>
+              </a>
+
+
+              <a href="" data-toggle="modal" data-target="#daleteAccadamic" (click)=" getAcadamicId(taca)">
+                <span class="">
+                  <i class="material-icons icon-delete">delete_forever</i>
+                </span>
+              </a>
+
+            </div> -->
+
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+          </mat-table>
+
+          <!-- pagination start -->
+          <mat-paginator [pageSizeOptions]="[3, 5, 10, 25]"></mat-paginator>
+          <!-- pagination end -->
+        </div>
+      </div>
+      <!-- card body end -->      
+    </div>
+  </div>
+</div>

@@ -1,0 +1,229 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+
+      <div class="container mt-3">
+
+        <!-- card header start -->
+        <div class="card-header">
+          <h5 class="card-title">Plan Module </h5>
+          <div class="card-tools">
+            <button type="button" class="btn btn-tool" data-widget="collapse">
+              <i class="fa fa-minus"></i>
+            </button>
+            <button type="button" class="btn btn-tool" data-widget="remove">
+              <i class="fa fa-times"></i>
+            </button>
+          </div>
+        </div>
+        <!-- card header end -->
+
+        <!-- card body start -->
+        <div class="card-body">
+          <div class="col">
+            <div class="float-right">
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addmodal">
+                + Add
+              </button>
+            </div>
+          </div>
+          <mat-form-field>
+            <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+          </mat-form-field>
+
+
+          <div class="mat-elevation-z8">
+            <mat-table [dataSource]="dataSource" matSort>
+
+
+
+              <!-- column 1 start -->
+              <ng-container matColumnDef="id">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>Welfare ID</mat-header-cell>
+                <mat-cell *matCellDef="let planModule"> {{planModule.id}} </mat-cell>
+              </ng-container>
+              <!-- column 1 end -->
+
+              <!-- column 2 start -->
+              <ng-container matColumnDef="date_for_training">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Date for Training</mat-header-cell>
+                <mat-cell *matCellDef="let planModule "> {{planModule.date_for_training}}</mat-cell>
+              </ng-container>
+              <!-- column 2 end -->
+
+              <!-- column 3 start -->
+              <ng-container matColumnDef="module_name">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Module Name </mat-header-cell>
+                <mat-cell *matCellDef="let planModule"> {{planModule.module_name}} </mat-cell>
+              </ng-container>
+              <!-- column 3 end -->
+
+              <!-- column 4 start -->
+              <ng-container matColumnDef="sub_topics">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Sub Topic </mat-header-cell>
+                <mat-cell *matCellDef="let planModule"> {{planModule.sub_topics}} </mat-cell>
+              </ng-container>
+              <!-- column 4 end -->
+
+              <!-- column 5 start -->
+              <ng-container matColumnDef="trainer">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Trainer </mat-header-cell>
+                <mat-cell *matCellDef="let planModule"> {{planModule.trainer}} </mat-cell>
+              </ng-container>
+              <!-- column 5 end -->
+
+
+              <!-- column 4 start -->
+              <ng-container matColumnDef="send_notification_to_trainer">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Send Notification to trainer </mat-header-cell>
+                <mat-cell *matCellDef="let planModule">
+                  <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#addmodal1">
+                    Send
+                  </button>
+                </mat-cell>
+              </ng-container>
+              <!-- column 4 end -->
+
+              <!-- column 5 start -->
+              <ng-container matColumnDef="edit/delete">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Edit/Delete </mat-header-cell>
+                <mat-cell *matCellDef="let planModule">
+                  <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#addmodal1">
+                    Edit
+                  </button> &nbsp;&nbsp;
+                  <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#myModal2">
+                    Delete
+                  </button>
+                </mat-cell>
+              </ng-container>
+              <!-- column 5 end -->
+
+
+
+              <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+              <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+            </mat-table>
+
+            <!-- pagination start -->
+            <mat-paginator [pageSizeOptions]="[3, 5, 10, 25]"></mat-paginator>
+            <!-- pagination end -->
+          </div>
+        </div>
+        <!-- card body end -->
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-forms-schedule></app-forms-schedule>
+
+
+<!-- Edit Model -->
+
+<!-- add modal start -->
+<div id="addmodal1" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <!-- modal content start -->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h6 class="modal-title">Edit Plan Module</h6>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="col-md-12">
+
+          <!-- form start -->
+          <form role="form">
+
+              <!-- card body start -->
+              <div class="row">
+                <div class="col-md-06">
+  
+                  <div class="form-group">
+                    <label for="start-date">ID</label>
+                    <input type="text" class="form-control" id="id1" name="name1" placeholder="Plan module ID" disabled>
+                  </div>
+                </div>
+                &nbsp; &nbsp;
+                <div class="col-md-06">
+                  <div class="form-group">
+                    <label for="end-date">Date for training </label>
+                    <input type="text" class="form-control" name="name2" placeholder="Enter Date for training">
+                  </div>
+                </div>
+  
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label for="end-date">Module Name </label>
+                      <input type="text" class="form-control" name="name2" placeholder="Enter Module Name">
+                    </div>
+                  </div>
+                </div>
+  
+                <div class="row">
+                  <div class="col-md-06">
+                    <div class="form-group">
+                      <label for="end-date">Sub Module </label>
+                      <input type="text" class="form-control" name="name2" placeholder="Enter sub module">
+                    </div>
+                  </div>
+  
+                  &nbsp; &nbsp;
+                  <div class="form-group">
+                    <label for="end-date">Trainer</label>
+                    <input type="text" class="form-control" name="name2" placeholder="Enter trainer">
+                  </div>
+                </div>
+              </div>
+            </form>
+            <!-- form end -->
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Update</button>
+      </div>
+    </div>
+    <!-- modal content end -->
+
+  </div>
+</div>
+<!-- add modal end -->
+
+
+
+
+<!-- delete model -->
+
+<div class="container">
+
+
+
+  <!-- The Modal -->
+  <div class="modal fade" id="myModal2">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Delete Plan Module</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+
+        <!-- Modal body -->
+        <div class="modal-body">
+          Are you want to delete Plan Module?
+        </div>
+
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Yes</button>
+          <button type="button" class="btn btn-success" data-dismiss="modal">No</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</div>

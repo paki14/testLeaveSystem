@@ -1,0 +1,86 @@
+<div class="card" >
+    <div class="card-header">
+      <h5 class="card-title">Par Configuration</h5>
+      <div class="card-tools">
+        <button type="button" class="btn btn-primary btnpadding" data-toggle="modal" data-target="#par-config">Add</button>
+        <!-- <button type="button" class="btn btn-primary btnpadding" (click)="addData()">Add</button> -->
+      </div>
+    </div>
+    <div class="card-body">
+        <fieldset>
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>Config Id</th>
+                  <th>Config Name</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let parConfig of parConfigArray">
+                  <td>{{parConfig.id}}</td>
+                  <td>{{parConfig.contentName}}</td>
+                 <td>
+                  <div class="row">
+                    <a href="" data-toggle="modal" data-target="#ed">
+                      <span>
+                        <i class="large material-icons icon-edit">edit</i>
+                      </span>
+                    </a>
+                    <a href="" data-toggle="modal" data-target="#ed">
+                        <span>
+                          <i class="large material-icons icon-delete">delete_forever</i>
+                        </span>
+                      </a>
+                  </div>
+
+                 </td>
+                </tr>
+              </tbody>
+            </table>
+          </fieldset>
+      <br>
+    </div>
+  </div>
+  <div class="modal fade" id="par-config" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header ">
+          <h6 class="modal-title" id="exampleModalCenterTitle">Add Par Config</h6>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <fieldset>
+                <form class="form-inline" [formGroup]="formParConfig">
+                  <!-- <div class="form-group">
+                      <label for="configId">Config Id:</label>
+                      <input type="text" formControlName="parConfigId" name="parConfigId" class="form-control" id="configId">
+                    </div> -->
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="configName">Config Name: </label>
+                          <input type="text" formControlName="parConfigName" name="parConfigName" class="form-control" id="configName">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-12 btnpadding">
+              
+                        <button type="button" class="btn btn-primary" (click)="addData()"data-dismiss="modal">Add</button>
+                      </div>
+                    </div>
+                    <!-- <button type="submit" class="btn btn-primary" (click)="addData()">Add</button> -->
+                  </div>
+                </form>
+              
+              </fieldset>
+              
+        </div>
+       
+      </div>
+    </div>
+  </div>

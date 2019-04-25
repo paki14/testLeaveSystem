@@ -1,0 +1,55 @@
+<div class="row">
+  <div class="col-md-6">
+    <div class="card">
+
+      <!-- card header start -->
+      <div class="card-header">
+        <h5 class="card-title"> Add Availablity Details</h5>
+        <div class="card-tools">
+        </div>
+      </div>
+      <!-- card header end -->
+
+      <!-- card body start -->
+      <form role="form">
+      <!-- <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="tranier-name">Trainer Name </label>
+            <input type="text" class="form-control"  id="tranier-name" name="name" placeholder="Enter Trainer name" [(ngModel)] ="AvailabilityObj.trainingId">
+          </div>
+        </div>
+      </div> -->
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="start-date"> Date </label>
+            <input type="date" class="form-control" id="start-date" name="start-date" placeholder="Enter start date" [(ngModel)] ="AvailabilityObj.date">
+          </div>
+        </div>
+        <!-- &nbsp; &nbsp; -->
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="end-date"> Trainer</label>
+            <input type="text" class="form-control" id="end-date" name="end-date" placeholder="Enter end date" [(ngModel)] ="AvailabilityObj.trainerId.id">
+          </div>
+        </div>
+      </div>
+      <!-- card body end -->
+        
+
+      <div class="modal-footer">
+        <div class="col-md-12">
+          <div class="float-right">
+            <button type="submit" class="btn btn-primary" (click)="addTrainingHistory()" >Apply</button>
+          </div>
+        </div>
+      </div>
+    </form>
+      
+  </div>
+</div>
+</div>
+
+
+

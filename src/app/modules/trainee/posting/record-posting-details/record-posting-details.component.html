@@ -1,0 +1,113 @@
+ <div class="row">
+  <div class="col-md-8">
+   
+    
+    <div class="card">
+
+      <!-- card header start -->
+      <div class="card-header">
+        <h5 class="card-title">Record Posting Details</h5>
+
+        <div class="card-tools">
+          <button type="button" class="btn btn-tool" data-widget="collapse">
+            <i class="fa fa-minus"></i>
+          </button>
+          <button type="button" class="btn btn-tool" data-widget="remove">
+            <i class="fa fa-times"></i>
+          </button>
+        </div>
+      </div>
+      <!-- card-header end -->
+
+      <!-- card body start -->
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card card-primary">
+
+              <!-- form start -->
+              <form role="form">
+
+                <!-- card body start -->
+                <div class="card-body">
+                 
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="start-date">Trainee Name</label>
+                        <input type="text" class="form-control" id="r_name" name="r_name">
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="start-date">Serial No</label>
+                        <input type="text" class="form-control" id="r_no" name="r_no" readonly>
+                      </div>
+                    </div>
+                 
+                    
+
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">Location</label>
+                        <select class="form-control">
+                          <option>Location1</option>
+                          <option>Location2</option>
+                        </select>
+                      </div>
+                    </div>
+
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">Track</label>
+                        <select class="form-control">
+                          <option>track1</option>
+                          <option>track2</option>
+                        </select>
+                      </div>
+                    </div>
+
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">Status</label>
+                        <select class="form-control">
+                          <option>status1</option>
+                          <option>status2</option>
+                        </select>
+                      </div>
+                    </div>
+
+                    <div class="col-md-6">
+                      <div class="file-field">
+                        <label for="exampleInputEmail1">Profile link</label>
+                        <br>
+                        <div class="btn blue-gradient btn-sm float-left">
+                          <input type="file"  multiple>
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+
+                </div>
+                <!-- card body end -->
+
+                <div class="card-footer">
+                    <ng-content select=".footer"></ng-content>
+                  <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#submit">Add</button> -->
+                </div>
+              </form>
+              <!-- form end -->
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <!-- card body end -->
+
+    </div>
+ 
+   
+     
+  </div>
+</div> 

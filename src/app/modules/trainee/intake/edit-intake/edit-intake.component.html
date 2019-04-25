@@ -1,0 +1,129 @@
+<!-- edit modal start -->
+<div id="edit-intake-modal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <!-- modal content start -->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 class="card-title">Edit Intake History</h3>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <div class="col-md-12">
+  
+            <!-- card body start -->
+            <div class="card-body">
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="card card-primary">
+  
+                     <!-- form start -->
+              <form role="form">
+
+                  <!-- card body start -->
+                  <div class="card-body">
+  
+                    <div class="row">
+  
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label for="departmentName">Titles of Training</label>
+                          <input type="text"class="form-control" placeholder="Enter Training Title">
+                       
+                        </div>
+                      </div>
+  
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label for="employeeName">Batch No</label>
+                          <input type="number"class="form-control" placeholder="Enter Batch number" readonly>
+                         
+                        </div>
+                      </div>
+  
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label for="position">Slot</label>
+                          <input type="text" class="form-control"  placeholder="" >
+                        </div>
+                      </div>
+                    </div>
+  
+  
+                    <div class="row">
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label for="position">Planned course duration </label>
+                          <input list="duration" class="form-control" placeholder=" Months">
+                          <datalist id="duration">
+                              <option value="one month"></option>
+                              <option value="Three month"></option>
+                              <option value="Six month"></option>
+                              <option value="One year"></option>                            
+                            </datalist>
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label for="position">Planned course schedule </label>
+                          <input type="text" class="form-control" name="position" id="position" placeholder=" ">
+                          
+                        </div>
+                      </div> 
+                      
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label for="position">List of Inquire applicants </label>
+                          <input type="number" class="form-control" name="position" id="position" placeholder=" ">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                              <label for="position">expected qualification</label>
+                              <!-- <input type="text" class="form-control" name="position" id="position" placeholder=""> -->
+                              <textarea class="form-control" placeholder="Qualifications"></textarea>
+                            </div>
+                          </div> 
+                    </div>
+                   
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="position">Application call date </label>
+                          <input type="date" class="form-control" name="position" id="position" placeholder="">
+                        </div>
+                      </div>
+                     
+                        <div class="col-md-6">
+                            <div class="form-group">
+                              <label for="position">Application dead date </label>
+                              <input type="date" class="form-control" name="position" id="position" placeholder="">
+                            </div>
+                          </div>     
+                    </div>
+  
+  
+  
+                  </div>
+                  <!-- card body end -->
+  
+                  
+                </form>
+                <!-- form end -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-dismiss="modal">Update</button>
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+        </div>
+      </div>
+      <!-- modal content end -->
+    </div>
+  </div>
+  <!-- edit modal end -->
+  

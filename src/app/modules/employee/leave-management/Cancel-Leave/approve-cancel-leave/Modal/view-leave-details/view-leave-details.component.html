@@ -1,0 +1,103 @@
+<!--reject model start-->
+
+<div id="cancel-view-leave-request-modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- modal content start -->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="card-title">Reject Request</h3>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body" *ngIf="leaveRequest.id">
+        <div class="col-md-12">
+          <div class="card">
+            <div class="row mb-3 mt-3">
+              <div class="col-md-12 offset-1">
+                <div class="row">
+                  <div class="col-md-4 custom bold-font">
+                    Employee Name
+                  </div>
+                  <div class="col-md-1 custom">
+                    :
+                  </div>
+                  <div class="col-md-7 custom">
+                    {{leaveRequest.user.fullName}}
+                  </div>
+                </div>
+                <!-- <div class="row">
+                  <div class="col-md-4 custom bold-font">
+                    Department
+                  </div>
+                  <div class="col-md-1 custom">
+                    :
+                  </div>
+                  <div class="col-md-7 custom">
+
+                  </div>
+                </div> -->
+                <div class="row">
+                  <div class="col-md-4 custom bold-font">
+                    Start Date
+                  </div>
+                  <div class="col-md-1 custom">
+                    :
+                  </div>
+                  <div class="col-md-7 custom">
+                    {{leaveRequest.startDate | date: 'yyyy-mm-dd'}}
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-4 custom bold-font">
+                    End Date
+                  </div>
+                  <div class="col-md-1 custom">
+                    :
+                  </div>
+                  <div class="col-md-7 custom">
+                    {{leaveRequest.endDate | date: 'yyyy-mm-dd'}}
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-4 custom bold-font">
+                    Number of Days
+                  </div>
+                  <div class="col-md-1 custom">
+                    :
+                  </div>
+                  <div class="col-md-7 custom">
+                    {{leaveRequest.noOfDays}}
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-4 custom bold-font">
+                    Type of Leave
+                  </div>
+                  <div class="col-md-1 custom">
+                    :
+                  </div>
+                  <div class="col-md-7 custom">
+                    {{leaveRequest.leaveAllocation.leaveType.leaveTypeValue}}
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-4 custom bold-font">
+                    Reason
+                  </div>
+                  <div class="col-md-1 custom">
+                    :
+                  </div>
+                  <div class="col-md-7 custom">
+                    {{leaveRequest.reason}}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- modal content end -->
+  </div>
+</div>
+<!--reject model end-->

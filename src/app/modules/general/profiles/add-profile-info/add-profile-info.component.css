@@ -1,0 +1,70 @@
+.active{
+    color: #fff !important;
+    background-color: #007bff !important;
+    border-color: #007bff !important;
+  }
+  
+  body {
+    margin-top:40px;
+  }
+  .stepwizard-step p {
+    margin-top: 10px;
+  }
+  .stepwizard-row {
+    display: table-row;
+  }
+  .stepwizard {
+    display: table;
+    width: 100%;
+    position: relative;
+  }
+  .stepwizard-step button[disabled] {
+    opacity: 1 !important;
+    filter: alpha(opacity=100) !important;
+  }
+  .stepwizard-row:before {
+    top: 14px;
+    bottom: 0;
+    position: absolute;
+    content: " ";
+    width: 100%;
+    height: 1px;
+    background-color: #ccc;
+    z-order: 0;
+  }
+  .stepwizard-step {
+    display: table-cell;
+    text-align: center;
+    position: relative;
+  }
+  .btn-circle {
+    width: 30px !important;
+    height: 30px;
+    text-align: center;
+    padding: 6px 0;
+    font-size: 12px;
+    line-height: 1.428571429;
+    border-radius: 15px !important;
+    padding-top: initial;
+  }
+  .step {
+    height: 30px;
+    width: 30px;
+    margin: 0 0px;
+    background-color: rgb(0, 60, 255);
+    border: none;  
+    text-align:center;
+    border-radius: 50%;
+    display: inline-block;
+    opacity: 0.5;
+  }
+  
+  .step.active {
+    opacity: 1;
+  }
+  
+  /* Mark the steps that are finished and valid: */
+  .step.finish {
+    background-color: red;
+  }
+  

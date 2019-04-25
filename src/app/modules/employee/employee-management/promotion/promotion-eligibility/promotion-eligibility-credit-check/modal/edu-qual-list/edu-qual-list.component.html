@@ -1,0 +1,70 @@
+<!-- update modal start -->
+<div id="eduqual" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- modal content start -->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="card-title">Educational Qualification</h3>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="col-md-12">
+
+          <!-- form start -->
+          <!-- <form role="form">
+            <div class="mat-elevation-z8"> -->
+              <!-- card body start -->
+              <div class="card-body">
+
+
+                <mat-table [dataSource]="dataSource">
+
+                  <!-- column 1 start -->
+                  <ng-container matColumnDef="qualification">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header>Qualification</mat-header-cell>
+                    <mat-cell *matCellDef="let Creditcheck"> {{Creditcheck.qualification}} </mat-cell>
+                  </ng-container>
+                  <!-- column 1 end -->
+
+                  <!-- column 2 start -->
+                  <ng-container matColumnDef="place">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header>Place</mat-header-cell>
+                    <mat-cell *matCellDef="let Creditcheck"> {{Creditcheck.place}} </mat-cell>
+                  </ng-container>
+                  <!-- column 2 end -->
+
+                  <!-- column 3 start -->
+                  <ng-container matColumnDef="qualdate">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header>Date</mat-header-cell>
+                    <mat-cell *matCellDef="let Creditcheck"> {{Creditcheck.qualdate}} </mat-cell>
+                  </ng-container>
+                  <!-- column 3 end -->
+
+                  <!-- column 4 start -->
+                  <ng-container matColumnDef="qualgrade">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header>Grade</mat-header-cell>
+                    <mat-cell *matCellDef="let Creditcheck"> {{Creditcheck.qualgrade}} </mat-cell>
+                  </ng-container>
+                  <!-- column 4 end -->
+
+                  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+                </mat-table>
+
+              </div>
+            <!-- </div> -->
+            <!-- card body end -->
+          <!-- </form> -->
+          <!-- form end -->
+          
+        </div>
+      </div>
+      <!-- <div class="modal-footer">
+      </div> -->
+    </div>
+    <!-- modal content end -->
+
+  </div>
+  <!-- update modal end -->
+</div>

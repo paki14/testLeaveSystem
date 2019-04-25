@@ -1,0 +1,78 @@
+<!-- add modal start -->
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+      <!-- card header start -->
+      <div class="card-header">
+        <h5 class="card-title">Credit check</h5>
+      </div>
+      <div class="card-body">
+        <div>
+          <label for="role">Employee Name</label>
+          <div class="row">
+            <div class="col-md-4">
+              <input type="text" class="form-control" id="empname" name="empname" disabled>
+            </div>
+          </div>
+        </div>
+        <br><br>
+        <div class="mat-elevation-z8">
+          <mat-table [dataSource]="dataSource">
+
+            <!-- column 1 start -->
+            <ng-container matColumnDef="qualification">
+              <mat-header-cell *matHeaderCellDef mat-sort-header>Upgrade Qualification</mat-header-cell>
+              <mat-cell *matCellDef="let Creditcheck">
+                  <a href="#" data-toggle="modal" data-target="#eduqual"><span class="material-icons" >visibility</span></a>
+              </mat-cell>
+            </ng-container>
+            <!-- column 1 end -->
+
+            <!-- column 2 start -->
+            <ng-container matColumnDef="par">
+              <mat-header-cell *matHeaderCellDef mat-sort-header>Par History</mat-header-cell>
+              <mat-cell *matCellDef="let Creditcheck">
+                <a href="#" data-toggle="modal" data-target="#parhist"><span class="material-icons">visibility</span></a>
+              </mat-cell>
+            </ng-container>
+            <!-- column 2 end -->
+
+            <!-- column 3 start -->
+            <ng-container matColumnDef="leavehist">
+              <mat-header-cell *matHeaderCellDef mat-sort-header>Leave History</mat-header-cell>
+              <mat-cell *matCellDef="let Creditcheck">
+                  <a href="#" data-toggle="modal" data-target="#levqual"><span class="material-icons">visibility</span></a>
+              </mat-cell>
+            </ng-container>
+            <!-- column 3 end -->
+
+            <!-- column 4 start -->
+            <ng-container matColumnDef="YofStayComp">
+              <mat-header-cell *matHeaderCellDef mat-sort-header>Year of stay in company</mat-header-cell>
+              <mat-cell *matCellDef="let Creditcheck"> {{Creditcheck.YofStayComp}} </mat-cell>
+            </ng-container>
+            <!-- column 4 end -->
+
+            <!-- column 5 start -->
+            <ng-container matColumnDef="YofExperience">
+              <mat-header-cell *matHeaderCellDef mat-sort-header>Total year of experience</mat-header-cell>
+              <mat-cell *matCellDef="let Creditcheck"> {{Creditcheck.YofExperience}} </mat-cell>
+            </ng-container>
+            <!-- column 5 end -->
+
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+          </mat-table>
+          <div class="card-footer">
+            <ng-content select=".footer"></ng-content>
+            <button type="button" class="btn btn-primary" matStepperPrevious>Back</button>&nbsp;&nbsp;
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#insertPromotion">Promote</button>&nbsp;&nbsp;
+            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deniedPromotion">Denied</button>
+          </div>
+        </div>
+      </div>
+      <!-- form end -->
+    </div>
+  </div>
+</div>
+<!-- modal content end -->

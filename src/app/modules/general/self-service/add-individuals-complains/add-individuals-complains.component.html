@@ -1,0 +1,113 @@
+<!-- request leave start -->
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+
+      <!-- card header start -->
+      <div class="card-header">
+      </div>
+      <!-- card-header end -->
+
+      <!-- card body start -->
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card card-primary ">
+              <!-- form start -->
+              <form role="form" #selfServiceForm="ngForm">
+                <div class="container-fluid">
+                  <!-- card body start -->
+                  <!-- <fieldset> -->
+                    <legend></legend>
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="exampleInputEmail1">Type</label>
+                          <select class="form-control select2" [(ngModel)]="selfServiceObj.selfServiceType" name="selfServiceTypeId">
+                            <option selected disabled value="0">Select a type</option>
+                            <option *ngFor="let selfServiceType of selfServiceType" value="{{selfServiceType.id}}">{{selfServiceType.selfServiceTypeName}}</option>
+
+                          </select>
+                        </div>
+
+                        <div class="form-group">
+                          <label for="exampleInputEmail1">Relevant Department</label>
+                          <select class="form-control departmentDropdown" [(ngModel)]="selfServiceObj.relevantDepartment"
+                            name="ralaventDepartment">
+                            <option selected disabled value="0">Select Department</option>
+                            <option *ngFor="let department of departments" value="{{department.id}}">{{department.departmentName}}</option>
+                          </select>
+                        </div>
+
+                        <div class="form-group">
+                          <label for="exampleInputEmail1">Date </label>
+                          <input type="Number of copies " mwlFlatpickr class="form-control" placeholder="dd/mm/yyyy"
+                            [(ngModel)]="selfServiceObj.createdAt" name="createdAt">
+                        </div>
+
+                       
+                      </div>
+
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="exampleInputEmail1">Relevant Individual </label>
+                          <input name="funame" list="options" class=" form-control" [(ngModel)]="selfServiceObj.relevantIndividual">
+                          <datalist id="options">
+                            <option selected disabled>Select a Relevant Individual</option>
+                            <option *ngFor="let user of users" data-value="{{user.id}}">{{user.fullName}}</option>
+                          </datalist>
+                        </div>
+
+                        <div class="form-group">
+                          <label for="exampleInputEmail1">Inform Individual </label>
+                          <div class="form-control no-border">
+                            <mat-radio-group [(ngModel)]="selfServiceObj.informIndividual" name="informIndividual">
+                              <mat-radio-button [value]=true>Yes</mat-radio-button>
+                              <mat-radio-button [value]=false>No</mat-radio-button>
+                            </mat-radio-group>
+                          </div>
+                        </div>
+                        <!-- <div class="form-group">
+                          <label for="exampleInputEmail1">Individual Involved </label>
+                          <input name="funame" list="funame" class=" form-control" [(ngModel)]="selfServiceObj.userId">
+                          <datalist id="funame">
+                            <option selected disabled>Select a Relevant Individual</option>
+                            <option *ngFor="let user of users" value="{{user.fullName}}"></option>
+                          </datalist>
+                        </div> -->
+                        <!-- <div class="form-group">
+                          <label for="exampleInputEmail1">Individual Involved </label>
+                          <input type="Number of copies " class="form-control" placeholder="Individual name"
+                            [(ngModel)]="selfServiceObj.relevantIndividual" name="relevantIndividual ">
+                        </div> -->
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Description</label>
+                            <textarea class="form-control" rows="3" cols="10" [(ngModel)]="selfServiceObj.description"
+                              name="description"></textarea>
+                          </div>
+                      </div>
+                    </div>
+                  <!-- </fieldset> -->
+                </div>
+              </form>
+              <!-- form end -->
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- card body end -->
+      <div class="card-footer">
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#add-modal" (click)="createComplain();selfServiceForm.reset()">Send</button>
+      </div>
+      <div class="alert alert-success notification" id="alert-success" *ngIf="responseMsg === 'success'">
+          <span class="bold-font">Success:</span> All records were processed correctly!
+        </div>
+        <div class="alert alert-danger notification" id="alert-danger" *ngIf="responseMsg === 'fail'">
+          <span class="bold-font">Error:</span> Something went wrong.
+        </div>
+    </div>
+  </div>
+</div>
+<div>
+  <!-- {{selfServiceObj | json}} -->
+</div>

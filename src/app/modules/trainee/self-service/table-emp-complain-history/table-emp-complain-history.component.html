@@ -1,0 +1,146 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+
+      <!-- card header start -->
+      <div class="card-header">
+        <h5 class="card-title"> Employee Complain History</h5>
+        <div class="card-tools">
+          <button type="button" class="btn btn-tool" data-widget="collapse">
+            <i class="fa fa-minus"></i>
+          </button>
+          <button type="button" class="btn btn-tool" data-widget="remove">
+            <i class="fa fa-times"></i>
+          </button>
+        </div>
+      </div>
+      <!-- card header end -->
+
+      <!-- card body start -->
+     
+      <div class="card-body">
+  
+          <mat-form-field>
+            <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+          </mat-form-field>
+  
+          <div class="mat-elevation-z8">
+            <mat-table [dataSource]="dataSource" matSort>
+  
+              <!-- column 1 start -->
+              <ng-container matColumnDef="date">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Date </mat-header-cell>
+                <mat-cell *matCellDef="let history"> {{history.date}} </mat-cell>
+              </ng-container>
+              <!-- column 1 end -->
+  
+              <!-- column 2 start -->
+              <ng-container matColumnDef="type">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Type </mat-header-cell>
+                <mat-cell *matCellDef="let history"> {{history.type}}</mat-cell>
+              </ng-container>
+              <!-- column 2 end -->
+  
+              <ng-container matColumnDef="status">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Status</mat-header-cell>
+                <mat-cell *matCellDef="let history"> {{history.status}}</mat-cell>
+              </ng-container>
+  
+              <ng-container matColumnDef="description">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Description </mat-header-cell>
+                <mat-cell *matCellDef="let history"> {{history.description}}</mat-cell>
+              </ng-container>
+  
+              <ng-container matColumnDef="attach">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Attach</mat-header-cell>
+                <mat-cell *matCellDef="let history">{{history.attach}}
+                   <i class="fa fa-eye" aria-hidden="true" data-toggle="modal"
+                      data-target="#add-modal-HR"></i>
+                    </mat-cell>
+              </ng-container>
+  
+              <ng-container matColumnDef="reply">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Reply</mat-header-cell>
+                <mat-cell *matCellDef="let history"> {{history.reply}}</mat-cell>
+              </ng-container>
+
+              <ng-container matColumnDef="myReply">
+                  <mat-header-cell *matHeaderCellDef mat-sort-header>My Reply</mat-header-cell>
+                  <mat-cell *matCellDef="let history"> {{history.myReply}}</mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="sendReply">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header>Send Reply</mat-header-cell>
+                    <mat-cell *matCellDef="let history"><i class="fa fa-envelope" aria-hidden="true"></i></mat-cell>
+                  </ng-container>
+
+              <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+              <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+            </mat-table>
+  
+            <!-- pagination start -->
+            <mat-paginator [pageSizeOptions]="[3, 5, 10, 25]"></mat-paginator>
+            <!-- pagination end -->
+          </div>
+  
+        </div>
+
+
+
+      <!-- card body end -->
+
+    </div>
+  </div>
+</div>
+
+<!-- add modal start -->
+<div id="add-modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <!-- modal content start -->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h6 class="modal-title">Send Reply</h6>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="col-md-12">
+
+          <!-- form start -->
+          <form role="form">
+
+            <!-- card body start -->
+           
+              <div class="form-group">
+                <label for="end-date">Message</label>
+                <textarea class="form-control" readonly></textarea>
+              </div>
+
+              <div class="form-group">
+                <label for="leave-type">To Whom Send Reply</label>
+                <input type="text" class="form-control" name="name2">
+
+                <!-- <section>
+                  <mat-checkbox>Checkbox</mat-checkbox>
+                  <mat-checkbox>Checkbox</mat-checkbox>
+                  <mat-checkbox>Checkbox</mat-checkbox>
+                </section> -->
+              </div>
+
+              <div class="form-group">
+                <label for="exampleInputEmail1">Reply Message</label>
+                <textarea class="form-control"></textarea>
+              </div>
+
+          </form>
+          <!-- form end -->
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Send</button>
+      </div>
+    </div>
+    <!-- modal content end -->
+
+  </div>
+</div>
+<!-- add modal end -->

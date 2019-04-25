@@ -1,0 +1,22 @@
+<!-- <app-add-suggestion></app-add-suggestion>
+<app-view-own-suggestion></app-view-own-suggestion>
+<app-view-suggestion></app-view-suggestion> -->
+
+
+<div id="hr-leave-tab-group">
+    <mat-tab-group>
+
+        <mat-tab label="Send Feedback" *ngIf="info.authorities=='TRAINER'">
+            <app-add-suggestion></app-add-suggestion>
+        </mat-tab>
+
+        <mat-tab label="View All Feedback" *ngIf="info.authorities=='TRAINER'">
+            <app-view-own-suggestion></app-view-own-suggestion>
+        </mat-tab>
+
+        <mat-tab label="View own Feedback" *ngIf="info.authorities=='TRAINER'">
+            <app-view-suggestion></app-view-suggestion>
+        </mat-tab>
+
+    </mat-tab-group>
+</div>

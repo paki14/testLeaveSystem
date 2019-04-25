@@ -1,0 +1,87 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+      <!-- card header start -->
+      <div class="card-header">
+        <h5 class="card-title">Experience Letter Request History.</h5>
+        <div class="card-tools">
+          <button type="button" class="btn btn-tool" data-widget="collapse">
+            <i class="fa fa-minus"></i>
+          </button>
+          <button type="button" class="btn btn-tool" data-widget="remove">
+            <i class="fa fa-times"></i>
+          </button>
+        </div>
+      </div>
+      <!-- card header end -->
+
+      <!-- card body start -->
+      <div class="card-body">
+
+        <mat-form-field>
+          <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+        </mat-form-field>
+
+        <div class="mat-elevation-z8">
+          <mat-table [dataSource]="dataSource" matSort>
+
+            <!-- column 1 start -->
+            <ng-container matColumnDef="id">
+              <mat-header-cell *matHeaderCellDef mat-sort-header> ID </mat-header-cell>
+              <mat-cell *matCellDef="let history"> {{history.id}} </mat-cell>
+            </ng-container>
+            <!-- column 1 end -->
+
+            <!-- column 2 start -->
+            <ng-container matColumnDef="empName">
+              <mat-header-cell *matHeaderCellDef mat-sort-header> Employee Name </mat-header-cell>
+              <mat-cell *matCellDef="let history"> {{history.userId.userName}}</mat-cell>
+            </ng-container>
+            <!-- column 2 end -->
+
+            <ng-container matColumnDef="department">
+              <mat-header-cell *matHeaderCellDef mat-sort-header> Department </mat-header-cell>
+              <mat-cell *matCellDef="let history"> {{history.department}}</mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="requestedDate">
+              <mat-header-cell *matHeaderCellDef mat-sort-header> Date requested </mat-header-cell>
+              <mat-cell *matCellDef="let history"> {{history.requestLetterId.createdAt}}</mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="reason">
+              <mat-header-cell *matHeaderCellDef mat-sort-header> Reason</mat-header-cell>
+              <mat-cell *matCellDef="let history"> {{history.requestLetterId.reason }}</mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="status">
+              <mat-header-cell *matHeaderCellDef mat-sort-header> Status</mat-header-cell>
+              <mat-cell *matCellDef="let history"> {{history.status}}</mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="issuedDate">
+              <mat-header-cell *matHeaderCellDef mat-sort-header> Date Issued </mat-header-cell>
+              <mat-cell *matCellDef="let history"> {{history.issuedDate}}</mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="provided">
+              <mat-header-cell *matHeaderCellDef mat-sort-header>Letter Issued Status</mat-header-cell>
+              <mat-cell *matCellDef="let history"> {{history.requestLetterId.status}}</mat-cell>
+            </ng-container>
+
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+          </mat-table>
+
+          <!-- pagination start -->
+          <mat-paginator [pageSizeOptions]="[3, 5, 10, 25]"></mat-paginator>
+          <!-- pagination end -->
+        </div>
+
+      </div>
+      <!-- card body end -->
+
+    </div>
+  </div>
+</div>
+

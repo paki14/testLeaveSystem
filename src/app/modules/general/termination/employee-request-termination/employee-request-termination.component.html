@@ -1,0 +1,82 @@
+<!-- Termination request start,employee view -->
+<div class="row">
+  <div class="col-md-8">
+    <div class="card">
+       <!-- Termination request card header start -->
+      <div class="card-header">
+        <h5 class="card-title">Request For Termination </h5>
+        <div class="card-tools">
+          <button type="button" class="btn btn-tool" data-widget="collapse">
+            <i class="fa fa-minus"></i>
+          </button>
+          <button type="button" class="btn btn-tool" data-widget="remove">
+            <i class="fa fa-times"></i>
+          </button>
+        </div>
+      </div>
+      <!-- Termination request card-header end -->
+      <div class="container-fluid">
+        <!-- card body start -->
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-12">
+              <!-- Termination request form start -->
+              <form #requestTerminationForm="ngForm">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="Type-of-Termination">Type of Termination</label>
+                      {{requestTerminationObj | json}}
+                      <select class="form-control" name="Type-of-Termination" 
+                      id="Type-of-Termination" [(ngModel)]="requestTerminationObj.terminationType.id">
+                        <option defult hidden selected>select</option>
+                        <option *ngFor="let terminationType of terminationTypes" 
+                        [value] = "terminationType.id">{{terminationType.terminationType}}</option>
+                      </select>
+
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="planned-date-for-leaving">planned date for leaving</label>
+                      <input type="text" mwlFlatpickr class="form-control" name="planned-date-for-leaving" 
+                      id="planned-date-for-leaving" placeholder="2018/12/01"
+                      [(ngModel)]="requestTerminationObj.planedLeavingDate">
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label for="Reason-for-Termination">Reason for Termination</label>
+                      <textarea class="form-control" name="Reason-for-Terminationd" 
+                      id="Reason-for-Termination" [(ngModel)]="requestTerminationObj.reason">
+                    </textarea>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label for="Attach-Termination-letter">Attach Termination letter</label>
+                      <input type="file" class="form-control" name="Attach-Termination-letter"
+                       id="Attach-Termination-letter" 
+                       [(ngModel)]="requestTerminationObj.resignationLetter" >
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- card body end -->
+      <div class="card-footer">
+        <button type="button" class="btn btn-primary" data-toggle="modal" 
+        data-target="#add-modal" (click)="createRequestTermination()" data-dismiss="modal">Submit</button>
+        &nbsp;
+      </div>
+    </div>
+    <!--card end-->
+  </div>
+</div>

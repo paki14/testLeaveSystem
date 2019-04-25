@@ -1,0 +1,324 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+      <!-- card header start -->
+      <div class="card-header">
+        <h5 class="card-title"> View Plan Vacancies</h5>
+        <div class="card-tools">
+        </div>
+      </div>
+      <!-- card header end -->
+
+      <!-- card body start -->
+      <div class="card-body">
+        <mat-form-field>
+          <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+        </mat-form-field>
+
+        <div class="mat-elevation-z8">
+          <mat-table [dataSource]="dataSource" matSort>
+
+            <ng-container matColumnDef="view">
+              <mat-header-cell *matHeaderCellDef mat-sort-header>Full Details </mat-header-cell>
+              <mat-cell *matCellDef="let plan">
+                <a href="#" data-toggle="modal" (click)="editPlanVacancy(plan)" data-target="#viewall-view-plan-vacancies">{{plan.view}}<span
+                    class="material-icons">visibility</span></a></mat-cell>
+            </ng-container>
+
+            <!-- column 1 start -->
+            <ng-container matColumnDef="title">
+              <mat-header-cell *matHeaderCellDef mat-sort-header style="text-align:center">Job Tittle</mat-header-cell>
+              <mat-cell *matCellDef="let plan"> {{plan.job.jobName}} </mat-cell>
+            </ng-container>
+            <!-- column 1 end -->
+
+            <!-- column 1 start -->
+            <ng-container matColumnDef="referencenumber">
+              <mat-header-cell *matHeaderCellDef mat-sort-header style="text-align:center">Ref.Number
+              </mat-header-cell>
+              <mat-cell *matCellDef="let plan"> {{plan.job.jobReferenceNo}} </mat-cell>
+            </ng-container>
+            <!-- column 1 end -->
+
+            <!-- column 2 start -->
+            <ng-container matColumnDef="no">
+              <mat-header-cell *matHeaderCellDef mat-sort-header> NO of vacancies</mat-header-cell>
+              <mat-cell *matCellDef="let plan"> {{plan.noOfVacancy}}</mat-cell>
+            </ng-container>
+            <!-- column 2 end -->
+
+            <!-- column 2 start -->
+            <ng-container matColumnDef="department">
+              <mat-header-cell *matHeaderCellDef mat-sort-header> Department</mat-header-cell>
+              <mat-cell *matCellDef="let plan"> {{plan.department.departmentName}}</mat-cell>
+            </ng-container>
+            <!-- column 2 end -->
+
+            <!-- column 2 start -->
+            <ng-container matColumnDef="salary">
+              <mat-header-cell *matHeaderCellDef mat-sort-header>Salary scale</mat-header-cell>
+              <mat-cell *matCellDef="let plan"> {{plan.salaryScale}}</mat-cell>
+            </ng-container>
+            <!-- column 2 end -->
+
+            <ng-container matColumnDef="button">
+              <mat-header-cell *matHeaderCellDef mat-sort-header> </mat-header-cell>
+              <mat-cell *matCellDef="let plan"> <button class="btn btn-primary" data-toggle="modal" data-target="#edit-view-plan-vacancies"
+                  (click)="editPlanVacancy(plan)">Edit</button>
+                &nbsp; &nbsp; <button class="btn btn-danger" data-toggle="modal" data-target="#delete-view-plan-vacancies"
+                  (click)="editPlanVacancy(plan)">Delete</button></mat-cell>
+            </ng-container>
+
+
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+          </mat-table>
+
+          <!-- pagination start -->
+          <mat-paginator [pageSizeOptions]="[3, 5, 10, 25]"></mat-paginator>
+          <!-- pagination end -->
+        </div>
+      </div>
+      <!-- card body end -->
+    </div>
+  </div>
+
+  <app-viewall-view-plan-vacancies></app-viewall-view-plan-vacancies>
+  <app-edit-view-plan-vacancies></app-edit-view-plan-vacancies>
+  <app-delete-view-plan-vacancies></app-delete-view-plan-vacancies>
+
+
+
+  <!-- DeleteModal -->
+  <div class="modal fade" id="delete-view-plan-vacancies" tabindex="-1" role="dialog" aria-labelledby="delete"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Delete</h5>
+        </div>
+        <!-- Modal Body -->
+        <div class="modal-body">
+          <h6>Are you sure do you want to delete?</h6>
+        </div>
+        <!-- Modal Footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="deletePlanVacancyById(planVacancyObj)">Yes</button>
+          <button class="btn btn-primary" (click)="onNoClick()" data-dismiss="modal">No</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- DeleteModal Close -->
+
+  <!-- EditModal -->
+  <div class="modal fade" id="edit-view-plan-vacancies" tabindex="-1" role="dialog" aria-labelledby="update"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class=" modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="vacUpdate">Update</h5>
+          </div>
+
+          <!-- Modal Body -->
+
+          <!-- {{editPlanVacancies.value | json}} -->
+
+          <div class="modal-body">
+            <div class="row">
+              <div class="col-lg-4">
+                <div class="form-group">
+                  <label for="jobTitle">Job Title</label>
+                  <select class="form-control" name="jobTitle" id="jobTitle" [(ngModel)]="planVacancyObj.job">
+                    <option default hidden selected>--Job Title-</option>
+                    <option *ngFor="let jobs of job" [value]="jobs.id">{{jobs.jobName}}</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-lg-4">
+                <div class="form-group">
+                  <label for="refNum"> Job reference number</label>
+                  <input type="number" class="form-control" name="refNum" placeholder="Job reference number" readonly
+                    [(ngModel)]="planVacancyObj.job">
+                </div>
+              </div>
+              <div class="col-lg-4">
+                <div class="form-group">
+                  <label for="hireOfficer">Hiring Officer</label>
+                  <select class="form-control" name="hireOfficer" id="hireOfficer" [(ngModel)]="planVacancyObj.user">
+                    <option default hidden selected>--HiringOfficer-</option>
+                    <option *ngFor="let users of user" [value]="users.id">{{users.fullName}}</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-4">
+                <div class="form-group">
+                  <label for="hirDep">Hiring Department</label>
+                  <select class="form-control" name="hirDep" id="hirDep" [(ngModel)]="planVacancyObj.department">
+                    <option default hidden selected>--HiringDepartment-</option>
+                    <option *ngFor="let departments of department" [value]="departments.id">{{departments.departmentName}}</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-lg-4">
+                <div class="form-group">
+                  <label for="noOfVacancies">Number of vacancies</label>
+                  <input type="text" class="form-control" placeholder="Enter No of plan vacancies" name="noOfVacancies"
+                    [(ngModel)]="planVacancyObj.noOfVacancy">
+                </div>
+              </div>
+              <div class="col-lg-4">
+                <div class="form-group">
+                  <label for="typeRecuitment">Type of recruitment </label>
+                  <select class="form-control" name="typeRecuitment" id="typeRecuitment" [(ngModel)]="planVacancyObj.recruitmentType">
+                    <option default hidden selected>--RecruitmentType-</option>
+                    <option *ngFor="let recruitmentTypes of recruitmentType" [value]="recruitmentTypes.id">{{recruitmentTypes.recruitmentType}}</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-4">
+                <div class="form-group">
+                  <label for="salaryScal">Salary scale</label>
+                  <input type="text" class="form-control" name="salaryScal" placeholder="Enter Salary scale"
+                    [(ngModel)]="planVacancyObj.salaryScale">
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <div class="form-group">
+                  <label for="schedule-date">Schedule date if any selection exam, interviews & placement</label>
+                  <input type="date" class="form-control" name="scheduleDate" placeholder="yyyy-mm-dd" [(ngModel)]="planVacancyObj.interviewDate">
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <div class="form-group">
+                  <label for="open-date">Job application Opening date</label>
+                  <input type="date" class="form-control" name="openDate" placeholder="yyyy-mm-dd" [(ngModel)]="planVacancyObj.vacancyOpenDate">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-4">
+                <div class="form-group">
+                  <label for="close-date">Job application End date</label>
+                  <input type="date" class="form-control" name="endDate" placeholder="yyyy-mm-dd" [(ngModel)]="planVacancyObj.vacancyCloseDate">
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <div class="form-group">
+                  <label for="keyReq"> Key requirement</label>
+                  <textarea class="form-control" name="keyReq" placeholder="Enter Key requirement" [(ngModel)]="planVacancyObj.keyRecuitment"></textarea>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Modal Footer -->
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="updatePlanVacancy(planVacancyObj)">Update</button>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- EditModal Close -->
+
+  <!-- View All Modal -->
+  <div class="modal fade" id="viewall-view-plan-vacancies" tabindex="-1" role="dialog" aria-labelledby="update"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="vacUpdate">View plan vacancies</h5>
+        </div>
+        <form #planVacancyForm="ngForm">
+          <!-- Modal Body -->
+          <div class="modal-body">
+            <div class="row">
+              <div class="col-sm-4">
+                  <div class="form-group">
+                      <label for="title"> Job title</label>
+                      <input type="text" class="form-control" name="title" readonly [(ngModel)]="planVacancyObj.job">
+                    </div>
+              </div>
+              <div class="col-sm-4">
+                <div class="form-group">
+                  <label for="number"> Job reference number</label>
+                  <input type="text" class="form-control" name="number" id="number" readonly [(ngModel)]="planVacancyObj.job">
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <div class="form-group">
+                  <label for="officer"> Hiring officer</label>
+                  <input type="text" class="form-control" name="officer" id="officer" readonly [(ngModel)]="planVacancyObj.user">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-4">
+                <div class="form-group">
+                  <label for="hire">Hiring Department</label>
+                  <input type="text" class="form-control" name="hire" id="hire" readonly [(ngModel)]="planVacancyObj.department">
+                </div>
+              </div>
+              <div class="col-sm-4">
+                  <div class="form-group">
+                    <label for="vacancy">Number Of Vacancies</label>
+                    <input type="text" class="form-control" name="vacancy" id="vacancy" readonly [(ngModel)]="planVacancyObj.noOfVacancy">
+                  </div>
+                </div>
+              <div class="col-sm-4">
+                <div class="form-group">
+                  <label for="type">Type of recruitment </label>
+                  <input type="text" class="form-control" name="type" id="type" readonly [(ngModel)]="planVacancyObj.recruitmentType">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-4">
+                <div class="form-group">
+                  <label for="salary">Salary scale</label>
+                  <input type="text" class="form-control" name="salary" id="salary" readonly [(ngModel)]="planVacancyObj.salaryScale">
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <div class="form-group">
+                  <label for="scheduleDate">Schedule date if any selection exam, interviews & placement</label>
+                  <input type="text" class="form-control" name="scheduleDate" id="scheduleDate" readonly [(ngModel)]="planVacancyObj.interviewDate">
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <div class="form-group">
+                  <label for="opendate">Job application Opening date</label>
+                  <input type="text" class="form-control" name="opendate" id="opendate" readonly [(ngModel)]="planVacancyObj.vacancyOpenDate">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-4">
+                <div class="form-group">
+                  <label for="enddelete">Job application End date</label>
+                  <input type="text" class="form-control" name="enddelete" id="enddelete" readonly [(ngModel)]="planVacancyObj.vacancyCloseDate">
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <div class="form-group">
+                  <label for="key"> Key requirement</label>
+                  <textarea class="form-control" name="key" id="key" readonly [(ngModel)]="planVacancyObj.keyRecuitment"></textarea>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+        <!-- Modal Footer -->
+        <div class="modal-footer">
+          <button class="btn btn-danger" (click)="onNoClick()" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- View All Modal Close-->

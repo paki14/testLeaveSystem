@@ -1,0 +1,68 @@
+<div class="row">
+  <div class="col-md-10">
+    <div class="card">
+      <!-- card header start -->
+      <div class="card-header">
+        <h5 class="card-title">Track payment</h5>
+
+        <div class="card-tools">
+          <button type="button" class="btn btn-tool" data-widget="collapse">
+            <i class="fa fa-minus"></i>
+          </button>
+          <button type="button" class="btn btn-tool" data-widget="remove">
+            <i class="fa fa-times"></i>
+          </button>
+        </div>
+      </div><br>
+      <!-- card-header end -->
+      <div class="col-md-12">
+        <button type="button" class="btn btn-primary pull-right" data-toggle="modal" data-target="#trackpayment">Add</button>
+      </div>
+      <!-- card body start -->
+      <div class="card-body nopadding">
+        <!-- form start -->
+        <form role="form">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-12">
+                <fieldset>
+                  <!-- card body start -->
+                  <div class="row">
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <label for="">Payment Id</label>
+                        <input type="text" class="form-control" id="paymentid" placeholder="Payment Id">
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <label for="">Select date</label>
+                        <input type="date" class="form-control" id="selectddate" placeholder="Select date">
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <label for="">Current Process track</label>
+                        <input type="text" class="form-control" id="process" placeholder="Current Process track"
+                          disabled>
+                      </div>
+                    </div>
+                  </div>
+                </fieldset>
+
+                <!-- card body end -->
+              </div>
+            </div>
+          </div>
+          <!-- card body end -->
+          <div class="card-footer">
+            <!-- <button type="button" class="btn btn-primary">Request</button> &nbsp;
+        <button type="button" class="btn btn-danger">Cancel</button> -->
+          </div>
+        </form>
+        <!-- form end -->
+      </div>
+    </div>
+  </div>
+</div>
+<app-add-track-payment></app-add-track-payment>

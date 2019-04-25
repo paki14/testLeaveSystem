@@ -1,0 +1,42 @@
+<!-- Nav tabs -->
+<br>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="tab" role="tabpanel">
+        <ul class="nav nav-tabs" role="tablist">
+          <!-- <li class="nav-link active" role="presentation" data-toggle="tab" routerLink="viewtakenemploan" *ngIf="info.authorities=='EMPLOYEE'">/a>
+          </li> -->
+          <li role="presentation" routerLinkActive="active" *ngIf="info.authorities=='EMPLOYEE'"><a class="active" routerLink="viewloan" aria-controls="home"
+            role="tab" data-toggle="tab">Loan List</a></li>
+            
+          <li role="presentation" routerLinkActive="active" *ngIf="info.authorities=='EMPLOYEE'"><a class="active" routerLink="viewtakenemploan" aria-controls="home"
+            role="tab" data-toggle="tab">Already
+            Taken List</a></li>
+
+          <!-- <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" routerLink="viewtakenhrloan" *ngIf="info.authorities=='HR'">User Loan Taken
+              List</a>
+          </li> -->
+          <div class="nav-tabs1">
+          <li role="presentation" routerLinkActive="active" *ngIf="info.authorities=='HR'" ><a class="active" routerLink="viewtakenhrloan" aria-controls="home"
+            role="tab" data-toggle="tab">User Loan Taken
+            List</a></li>
+          </div>
+
+          <!-- <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" routerLink="viewloan" *ngIf="info.authorities=='EMPLOYEE'">Loan Taken List</a>
+          </li> -->
+          
+          <!-- <li class="nav-item">
+    <a class="nav-link" data-toggle="tab" routerLink="viewtakenloan">Taken Loan List</a>
+  </li> -->
+        </ul>
+        <!-- Tab panes -->
+        <div class="tab-content">
+          <router-outlet></router-outlet>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

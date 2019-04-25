@@ -1,0 +1,148 @@
+   
+<section class="content">
+    <!-- tab content start -->
+    <div class="tab-content" id="myTabContent">
+      <div class="tab-pane fade show active" id="tab1_content" aria-labelledby="tab1_content">
+        <!-- <app-request-leave></app-request-leave> -->
+  
+        <!-- appoinment start -->
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card">
+  
+              <!-- card header start -->
+              <div class="card-header">
+                <h5 class="card-title">INQUIRE APPLICANTS</h5>
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" data-widget="collapse">
+                    <i class="fa fa-minus"></i>
+                  </button>
+                  <button type="button" class="btn btn-tool" data-widget="remove">
+                    <i class="fa fa-times"></i>
+                  </button>
+                </div>
+              </div>
+              <!-- card header end -->
+  
+              <!-- card body start -->
+              <div class="card-body">
+                <mat-form-field>
+                  <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+                </mat-form-field>
+  
+                <div class="mat-elevation-z8">
+                  <mat-table [dataSource]="dataSource" matSort>
+  
+                    <!-- column 1 start -->
+                    <ng-container matColumnDef="name">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>
+                        <mat-cell *matCellDef="let appoinment"> {{appoinment.name}}</mat-cell>
+                      </ng-container>
+                   
+                    <!-- column 1 end -->
+  
+                    <!-- column 2 start -->
+                    <ng-container matColumnDef="nic">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header>NIC</mat-header-cell>
+                        <mat-cell *matCellDef="let appoinment"> {{appoinment.nic}} </mat-cell>
+                      </ng-container>
+                    <!-- column 2 end -->
+                    <ng-container matColumnDef="contact">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header>Contact No </mat-header-cell>
+                        <mat-cell *matCellDef="let appoinment"> {{appoinment.contact}} </mat-cell>
+                      </ng-container>
+
+                    <ng-container matColumnDef="email">
+                      <mat-header-cell *matHeaderCellDef mat-sort-header> E-mail </mat-header-cell>
+                      <mat-cell *matCellDef="let appoinment"> {{appoinment.email}}</mat-cell>
+                    </ng-container>
+  
+                    <ng-container matColumnDef="hq">
+                      <mat-header-cell *matHeaderCellDef mat-sort-header> Higher Qualification </mat-header-cell>
+                      <mat-cell *matCellDef="let appoinment"> {{appoinment.hq}}</mat-cell>
+                    </ng-container>
+  
+                    <ng-container matColumnDef="cv">
+                      <mat-header-cell *matHeaderCellDef mat-sort-header> CV </mat-header-cell>
+                      <mat-cell *matCellDef="let appoinment"> {{appoinment.cv }}</mat-cell>
+                    </ng-container>
+  
+                    
+
+                    <!--edit & delete button start-->
+                   
+                    <ng-container matColumnDef="edit">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header> </mat-header-cell>
+                        <mat-cell *matCellDef="let appoinment"><a href="#"data-toggle="modal" data-target="#edit-inquire-modal"> <span class="material-icons" style="color:#007bff">edit</span></a></mat-cell>
+                      </ng-container>
+
+                      <ng-container matColumnDef="delete">
+                          <mat-header-cell *matHeaderCellDef mat-sort-header></mat-header-cell>
+                          <mat-cell *matCellDef="let appoinment"><a href="#"data-toggle="modal" data-target="#delete-allowance-modal"><span class="material-icons" style="color: #ff4444">delete_forever</span></a></mat-cell>
+                        </ng-container>
+                        <!--edit & delete button end-->
+
+                    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+                  </mat-table>
+  
+                  <!-- pagination start -->
+                  <mat-paginator [pageSizeOptions]="[3, 5, 10, 25]"></mat-paginator>
+                  <!-- pagination end -->
+                </div>
+              </div>
+              <!-- card body end -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <!-- tab content end -->
+  
+  </section>
+
+<app-edit-inquire-applicants></app-edit-inquire-applicants>
+  
+  <!--delete model start-->
+
+<div id="delete-allowance-modal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+  
+      <!-- modal content start -->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 class="card-title">Conformation</h3>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <div class="col-md-12">
+            <!-- form start -->
+            <form role="form">
+              <!-- card body start -->
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="start-date"> Are you sure! want to Delete?</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- card body end -->
+            </form>
+            <!-- form end -->
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-dismiss="modal">Yes</button>
+          <button type="button" class="btn btn-danger" data-toggle="modal" data-dismiss="modal">No</button>
+        </div>
+      </div>
+      <!-- modal content end -->
+    </div>
+  </div>
+  <!--delete model end-->
+
+
+ 

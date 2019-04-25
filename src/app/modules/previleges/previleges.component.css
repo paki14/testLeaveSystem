@@ -1,0 +1,88 @@
+.top-bottom-padding {
+    padding-bottom: 10px !important;
+    padding-top: 10px !important;
+}
+
+.table-margin {
+    margin-left: 40px;
+}
+
+td,
+th {
+    text-align: center;
+    vertical-align: middle;
+}
+
+.padding-bottom {
+    padding-bottom: 5px !important;
+}
+
+tbody td {
+    padding-top: 4px;
+    padding-bottom: 4px;
+    padding: 0px;
+}
+
+.td-title {
+    text-align: left;
+    vertical-align: middle;
+}
+
+.pad-left {
+    padding-left: 3px;
+}
+
+.form-radio {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    display: inline-block;
+    /* position: relative; */
+    background-color: #f72424;
+    color: rgb(102, 102, 102);
+    top: 10px;
+    height: 15px;
+    width: 15px;
+    border: 0;
+    border-radius: 100px;
+    cursor: pointer;
+    margin-right: 7px;
+    outline: none;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+}
+
+/* .form-radio:checked::before
+{
+     position: absolute;
+     font: 13px/1 'Open Sans', sans-serif;
+     left: 11px;
+     top: 7px;
+     content: '\02143';
+     transform: rotate(40deg);
+} */
+.form-radio:hover {
+    background-color: #a01919;
+    box-shadow: 0 2px 2px 0 rgba(156, 39, 176, 0.14), 0 3px 1px -2px rgba(156, 39, 176, 0.2), 0 1px 5px 0 rgba(156, 39, 176, 0.12);
+
+}
+
+.form-radio:checked {
+    background-color: #1ffc4f;
+}
+
+label {
+    font: 300 16px/1.7 'Open Sans', sans-serif;
+    color: #666;
+    cursor: pointer;
+}
+
+input[type][disabled] {
+    background-color: #f9f9f9;
+    color: #ddd;
+    cursor: default;
+}
+
+input[type][disabled]+label {
+    color: #999;
+    cursor: default;
+}

@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="tab" role="tabpanel">
+        <!-- Nav tabs -->
+        
+        <div *ngIf="role=='HR'">
+          <ul class="nav nav-tabs" role="tablist">
+            <li role="presentation" routerLinkActive="active">
+              <a class="active" routerLink="empDetails" aria-controls="home" role="tab" data-toggle="tab">Employee's
+                Details</a></li>
+            <li role="presentation" routerLinkActive="active">
+              <a routerLink="manageCDP" aria-controls="profile" role="tab" data-toggle="tab">Career Development plan</a></li>
+          </ul>
+        </div>
+        <div *ngIf="role=='EMPLOYEE'">
+          <ul class="nav nav-tabs" role="tablist">
+            <li role="presentation" routerLinkActive="active">
+              <a routerLink="empViewHRPlans" aria-controls="profile" role="tab" data-toggle="tab">HR's Career Development plan</a></li>
+              <li role="presentation" routerLinkActive="active">
+                <a routerLink="personalCDP" aria-controls="profile" role="tab" data-toggle="tab">personal Career Development Plan</a></li>
+          </ul>
+        </div>
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+</div>

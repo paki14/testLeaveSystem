@@ -1,0 +1,43 @@
+<div class="row">
+  <div class="col-lg-6 col-sm-12">
+    <div class="panel panel-default">
+      <div class="panel-heading">Attendance</div>
+      <!-- /.panel-heading -->
+      <div class="panel-body">
+        <div class="table-responsive">
+          <table class="table table-hover" st-pipe="callServer"
+            st-table="displayed">
+            <thead>
+              <tr>
+                <th>Trainee</th>
+                <th>Attend Type</th>
+                <th>Attend Date</th>
+                <th>Start Time</th>
+                <th>End Time</th>
+                <th>Duration</th>
+                <th>Attend Status</th>
+                
+              </tr>
+            </thead>
+            <tbody ng-show="!isLoading">
+              <tr *ngFor="let attend of traineeAttend">
+                <td>{{attend.trainee.fullName}}</td>
+                <td>{{attend.attendType.attendType}}</td>
+                <td>{{attend.attendDate | date:"dd:MM:yyyy"}}</td>
+                <td>{{attend.startTime}}</td>
+                <td>{{attend.endTime}}</td>
+                <td>{{attend.duration}}</td>
+                <td>{{attend.attendantStatus.statusName}}</td>
+              </tr>
+            </tbody>
+            
+            
+          </table>
+        </div>
+        <!-- /.table-responsive -->
+      </div>
+      <!-- /.panel-body -->
+    </div>
+    <!-- /.panel -->
+  </div>
+</div>

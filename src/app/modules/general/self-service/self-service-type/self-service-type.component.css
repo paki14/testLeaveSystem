@@ -1,0 +1,13 @@
+.add{
+margin-top: 24px;
+margin-bottom: 18px;
+}
+.icon-edit{
+    color: blue;
+    font-size: 30px !important;
+  }
+  .icon-delete{
+    color: red;
+    font-size: 30px !important;
+  }
+

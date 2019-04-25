@@ -1,0 +1,353 @@
+<aside class="main-sidebar sidebar-light-primary elevation-4 ">
+
+  <a class="brand-link bg-gray-light">
+    <img src="../../../assets/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+      style="opacity: .8">
+    <span class="brand-text font-weight-light">HRM</span>
+  </a>
+
+
+  <div class="sidebar">
+
+    <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+      <div class="image">
+        <img src="../../../assets/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+      </div>
+      <div class="info">
+        <a href="#" class="d-block">{{info.username | uppercase }}</a>
+      </div>
+    </div>
+
+
+    <nav class="mt-2">
+      <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+
+        <li class="nav-item has-treeview menu-open" *ngIf="info.authorities=='EMPLOYEE'||info.authorities=='HR'||info.authorities=='ADMIN'">
+          <a href="#" class="nav-link">
+            <i class="fas fa-user-tie nav-icon"></i>
+            <p>
+              Employee
+              <i class="right fa fa-angle-left"></i>
+            </p>
+          </a>
+          <ul class="nav nav-treeview">
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+              <li class="nav-item has-treeview menu-close">
+                <a href="#" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>
+                    Employee Management
+                    <i class="right fa fa-angle-left"></i>
+                  </p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a class="nav-link" routerLink="employee/profile" routerLinkActive="active" (click)="onClick('employee')">
+                      <i class="fa fa-circle nav-icon"></i>
+                      <p>Profile</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" routerLink="appointment/appointmentInformation/generalInfo" routerLinkActive="active"
+                      *ngIf="info.authorities=='HR'">
+                      <i class="fa fa-circle nav-icon"></i>
+                      <p>Appointment</p>
+                    </a>
+                  </li>
+                  <li class="nav-item" *ngIf="info.authorities=='HR'">
+                    <a routerLink="/par/parconfiguration" class="nav-link">
+                      <i class="fa fa-circle nav-icon"></i>
+                      <p>PAR</p>
+                    </a>
+                  </li>
+                  <li class="nav-item" *ngIf="info.authorities=='EMPLOYEE'">
+                    <a routerLink="/par/selfassessment" class="nav-link">
+                      <i class="fa fa-circle nav-icon"></i>
+                      <p>PAR</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" routerLink="/careerdevelopmentplan/empDetails" routerLinkActive="active" *ngIf="info.authorities=='HR'">
+                      <i class="fa fa-circle nav-icon"></i>
+                      <p>Career Development Plan</p>
+                    </a>
+                  </li>
+
+                  <li class="nav-item">
+                    <a class="nav-link" routerLink="/careerdevelopmentplan/empViewHRPlans" routerLinkActive="active"
+                      *ngIf="info.authorities=='EMPLOYEE'">
+                      <i class="fa fa-circle nav-icon"></i>
+                      <p>Career Development Plan</p>
+                    </a>
+                  </li>
+
+                  <li class="nav-item">
+                    <a class="nav-link" routerLink="/remuneration" routerLinkActive="active">
+                      <i class="fa fa-circle nav-icon"></i>
+                      <p>Remuniration</p>
+                    </a>
+                  </li>
+
+                  <li class="nav-item">
+                    <a routerLink="promotion/RequestPromotionHr" class="nav-link" routerLinkActive="active" *ngIf="info.authorities=='HR'">
+                      <i class="fa fa-circle nav-icon"></i>
+                      <p>Promotion</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a routerLink="promotion/RequestPromotionEmp" class="nav-link" routerLinkActive="active" *ngIf="info.authorities=='EMPLOYEE'">
+                      <i class="fa fa-circle nav-icon"></i>
+                      <p>Promotion</p>
+                    </a>
+                  </li>
+
+
+                  <!-- <li class="nav-item">
+                    <a class="nav-link" routerLink="/employee/employeemanagement/experience-letter" routerLinkActive="active">
+                      <i class="fa fa-circle nav-icon"></i>
+                      <p>Experience Letter</p>
+                    </a>
+                  </li> -->
+                  <li class="nav-item">
+                    <a routerLink="/emptermination" class="nav-link" routerLinkActive="active">
+                      <i class="fa fa-circle nav-icon"></i>
+                      <p>Termination</p>
+                    </a>
+                  </li>
+                  <li class="nav-item" *ngIf="role == 'HR'">
+                    <a routerLink="/directory/view-directory" class="nav-link" routerLinkActive="active">
+                      <i class="fa fa-circle nav-icon"></i>
+                      <p>Directory</p>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+            <li class="nav-item">
+              <a routerLink="leaveManagement" class="nav-link" routerLinkActive="active">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Leave Management</p>
+              </a>
+            </li>
+            <div *ngIf="role=='HR'">
+              <li class="nav-item">
+                <a routerLink="/recruitment/planVecancies" class="nav-link" routerLinkActive="active">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Recruitment</p>
+                </a>
+              </li>
+            </div>
+            <li class="nav-item">
+              <a routerLink="welfare" class="nav-link" routerLinkActive="active">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Welfare & Motivation</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a routerLink="/selfservice/addIndividualComplaint" routerLinkActive="active" class="nav-link" *ngIf="info.authorities=='EMPLOYEE'||info.authorities=='HR'||info.authorities=='MANAGER'">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Self Service</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a routerLink="/selfservice/viewIndividualComplaint" routerLinkActive="active" class="nav-link" *ngIf="info.authorities=='ADMIN'||info.authorities=='DIRECTOR'||info.authorities=='HR_MANAGER'">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Self Service</p>
+              </a>
+            </li>
+
+            <li class="nav-item" *ngIf="info.authorities=='ADMIN'">
+              <a routerLink="/previleges" routerLinkActive="active" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Previleges</p>
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item has-treeview menu-close" *ngIf="info.authorities=='TRAINEE'||info.authorities=='HR'||info.authorities=='ADMIN'">
+          <a href="#" class="nav-link ">
+            <i class="fas fa-user-graduate nav-icon"></i>
+            <p>
+              Trainee
+              <i class="right fa fa-angle-left"></i>
+            </p>
+          </a>
+          <ul class="nav nav-treeview">
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+              <li class="nav-item has-treeview menu-close">
+                <a href="#" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>
+                    Trainee Management
+                    <i class="right fa fa-angle-left"></i>
+                  </p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a routerLink='/trainee/profile' class="nav-link" routerLinkActive="active" (click)="onClick('trainee')">
+                      <i class="fa fa-circle nav-icon"></i>
+                      <p>Profile</p>
+                    </a>
+                  </li>
+                  <li class="nav-item" *ngIf="info.authorities=='HR'">
+                    <a class="nav-link" routerLink="selection/trainee/generalInfo" routerLinkActive="active">
+                      <i class="fa fa-circle nav-icon"></i>
+                      <p>Selection</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a routerLink="/par/parconfiguration" class="nav-link" routerLinkActive="active">
+                      <i class="fa fa-circle nav-icon"></i>
+                      <p>PAR</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a routerLink="/skilldevelopmentplan" class="nav-link" routerLinkActive="active">
+                      <i class="fa fa-circle nav-icon"></i>
+                      <p>Skill Development Plan</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a routerLink="/courserecord" class="nav-link" routerLinkActive="active">
+                      <i class="fa fa-circle nav-icon"></i>
+                      <p>Course Record</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a routerLink="/attendance/addAttendance" class="nav-link" routerLinkActive="active">
+                      <i class="fa fa-circle nav-icon"></i>
+                      <p>Attendance</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a routerLink="/finalassesment" class="nav-link" routerLinkActive="active">
+                      <i class="fa fa-circle nav-icon"></i>
+                      <p>Final Assessment</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a routerLink="/termination" class="nav-link" routerLinkActive="active">
+                      <i class="fa fa-circle nav-icon"></i>
+                      <p>Termination</p>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+            <li class="nav-item">
+              <a class="nav-link" routerLinkActive="active">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Notification</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a routerLink="/projects" class="nav-link" routerLinkActive="active">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Projects</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a routerLink="/assignments" class="nav-link" routerLinkActive="active">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Assignments</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a routerLink="/intake" class="nav-link" routerLinkActive="active">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Intake</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a routerLink="/posting" class="nav-link" routerLinkActive="active">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Posting</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/selfservice" routerLinkActive="active">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Self Service</p>
+              </a>
+            </li>
+          </ul>
+        </li>
+        <!--Trainer Navigations-->
+        <li class="nav-item has-treeview menu-close" *ngIf="info.authorities=='TRAINER'||info.authorities=='HR'||info.authorities=='ADMIN'">
+          <a href="#" class="nav-link">
+            <i class="nav-icon fa fa-user"></i>
+            <p>
+              Trainer
+              <i class="right fa fa-angle-left"></i>
+            </p>
+          </a>
+          <ul class="nav nav-treeview">
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+              <li class="nav-item has-treeview menu-close">
+                <a href="#" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>
+                    Trainer Management
+                    <i class="right fa fa-angle-left"></i>
+                  </p>
+                </a>
+                <ul class="nav nav-treeview">
+            
+                  <li class="nav-item">
+                    <a routerLink="trainermanagement/training-schedule" class="nav-link" routerLinkActive="active">
+                      <i class="fa fa-circle nav-icon"></i>
+                      <p>Training Schedule</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a routerLink="#" class="nav-link" routerLinkActive="active">
+                      <i class="fa fa-circle nav-icon"></i>
+                      <p>Profile</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" routerLink="trainer/appointment/generalInformation" routerLinkActive="active">
+                      <i class="fa fa-circle nav-icon"></i>
+                      <p>Appointment</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a routerLink="trainermanagement/suggestion" class="nav-link" routerLinkActive="active">
+                      <i class="fa fa-circle nav-icon"></i>
+                      <p>Suggestion & Feedback</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a routerLink="trainermanagement/training-initiate" class="nav-link" routerLinkActive="active">
+                      <i class="fa fa-circle nav-icon"></i>
+                      <p>Payment Initiate</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a routerLink="trainermanagement/availability" class="nav-link" routerLinkActive="active">
+                      <i class="fa fa-circle nav-icon"></i>
+                      <p>Availability</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a routerLink="trainermanagement/pre-request" class="nav-link" routerLinkActive="active">
+                      <i class="fa fa-circle nav-icon"></i>
+                      <p>Pre Request</p>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+            <li class="nav-item">
+              <a routerLink="/trainerselfservice" class="nav-link" routerLinkActive="active">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Self Service</p>
+              </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <a class="nav-link" routerLink="profile/profileInfo" routerLinkActive="active" target="_blank">Test</a>
+    </nav>
+  </div>
+</aside>

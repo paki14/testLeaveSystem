@@ -1,0 +1,28 @@
+<div class="container">
+        <div class="row">
+                <div class="col-md-12">
+                        <div class="tab" role="tabpanel">
+                                <!-- Nav tabs -->
+                                <ul class="nav nav-tabs" role="tablist">
+                                        <li role="presentation" routerLinkActive="active">
+                                                <a routerLink="generateLetter" aria-controls="messages" role="tab"
+                                                        data-toggle="tab">Request Letter</a></li>
+                                        <li role="presentation" routerLinkActive="active">
+                                                <a routerLink="requestLetter" aria-controls="messages" role="tab"
+                                                        data-toggle="tab">Generate Letter</a></li>
+                                        <li role="presentation" routerLinkActive="active">
+                                                <a routerLink="viewAllHistory" aria-controls="home" role="tab"
+                                                        data-toggle="tab">Experience
+                                                        Letter History</a></li>
+                                        <li role="presentation" routerLinkActive="active">
+                                                <a routerLink="individualHistory" aria-controls="profile" role="tab"
+                                                        data-toggle="tab">Individuals
+                                                        History</a></li>
+
+                                </ul>
+
+                                <router-outlet></router-outlet>
+                        </div>
+                </div>
+        </div>
+</div>

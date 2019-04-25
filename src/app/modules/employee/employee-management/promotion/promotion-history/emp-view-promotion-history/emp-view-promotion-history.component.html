@@ -1,0 +1,204 @@
+<!-- add modal start -->
+<div class="row">
+    <div class="col-md-12">
+      <div class="card">
+  
+        <!-- card header start -->
+        <div class="card-header">
+          <h5 class="card-title">{{uname}} Promotion History</h5>
+        </div>
+  
+        <!-- form start -->
+        <div class="card-body">
+  
+          <mat-form-field>
+            <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+          </mat-form-field>
+          <div class="mat-elevation-z8">
+            <mat-table [dataSource]="dataSource">
+              <!-- column 1 start -->
+              <ng-container matColumnDef="id">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>Promotion ID</mat-header-cell>
+                <mat-cell *matCellDef="let proforuser"> {{proforuser.id}} </mat-cell>
+              </ng-container>
+              <!-- column 1 end -->
+  
+              <!-- column 2 start -->
+              <ng-container matColumnDef="userId">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>Employee Name</mat-header-cell>
+                <mat-cell *matCellDef="let proforuser">{{proforuser.userId.fullName}} </mat-cell>
+              </ng-container>
+              <!-- column 2 end -->
+  
+              <!-- column 3 start -->
+              <ng-container matColumnDef="designationId">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>Position</mat-header-cell>
+                <mat-cell *matCellDef="let proforuser"> {{proforuser.designationId.designationName}} </mat-cell>
+              </ng-container>
+              <!-- column 3 end -->
+  
+              <!-- column 4 start -->
+              <ng-container matColumnDef="promdate">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>Promoted Date</mat-header-cell>
+                <mat-cell *matCellDef="let proforuser"> {{proforuser.promotedDate}} </mat-cell>
+              </ng-container>
+              <!-- column 4 end -->
+  
+              <!-- column 5 start -->
+              <ng-container matColumnDef="promremark">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>Remark</mat-header-cell>
+                <mat-cell *matCellDef="let proforuser"> {{proforuser.remark}} </mat-cell>
+              </ng-container>
+              <!-- column 5 end -->
+  
+              <!-- column 6 start -->
+              <ng-container matColumnDef="promsalary">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>Salary</mat-header-cell>
+                <mat-cell *matCellDef="let proforuser"> {{proforuser.salary}} </mat-cell>
+              </ng-container>
+              <!-- column 6 end -->
+  
+              <!-- column 7 start -->
+              <ng-container matColumnDef="promotedBy">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>Pormoted BY</mat-header-cell>
+                <mat-cell *matCellDef="let proforuser"> {{proforuser.userId.fullName}} </mat-cell>
+              </ng-container>
+              <!-- column 7 end -->
+  
+              <!-- column 8 start -->
+              <!-- <ng-container matColumnDef="edit/delete">
+                <mat-header-cell *matHeaderCellDef mat-sort-header></mat-header-cell>
+                <mat-cell *matCellDef="let promotionview"> -->
+                  <!-- <a href="#" ><span class="material-icons">edit</span></a> &nbsp;&nbsp;&nbsp;
+                    <a href="#" ><span class="material-icons">delete</span></a> -->
+                  <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editPromotion" (click)="editPro(promotionview)">Edit</button>&nbsp;&nbsp;
+                  <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleSuccess" (click)="editPro(promotionview)">Delete</button>&nbsp;&nbsp;
+                </mat-cell>
+              </ng-container> -->
+              <!-- column 8 end -->
+  
+              <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+              <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+            </mat-table>
+  
+          </div>
+        </div>
+        <!-- form end -->
+      </div>
+    </div>
+  </div>
+  <!-- modal content end -->
+  
+  <!-- add modal end -->
+  
+  <!-- <app-edit-promotion-history></app-edit-promotion-history> -->
+  
+  <!-- Edit Start -->
+  <div id="editPromotion" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+  
+      <!-- modal content start -->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 class="card-title">Edit Promotion</h3>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <div class="col-md-12">
+            <form>
+              <!-- {{editpromotionhistory.value | json}} -->
+              <div class="card-body">
+  
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="id">Promoted ID</label>
+                      <input type="number" class="form-control" id="id" name="id" [(ngModel)]="proEditObj.id" disabled>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="userId">Employee Name</label>
+                      <input type="number" class="form-control" id="userId" name="userId" [(ngModel)]="proEditObj.userId"
+                        disabled>
+                    </div>
+                  </div>
+  
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="desigId">Position</label>
+                    <select class="form-control" name="designationId" [(ngModel)]="proEditObj.designationId">
+                      <!-- <option selected disabled value="0">{{proEditObj.designationId}}</option> -->
+                      <option *ngFor="let design of designations" data-value="{{design.id}}">{{design.designationName}}</option>
+                    </select>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="promotedDate">Promoted Date</label>
+                      <input type="Date" class="form-control" id="promotedDate" name="promotedDate" [(ngModel)]="proEditObj.promotedDate">
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="salary">Salary</label>
+                      <input type="text" class="form-control" id="salary" name="salary" [(ngModel)]="proEditObj.salary">
+                    </div>
+                  </div>
+  
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="promotedBy">Promoted By</label>
+                      <input type="text" class="form-control" id="promotedBy" name="promotedBy" [(ngModel)]="proEditObj.promotedBy">
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label for="remark">Promotion Remark</label>
+                      <textarea class="form-control" id="remark" name="remark" [(ngModel)]="proEditObj.remark"></textarea>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- </div> -->
+              <!-- card body end -->
+              <div class="card-footer">
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-dismiss="modal" data-target="#addPromotion"
+                  (click)="updatePro()">Update</button>&nbsp;&nbsp;
+                <button type="button" class="btn btn-danger" data-toggle="modal" data-dismiss="modal" data-target="#">Cancel</button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <!-- modal content end -->
+      </div>
+    </div>
+  </div>
+  <!-- Edit End -->
+  
+  
+  
+    <!-- Delete modal -->
+    <div id="deleSuccess" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+  
+        <!-- modal content start -->
+        <div class="modal-content">
+          <div class="modal-header">
+            <h3 class="card-title">Confirmation</h3>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+          <div class="modal-body">
+            <div class="col-md-12">
+              <div class="card-body">
+                <P>Do you want to delete?</P>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-primary btn-sm" data-dismiss="modal" (click)="deletepro(proEditObj)">Yes</button>
+                <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">No</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>

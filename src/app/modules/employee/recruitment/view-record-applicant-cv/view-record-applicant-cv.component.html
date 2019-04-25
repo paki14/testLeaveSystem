@@ -1,0 +1,177 @@
+<!-- tab content start -->
+<div class="tab-content" id="myTabContent">
+  <div class="tab-pane fade show active" id="tab1_content" aria-labelledby="tab1_content">
+    <!-- <app-request-leave></app-request-leave> -->
+
+    <!-- appoinment start -->
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+
+          <!-- card header start -->
+          <div class="card-header">
+            <h5 class="card-title">View Record Of Applicant CVs</h5>
+            <div class="card-tools">
+
+            </div>
+          </div>
+          <!-- card header end -->
+
+          <div class="form-group">
+            <table class="table">
+              <tr>
+                <th>ID</th>
+                <th>Full Name</th>
+                <th>Email Address</th>
+                <th>NIC No</th>
+                <th>Address</th>
+                <th>Date of Birth</th>
+                <th>Qualification</th>
+                <th>Applied Post</th>
+
+
+              </tr>
+              <tr *ngFor="let applicant of recordOfApplicantAdd">
+                <td>{{applicant.id}}</td>
+                <td>{{applicant.fullName}}</td>
+                <td>{{applicant.email}}</td>
+                <td>{{applicant.nic}}</td>
+                <td>{{applicant.address}}</td>
+                <td>{{applicant.dateOfBirth}}</td>
+                <td>{{applicant.highestQualification.highestQualificationName}}</td>
+                <td>{{applicant.job.jobName}}</td>
+                <!-- <td>{{applicant.cvFile}}</td> -->
+
+                <td>
+                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editApplicantCV"
+                    (click)="editStatus(applicant)">edit
+                  </button>
+                </td>
+                <td> <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#applicatDelete"
+                    (click)="editStatus(applicant)">Delete</button>
+                </td>
+              </tr>
+            </table>
+          </div>
+          <!-- card body end -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- add modal start -->
+<div id="editApplicantCV" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- modal content start -->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h6 class="modal-title">Update Record Of Applicant CVs</h6>
+        <!-- {{editViewRecordApplicantCv.value |json}}          -->
+      </div>
+      <!-- Body start -->
+      <form>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="applicanId-date">ID</label>
+                <input type="text" class="form-control" id="applicanId" name="applicanId" [(ngModel)]="recordOfApplicantObj.id"
+                  readonly>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="applicantName">Full Name</label>
+                <input type="text" class="form-control" id="editFullName" name="editFullName" [(ngModel)]="recordOfApplicantObj.fullName">
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="start-date">Email Address:</label>
+                <input type="email" class="form-control" id="editEmail" name="editEmail" [(ngModel)]="recordOfApplicantObj.email">
+              </div>
+            </div>
+
+
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="start-date">NIC NO:</label>
+                <input type="text" class="form-control" id="editNic" name="editNic" [(ngModel)]="recordOfApplicantObj.nic">
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="appointment-date">Date of Birth:</label>
+                <input type="text" class="form-control" id="editDob" name="editDob" placeholder="dd/mm/yyyy" [(ngModel)]="recordOfApplicantObj.dateOfBirth">
+              </div>
+            </div>
+
+
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="qualification">Highest Educational Qualification:</label>
+                <select class="form-control" name="qualification" id="qualification" [(ngModel)]="recordOfApplicantObj.highestQualificationId">
+                  <option *ngFor="let higQulifications of hightQulification" value="{{higQulifications.id}}">{{higQulifications.highestQualificationName}}</option>
+
+                </select>
+              </div>
+            </div>
+
+            <div class="col-lg-6">
+              <div class="form-group">
+                <label for="appliedPost">Applied Post:</label>
+                <select class="form-control" name="appliedPost" id="appliedPost" [(ngModel)]="recordOfApplicantObj.jobId">
+                  <!-- <option selected value="0">{{recordOfApplicantObj.jobName}}</option> -->
+                  <option *ngFor="let jobs of job" [value]="jobs.id">{{jobs.jobName}}</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="exampleInputEmail1">Address:</label>
+                <input type="textarea" class="form-control" id="editAddress" name="editAddress" [(ngModel)]="recordOfApplicantObj.address">
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </form>
+      <!-- Body end -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="updatePlanVacancy(recordOfApplicantObj)">Update</button>
+
+      </div>
+    </div>
+    <!-- modal content end -->
+
+  </div>
+</div>
+<!-- add modal end -->
+
+<!-- DeleteModal -->
+<div class="modal fade" id="applicatDelete" tabindex="-1" role="dialog" aria-labelledby="delete1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Delete</h5>
+
+      </div>
+      <!-- Modal Body -->
+      <div class="modal-body">
+        <h6>Are you sure do you want to delete?</h6>
+      </div>
+      <!-- Modal Footer -->
+      <div class="modal-footer">
+        <button class="btn btn-danger" (click)=" deleteApplicantById(recordOfApplicantObj)" data-dismiss="modal">Yes</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal">No</button>
+      </div>
+    </div>
+  </div>
+</div>

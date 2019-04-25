@@ -1,0 +1,41 @@
+<div class="row">
+    <div class="col-md-11">
+      <div class="card">
+        <div class="card-header">
+          <h6>HR's Career Development Plan</h6>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="card card-primary ">
+                <!-- form start -->
+                <form role="form" #roleForm="ngForm">
+                  <div class="container-fluid">
+                    <!-- card body start -->
+                    <fieldset>
+                      <legend></legend>
+                      <div class="form-group">
+                        <table class="table">
+                          <tr>
+                            <th>Career Plans</th>
+                            <th>Status</th>
+                          </tr>
+                          <tr *ngFor="let plan of careerDevPlanByUser">
+                            <td>{{plan.cdpId.name}}</td>
+                            <td>{{plan.status}}</td>
+                          </tr>
+                        </table>
+                      </div>
+                    </fieldset>
+                  </div>
+                </form>
+                <!-- form end -->
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- card body end -->
+      </div>
+    </div>
+  </div>
+  

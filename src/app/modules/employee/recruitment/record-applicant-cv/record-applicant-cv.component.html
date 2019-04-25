@@ -1,0 +1,110 @@
+<div class="row">
+    <div class="col-md-8">
+        <div class="card">
+
+            <!-- card header start -->
+            <div class="card-header">
+                <h5 class="card-title">Record Of Applicant CVs</h5>
+                <div class="card-tools">
+
+                </div>
+            </div>
+            <!-- {{recordApplicantCv.value|json}} -->
+            <!-- card-header end -->
+
+            <!-- card body start -->
+            <div class="card-body nopadding">
+                <div class="card-body">
+                    <div class="row">
+                        <form #addRequestPro="ngForm">
+                            <!-- {{recordOfApplicantObj | json}} -->
+                            <div class="col-md-12">
+                                <!-- card body start -->
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="fName">Full Name:</label>
+                                            <input type="text" class="form-control" id="fName" name="fName" [(ngModel)]="recordOfApplicantObj.fullName"
+                                                placeholder="Full Name">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="emailAdd">Email Address:</label>
+                                            <input type="email" class="form-control" id="emailAdd" name="emailAdd"
+                                                [(ngModel)]="recordOfApplicantObj.email" placeholder="Email Address">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="nicNo">NIC No:</label>
+                                            <input type="text" class="form-control" id="nicNo" name="nicNo" [(ngModel)]="recordOfApplicantObj.nic"
+                                                placeholder="NIC NO">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="address">Address:</label>
+                                            <input type="text" class="form-control" id="address" name="address"
+                                                [(ngModel)]="recordOfApplicantObj.address" placeholder="Address">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="dateOfBirth">Date Of Birth:</label>
+                                            <input type="text" class="form-control" mwlFlatpickr id="dateOfBirth" name="dateOfBirth"
+                                                placeholder="dd/mm/yyyy" [(ngModel)]="recordOfApplicantObj.dateOfBirth">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="qualification">Highest Educational Qualification:</label>
+                                            <select class="form-control" name="qualification" id="qualification"
+                                                [(ngModel)]="recordOfApplicantObj.highestQualificationId">
+                                                <option *ngFor="let higQulifications of hightQulification" value="{{higQulifications.id}}">{{higQulifications.highestQualificationName}}</option>
+
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label for="appliedPost">Applied Post:</label>
+                                            <select class="form-control" name="appliedPost" id="appliedPost"
+                                                [(ngModel)]="recordOfApplicantObj.jobId">
+                                                <option default hidden selected>--Applied Post--</option>
+                                                <option *ngFor="let jobs of job" [value]="jobs.id">{{jobs.jobName}}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="file-field">
+                                            <label for="attachCv">Attach CV</label>
+                                            <br>
+                                            <div class="btn blue-gradient btn-sm float-left">
+
+                                                <input type="file" multiple id="attachCv" name="attachCv" [(ngModel)]="recordOfApplicantObj.cvFile">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- card body end -->
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <!-- card body end -->
+                <div class="card-footer">
+                    <button type="button" class="btn btn-primary" (click)="createApplicantCv()">ADD</button>
+                </div>
+                
+            </div>
+            <!-- card body end -->
+
+        </div>
+    </div>
+</div>
+<app-view-record-applicant-cv></app-view-record-applicant-cv>

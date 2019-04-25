@@ -1,0 +1,4 @@
+.modal-dialog {
+    max-width: 900px;
+    z-index: 1000;
+}

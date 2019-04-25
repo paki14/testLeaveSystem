@@ -1,0 +1,47 @@
+
+
+
+<!-- add modal start -->
+<div id="updateDistrict" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- modal content start -->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h6 class="modal-title">District</h6>
+   
+      </div>
+      <!-- Body start -->
+      
+      <div class="modal-body">
+          <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="start-date">District Id</label>
+                  <input type="text" class="form-control" name="editDistrictId" readonly id="id" name="DistrictId"  [(ngModel)]="districtObj.id">
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="start-date">District</label>
+                  <input type="district" class="form-control" name="editDistrict" id="id" name="Id" [(ngModel)]="districtObj.districtName">
+                </div>
+              </div>
+
+            </div>
+      </div>
+    
+      <!-- Body end -->
+      <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="updateDistrictById(districtObj)">Update</button>
+      </div>
+    </div>
+  </div>
+    <!-- modal content end -->
+
+  </div>
+
+<!-- add modal end -->
+  <!-- </div>
+</div> -->

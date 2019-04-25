@@ -1,0 +1,117 @@
+<section class="content">
+  <!-- tab content start -->
+  <div class="tab-content" id="myTabContent">
+    <div class="tab-pane fade show active" id="tab1_content" aria-labelledby="tab1_content">
+      <!-- <app-request-leave></app-request-leave> -->
+
+      <!-- appoinment start -->
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card">
+
+            <!-- card header start -->
+            <div class="card-header">
+              <h5 class="card-title">Record Posting Details</h5>
+              <div class="card-tools">
+                <button type="button" class="btn btn-tool" data-widget="collapse">
+                  <i class="fa fa-minus"></i>
+                </button>
+                <button type="button" class="btn btn-tool" data-widget="remove">
+                  <i class="fa fa-times"></i>
+                </button>
+              </div>
+            </div>
+            <!-- card header end -->
+
+            <!-- card body start -->
+            <div class="card-body">
+              <mat-form-field>
+                <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+              </mat-form-field>
+
+              <div class="mat-elevation-z8">
+                <mat-table [dataSource]="dataSource" matSort>
+
+                  <!-- column 1 start -->
+                  <ng-container matColumnDef="r_name">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header> Trainee Name </mat-header-cell>
+                    <mat-cell *matCellDef="let posting"> {{posting.r_name}} </mat-cell>
+                  </ng-container>
+                  <!-- column 1 end -->
+
+                  <!-- column 2 start -->
+                  <ng-container matColumnDef="r_no">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header> Serial No </mat-header-cell>
+                    <mat-cell *matCellDef="let posting"> {{posting.r_no}}</mat-cell>
+                  </ng-container>
+                  <!-- column 2 end -->
+
+                  <ng-container matColumnDef="r_profile">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header> Profile Link </mat-header-cell>
+                    <mat-cell *matCellDef="let posting"> <a href="">{{posting.r_profile}}</a></mat-cell>
+                  </ng-container>
+
+                  <ng-container matColumnDef="r_location">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header> Location </mat-header-cell>
+                    <mat-cell *matCellDef="let posting"> {{posting.r_location}}</mat-cell>
+                  </ng-container>
+
+                  <ng-container matColumnDef="r_track">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header> Track </mat-header-cell>
+                    <mat-cell *matCellDef="let posting"> {{posting.r_track}}</mat-cell>
+                  </ng-container>
+
+                  <ng-container matColumnDef="r_status">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header> Status </mat-header-cell>
+                    <mat-cell *matCellDef="let posting"> {{posting.r_status}}</mat-cell>
+                  </ng-container>
+
+                 
+                  <ng-container matColumnDef="r_edit">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header> </mat-header-cell>
+                    <mat-cell *matCellDef="let posting"> <button class="btn btn-primary" data-toggle="modal"
+                        data-target="#update">{{posting.r_edit}}</button></mat-cell>
+                  </ng-container>
+
+                  <ng-container matColumnDef="r_delete">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header> </mat-header-cell>
+                    <mat-cell *matCellDef="let posting"> <button class="btn btn-danger" data-toggle="modal" data-target="#delete">{{posting.r_delete}}</button></mat-cell>
+                  </ng-container>
+
+
+                  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+                </mat-table>
+
+               
+
+                
+
+            
+                <!-- pagination start -->
+                <mat-paginator [pageSizeOptions]="[3, 5, 10, 25]"></mat-paginator>
+                <!-- pagination end -->
+              </div>
+            </div>
+            <!-- card body end -->
+          </div>
+        </div>
+      </div>
+
+
+
+    </div>
+
+
+
+
+    <!-- <div class="tab-pane fade" id="tab2_content" aria-labelledby="tab2_content">
+            <app-leave-history></app-leave-history>
+          </div>
+          <div class="tab-pane fade" id="tab3_content" aria-labelledby="tab3_content">
+            <app-request-leave></app-request-leave>
+          </div> -->
+  </div>
+  <!-- tab content end -->
+
+</section>

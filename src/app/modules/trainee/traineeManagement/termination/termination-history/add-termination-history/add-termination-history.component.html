@@ -1,0 +1,73 @@
+<!-- add termination history modal start -->
+<div id="termination-history-addModal" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-lg">
+    <!-- modal content start -->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="card-title">Terminate Trainee</h3>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="col-md-12">
+
+          <!-- card body start -->
+          <div class="card-body">
+            <!-- form start -->
+            <form role="form">
+              <div class="row">
+
+                <div class="col-md-8">
+                  <div class="form-group">
+                    <label for="traineeName">Trainee Name</label>
+                    <input type="text" class="form-control" name="traineeName" id="traineeName" placeholder="Trainee Name">
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label for="traineeId">Trainee Id</label>
+                    <input type="text" class="form-control" name="traineeId" id="traineeId" placeholder="Trainee Id" readonly>
+                  </div>
+                </div>
+
+
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label for="joinDate">Joined Date</label>
+                    <input type="text" mwlFlatpickr class="form-control" name="joinDate" id="joinDate" placeholder="yyyy/mm/dd">
+                  </div>
+                </div>
+
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label for="modeOfTermination">Mode of Termination</label>
+                    <input type="text" class="form-control" name="modeOfTermination" id="modeOfTermination"
+                      placeholder="Mode of Termination">
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label for="lastDate">Last Date</label>
+                    <input  type="text" mwlFlatpickr class="form-control" name="lastDate" id="lastDate" placeholder="yyyy/mm/dd">
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="reason">Reason for Termination</label>
+                    <textarea class="form-control" name="reason" id="reason"></textarea>
+                  </div>
+                </div>
+              </div>
+              <!-- card body end -->
+            </form>
+            <!-- form end -->
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Save</button>
+      </div>
+    </div>
+    <!-- modal content end -->
+  </div>
+</div>
+<!-- Add termination history modal end -->

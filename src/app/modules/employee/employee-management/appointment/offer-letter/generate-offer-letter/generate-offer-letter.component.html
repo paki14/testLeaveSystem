@@ -1,0 +1,361 @@
+<div class="bottom-padding">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <!-- card header start -->
+        <div class="card-header">
+          <h5 class="card-title">Offer Letter Process</h5>
+          <div class="card-tools">
+              <button type="button" class="btn btn-tool" data-widget="collapse">
+                <i class="fa fa-minus"></i>
+              </button>
+              <button type="button" class="btn btn-tool" data-widget="remove">
+                <i class="fa fa-times"></i>
+              </button>
+            </div>
+        </div>
+        <!-- card-header end -->
+        
+      <!-- card body start -->
+      
+        <div class="mat-elevation-z8">
+          <div class="card-body">
+              <fieldset>
+            <div class="row">
+              <div class="col-md-12">
+                  <!-- {{letterDetails | json}} -->
+                <h5 class="center-heading">PRIVATE &amp; CONFIDENTIAL</h5><br />
+                &nbsp;<br />
+                Date: <strong>{{letterDetails.givenDate}}</strong><br />
+                Name &amp; Address: <strong>{{letterDetails.name}} <br> {{letterDetails.address}}</strong><br />
+                Dear <strong>{{letterDetails.name}}</strong><br />
+                <strong><u>POST OF {{letterDetails.position}}</u></strong><br />
+                This has reference to your recent application for the above position and the subsequent interviews held in
+                this regard and we have pleasure in offering you employment in our Company as <strong>{{letterDetails.position}}
+                </strong> with effect from<strong>{{letterDetails.effectDate}}</strong>, on the
+                following terms and conditions:<br />
+                <ol>
+                  <li>
+                    <strong>Probation</strong>
+                    <ul>
+                      <li>Your appointment will be subject to a probationary period of six (6) months and your confirmation
+                        thereafter will depend on the performance of your work, attendance, general conduct and attitude
+                        towards the work involved.
+                      </li>
+                      <li>The management reserves to itself the right to extend your period of probation for a further
+                        period
+                        or terminate your probationary employment, in the event of your performance not being satisfactory.
+                        During the probationary period or extension thereof, either party is entitled to terminate this
+                        contract of employment without notice and without assigning any reason for such termination.
+                      </li>
+                      <li>In the event of your performance being satisfactory, your confirmation shall be communicated to
+                        you
+                        in writing and you will remain a probationer until confirmed in writing. However, if the date for
+                        confirmation is past and you have not received any communication regarding your confirmation or any
+                        extension thereof, you may apply in writing to be confirmed in your appointment.
+
+                      </li>
+                    </ul>
+                  </li>
+                </ol>
+               
+                  <!-- <span class="btn-close" type="button" class="btn btn-danger" data-dismiss="" (click)="Back()" >Back</span> -->
+                  <!-- <button id="btnPrint" class="btn btn-primary" (click)="printComponent('component1')">Print</button>   -->
+            
+              <span id="dots" ></span>
+              <span id="more" style="padding-left: 900px">
+
+                  &nbsp;<br />
+                  <ol start="2">
+                    <li><strong>Salary</strong></li>
+                    <li>a) You will be paid an all-inclusive salary of Rupees <strong> {{letterDetails.salaryText}}   &nbsp;  &nbsp; ( {{letterDetails.salaryDigit}} /=)</strong>
+                      per month, which shall include all statutory or other allowances.
+                    </li>
+                  </ol>
+                  <ul>
+                    <li>Your increments shall not be automatic, and the Company reserves to itself the right to suspend,
+                      stop
+                      or defer your increments on account of unsatisfactory work, conduct or indiscipline.
+                    </li>
+                    <li>Your salary has been determined taking into account that as an Executive you may be called upon to
+                      work
+                      extra hours at any hour of the day and on any day of the year. Therefore, you will not be entitled to
+                      any
+                      additional payments or allowances paid in lieu of overtime
+                    </li>
+                  </ul>
+
+                  <ol start="3">
+                    &nbsp;
+                    <li>
+                      <strong>Perquisites</strong>
+                      <ol>
+                        <li>The benefits of the Company&rsquo;s medical scheme as presently existing for surgical and
+                          hospitalization expenses in this Company will be made available to you.
+                        </li>
+                        <li><strong> {{letterDetails.perquisity}} </strong></li>
+                      </ol>
+                    </li>
+                    <li><strong>Duties</strong></li>
+                  </ol>
+                  In addition to your duties as <strong>{{letterDetails.position}}</strong> you may be required to
+                  perform
+                  such other duties as may be referred to you, which are within your capability and skill.<br />
+                  Your Job Description will be issued to you upon assuming duties, but this will be subject to revision at
+                  the discretion of the management and the exigencies of service.<br />
+                  You will report to <strong>{{letterDetails.toReport}}</strong> in the
+                  discharge of your duties.
+
+                  <br />
+                  <ol start="5">
+                    <li><strong>Provident Fund and Trust Fund</strong></li>
+                  </ol>
+                  During your employment you will be a member of the Employees&rsquo; Provident Fund (EPF) and you shall
+                  contribute 8% of your salary to the said Fund while the Company will contribute a sum equivalent to 12%
+                  of
+                  your salary to the said fund.<br />
+                  The Company will also contribute a sum equivalent to 3% of your salary to the Employees Trust Fund (ETF)
+
+                  <ol start="6">
+                    <li><strong>Leave</strong></li>
+                  </ol>
+                  <ul>
+                    <li>Your maximum annual leave entitlement from the <strong>3<sup>rd</sup></strong> <strong>year</strong>
+                      of
+                      employment will be as follows:
+                    </li>
+                  </ul>
+                  (a)&nbsp; Casual Leave - 7 days<br />
+                  (b)&nbsp; Annual Leave - 14 days<br />
+                  (c)&nbsp; Medical Leave days -&ndash; <strong> {{letterDetails.medicalLeaveDays}} </strong> days<br />
+                  &nbsp;<br />
+                  <ul>
+                    <li>
+                      The above will be subject to the following conditions:
+                      <ul>
+                        <li>All leave will be on a non-cumulative basis</li>
+                        <li>During the 1<sup>st</sup> year of employment you will be entitled for half (&frac12;) a
+                          day&rsquo;s
+                          <strong>Casual Leave </strong>for every month completed;
+                        </li>
+                        <li><strong>Annual Leave </strong>will be available only in the second year of employment and will
+                          be
+                          as stipulated in the Shop and Office Employees Act (there will be no Annual Leave entitlement in
+                          the
+                          first year of employment)
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                  In the 2<sup>nd</sup> year of employment your Annual leave entitlement will be <strong> {{letterDetails.anualLeaveDays}} </strong>days.<br />
+                  <ul>
+                    <li><strong>Medical Leave </strong><strong> {{letterDetails.medicalLeaveDays}}</strong></li>
+                    <li>For the purpose of leave, the &ldquo;Year&rdquo; shall mean the period commencing on the first day
+                      of</li>
+                  </ul>
+                  January of the year and ending on the thirty first day of December of that year and the first year of
+                  employment shall mean the period between your date joined and the 31<sup>st</sup> of December of that
+                  year.<br />
+                  <ul>
+                    <li>The onus of availing yourself of your Annual Leave entitlement will be clearly on yourself and the
+                      Company expects you to indicate at the beginning of the year, your intended Annual Leave pattern on a
+                      roster;
+                    </li>
+                    <li>The Annual Leave, to which you are entitled, shall be taken on days to be mutually agreed upon in
+                      writing, and with adequate notice. The sufficiency of notice shall be decided by the management
+                      depending
+                      on the reasonableness of the request.
+                    </li>
+                  </ul>
+                  &nbsp;<br />
+                  &nbsp;<br />
+                
+                  <ul>
+                    <li>At least one stretch of Annual Leave shall be of not less than seven days duration.</li>
+                    <li><strong>Casual Leave </strong>should not normally exceed two days at a time nor immediately precede
+                      nor
+                      follow Annual Leave. Casual Leave should be availed of with prior authorization, except in cases of
+                      dire
+                      emergency in which event you are required to inform the Manager in Charge indicating reasons.
+                      Approval
+                      of
+                      leave in such circumstances will be at the sole discretion of the management, depending on the
+                      circumstances and exigencies of work.
+                    </li>
+                    <li>Medical Leave <strong>{{letterDetails.medicalLeaveDays}}</strong></li>
+                  </ul>
+                  &nbsp;<br />
+                  <ol start="7">
+                    <li><strong>Weekly and Statutory holidays</strong></li>
+                  </ol>
+                 <p> Your weekly and statutory holidays shall be in accordance with the Shop and Office Employees Act. Your
+                  weekly holidays and other holidays will be notified to you by the Management depending on the exigencies
+                  of  service.</p><br />
+                  &nbsp;<br />
+                  <ol start="8">
+                    <li><strong>Disciplinary Control</strong></li>
+                  </ol>
+                 <p> You will be liable to disciplinary control and on account of any form of misconduct, your services are
+                  liable to be terminated without notice or payment in lieu. You are also liable to be suspended without
+                  pay
+                  either as a disciplinary measure or pending the outcome of disciplinary proceedings.</p><br />
+                  &nbsp;<br />
+                  <ol start="9">
+                    <li><strong>Hours of Work</strong></li>
+                  </ol>
+                <p> Your normal working hours will be from <strong>{{letterDetails.fromHours}}&nbsp;&nbsp;</strong> to <strong>
+                      {{letterDetails.toHours}} </strong>p.m. from Monday to Friday, both days inclusive, with a meal break of
+                  half
+                  an
+                  hour. We reserve to ourselves the right to change these hours and/or days within the rules and
+                  regulations
+                  stipulated by the Law prevailing at the time to suit the exigencies of the business.</p><br />
+                  &nbsp;<br />
+                  <ol start="10">
+                    <li><strong>Medical Examination</strong></li>
+                  </ol>
+                  <p>The Company reserves the right to subject you to a medical examination at any stage during your period
+                  of
+                  employment by a Registered Medical Practitioner or Board of Medical Practitioners of its choice. If such
+                  examination should reveal any disease or condition which in the opinion of the management will prevent
+                  you
+                  for performing your duties effectively or renders your continuing in the Company impossible, the
+                  management
+                  reserves the right to terminate your services on payment of a month&rsquo;s salary in lieu of notice.</p><br />
+                  <ol start="11">
+                    <li><strong>Training</strong></li>
+                  </ol><p>
+                  You may be subjected to a period (or periods) of training in Sri Lanka and/or abroad if it is considered
+                  necessary by the Company. In the event of such training being provided to you, the management reserves to
+                  itself the right to impose upon you a written Bond to ensure that you shall serve the Company for a
+                  minimum
+                  period of time or make a payment in-lieu of that minimum period, to be stipulated, after such training.
+                  The
+                  management will in such case/s also stipulate a penalty and/or damages to which you will be liable in the
+                  event of you failing to honor such Bond.</p><br />
+                  <ol start="12">
+                   <li><strong>Transfer</strong></li>
+                  </ol>
+                 <p> The Company reserves to itself the right, due to the exigencies of business, to transfer you from one
+                  department or branch to another or to any Subsidiaries or Associate Companies within the Group, within
+                  SriLanka, whether such department, branch, subsidiary or associate Company exists now or is established in
+                  the future.</p>
+                  &nbsp;<br />
+                  <ol start="13">
+                    <li><strong>Notice of Termination</strong></li>
+                  </ol>
+                  <p>After confirmation, this contract can be terminated by either party by giving written notice of three
+                  months or by the payment of three (3) months&rsquo; salary in lieu of notice.</p>
+                  &nbsp;<br />
+                 <p> The Company reserves the right to terminate this contract of employment at any time without notice or
+                  payment in lieu of notice on the grounds of misconduct and/or negligence and/or inefficiency and/or
+                  breach
+                  of any express or implied term of your employment and/or loss of business. On termination of your
+                  services
+                  for any of the aforesaid reasons, you will not be entitled to any compensation or payment in lieu of
+                  notice
+                  other than the salary earned by you up to the date of termination.</p>
+                  &nbsp;<br />
+                  <strong> 14.Age of Retirement</strong><br />
+                 <p> Your age of retirement shall be <strong> {{letterDetails.retirementAgeText}}</strong> (<strong> {{letterDetails.retirementAgeDigit}}</strong>
+                  ) years and on reaching the age of <strong>{{letterDetails.minRetirementAge}}</strong>, you shall ipso
+                  facto retire and cease to be employed and there shall be no obligation on the Company to give you any
+                  notice of such retirement. For the purpose of determining the date of retirement the declaration made by
+                  you of your age at the commencement of your employment shall be conclusive.</p><br />
+                  
+                <strong> <ol start="15">
+                    <li>Company Policies and Rules</li>
+                  </ol></strong>
+                  
+                 <p> You will observe all Company policies and be subject to the rules, standing instructions and orders,
+                  made
+                  from time to time (subject to modifications). It will be necessary for you to familiarize yourself with
+                  them. Such policies, rules, standing instructions and orders shall be part and parcel of your contract of
+                  employment.</p>
+                
+                  The Staff Manual and Code of Conduct of the Company and its subsequent amendments, if any, will form
+                  part and parcel of this Contract of Employment.<br />
+                 
+                  &nbsp;<br />
+                <strong> <ol start="16">
+                    <li>General</li>
+                  </ol></strong>
+                  (a)&nbsp;&nbsp; During the course of
+                  your employment you will have access to and be able to use for the benefit of the company&rsquo;s
+                  business
+                  certain information relating to the company&rsquo;s customers and suppliers, its finances and its pricing
+                  policies. In the event that your employment with the company is terminated for whatever reason, you will
+                  be
+                  required to continue to keep such information confidential and not to divulge it to any other person,
+                  firm
+                  or company. Furthermore, the company prohibits the removal by any employee from the company&rsquo;s
+                  premises of any of the company&rsquo;s records or copies unless these are required for use in connection
+                  with the promotion of the company&rsquo;s business.<br />&nbsp;<br />
+                  
+                  (b)&nbsp;&nbsp; It is imperative that
+                  you serve the Company exclusively, faithfully and diligently, give your whole time and attention to the
+                  business and affairs of the Company, observe and perform all lawful directions, whether written or oral,
+                  that may be given to you from time to time.<br />&nbsp;<br />
+                 
+                  (c)&nbsp;&nbsp; Whether during or
+                  outside working hours, whether at the workplace or otherwise, you shall not conduct yourself in a manner
+                  which may or is likely to cause or be calculated to cause damage to the reputation and/or business of the
+                  Company or its associate or subsidiary Companies<br />&nbsp;<br />
+                 
+                  (d) &nbsp;&nbsp;You shall not, either directly or indirectly, engage or be concerned in any other employment or
+                  receive fees or pay from others for services rendered without the written consent of the Company. Nor
+                  shall
+                  you engage directly or indirectly, in any other business or occupation without the written consent of the
+                  Company.<br /><br>
+                  
+                  (e)&nbsp;&nbsp; You shall not receive or accept, whether directly or indirectly, except with the written consent of
+                  the Company, any profit or commission or any other gain arising out of or from any business enterprise,
+                  undertaking or any contract in relation to the Company or its associate or subsidiary Companies.<br />
+                  <br>
+                  (f)&nbsp;&nbsp; Any undisclosed personal relationship with any person within or associated with the Company which may
+                  be detrimental to the interest of the Company would result in immediate termination of your service.<br />
+                  <br>
+                  (g)&nbsp;&nbsp;You shall not divulge either directly or indirectly to any person or Company at any time during the
+                  continuance or after the termination of your employment, except by a decision of the Company, any
+                  knowledge
+                  or information you may acquire during the course of your employment in the Company concerning the affairs
+                  or property of the Company or of any business, property transaction in which the Company may be or may
+                  have
+                  been concerned or interested.<br /> <br>
+                  (h)&nbsp;&nbsp; You are required to promptly notify the company of any change/s in your address to which all written
+                  communication should be sent and your civil status or any other matters concerning yourself, which will
+                  have a bearing upon your employment in this company.<br />
+                 <br>
+                  If you are agreeable to accept this offer of employment subject to the above terms and conditions,
+                  kindly
+                  signify your acceptance by signing the last page and initialing all other pages of this document and
+                  returning the duplicate hereof.<br />
+                  Yours truly,<br />
+                  <strong>{{letterDetails.companyName}}</strong><br />
+                  <strong>[15. Designation of signatory]</strong><br />
+                  I have read and understood the terms and conditions stipulated above and accept employment on these
+                  terms
+                  and conditions without any reservations.<br />
+                  &nbsp;<br />
+                  Full Name:<br />
+                  NIC:<br />
+                  Signature:<br />
+
+                 
+                      <div class="btn-close">
+                        <button type="button" class="btn btn-danger" data-dismiss="" (click)="Back()" >Back </button>
+                        <button id="btnPrint" class="btn btn-primary" (click)="printComponent('component1')">Print</button>  
+                      </div>
+                 </span>
+                
+                  <button class='btn btn-default ' onclick="seeMoreFunction()" id="myBtn">See More</button>
+
+              </div>
+            </div>
+          </fieldset>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

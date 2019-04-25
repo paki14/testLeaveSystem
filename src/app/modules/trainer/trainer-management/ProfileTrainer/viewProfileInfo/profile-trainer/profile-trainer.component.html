@@ -1,0 +1,77 @@
+<div class="row">
+  <div class="col-md-12">
+
+    <!-- 1st Form Start -->
+    <div class="card-body">
+
+
+      <div class="panel panel-primary">
+        <div class="card-header">
+          <h3 class="panel-title">{{trainer.fullName}}</h3>
+        </div>
+        <div class="panel-body">
+
+          <div class="row">
+            <div class="col-md-12">
+              <div class="row verticalAlign">
+                <div class="col-md-9 alain">
+                  <fieldset class="alain">
+
+                    <legend>
+                      <h6> General Information</h6>
+                    </legend>
+                    <div class="mat-elevation-z8 ">
+                      <div class="ali">
+                        <app-trainer-profile-table></app-trainer-profile-table>
+                      </div>
+                    </div>
+                  </fieldset>
+                </div>
+
+                <div class="col-md-3">
+                  <fieldset>
+                    <legend>
+                      <h6>Profile</h6>
+                    </legend>
+                    <img class="imageClass" [src]="trainer.photoPath" />
+                  </fieldset>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="row">
+        <div class="col-md-9">
+
+          <fieldset>
+            <legend>
+              <h6>Record Of Employment</h6>
+            </legend>
+            <app-view-record-of-employment></app-view-record-of-employment>
+          </fieldset>
+
+          <fieldset>
+            <legend>
+              <h6>Technology Skill Level</h6>
+            </legend>
+            <app-view-technology-skill-level></app-view-technology-skill-level>
+          </fieldset>
+        </div>
+
+        <div class="col-md-3">
+          <fieldset>
+            <legend>
+              <h6>Profile</h6>
+            </legend>
+            <div class="col-md-2">
+              <img class="imageClass" src="../../../../../../assets/images/john.jfif" />
+            </div>
+          </fieldset>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

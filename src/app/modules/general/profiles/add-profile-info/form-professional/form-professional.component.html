@@ -1,0 +1,189 @@
+<!-- 3rd Form Start -->
+<div class="card">
+  <!-- card body start -->
+  <div class="card-body nopadding">
+    <!-- <form role="form"> -->
+    <div class="card-body">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="alert alert-success notification" id="alert-success" *ngIf="responseMsg === 'success'">
+            <span class="bold-font">Success:</span> All records were processed correctly! Ignore click Next
+          </div>
+          <div class="alert alert-danger notification" id="alert-danger" *ngIf="responseMsg === 'fail'">
+            <span class="bold-font">Error:</span> Something went wrong.
+          </div>
+          <!-- form start -->
+
+          <fieldset>
+            <!-- card body start -->
+            <form [formGroup]="addprofForm">
+              <legend> Membership Qualification</legend>
+
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Employee Name</label>
+                    <!-- <input name="funame" list="options" class=" form-control" [(ngModel)]="refObj.user">
+                      <datalist id="options">
+                        <option selected disabled>Select a Employee Name</option>
+                        <option *ngFor="let users of user" data-value="{{users.id}}">{{users.fullName}}</option>
+                      </datalist> -->
+                    <select formControlName="empName" class="form-control form-control-sm" [class.is-invalid]="addprofForm.get('empName').invalid && addprofForm.get('empName').touched "
+                      name="result" [(ngModel)]="membershipObj.user">
+                      <option selected disabled value="0">Select Employee Name</option>
+                      <option _ngcontent-c5="" selected="" *ngFor="let us of user" value="{{us.id}}" (click)="getUserId()">
+                        {{us.fullName}}</option>
+                    </select>
+                    <div *ngIf="addprofForm.get('empName').invalid && addprofForm.get('empName').touched ">
+                      <small class="text-danger" *ngIf="addprofForm.get('empName').errors?.required">Employee Name is
+                        Required
+                      </small>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="name-university">Organization Name</label>
+                    <input type="text" class="form-control" id="primary-year-form" placeholder="Name of University/Institution"
+                      name="university" formControlName="university" [class.is-invalid]="addprofForm.get('university').invalid && addprofForm.get('university').touched "
+                      [(ngModel)]="membershipObj.organizationName">
+                    <div *ngIf="addprofForm.get('university').invalid && addprofForm.get('university').touched ">
+                      <small class="text-danger" *ngIf="addprofForm.get('university').errors?.required">Organization
+                        Name is Required
+                      </small>
+                      <small class="text-danger" *ngIf="addprofForm.get('university').errors?.minlength"> Please Enter
+                        must be
+                        atleast 3 characters </small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="">Period Year</label>
+                    <div class="row">
+                      <div class="col-md-6">
+                        <input formControlName="fromyear" type="text" class="form-control form-control-sm"
+                          [class.is-invalid]="addprofForm.get('fromyear').invalid && addprofForm.get('fromyear').touched "
+                          placeholder="From Year" [(ngModel)]="membershipObj.periodYearFrom">
+                        <div *ngIf="addprofForm.get('fromyear').invalid && addprofForm.get('fromyear').touched ">
+                          <small class="text-danger" *ngIf="addprofForm.get('fromyear').errors?.required">From year is
+                            Required
+                          </small>
+                          <small class="text-danger" *ngIf="addprofForm.get('fromyear').errors?.pattern">Year only
+                            4 digits </small>
+                          <small class="text-danger" *ngIf="addprofForm.get('fromyear').errors?.maxlength"> Year only
+                            4 digits </small>
+                        </div>
+
+                      </div>
+                      <div class="col-md-6">
+
+                        <input formControlName="toyear" type="text" class="form-control form-control-sm"
+                          [class.is-invalid]="addprofForm.get('toyear').invalid && addprofForm.get('toyear').touched "
+                          placeholder="To Year" [(ngModel)]="membershipObj.periodYearTo">
+                        <div *ngIf="addprofForm.get('toyear').invalid && addprofForm.get('toyear').touched ">
+                          <small class="text-danger" *ngIf="addprofForm.get('toyear').errors?.required">To year is
+                            Required
+                          </small>
+                          <small class="text-danger" *ngIf="addprofForm.get('toyear').errors?.pattern">Year only
+                            4 digits </small>
+                          <small class="text-danger" *ngIf="addprofForm.get('toyear').errors?.minlength">Year only
+                            4 digits </small>
+                          <small class="text-danger" *ngIf="addprofForm.get('toyear').errors?.maxlength"> Year only
+                            4 digits </small>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="university-grading">Event Type</label>
+                    <input type="text" class="form-control" id="university-grading" formControlName="eventtype"
+                      [class.is-invalid]="addprofForm.get('eventtype').invalid && addprofForm.get('eventtype').touched "
+                      placeholder="Event Type" name="eventtype" [(ngModel)]="membershipObj.eventType">
+                    <div *ngIf="addprofForm.get('eventtype').invalid && addprofForm.get('eventtype').touched ">
+                      <small class="text-danger" *ngIf="addprofForm.get('eventtype').errors?.required">Event Type is
+                        Required
+                      </small>
+                      <small class="text-danger" *ngIf="addprofForm.get('eventtype').errors?.minlength"> Please Enter
+                        must beatleast 3 characters </small>
+                      <small class="text-danger" *ngIf="addprofForm.get('eventtype').errors?.maxlength"> Please Enter
+                        below 50 characters </small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="university-grading">Event Name</label>
+                    <input type="text" class="form-control" id="university-grading" formControlName="eventname"
+                      [class.is-invalid]="addprofForm.get('eventname').invalid && addprofForm.get('eventname').touched "
+                      placeholder="Event Name" name="eventname" [(ngModel)]="membershipObj.eventName">
+                    <div *ngIf="addprofForm.get('eventname').invalid && addprofForm.get('eventname').touched ">
+                      <small class="text-danger" *ngIf="addprofForm.get('eventname').errors?.required">Event Name is
+                        Required
+                      </small>
+                      <small class="text-danger" *ngIf="addprofForm.get('eventname').errors?.minlength"> Please Enter
+                        must beatleast 3 characters </small>
+                      <small class="text-danger" *ngIf="addprofForm.get('eventname').errors?.maxlength"> Please Enter
+                        below 50 characters </small>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="university-grading">Number of Award</label>
+                    <input type="text" class="form-control" id="university-grading" placeholder="Award" name="award"
+                      formControlName="nameOfaward" [class.is-invalid]="addprofForm.get('nameOfaward').invalid && addprofForm.get('nameOfaward').touched "
+                      [(ngModel)]="membershipObj.award">
+                    <div *ngIf="addprofForm.get('nameOfaward').invalid && addprofForm.get('nameOfaward').touched ">
+                      <small class="text-danger" *ngIf="addprofForm.get('nameOfaward').errors?.required">Name of Award
+                        is Required
+                      </small>
+                      <small class="text-danger" *ngIf="addprofForm.get('nameOfaward').errors?.maxlength"> Please Enter
+                        below 50 characters </small>
+                      <small class="text-danger" *ngIf="addprofForm.get('nameOfaward').errors?.pattern">Enter Number of
+                        awards</small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </form>
+            <div class="row">
+
+              <div class="col-md-12">
+
+                <button type="button" class="btn btn-primary pull-right" (click)="addProMembership()" [disabled]="!addprofForm.valid">Save</button>
+              </div>
+            </div>
+            <!-- card body end -->
+
+
+
+          </fieldset>
+
+          <!-- card body end -->
+
+
+
+
+        </div>
+      </div>
+    </div>
+    <!-- <div class="card-footer">
+            <button type="button" class="btn btn-primary" (click)="previous()" >Previous</button>
+            &nbsp;
+            <button type="button" class="btn btn-primary" (click)="next()" >Next</button>
+            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete-modal">Delete</button>
+          </div> -->
+    <!-- </form> -->
+    <!-- form end -->
+  </div>
+  <!-- card body end -->
+</div>
+<!-- 3rd Form End -->

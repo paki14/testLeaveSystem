@@ -1,0 +1,91 @@
+<ul>
+  <li *ngFor="let selfService of selfService">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <!-- card header start -->
+          <div class="card-header">
+            <h5 class="card-title"></h5>
+          </div>
+          <!-- card-header end -->
+
+          <!-- card body start -->
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="card card-primary ">
+                  <!-- form start -->
+                  <form role="form">
+                    <div class="container-fluid">
+                      <!-- card body start -->
+                      <fieldset>
+                        <legend></legend>
+
+                        <div class="col-md-12">
+                          <div class="row">
+                            <div class="col-md-6">
+                              <div class="form-group">
+                                <label for="exampleInputEmail1">Type</label>
+                                <input type="text" class="form-control" placeholder="Type Goes Here" readonly value="{{selfService.selfServiceType.selfServiceTypeName}}">
+                              </div>
+
+                              <div class="form-group">
+                                <label for="exampleInputEmail1">Relevant Department</label>
+                                <input type="Number of copies " class="form-control" placeholder="Designation" readonly
+                                  value="{{selfService.relevantDepartment.departmentName}}">
+                              </div>
+
+                              <div class="form-group">
+                                <label for="exampleInputEmail1">Relevant Individuals</label>
+                                <input type="Number of copies " class="form-control" placeholder="Designation" readonly
+                                  value="{{selfService.relevantIndividual.fullName}}">
+                              </div>
+                            </div>
+                            <div class="col-md-6">
+                              <div class="form-group">
+                                <label for="exampleInputEmail1">Description</label>
+                                <textarea class="form-control" rows="3" cols="10" readonly value="{{selfService.description}}"></textarea>
+                              </div>
+                              <div class="form-group">
+                                <label for="exampleInputEmail1">Date </label>
+                                <input type="Number of copies " mwlFlatpickr class="form-control" placeholder="dd/mm/yyyy"
+                                  value="{{selfService.createdAt}}">
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- <div class="form-group">
+                            <label for="exampleInputEmail1">Attached Files</label>
+                            <ul>
+                              <li class="list">
+                                <label>File Name</label>
+                                <i class="fa fa-eye" aria-hidden="true" data-toggle="modal" data-target="#modal-view-files"></i>
+                              </li>
+                            </ul>
+                          </div> -->
+                      </fieldset>
+
+                      <div class="card-footer">
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#accept-modal" (click)="sendSelfServiceToModal(selfService)">Accept</button>
+                        &nbsp;
+                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#reject-modal" (click)="rejectSelfService(selfService)">Cancel</button>
+                      </div>
+                    </div>
+                  </form>
+
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- card body end -->
+
+        </div>
+      </div>
+    </div>
+  </li>
+</ul>
+<!-- request leave end -->
+
+<app-view-files></app-view-files>
+<app-reject-service></app-reject-service>
+<app-accept-request></app-accept-request>

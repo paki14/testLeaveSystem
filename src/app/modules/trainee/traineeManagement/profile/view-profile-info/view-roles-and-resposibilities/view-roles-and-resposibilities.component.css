@@ -1,0 +1,13 @@
+.row{
+    margin-left: 5px;
+}
+/* materials icon */
+.icon-edit{
+    color: blue;
+    font-size: 30px !important;
+  }
+  .icon-delete{
+    color: red;
+    font-size: 30px !important;
+  }
+   

@@ -1,0 +1,166 @@
+<!--   Apply leave  start -->
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+      <!-- card header start -->
+      <div class="card-header">
+        <h5 class="card-title">Request Leave</h5>
+
+        <div class="card-tools">
+          <button type="button" class="btn btn-tool" data-widget="collapse">
+            <i class="fa fa-minus"></i>
+          </button>
+          <button type="button" class="btn btn-tool" data-widget="remove">
+            <i class="fa fa-times"></i>
+          </button>
+        </div>
+      </div>
+      <!-- card-header end -->
+
+      <!-- card body start -->
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card card-primary">
+              <!-- form start -->
+              <form role="form">
+                <!-- card body start -->
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-md-5">
+                      <div class="form-group">
+                        <label for="apply-leave-startdate">Start Date</label>
+                        <input
+                          type="date"
+                          class="form-control"
+                          id="apply-leave-startdate"
+                          name="apply-leave-startdate"
+                          placeholder="yyyy/mm/dd"
+                          [(ngModel)]="leaveRequest.startDate"
+                          (change)="noOfDays()"
+                          min="{{ today | date: 'yyyy-MM-dd' }}"
+                          max="{{ leaveRequest.endDate | date: 'yyyy-MM-dd' }}"
+                        />
+                      </div>
+                    </div>
+                    <div class="col-md-5">
+                      <div class="form-group">
+                        <label for="apply-leave-enddate">End Date</label>
+                        <input
+                          type="date"
+                          class="form-control"
+                          name="apply-leave-enddate"
+                          id="apply-leave-enddate"
+                          placeholder="yyyy/mm/dd"
+                          [(ngModel)]="leaveRequest.endDate"
+                          (change)="noOfDays()"
+                          min="{{
+                            leaveRequest.startDate | date: 'yyyy-MM-dd'
+                          }}"
+                        />
+                      </div>
+                    </div>
+                    <div class="col-md-2">
+                      <div class="form-group">
+                        <label for="apply-leave-NumberofDays"
+                          >Number of Days</label
+                        >
+                        <input
+                          type="text"
+                          class="form-control"
+                          name="apply-leave-NumberofDays"
+                          id="apply-leave-NumberofDays"
+                          disabled
+                          [(ngModel)]="leaveRequest.noOfDays"
+                        />
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="apply-leave-TypeofLeave"
+                          >Type of Leave</label
+                        >
+                        <select
+                          class="form-control"
+                          id="apply-leave-TypeofLeave"
+                          name="apply-leave-TypeofLeave"
+                          [(ngModel)]="leaveRequest.leaveAllocation"
+                        >
+                          <option selected default hidden [ngValue]="default"
+                            >select leave type</option
+                          >
+                          <option
+                            *ngFor="let la of leaveAllocation"
+                            [ngValue]="la"
+                            >{{ la.leaveType.leaveTypeValue }}</option
+                          >
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="apply-leave-attachments">Attachments</label>
+                        <input
+                          type="file"
+                          class="form-control"
+                          name="apply-leave-attachments"
+                          id="apply-leave-attachments"
+                          accept="file_extension"
+                          [(ngModel)]="leaveRequest.attachment"
+                        />
+                      </div>
+                    </div>
+                    <!-- <div class="col-md-12">
+                      <div class="form-group">
+                        <label for="apply-leave-SendCopyto">Send Copy to</label>
+                        <input type="text" class="form-control" name="apply-leave-SendCopyto" id="apply-leave-SendCopyto"
+                          placeholder=" Sent Copy to">
+                      </div>
+                    </div> -->
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        <label for="apply-leave-reason">Reason</label>
+                        <textarea
+                          type="textarea"
+                          class="form-control"
+                          rows="4"
+                          name="apply-leave-reason"
+                          id="apply-leave-reason"
+                          placeholder="Enter Reason"
+                          [(ngModel)]="leaveRequest.reason"
+                        ></textarea>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- card body end -->
+                <div class="card-footer">
+                  <button
+                    type="button"
+                    class="btn btn-secondary"
+                    (click)="clearField()"
+                  >
+                    Clear
+                  </button>
+                  &nbsp;&nbsp;
+                  <button
+                    type="button"
+                    class="btn btn-primary"
+                    data-toggle="modal"
+                    data-target="#conform-leave"
+                    (click)="sendLeaveRequest()"
+                  >
+                    Request
+                  </button>
+                </div>
+              </form>
+              <!-- form end -->
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- card body end -->
+    </div>
+  </div>
+</div>
+<!-- apply leave end -->

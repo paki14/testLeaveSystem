@@ -1,0 +1,37 @@
+.btn-close{
+    padding-left: 900px;
+}
+#myBtn{
+    color: blue;
+    cursor: pointer;
+}
+.bottom-padding{
+    padding-bottom: 15px;
+}
+.center-heading{
+    text-align: center;
+    font-family: none;
+}
+
+.btn{
+    font-size: 12px !important;
+}
+.mat-elevation-z8 {
+    padding-bottom: 15px;
+}
+#print-div{
+    line-height: 35px;
+}
+
+.modal-dialog{
+    min-width: 70%;
+}
+
+#btnPrint{
+    
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: bold;
+    margin-top: 10px;
+   
+}

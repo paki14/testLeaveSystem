@@ -1,0 +1,67 @@
+<div class="row">
+  <div class="col-md-12">
+
+    <div class="card">
+
+      <!-- card header start -->
+      <div class="card-header">
+        <h5 class="card-title">Required Resources add-attachment</h5>
+
+        <div class="card-tools">
+          <button type="button" class="btn btn-tool" data-widget="collapse">
+            <i class="fa fa-minus"></i>
+          </button>
+          <button type="button" class="btn btn-tool" data-widget="remove">
+            <i class="fa fa-times"></i>
+          </button>
+        </div>
+      </div>
+      <!-- card-header end -->
+
+      <!-- card body start -->
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card card-primary">
+              <div class="mat-elevation-z8">
+                <mat-table [dataSource]="dataSource" matSort>
+
+                  <!-- column 1 start -->
+                  <ng-container matColumnDef="resourceName">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header> Resource Name </mat-header-cell>
+                    <mat-cell *matCellDef="let add-attachments"> {{add-attachments.resourceName}} </mat-cell>
+                  </ng-container>
+                  <!-- column 1 end -->
+
+                  <!-- column 2 start -->
+                  <ng-container matColumnDef="add-attachment">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header> Attchment </mat-header-cell>
+                    <mat-cell *matCellDef="let add-attachments"> {{add-attachments.add-attachment}}</mat-cell>
+                  </ng-container>
+                  <!-- column 2 end -->
+
+                  <!-- column 3 start -->
+                  <ng-container matColumnDef="delete">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header> Delete </mat-header-cell>
+                    <mat-cell *matCellDef="let add-attachments">
+                      <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#delete-cdp-modal">
+                        Delete
+                      </button>
+                    </mat-cell>
+                  </ng-container>
+                  <!-- column 3 end -->
+                  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+                </mat-table>
+
+                <!-- pagination start -->
+                <mat-paginator [pageSizeOptions]="[3, 5, 10, 25]"></mat-paginator>
+                <!-- pagination end -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

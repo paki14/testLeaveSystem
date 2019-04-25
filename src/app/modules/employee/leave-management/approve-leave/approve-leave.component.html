@@ -1,0 +1,96 @@
+<!-- HR and Employee view -->
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+
+      <!-- card header start -->
+      <div class="card-header">
+        <h5 class="card-title">Leave Requests</h5>
+        <div class="card-tools">
+          <button type="button" class="btn btn-tool" data-widget="collapse">
+            <i class="fa fa-minus"></i>
+          </button>          
+        </div>
+      </div>
+      <!-- card header end -->
+
+      <!-- card body start -->
+      <div class="card-body">
+        <div class="mat-elevation-z8 mb-3">
+          <mat-table [dataSource]="dataSource" matSort>
+
+            <!-- column 1 start -->
+            <ng-container matColumnDef="name">
+              <mat-header-cell *matHeaderCellDef mat-sort-header> Employee Name </mat-header-cell>
+              <mat-cell *matCellDef="let leave">
+                <div class="link" (click)="sendUserId(leave.user)">{{leave.user.fullName}}</div>
+              </mat-cell>
+            </ng-container>
+            <!-- column 1 end -->
+
+            <!-- column 2 start -->
+            <!-- <ng-container matColumnDef="department">
+              <mat-header-cell *matHeaderCellDef mat-sort-header> Department </mat-header-cell>
+              <mat-cell *matCellDef="let leave"> {{leave.department}}</mat-cell>
+            </ng-container> -->
+            <!-- column 2 end -->
+
+            <!-- column 2 start -->
+            <ng-container matColumnDef="startdate">
+              <mat-header-cell *matHeaderCellDef mat-sort-header> Start Date </mat-header-cell>
+              <mat-cell *matCellDef="let leave"> {{leave.startDate | date : 'yyyy-MM-dd'}}</mat-cell>
+            </ng-container>
+            <!-- column 2 end -->
+
+            <!-- column 2 start -->
+            <ng-container matColumnDef="enddate">
+              <mat-header-cell *matHeaderCellDef mat-sort-header> End Date </mat-header-cell>
+              <mat-cell *matCellDef="let leave"> {{leave.endDate | date : 'yyyy-MM-dd'}}</mat-cell>
+            </ng-container>
+            <!-- column 2 end -->
+
+            <!-- column 3 start -->
+            <ng-container matColumnDef="numberofdays">
+              <mat-header-cell *matHeaderCellDef mat-sort-header> Number of Days </mat-header-cell>
+              <mat-cell *matCellDef="let leave"> {{leave.noOfDays}}</mat-cell>
+            </ng-container>
+            <!-- column 3 end -->
+
+            <!-- column 4 start -->
+            <ng-container matColumnDef="type">
+              <mat-header-cell *matHeaderCellDef mat-sort-header> Leave Type</mat-header-cell>
+              <mat-cell *matCellDef="let leave"> {{leave.leaveAllocation.leaveType.leaveTypeValue}}</mat-cell>
+            </ng-container>
+            <!-- column 4 end -->
+
+            <!-- column 5 start -->
+            <ng-container matColumnDef="reason">
+              <mat-header-cell *matHeaderCellDef mat-sort-header> Reason </mat-header-cell>
+              <mat-cell *matCellDef="let leave"> {{leave.reason}} </mat-cell>
+            </ng-container>
+            <!-- column 5 end -->
+
+            <!-- column 6 start -->
+            <ng-container matColumnDef="accept/reject">
+              <mat-header-cell *matHeaderCellDef mat-sort-header> </mat-header-cell>
+              <mat-cell *matCellDef="let leave"> <button type="button" class="btn btn-primary" data-target="#accept-modal"
+                  data-toggle="modal" (click)=" sentLeaveId(leave.id)">Accept</button>&nbsp;&nbsp;
+                <button type="button" class="btn btn-danger" data-target="#reject-modal" data-toggle="modal" (click)=" sentLeaveId(leave.id)">Reject</button>
+              </mat-cell>
+            </ng-container>
+            <!-- column 6 end -->
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+
+
+            <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+          </mat-table>
+
+          <!-- pagination start -->
+          <mat-paginator [pageSizeOptions]="[5, 10, 25]"></mat-paginator>
+          <!-- pagination end -->
+        </div>
+      </div>
+      <!-- card body end -->
+    </div>
+  </div>
+</div>

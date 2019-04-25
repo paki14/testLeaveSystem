@@ -1,0 +1,28 @@
+
+  <div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="tab" role="tabpanel">
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs" role="tablist">
+                    <li role="presentation" routerLinkActive="active"><a class="active" routerLink="profile" aria-controls="home" role="tab" data-toggle="tab">Profile</a></li>
+                    <!-- <li role="presentation" routerLinkActive="active"><a class="active" routerLink="trainee" aria-controls="home" role="tab" data-toggle="tab" *ngIf="info.authorities=='trainee'">Profile</a></li>                     -->
+                    <li role="presentation" routerLinkActive="active"><a class="active" routerLink="#" aria-controls="profile" role="tab" data-toggle="tab" >Appoinment</a></li>
+                    <li role="presentation" routerLinkActive="active"><a class="active" routerLink="#" aria-controls="messages" role="tab" data-toggle="tab">Par</a></li>
+                    <li role="presentation" routerLinkActive="active"><a class="active" routerLink="#" aria-controls="messages" role="tab" data-toggle="tab">Skils
+                            Development plan</a></li>
+                    <li role="presentation" routerLinkActive="active"><a class="active" routerLink="#" aria-controls="messages" role="tab" data-toggle="tab">Course
+                            Record</a></li>
+                    <li role="presentation" routerLinkActive="active"><a class="active" routerLink="#" aria-controls="messages" role="tab" data-toggle="tab">Attendants</a></li>
+                    <li role="presentation" routerLinkActive="active"><a class="active" routerLink="#" aria-controls="messages" role="tab" data-toggle="tab">Final</a></li>
+                
+                    <li role="presentation" routerLinkActive="active"><a class="active" routerLink="#" aria-controls="messages" role="tab" data-toggle="tab">Temination</a></li>
+                </ul>
+              
+                <br>
+                <router-outlet></router-outlet>
+            </div>
+        </div>
+    </div>
+</div>
+

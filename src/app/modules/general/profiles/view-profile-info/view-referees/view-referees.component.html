@@ -1,0 +1,213 @@
+<!-- form start -->
+<div class="card-body">
+  <div class="panel panel-primary" *ngFor="let ref of referees ">
+
+    <div class="panel-headding">
+      <h5> <label for="">{{ref.head}}</label> </h5>
+
+      <div class="row">
+        <div class="col-md-5">
+          <label for="">name</label>
+        </div>
+        <div class="col-md-7">
+          <label for="">:{{ref.refereeName}}</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-5">
+          <label for="">Address</label>
+        </div>
+        <div class="col-md-7">
+          <label for="">:{{ref.address}}</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-5">
+          <label for="">Email</label>
+        </div>
+        <div class="col-md-7">
+          <label for="">:{{ref.email}}</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-5">
+          <label for="">Phone</label>
+        </div>
+        <div class="col-md-7">
+          <label for="">:{{ref.contactNo}}</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-5">
+          <label for="">Relation</label>
+        </div>
+        <div class="col-md-7">
+          <label for="">:{{ref.relationship}}</label>
+        </div>
+      </div>
+      <!-- <div class="row">
+
+        <div class="col-md-12 pull-right">
+          <button type="button" class="btn btn-danger pull-right" (click)="getId(ref)" data-toggle="modal" data-target="#deleteReferee">Delete</button>
+          &nbsp;
+          <button type="button" class="btn btn-primary  pull-right" (click)="getId(ref)" data-toggle="modal" data-target="#editReferee">Edit</button>
+
+        </div> -->
+      <div class="row" *ngIf="info.authorities=='HR'">
+        <a href="" data-toggle="modal" data-target="#editReferee" (click)="getId(ref)">
+          <span>
+            <i class="large material-icons icon-edit">edit</i>
+          </span>
+        </a>
+        <a href="" data-toggle="modal" data-target="#deleteReferee" (click)=" getId(ref)">
+          <span class="">
+            <i class="material-icons icon-delete">delete_forever</i>
+          </span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- form end -->
+<!-- delete popup -->
+
+<div class="modal fade" id="deleteReferee" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header model-header-primary card-header-danger">
+        <h6 class="modal-title" id="exampleModalCenterTitle">Confirmation</h6>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="col-md-12">
+        <div class="form-group">
+          <label for="message-text" class="col-form-label">Really Want to Delete? it can not undone!</label>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <div>
+          <button type="button" (click)="deletereferee()" class="btn btn-danger " data-toggle="modal" data-dismiss="modal">Yes</button>
+        </div>
+        <div>
+          <button type="button" class="btn btn-success " data-toggle="modal" data-dismiss="modal">No</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Edit Referee -->
+<div class="modal fade" id="editReferee" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h6 class="modal-title">Edit Referee</h6>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <form [formGroup]="addUserForm">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-12">
+              <!-- card body start -->
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <!-- {{refereeObject | json}} -->
+                    <label for="name-referee">Name</label>
+                    <input type="text" class="form-control" formControlName="refereeName" [class.is-invalid]="addUserForm.get('refereeName').invalid && addUserForm.get('refereeName').touched "
+                      id="name-referee" placeholder="Name " name="name" [(ngModel)]="refereeObject.refereeName">
+                    <div *ngIf="addUserForm.get('refereeName').invalid && addUserForm.get('refereeName').touched ">
+                      <small class="text-danger" *ngIf="addUserForm.get('refereeName').errors?.required">Referee Name
+                        is Required </small>
+                      <small class="text-danger" *ngIf="addUserForm.get('refereeName').errors?.pattern">Please Enter
+                        Referee Name
+                        with out space </small>
+                    </div>
+                  </div>
+                </div>
+
+
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="address">Address</label>
+                    <input type="text" class="form-control" formControlName="address" [class.is-invalid]="addUserForm.get('address').invalid && addUserForm.get('address').touched "
+                      id="primary-year-form" placeholder="Address" name="add" [(ngModel)]="refereeObject.address">
+                    <div *ngIf="addUserForm.get('address').invalid && addUserForm.get('address').touched ">
+                      <small class="text-danger" *ngIf="addUserForm.get('address').errors?.required">Address is
+                        Required </small>
+                      <small class="text-danger" *ngIf="addUserForm.get('address').errors?.pattern">Please Enter Valid
+                        Address </small>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="text" formControlName="email" class="form-control" id="email" placeholder="Email"
+                      [class.is-invalid]="addUserForm.get('email').invalid && addUserForm.get('email').touched " name="email"
+                      [(ngModel)]="refereeObject.email">
+                    <div *ngIf="addUserForm.get('email').invalid && addUserForm.get('email').touched ">
+                      <small class="text-danger" *ngIf="addUserForm.get('email').errors?.required">Email is Required
+                      </small>
+                      <small class="text-danger" *ngIf="addUserForm.get('email').errors?.pattern">Please Enter Valid
+                        Email
+                        Address </small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="telephone">Telephone</label>
+                    <input type="text" class="form-control" formControlName="telephone" [class.is-invalid]="addUserForm.get('telephone').invalid && addUserForm.get('telephone').touched "
+                      id="telephone" placeholder="Telephone No" name="telephone" [(ngModel)]="refereeObject.contactNo">
+                    <div *ngIf="addUserForm.get('telephone').invalid && addUserForm.get('telephone').touched ">
+                      <small class="text-danger" *ngIf="addUserForm.get('telephone').errors?.required">Telephone is
+                        Required </small>
+                      <small class="text-danger" *ngIf="addUserForm.get('telephone').errors?.pattern">Please Enter
+                        Valid Telephone
+                        Number </small>
+                    </div>
+                  </div>
+                </div>
+
+
+
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="relation">Relationship to the Employer</label>
+                    <input type="text" class="form-control" id="relation" formControlName="relationship"
+                      [class.is-invalid]="addUserForm.get('relationship').invalid && addUserForm.get('relationship').touched "
+                      placeholder="Relationship to the Employer" name="relation" [(ngModel)]="refereeObject.relationship">
+                    <div *ngIf="addUserForm.get('relationship').invalid && addUserForm.get('relationship').touched ">
+                      <small class="text-danger" *ngIf="addUserForm.get('relationship').errors?.required">Relationship
+                        is Required </small>
+                      <small class="text-danger" *ngIf="addUserForm.get('relationship').errors?.pattern">Please Enter
+                        Relationship
+                      </small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- card body end -->
+            </div>
+          </div>
+        </div>
+
+      </form>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="editReferee()">Update</button>
+
+      </div>
+    </div>
+
+  </div>
+</div>

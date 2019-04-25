@@ -1,0 +1,15 @@
+
+mat-header-cell{
+    font-size: 15px !important;
+    font-style: initial;
+    text-align: center;
+}
+/* materials icon */
+.icon-edit{
+    color: blue;
+    font-size: 30px !important;
+  }
+  .icon-delete{
+    color: red;
+    font-size: 30px !important;
+  }

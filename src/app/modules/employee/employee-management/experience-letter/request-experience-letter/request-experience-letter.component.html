@@ -1,0 +1,125 @@
+<!-- request leave start -->
+<div class="row">
+  <div class="col-md-11">
+    <div class="card">
+      <!-- card header start -->
+      <div class="card-header">
+        <h5 class="card-title">Request Experience Letter</h5>
+        <div class="card-tools">
+          <button type="button" class="btn btn-tool" data-widget="collapse">
+            <i class="fa fa-minus"></i>
+          </button>
+          <button type="button" class="btn btn-tool" data-widget="remove">
+            <i class="fa fa-times"></i>
+          </button>
+        </div>
+      </div>
+      <!-- card-header end -->
+      <!-- card body start -->
+      <div class="card-body">
+        <div class="card">
+        <!-- form start -->
+        <form role="form"  #roleForm="ngForm">
+          <div class="container-fluid">
+            <!-- card body start -->
+            <div class="row">
+              <div class="col-md-12">
+                <!--basic project start-->
+                <fieldset>
+                  <legend>Basic Details</legend>
+                  <div class="form-group">
+                    <label >Number of copies </label>
+                    <input type="Number of copies " class="form-control" placeholder="Enter Number Of Copies" name="noOfCopies" [(ngModel)]="requestLetterObj.noOfCopies">
+                  </div>
+                  <div class="form-group">
+                    <label >Reason</label>
+                    <textarea class="form-control" rows="1" cols="10" name="reason" [(ngModel)]="requestLetterObj.reason"></textarea>
+                  </div>
+                  <div class="form-group">
+                    <label >Current designation </label>
+                    <input type="text " class="form-control" placeholder="Designation">
+                  </div>
+                  <div class="form-group">
+                    <label >Competencies </label>
+                    <input type="Number of copies " class="form-control" placeholder="Competencies" name="competency"  [(ngModel)]="requestLetterObj.competency">
+                  </div>
+                </fieldset>
+              </div>
+              <!-- worked projects start -->
+              <!-- <div class="col-md-6">
+                <fieldset>
+                  <legend>Worked projects</legend>
+                  <div class="col-md-8">
+                    <div class="form-group">
+                      <label for="exampleInputEmail1">Project : </label>
+                      <input type="Number of copies " class="form-control" id="start-date" placeholder="text">
+                    </div>
+                  </div>
+
+                  <div class="col-md-8">
+                    <div class="form-group">
+                      <label for="exampleInputEmail1">Project description: </label>
+                      <input type="Number of copies " class="form-control" id="start-date" placeholder="text">
+                    </div>
+                  </div>
+                  <div class="col-md-8">
+                    <div class="form-group">
+                      <label for="exampleInputEmail1">Played roles & responsibilities : </label>
+                      <input type="Number of copies " class="form-control" id="start-date" placeholder="text">
+                    </div>
+                  </div>
+                  <div class="col-md-8">
+                    <div class="form-group">
+                      <label for="start-date">Date required </label>
+                      <input type="text" mwlFlatpickr class="form-control" id="start-date" placeholder="yyyy-mm-dd">
+                    </div>
+                  </div>
+                </fieldset>
+              </div> -->
+            </div>
+            <!-- worked project ends -->
+
+            <!-- <fieldset class="mt-2 mb-3">
+              <legend>Employeement History</legend>
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Position : </label>
+                    <input type="Number of copies " class="form-control" id="start-date" placeholder="">
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">From : </label>
+                    <input type="text" mwlFlatpickr class="form-control" id="start-date" placeholder="yyyy-mm-dd">
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">To: </label>
+                    <input type="text" mwlFlatpickr class="form-control" id="start-date" placeholder="yyyy-mm-dd">
+                  </div>
+                </div>
+              </div>
+            </fieldset> -->
+
+            <!-- card body end -->
+          </div>
+        </form>
+        <!-- form end -->
+      </div>
+      </div>
+      <!-- card body end -->
+      <div class="card-footer">
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#add-modal" (click)="createRequest()">Request</button>
+        &nbsp;
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- <app-add></app-add> -->
+
+
+<!-- request leave end -->

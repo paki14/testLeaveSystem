@@ -1,0 +1,79 @@
+<div class="container">
+  <mat-card>
+
+    <!-- <div class="form-group">
+      <label for="">Filter</label>
+      <input class="form-control" placeholder="Enter Name" type="text" (keyup)="applyFilter($event.target.value)">
+    </div> -->
+
+    <div class="row">
+      <div class="col-md-3">
+        <div class="form-group">
+          <label>
+              <mat-checkbox [formControl]="disabledName">Name</mat-checkbox>
+          </label>
+          <input class="form-control" placeholder="Enter Name" name="fullName" type="text" [disabled]="!disabledName.value"
+            [(ngModel)]="directorySearch.fullName" maxlength="20">
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="form-group">
+          <label for="">
+            <mat-checkbox class="" [formControl]="disabledDesig">Designation</mat-checkbox>
+          </label>
+          <input class="form-control" placeholder="Enter title" name="designation" type="text" [disabled]="!disabledDesig.value"
+            [(ngModel)]="directorySearch.designation" maxlength="20">
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="form-group">
+          <label for="">
+            <mat-checkbox class="" [formControl]="disabledAppoint">Appointed Date</mat-checkbox>
+          </label>
+          <div class="row">
+            <div class="col-md-10">
+              <input type="date" class="form-control" [disabled]="!disabledAppoint.value"
+                [(ngModel)]="directorySearch.appointmentDate">
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+      <div class="mt-2 col-md-3">
+        <label for=""><p></p></label><br>
+        <button mat-raised-button color="primary" (click)="search()">Search</button>
+      </div>
+
+    </div>
+  </mat-card>
+  <!--Table view of employee details-->
+  <mat-card>
+    <table class="table">
+      <thead>
+        <th>User ID</th>
+        <th>Full Name</th>
+        <th>Designation</th>
+        <th>Email</th>
+        <th>Contact</th>
+        <th>Appointment Date</th>
+        <th>Service Period</th>
+      </thead>
+      <tbody>
+        <tr *ngFor="let dir of directoryView">
+          <td>{{dir.userId}}</td>
+          <td>{{dir.fullName}}</td>
+          <td>{{dir.designation}}</td>
+          <td>{{dir.email}}</td>
+          <td>{{dir.contact}}</td>
+          <td>{{dir.appointmentDate}}</td>
+          <td>{{dir.servicePeriod}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </mat-card>
+
+
+</div>

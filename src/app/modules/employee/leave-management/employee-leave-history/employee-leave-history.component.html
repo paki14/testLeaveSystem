@@ -1,0 +1,63 @@
+<div class="mat-elevation-z8 mb-3">
+  <mat-table [dataSource]="dataSource" matSort>
+    
+
+    <!-- column 2 start -->
+    <ng-container matColumnDef="startdate">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Start Date </mat-header-cell>
+      <mat-cell *matCellDef="let empleavehistory"> {{empleavehistory.startDate | date : 'yyyy-MM-dd'}}</mat-cell>
+    </ng-container>
+    <!-- column 2 end -->
+
+    <!-- column 2 start -->
+    <ng-container matColumnDef="enddate">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> End Date </mat-header-cell>
+      <mat-cell *matCellDef="let empleavehistory"> {{empleavehistory.endDate | date : 'yyyy-MM-dd'}}</mat-cell>
+    </ng-container>
+    <!-- column 2 end -->
+
+    <!-- column 3 start -->
+    <ng-container matColumnDef="numberofdays">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Number of Days </mat-header-cell>
+      <mat-cell *matCellDef="let empleavehistory"> {{empleavehistory.noOfDays}}</mat-cell>
+    </ng-container>
+    <!-- column 3 end -->
+
+    <!-- column 4 start -->
+    <ng-container matColumnDef="type">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Leave Type</mat-header-cell>
+      <mat-cell *matCellDef="let empleavehistory"> {{empleavehistory.leaveAllocation.leaveType.leaveTypeValue}}</mat-cell>
+    </ng-container>
+    <!-- column 4 end -->
+
+    <!-- column 5 start -->
+    <ng-container matColumnDef="reason">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Reason </mat-header-cell>
+      <mat-cell *matCellDef="let empleavehistory"> {{empleavehistory.reason}} </mat-cell>
+    </ng-container>
+    <!-- column 5 end -->
+
+    <!-- column 5 start -->
+    <ng-container matColumnDef="status">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Status </mat-header-cell>
+      <mat-cell *matCellDef="let empleavehistory"> {{empleavehistory.status}} </mat-cell>
+    </ng-container>
+    <!-- column 5 end -->
+
+    <!-- column 6 start -->
+    <ng-container matColumnDef="cancel">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> </mat-header-cell>
+      <mat-cell *matCellDef="let empleavehistory"> 
+        <button type="button" class="btn btn-danger" data-target="#reject-modal" >Cancel</button>
+      </mat-cell>
+    </ng-container>
+    <!-- column 6 end -->
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+
+  <!-- pagination start -->
+  <mat-paginator [pageSizeOptions]="[5, 10, 25]"></mat-paginator>
+  <!-- pagination end -->
+</div>

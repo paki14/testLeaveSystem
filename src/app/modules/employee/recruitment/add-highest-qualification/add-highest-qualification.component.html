@@ -1,0 +1,59 @@
+<div class="row">
+  <div class="col-md-10">
+    <div class="card">
+
+      <!-- card header start -->
+      <div class="card-header">
+        <h5 class="card-title">Highest Qualification Details</h5>
+      </div>
+      <!-- card-header end -->
+
+      <!-- card body start -->
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card card-primary">
+
+              <!-- form start -->
+              <form #highestQualificationForm="ngForm">
+              <div class="card-body">
+                <div class="row">
+      <!-- card-header end -->
+              <div class="row">
+                  
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label for="district">Highest Qualification Type</label>
+                  
+                  <input type="text"  class="form-control"  id="id" name="highestQualificationName"  [(ngModel)]="highestQualificationObj.highestQualificationName">
+                </div>
+              </div>
+              
+              </div>
+
+</div>
+</div>
+</form>
+
+<!-- Footer Start -->
+   <div class="card-footer">
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#confirm-modal" (click)="createHighestQualification()">Add</button>
+    &nbsp;
+
+</div>
+</div>
+<!-- form end -->
+</div>
+</div>
+</div>
+
+</div>
+<!-- card body end -->
+
+</div>
+</div>
+
+<app-view-highest-qualification></app-view-highest-qualification>
+
+
+

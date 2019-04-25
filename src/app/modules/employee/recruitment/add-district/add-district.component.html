@@ -1,0 +1,58 @@
+<div class="row">
+  <div class="col-md-10">
+    <div class="card">
+
+      <!-- card header start -->
+      <div class="card-header">
+        <h5 class="card-title">District Details</h5>
+      </div>
+      <!-- card-header end -->
+
+      <!-- card body start -->
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card card-primary">
+
+              <!-- form start -->
+              <form #districtForm="ngForm">
+              <div class="card-body">
+                <div class="row">
+      <!-- card-header end -->
+              <div class="row">
+                  
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label for="district">District Name</label>
+                  <input type="text"  class="form-control" name="districtname" id="districtname"
+                  [(ngModel)]="districtObj.districtName" >
+                  
+                </div>
+              </div>
+              
+              </div>
+
+</div>
+</div>
+              </form>
+<!-- Footer Start -->
+   <div class="card-footer">
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#confirm-modal" (click)="createDistrict()">Add</button>
+    &nbsp;
+
+</div>
+</div>
+<!-- form end -->
+</div>
+</div>
+</div>
+
+</div>
+<!-- card body end -->
+
+</div>
+</div>
+
+<app-view-district></app-view-district>
+
+

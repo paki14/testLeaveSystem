@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="row">
+      <div class="col-md-12">
+          <div class="tab" role="tabpanel">
+              <!-- Nav tabs -->
+              <ul class="nav nav-tabs" role="tablist">
+                <li role="presentation" routerLinkActive="active"><a class="active" routerLink="parconfiguration" aria-controls="home" role="tab" data-toggle="tab" *ngIf="info.authorities=='HR'">Par Configurations</a></li>
+                <li role="presentation" routerLinkActive="active"><a class="active" routerLink="schedulepar/scheduleparoneuser" aria-controls="profile" role="tab" data-toggle="tab" *ngIf="info.authorities=='HR'">Schedule Par</a></li>
+                <li role="presentation" routerLinkActive="active"><a class="active" routerLink="selfassessment" aria-controls="messages" role="tab" data-toggle="tab"*ngIf="info.authorities!='HR'">Self Assesment</a></li>
+                <li role="presentation" routerLinkActive="active"><a class="active" routerLink="appraiserAssesment" aria-controls="messages" role="tab" data-toggle="tab"*ngIf="info.authorities=='ADMIN'||info.authorities=='HR'||info.authorities=='TRAINER'">Appraiser Assessment</a></li>
+                <li role="presentation" routerLinkActive="active"><a class="active" routerLink="pardiscussion" aria-controls="messages" role="tab" data-toggle="tab"*ngIf="info.authorities=='TRAINER'||info.authorities=='HR'||info.authorities=='EMPLOYEE'">Par Discussion</a></li>
+                <li role="presentation" routerLinkActive="active"><a class="active" routerLink="paroutcomes" aria-controls="messages" role="tab" data-toggle="tab"*ngIf="info.authorities=='TRAINER'||info.authorities=='HR'||info.authorities=='EMPLOYEE'">Par Out Comes</a></li>
+            </ul> 
+              <router-outlet></router-outlet>
+          </div>
+      </div>
+  </div>
+</div>
+
+<!-- <div style="height:600px">
+  <h5>Employee /Trainee views par</h5>
+  <app-par-template></app-par-template>
+
+  <app-par-history></app-par-history>
+  <app-track-par></app-track-par>
+</div>  -->

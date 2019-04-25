@@ -1,0 +1,159 @@
+<!--  add termination records start -->
+<div class="row">
+  <div class="col-md-8">
+    <div class="card">
+
+      <!-- card header start -->
+      <div class="card-header">
+        <h5 class="card-title">Add Termination Record</h5>
+
+        <div class="card-tools">
+          <button type="button" class="btn btn-tool" data-widget="collapse">
+            <i class="fa fa-minus"></i>
+          </button>
+          <button type="button" class="btn btn-tool" data-widget="remove">
+            <i class="fa fa-times"></i>
+          </button>
+        </div>
+      </div>
+      <!-- card-header end -->
+
+      <!-- card body start -->
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card card-primary">
+
+              <!-- form start -->
+              <form #terminationRecordForm="ngForm">
+
+                <!-- card body start -->
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="termination_emp_name">Employee Name</label>
+                        <input type="text" class="form-control" id="termination_emp_name" name="termination_emp_name" 
+                        placeholder="Employee Name" [(ngModel)]="terminationRecordObj.employee.fullName">
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="termination_emp_number">Employee Number</label>
+                        <input type="text" class="form-control" name="termination_emp_number" id="termination_emp_number" 
+                        placeholder="Employee Number" [(ngModel)]="terminationRecordObj.employee.id">
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="terminationType">Type of Termination</label>
+                        {{requestTerminationObj | json}}
+                        <select class="form-control" id="terminationType" name="terminationType" 
+                        [(ngModel)]="terminationRecordObj.terminationType.id">
+                          <option default hidden selected>--Select-Type-Of-Termination--</option>
+                          <option *ngFor="let terminationType of terminationTypes" 
+                        [value] = "terminationType.id">{{terminationType.terminationType}}</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="CauseofTermination">Cause of Termination</label>
+                        <input type="text" class="form-control" name="CauseofTermination" id="CauseofTermination" 
+                        placeholder="Enter Cause of Termination" [(ngModel)]="terminationRecordObj.causeOfTermination">
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="TerminationDate">Date of Termination</label>
+                        <input type="text" mwlFlatpickr class="form-control" name="TerminationDate" id="TerminationDate" 
+                        placeholder="2018/01/21" [(ngModel)]="terminationRecordObj.dateOfTermination">
+                      </div>
+                    </div>
+                    
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        <label for="Disciplinary_Procedures">Disciplinary  Procedures/Actions</label>
+                        <textarea type="textarea" class="form-control" name="Disciplinary_Procedures" id="Disciplinary_Procedures" 
+                        placeholder="Enter Disciplinary  Procedures/Actions" 
+                        [(ngModel)]="terminationRecordObj.disciplinaryProcedures"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        <label for="legal_status">Legal Status</label>
+                        <textarea type="text" class="form-control" name="legal_status" id="legal_status" 
+                        placeholder=" Enter Legal Status" [(ngModel)]="terminationRecordObj.legalStatus"></textarea>
+                      </div>
+                    </div>
+
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="Exit_Interview">Exit Interview</label>
+                        <input type="file" class="form-control" name="Exit_Interview" id="Exit_Interview" 
+                        placeholder="Exit Interview" accept="file_extension" [(ngModel)]="terminationRecordObj.exitInterview">
+                        
+                      </div>
+                    </div>
+
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="termination_Attachments">Attachments</label>
+                        <input type="file" class="form-control" name="termination_Attachments" id="termination_Attachments" 
+                        placeholder="Attachments" multiple >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- card body end -->
+
+                <div class="card-footer">
+                  <button type="button" class="btn btn-primary" data-toggle="modal" 
+                   (click)="createTerminationRecord()" data-dismiss="modal">Add</button>
+                  &nbsp;
+                  
+                </div>
+              </form>
+              <!-- form end -->
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <!-- card body end -->
+
+    </div>
+  </div>
+</div>
+<!-- add termination record end -->
+
+
+<!-- add modal start -->
+<div id="confirm-modal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+  
+      <!-- modal content start -->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h6 class="modal-title">Add roles and responsibilities</h6>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <div class="col-md-12">
+            Are you sure you want to add the record ?
+          </div>
+        </div>
+        <div class="modal-footer">
+          
+          <button type="button" class=" btn btn-primary btn-sm" data-dismiss="modal">Yes</button>
+          <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">No</button>
+        </div>
+      </div>
+      <!-- modal content end -->
+  
+    </div>
+  </div>
+  <!-- add modal end -->
+  
+

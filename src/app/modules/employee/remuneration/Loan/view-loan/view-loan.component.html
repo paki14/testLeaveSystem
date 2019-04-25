@@ -1,0 +1,74 @@
+<section class="content">
+  <!-- tab content start -->
+  <div class="tab-content" id="myTabContent">
+    <div class="tab-pane fade show active" id="tab1_content" aria-labelledby="tab1_content">
+      <!-- <app-request-leave></app-request-leave> -->
+
+      <!-- appoinment start -->
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card">
+
+            <!-- card header start -->
+            <div class="card-header">
+              <h5 class="card-title">Loan Details</h5>
+              <div class="card-tools">
+
+                <button type="button" class="btn btn-tool" data-widget="collapse">
+                  <i class="fa fa-minus"></i>
+                </button>
+              </div>
+            </div>
+            <!-- card header end -->
+
+            <!-- card body start -->
+            <div class="card-body">
+              <mat-form-field>
+                <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+              </mat-form-field>
+
+              <div class="mat-elevation-z8">
+                <mat-table [dataSource]="dataSource" matSort>
+
+                  <!-- column 1 start -->
+                  <ng-container matColumnDef="id">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header> ID </mat-header-cell>
+                    <mat-cell *matCellDef="let loan"> {{loan.id}} </mat-cell>
+                  </ng-container>
+                  <!-- column 1 end -->
+
+                  <!-- column 2 start -->
+                  <ng-container matColumnDef="service_period">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header> Minimum Service Period </mat-header-cell>
+                    <mat-cell *matCellDef="let loan"> {{loan.service_period}}</mat-cell>
+                  </ng-container>
+                  <!-- column 2 end -->
+
+                  <ng-container matColumnDef="amount">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header> Loan Amount </mat-header-cell>
+                    <mat-cell *matCellDef="let loan"> {{loan.amount}}</mat-cell>
+                  </ng-container>
+
+                  <ng-container matColumnDef="intrest">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header> Loan Intrest </mat-header-cell>
+                    <mat-cell *matCellDef="let loan"> {{loan.intrest}}</mat-cell>
+                  </ng-container>
+
+                  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+                </mat-table>
+
+                <!-- pagination start -->
+                <mat-paginator [pageSizeOptions]="[3, 5, 10, 25]"></mat-paginator>
+                <!-- pagination end -->
+              </div>
+            </div>
+            <!-- card body end -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- tab content end -->
+</section>
+

@@ -1,0 +1,172 @@
+<!-- request leave start -->
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+
+      <!-- card header start -->
+      <div class="card-header">
+        <h5 class="card-title">ASSIGN ROLES & RESPONSIBILITES</h5>
+
+        <div class="card-tools">
+          <button type="button" class="btn btn-tool" data-widget="collapse">
+            <i class="fa fa-minus"></i>
+          </button>
+          <button type="button" class="btn btn-tool" data-widget="remove">
+            <i class="fa fa-times"></i>
+          </button>
+        </div>
+      </div>
+      <!-- card-header end -->
+
+      <!-- card body start -->
+      <div class="card-body">
+          <div class="alert alert-success notification" id="alert-success" *ngIf="responseMsg === 'success'">
+              <span class="bold-font">Success:</span> All records were processed correctly! Ignore click Next
+            </div>
+            <div class="alert alert-danger notification" id="alert-danger" *ngIf="responseMsg === 'fail'">
+              <span class="bold-font">Error:</span> Something went wrong.
+            </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card card-primary">
+
+              <!-- form start -->
+              <form [formGroup]="addUserForm">
+
+                <!-- card body start -->
+                <div class="card-body">
+                  <div class="row">
+                      <div class="col-md-6">
+                          <div class="form-group">
+                            <label for="exampleInputEmail1">Employee Name</label>
+                            <!-- <input name="funame" list="options" class=" form-control" [(ngModel)]="refObj.user">
+                            <datalist id="options">
+                              <option selected disabled>Select a Employee Name</option>
+                              <option *ngFor="let users of user" data-value="{{users.id}}">{{users.fullName}}</option>
+                            </datalist> -->
+                            <select _ngcontent-c5="" class="form-control form-control-md" formControlName="fullName" [class.is-invalid]="addUserForm.get('fullName').invalid && addUserForm.get('fullName').touched " name="xyz" [(ngModel)]="rolesandResObj.user">
+                                <option selected disabled value="0">Select Employee Name</option>
+                              <option _ngcontent-c5="" selected="" *ngFor="let us of user" value="{{us.id}}" (click)="getUserId()" >
+                                  {{us.fullName}}</option>
+                              </select>
+                              <div *ngIf="addUserForm.get('fullName').invalid && addUserForm.get('fullName').touched ">
+                                <small class="text-danger" *ngIf="addUserForm.get('fullName').errors?.required">Full Name is
+                                  Required </small>
+                                <small class="text-danger" *ngIf="addUserForm.get('fullName').errors?.pattern">Please Enter
+                                  Full Name
+                                </small>
+                              </div>
+                          </div>
+                        </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="end-date">Job Title</label>
+                          <!-- <input type="text" class="form-control" name="start-date" id="end-date" name="jobId"
+                            [(ngModel)]="rolesandResObj.jobId.jobName"> -->
+                            <select _ngcontent-c5="" class="form-control form-control-md" formControlName="job" [class.is-invalid]="addUserForm.get('job').invalid && addUserForm.get('job').touched " name="job" [(ngModel)]="rolesandResObj.job">
+                                <option selected disabled value="0">Select Job Name</option>
+                              <option _ngcontent-c5="" selected="" *ngFor="let jobs of job" value="{{jobs.id}}" (click)="getJobId()" >
+                                {{jobs.jobName}}</option>
+                            </select>
+                            <div *ngIf="addUserForm.get('job').invalid && addUserForm.get('job').touched ">
+                              <small class="text-danger" *ngIf="addUserForm.get('job').errors?.required">Job is
+                                Required </small>
+                              <small class="text-danger" *ngIf="addUserForm.get('job').errors?.pattern">Please Enter
+                                Job
+                              </small>
+                             
+                            </div>
+                        </div>
+                      </div>
+
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="leave-days">responsibility for</label>
+                          <input type="text" class="form-control" name="start-date" placeholder="Responsibility For" formControlName="responsibility" [class.is-invalid]="addUserForm.get('responsibility').invalid && addUserForm.get('responsibility').touched " id="end-date" name="responsibility"
+                            [(ngModel)]="rolesandResObj.responsibility">
+                            <div *ngIf="addUserForm.get('responsibility').invalid && addUserForm.get('responsibility').touched ">
+                              <small class="text-danger" *ngIf="addUserForm.get('responsibility').errors?.required">Responsibility is
+                                Required </small>
+                              <small class="text-danger" *ngIf="addUserForm.get('responsibility').errors?.pattern">Please Enter
+                                Responsibility
+                              </small>
+                             
+                            </div>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="exampleInputEmail1">Location</label>
+                          <!-- <input type="text" class="form-control" name="start-date" id="end-date" name="locatioId"
+                            [(ngModel)]="rolesandResObj.locatioId.locationName"> -->
+                            <select _ngcontent-c5="" class="form-control form-control-md" formControlName="location" [class.is-invalid]="addUserForm.get('location').invalid && addUserForm.get('location').touched " name="location" [(ngModel)]="rolesandResObj.location">
+                                <option selected disabled value="0">Select Location Name</option>
+                              <option _ngcontent-c5="" selected="" *ngFor="let location of locations" value="{{location.id}}" (click)="getLocationId()" >
+                                {{location.locationName}}</option>
+                            </select>
+                            <div *ngIf="addUserForm.get('location').invalid && addUserForm.get('location').touched ">
+                              <small class="text-danger" *ngIf="addUserForm.get('location').errors?.required">Location is
+                                Required </small>
+                              <small class="text-danger" *ngIf="addUserForm.get('location').errors?.pattern">Please Enter
+                                Location
+                              </small>
+                             
+                            </div>
+
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="exampleInputEmail1">Key Activity</label>
+                          <!-- <input type="text" class="form-control" name="keyActivity" id="keyActivity" [(ngModel)]="rolesandResObj.keyActivityId.name"> -->
+                          <select _ngcontent-c5="" class="form-control form-control-md" formControlName="key" [class.is-invalid]="addUserForm.get('key').invalid && addUserForm.get('key').touched " name="key" [(ngModel)]="rolesandResObj.keyActivity">
+                              <option selected disabled value="0">Select Key Activity </option>
+                            <option _ngcontent-c5="" selected="" *ngFor="let keyActivitys of keyActivity" value="{{keyActivitys.id}}" (click)="getKeyActivityId()" >
+                              {{keyActivitys.name}}</option>
+                          </select>
+                          <div *ngIf="addUserForm.get('key').invalid && addUserForm.get('key').touched ">
+                            <small class="text-danger" *ngIf="addUserForm.get('key').errors?.required">Key Activities is
+                              Required </small>
+                            <small class="text-danger" *ngIf="addUserForm.get('key').errors?.pattern">Please Enter
+                              Key Activity
+                            </small>
+                           
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="exampleInputEmail1">Overall purpose of the job:</label>
+                          <textarea class="form-control" name="overAllPurpose" placeholder="Overall purpose of the job" formControlName="overAllPurpose" [class.is-invalid]="addUserForm.get('overAllPurpose').invalid && addUserForm.get('overAllPurpose').touched " [(ngModel)]="rolesandResObj.overAllPurpose"></textarea>
+                          <div *ngIf="addUserForm.get('overAllPurpose').invalid && addUserForm.get('overAllPurpose').touched ">
+                            <small class="text-danger" *ngIf="addUserForm.get('overAllPurpose').errors?.required">Overall purpose is
+                              Required </small>
+                            <small class="text-danger" *ngIf="addUserForm.get('overAllPurpose').errors?.pattern">Please Enter
+                              Overall purpose
+                            </small>
+                            <small class="text-danger" *ngIf="addUserForm.get('overAllPurpose').errors?.maxLength">Please Enter
+                              max 150 charator
+                            </small>
+                          </div>
+                        </div>
+                      </div>
+                      
+                    </div>
+                  </div>
+                  <!-- card body end -->
+
+                  <div class="card-footer">
+                    <button type="button" class="btn btn-primary" data-toggle="modal" (click)="addRolesAndResponsibilities()" [disabled]="!addUserForm.valid">Add</button>
+                  </div>
+              </form>
+              <!-- form end -->
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <!-- card body end -->
+
+    </div>
+  </div>
+</div>

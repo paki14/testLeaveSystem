@@ -1,0 +1,196 @@
+<!-- 4th Form Start -->
+<div class="card">
+  <!-- card header start -->
+  <div class="card-header">
+    <h5 class="card-title">Record of Employment</h5>
+
+    <div class="card-tools">
+      <button type="button" class="btn btn-tool" data-widget="collapse">
+        <i class="fa fa-minus"></i>
+      </button>
+      <button type="button" class="btn btn-tool" data-widget="remove">
+        <i class="fa fa-times"></i>
+      </button>
+    </div>
+  </div>
+  <!-- card-header end -->
+
+  <!-- card body start -->
+  <div class="card-body nopadding">
+    <!-- form start -->
+    <form [formGroup]="addUserForm">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-12">
+            <!-- card body start -->
+            <div class="alert alert-success notification" id="alert-success" *ngIf="responseMsg === 'success'">
+              <span class="bold-font">Success:</span> All records were processed correctly! Ignore click Next
+            </div>
+            <div class="alert alert-danger notification" id="alert-danger" *ngIf="responseMsg === 'fail'">
+              <span class="bold-font">Error:</span> Something went wrong.
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Trainee Name</label>
+                  <select _ngcontent-c5="" class="form-control form-control-md" formControlName="trainee"
+                    [class.is-invalid]="addUserForm.get('trainee').invalid && addUserForm.get('trainee').touched " name="xyz"
+                    [(ngModel)]="recordObj.trainee">
+                    <option selected disabled value="0">Select Trainee Name</option>
+                    <option _ngcontent-c5="" selected="" *ngFor="let us of user" value="{{us.id}}" (click)="getUserId()">
+                      {{us.fullName}}</option>
+                  </select>
+                  <div *ngIf="addUserForm.get('trainee').invalid && addUserForm.get('trainee').touched ">
+                    <small class="text-danger" *ngIf="addUserForm.get('trainee').errors?.required"> Name is Required
+                    </small>
+                    <!-- <small class="text-danger" *ngIf="addUserForm.get('refereeName').errors?.pattern">Please Enter Referee Name
+                                  </small> -->
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="name-school">Name of Work</label>
+                  <input type="text" formControlName="workName" [class.is-invalid]="addUserForm.get('workName').invalid && addUserForm.get('workName').touched "
+                    class="form-control" id="primary-year-form" placeholder="Name of Work" name="name" [(ngModel)]="recordObj.workName">
+                  <div *ngIf="addUserForm.get('workName').invalid && addUserForm.get('workName').touched ">
+                    <small class="text-danger" *ngIf="addUserForm.get('workName').errors?.required">Referee Name is
+                      Required </small>
+                    <small class="text-danger" *ngIf="addUserForm.get('workName').errors?.pattern">Please Enter Referee
+                      Name
+                    </small>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="">Period Year</label>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <input type="text" formControlName="periodYearFrom" [class.is-invalid]="addUserForm.get('periodYearFrom').invalid && addUserForm.get('periodYearFrom').touched "
+                        class="form-control" id="school-from" placeholder="From" name="periodYearFrom" [(ngModel)]="recordObj.periodYearFrom">
+                      <div *ngIf="addUserForm.get('periodYearFrom').invalid && addUserForm.get('periodYearFrom').touched ">
+                        <small class="text-danger" *ngIf="addUserForm.get('periodYearFrom').errors?.required">period
+                          Year is Required </small>
+                        <small class="text-danger" *ngIf="addUserForm.get('periodYearFrom').errors?.pattern">Please
+                          Enter period Year
+                        </small>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <input type="text" formControlName="periodYearTo" [class.is-invalid]="addUserForm.get('periodYearTo').invalid && addUserForm.get('periodYearTo').touched "
+                        class="form-control" id="school-to" placeholder="To" name="periodYearTo" [(ngModel)]="recordObj.periodYearTo">
+                      <div *ngIf="addUserForm.get('periodYearTo').invalid && addUserForm.get('periodYearTo').touched ">
+                        <small class="text-danger" *ngIf="addUserForm.get('periodYearTo').errors?.required">period Year
+                          is Required </small>
+                        <small class="text-danger" *ngIf="addUserForm.get('periodYearTo').errors?.pattern">Please Enter
+                          period Year
+                        </small>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="name-school">Address of Work</label>
+                  <input type="text" class="form-control" formControlName="workPlace" [class.is-invalid]="addUserForm.get('workPlace').invalid && addUserForm.get('workPlace').touched "
+                    id="primary-year-form" placeholder="Address of Work" name="workPlace" [(ngModel)]="recordObj.workPlace">
+                  <div *ngIf="addUserForm.get('workPlace').invalid && addUserForm.get('workPlace').touched ">
+                    <small class="text-danger" *ngIf="addUserForm.get('workPlace').errors?.required">Work address is
+                      Required </small>
+                    <small class="text-danger" *ngIf="addUserForm.get('workPlace').errors?.pattern">Please Enter work
+                      address
+                    </small>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="school-subject">Designation of Work</label>
+                  <input type="text" formControlName="designation" [class.is-invalid]="addUserForm.get('designation').invalid && addUserForm.get('designation').touched "
+                    class="form-control" id="subject" placeholder="Designation of Work" name="designation" [(ngModel)]="recordObj.designation">
+                  <div *ngIf="addUserForm.get('designation').invalid && addUserForm.get('designation').touched ">
+                    <small class="text-danger" *ngIf="addUserForm.get('designation').errors?.required">Designation is
+                      Required </small>
+                    <small class="text-danger" *ngIf="addUserForm.get('designation').errors?.pattern">Please Enter
+                      Designation
+                    </small>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="school-subject">Type of Work</label>
+                  <input type="text" formControlName="typeofwork" [class.is-invalid]="addUserForm.get('typeofwork').invalid && addUserForm.get('typeofwork').touched "
+                    class="form-control" id="subject" placeholder="Type of Work" name="workType" [(ngModel)]="recordObj.workType">
+                  <div *ngIf="addUserForm.get('typeofwork').invalid && addUserForm.get('typeofwork').touched ">
+                    <small class="text-danger" *ngIf="addUserForm.get('typeofwork').errors?.required">Type of Work is
+                      Required </small>
+                    <small class="text-danger" *ngIf="addUserForm.get('typeofwork').errors?.pattern">Please Enter Type
+                      of Work
+                    </small>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="reason-leaving">Reason for Leaving</label>
+                  <textarea class="form-control" placeholder="Reason for leaving" formControlName="reasonforleaving"
+                    [class.is-invalid]="addUserForm.get('reasonforleaving').invalid && addUserForm.get('reasonforleaving').touched "
+                    name="reasonForLeaving" [(ngModel)]="recordObj.reasonForLeaving"></textarea>
+                  <div *ngIf="addUserForm.get('reasonforleaving').invalid && addUserForm.get('reasonforleaving').touched ">
+                    <small class="text-danger" *ngIf="addUserForm.get('reasonforleaving').errors?.required">Leaving
+                      Reason is Required </small>
+                    <small class="text-danger" *ngIf="addUserForm.get('reasonforleaving').errors?.maxLength">max 150
+                      characters
+                    </small>
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="leaving-salary">Leaving Salary</label>
+                  <input type="text" class="form-control" formControlName="leavingSalary" [class.is-invalid]="addUserForm.get('leavingSalary').invalid && addUserForm.get('leavingSalary').touched "
+                    id="leaving-salary" placeholder="Leaving Salary" name="leavingSalary" [(ngModel)]="recordObj.leavingSalary">
+                  <div *ngIf="addUserForm.get('leavingSalary').invalid && addUserForm.get('leavingSalary').touched ">
+                    <small class="text-danger" *ngIf="addUserForm.get('leavingSalary').errors?.required">Leaving Salary
+                      is Required </small>
+                    <small class="text-danger" *ngIf="addUserForm.get('leavingSalary').errors?.pattern">Please Enter
+                      Leaving Salary
+                    </small>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-12 btnpadding">
+
+                <button type="button" class="btn btn-primary pull-right" (click)="addRecordOfEmployeeMent()" [disabled]="!addUserForm.valid">Save</button>
+              </div>
+            </div>
+            <!-- card body end -->
+          </div>
+        </div>
+      </div>
+      <div class="card-footer">
+        <!-- <button type="button" id="prevBtn" class="btn btn-primary" (click)="previous()">Previous</button>
+        &nbsp;
+        <button type="button" id="nextBtn" class="btn btn-primary" (click)="next()">Next</button> -->
+        <!-- <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete-modal">Delete</button> -->
+      </div>
+    </form>
+    <!-- form end -->
+  </div>
+  <!-- card body end -->
+</div>
+<!-- 4th Form End -->

@@ -1,0 +1,37 @@
+<!--reject model start-->
+  
+<div id="cancel-leave-reject-modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- modal content start -->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="card-title">Reject Request</h3>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="col-md-12">
+          <!-- form start -->
+          <form role="form">
+            <!-- card body start -->
+            <div class="card-body">
+              <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="cancel_leave_reject_reason"> Reason</label>
+                    <textarea type="text" class="form-control"rows="4"  name="cancel_leave_reject_reason" id="cancel_leave_reject_reason"  placeholder="Enter Reject reason Here" [(ngModel)]="rejectCancelRequest.rejectReason"></textarea>
+                  </div>
+                </div>
+            </div>
+            <!-- card body end -->
+          </form>
+          <!-- form end -->
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal" (click) = "rejectCancelLeaveRequest();">Send</button>        
+      </div>
+    </div>
+    <!-- modal content end -->
+  </div>
+</div>
+<!--reject model end-->

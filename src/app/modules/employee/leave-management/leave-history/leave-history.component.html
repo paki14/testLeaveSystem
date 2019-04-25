@@ -1,0 +1,42 @@
+<section class="content">
+  <!-- HR and Employee view -->
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <!-- card header start -->
+        <div class="card-header">
+          <h5 class="card-title">Leave History</h5>
+          <div class="card-tools">
+            <button type="button" class="btn btn-tool" data-widget="collapse">
+              <i class="fa fa-minus"></i>
+            </button>
+            <button type="button" class="btn btn-tool" data-widget="remove">
+              <i class="fa fa-times"></i>
+            </button>
+          </div>
+        </div>
+        <!-- card header end -->
+        <!-- card body start -->
+        <div class="card-body">
+          <div class="tab" role="tabpanel">
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs" role="tablist">
+              <li routerLinkActive="active">
+                <a routerLink="allrequests" role="tab" data-toggle="tab">
+                  All requests</a>
+              </li>
+              <li routerLinkActive="active">
+                <a routerLink="accepted" role="tab" data-toggle="tab"> Accepted</a>
+              </li>
+              <li routerLinkActive="active">
+                <a routerLink="rejected"   role="tab" data-toggle="tab"> rejected</a>
+              </li>
+            </ul>
+            <router-outlet></router-outlet>
+          </div>
+        </div>
+        <!-- card body end -->
+      </div>
+    </div>
+  </div>
+</section>

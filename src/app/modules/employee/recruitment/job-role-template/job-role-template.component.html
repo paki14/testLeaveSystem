@@ -1,0 +1,157 @@
+<div class="row">
+  <div class="col-md-10">
+    <div class="card">
+
+      <!-- card header start -->
+      <div class="card-header">
+        <h5 class="card-title">Job Role Template</h5>
+      </div>
+      <!-- card-header end -->
+
+      <!-- card body start -->
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card card-primary">
+
+              <!-- form start -->
+             
+            <!-- <form > -->
+              <!-- {{jobRole.value | json}} -->
+
+                <!-- card body start -->
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="leave-type">Job Title</label>
+                        <select class="form-control" name="jobRoleTitle">
+                          <option>HR</option>
+                          <option>Accountant</option>
+                          <option>Advisor</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="start-date">Report to</label>
+                        <input type="email" class="form-control" name="reportTo">
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="start-date">Job Overview</label>
+                        <input type="email" class="form-control"  name="overView" >
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="end-date">Responsibilities and duties</label>
+                        <textarea class="form-control" name="responsibility"></textarea>
+                      </div>
+                    </div>
+
+                    <div class="col-md-12">
+                      <fieldset>
+                        <legend>
+                          <h6>Qualification</h6>
+                        </legend>
+                        <div class="row">
+                          <div class="col-md-6">
+                            <div class="form-group">
+                              <!-- <label for="start-date">Education level</label>
+                              <input type="email" class="form-control" id="start-date"> -->
+                              <div class="form-group">
+                                  <label for="position">Education</label>
+                                  <select class="form-control"  name="education">
+                                    <option>Ordinary Level</option>
+                                    <option>Advanced Level</option>
+                                    <option>Degree</option>
+                                  </select>
+                                </div>
+                            </div>
+                          </div>
+
+                          <div class="col-md-6">
+                            <div class="form-group">
+                              <label for="exampleInputEmail1">Experience</label>
+                              <textarea class="form-control" name="experience"></textarea>
+                            </div>
+                          </div>
+
+                        </div>
+
+
+                        <div class="row">
+                          <div class="col-md-4">
+                            <div class="form-group">
+                              <label for="exampleInputEmail1">Specific Skill </label>
+                              <textarea class="form-control"name="specific"></textarea>
+                            </div>
+                          </div>
+
+                          <div class="col-md-4">
+                            <div class="form-group">
+                              <label for="exampleInputEmail1">Licenses</label>
+                              <textarea class="form-control"  name="licenses"></textarea>
+                            </div>
+                          </div>
+
+                          <div class="col-md-4">
+                            <div class="form-group">
+                              <label for="exampleInputEmail1">Physical Ability</label>
+                              <textarea class="form-control"name="physical"></textarea>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="row">
+                          <div class="col-md-6">
+                            <div class="form-group">
+                              <label for="exampleInputEmail1">Personal Characteristics</label>
+                              <textarea class="form-control"  name="characteristic"></textarea>
+                            </div>
+                          </div>
+
+
+
+                          <div class="col-md-6">
+                            <div class="form-group">
+                              <label for="exampleInputEmail1">Certifications</label>
+                              <textarea class="form-control" name="certificate"></textarea>
+                            </div>
+                          </div>
+
+                       
+                        </div>
+
+                      </fieldset>
+                    </div>
+
+                  </div>
+                </div>
+                <!-- </form> -->
+                <!-- card body end -->
+
+                <div class="card-footer">
+                  <button type="button" class="btn btn-primary" data-dismiss="modal"data-toggle="modal" data-target="#job-role-template-form">
+                    Generate
+                  </button>
+
+                  &nbsp;
+                  <button type="button" class="btn btn-danger" data-dismiss="modal" data-toggle="modal" data-target="">Cancel</button>
+                </div>
+              </div>
+              <!-- form end -->
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <!-- card body end -->
+
+    </div>
+  </div>
+
+
+  <app-job-role-template-form></app-job-role-template-form>

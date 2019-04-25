@@ -1,0 +1,92 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Emp Id</th>
+      <th>Par Sheduled Date</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let par of parArray">
+      <td>{{par.empId}}</td>
+      <td>{{par.scheduleDate | date}}</td>
+      <td></td>
+      <td>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalDiscussion" (click)="getScore(par.id)">
+          score
+        </button>
+
+      </td>
+    </tr>
+
+  </tbody>
+</table>
+
+
+<!-- The Modal -->
+<div class="modal" id="modalDiscussion">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Par Score</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <!-- Modal body -->
+
+      <div class="modal-body">
+
+
+        <table class="table table-bordered">
+          <tr>
+            <td>
+              <table class="table table-bordered">
+                <tr>
+                  <th>*****************</th>
+                </tr>
+                <tr *ngFor="let parContent of parDataArray.scheduleParContentList">
+                  <th>{{parContent.parContentName}}</th>
+                </tr>
+              </table>
+            </td>
+
+            <td>
+              <table class="table table-bordered">
+                <tr>
+                  <th>Appraise</th>
+                </tr>
+                <ng-container *ngFor="let parContent of parDataArray.scheduleParContentList">
+                  <tr *ngFor="let parScores of reportParAppraiseeGet.scoreParAppraiseeList">
+                    <td *ngIf="parContent.parContentId == parScores.parContentId">{{parScores.score}}</td>
+                  </tr>
+                </ng-container>
+              </table>
+            </td>
+            <!-- dynamic td for par appraiser score goeas here -->
+            <td *ngFor="let reportParAppraiserGet of reportParAppraiserGets">
+              <table class="table table-bordered">
+                <tr>
+                  <th>{{reportParAppraiserGet.appraisedBy.appraiserName}}</th>
+                </tr>
+                <ng-container *ngFor="let parContent of parDataArray.scheduleParContentList">
+                  <tr *ngFor="let parScores of reportParAppraiserGet.scoreParAppraiserList">
+                    <td *ngIf="parContent.parContentId == parScores.parContentId">{{parScores.score}}</td>
+                  </tr>
+                </ng-container>
+              </table>
+            </td>
+
+          </tr>
+        </table>
+
+      </div>
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-primary">Apply</button>
+      </div>
+
+
+    </div>
+  </div>
+</div>

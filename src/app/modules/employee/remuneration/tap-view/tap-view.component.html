@@ -1,0 +1,90 @@
+<!-- <mat-tab-group mat-stretch-tabs class="example-stretched-tabs mat-elevation-z4">
+
+
+
+  <mat-tab label="Salary">
+    <mat-tab-group>
+      <mat-tab label="Salary" *ngIf="info.authorities=='HR'">
+        <app-view-salary-chart></app-view-salary-chart>
+      </mat-tab>
+      <mat-tab label="Salary" *ngIf="info.authorities=='EMPLOYEE'">
+        <app-salary-chart-employee></app-salary-chart-employee>
+      </mat-tab>
+    </mat-tab-group>
+  </mat-tab>
+
+  <mat-tab label="View Allowance" *ngIf="info.authorities=='EMPLOYEE'">
+    <mat-tab-group>
+      <mat-tab >
+        <app-view-allowances></app-view-allowances>
+    </mat-tab>
+    </mat-tab-group>
+  </mat-tab>
+
+  <mat-tab label="Salary Details" *ngIf="info.authorities=='EMPLOYEE'">
+    <mat-tab-group>
+      <mat-tab>
+        <app-hr-salary-view></app-hr-salary-view>
+      </mat-tab>
+    </mat-tab-group>
+  </mat-tab>
+</mat-tab-group>
+<router-outlet></router-outlet> -->
+
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="tab" role="tabpanel">
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs" role="tablist">
+          <li role="presentation" routerLinkActive="active" *ngIf="info.authorities=='HR'||'EMPLOYEE'"><a class="active" routerLink="viewLoan" aria-controls="home"
+              role="tab" data-toggle="tab">Loan</a></li>
+          <li role="presentation" routerLinkActive="active" *ngIf="info.authorities=='HR'"><a class="active" routerLink="salaryChartHrView"
+              aria-controls="home" role="tab" data-toggle="tab">Salary Chart</a></li>
+          <li role="presentation" routerLinkActive="active" *ngIf="info.authorities=='EMPLOYEE'"><a class="active" routerLink="salaryChartEmpView"
+              aria-controls="home" role="tab" data-toggle="tab">Salary Chart</a></li>
+          <li role="presentation" routerLinkActive="active" *ngIf="info.authorities=='EMPLOYEE'"><a class="active" routerLink="allowance"
+              aria-controls="profile" role="tab" data-toggle="tab">Benefits & Allowances</a></li>
+          <li role="presentation" routerLinkActive="active" *ngIf="info.authorities=='HR'"><a class="active" routerLink="salaryDetailsHrView"
+              aria-controls="profile" role="tab" data-toggle="tab">Salary Details</a></li>
+          <li role="presentation" routerLinkActive="active" *ngIf="info.authorities=='HR'"><a class="active" routerLink="allowance"
+              aria-controls="profile" role="tab" data-toggle="tab">Benefits & Allowances</a></li>
+          <li role="presentation" routerLinkActive="active" *ngIf="info.authorities=='EMPLOYEE'"><a class="active" routerLink="salaryDetailsEmpView"
+              aria-controls="profile" role="tab" data-toggle="tab">Salary Details</a></li>
+        </ul>
+        <!-- Tab panes -->
+        <!-- <div class="tab-content tabs">
+                  <div role="tabpanel" class="tab-pane fade in active" id="Section1">
+                    <mat-tab label="Loan">
+                      <mat-tab-group>
+                        <mat-tab label="View Loan" *ngIf="info.authorities=='EMPLOYEE'">
+                          <app-view-loan></app-view-loan>
+                        </mat-tab>
+                  
+                        <mat-tab label="Loan Details" *ngIf="info.authorities=='EMPLOYEE'">
+                          <app-taken-view-by-emp></app-taken-view-by-emp>
+                        </mat-tab>
+                  
+                        <mat-tab *ngIf="info.authorities=='HR'">
+                          <app-taken-view-by-hr></app-taken-view-by-hr>
+                        </mat-tab>
+                      </mat-tab-group>
+                    </mat-tab>
+                  </div>
+                  <div role="tabpanel" class="tab-pane fade" id="Section2">
+                      <h3>Selection</h3>
+                      
+                  </div>
+                  <div role="tabpanel" class="tab-pane fade" id="Section3">
+                      <h3>Par</h3>
+                  </div>
+              </div> -->
+
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+</div>

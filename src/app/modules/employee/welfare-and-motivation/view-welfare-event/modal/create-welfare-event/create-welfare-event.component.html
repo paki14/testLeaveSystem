@@ -1,0 +1,120 @@
+<!-- update modal start -->
+<div id="addwelfareevent" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+      
+          <!-- modal content start -->
+          <div class="modal-content">
+            <div class="modal-header">
+              <h3 class="card-title">Create Welfare Event</h3>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+              <div class="col-md-12">
+      
+                <!-- form start -->
+
+            
+                    <!-- card body start -->
+                    <form [formGroup]="welfareform">
+                    <div class="card-body">
+                      <div class="row">
+                          <div class="col-md-6">
+                              <div class="form-group">
+                                <label for="budget-for-the-event"> Welfare Name</label>
+                                <input type="text" formControlName="welName" [class.is.invalid]="welfareform.get('welName').invalid && welfareform.get('welName').touched" class="form-control" placeholder="Enter Welfare Name"
+                                 name="budgetForTheEvent" [(ngModel)]="welfareEventObj.welfareName">
+                                 <div *ngIf="welfareform.get('welName').invalid && welfareform.get('welName').touched ">
+                                  <small class="text-danger" *ngIf="welfareform.get('welName').errors?.required">welfareName is Required
+                                  </small>
+                                </div>
+                              </div>
+                            </div>
+                        
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label for="budget-for-the-event"> Budget for the event</label>
+                            <input type="text" formControlName="Budget" [class.is.invalid]="welfareform.get('Budget').invalid && welfareform.get('Budget').touched"class="form-control" placeholder="Enter budget for the event"
+                             name="budgetForTheEvent" [(ngModel)]="welfareEventObj.welfareBudget">
+                             <div *ngIf="welfareform.get('Budget').invalid && welfareform.get('Budget').touched ">
+                              <small class="text-danger" *ngIf="welfareform.get('Budget').errors?.required">Budget is Required
+                              </small>
+                            </div>
+                          </div>
+                        </div>
+    
+                       
+                        <div class="col-md-6">
+                          <label class="form-check-label"> Send Notification To The Employee</label>
+                          <div class="row">
+                            <div class="col-md-3">
+                              <label class="container">
+                                <div class="top-padding"></div>Yes
+                                <input type="radio" class="form-check-input" 
+                                  name="sendNotificationToTheEmployee" value="YES" [(ngModel)]="welfareEventObj.notification">
+                                <div class="checkmark"></div>
+                              </label>
+                            </div>
+                            <div class="col-md-3" style="margin-left: 30px">
+                              <label class="container">No
+                                <input type="radio" class="form-check-input" 
+                                  name="sendNotificationToTheEmployee" value="NO" [(ngModel)]="welfareEventObj.notification">
+                                <div class="checkmark"></div>
+                              </label>
+                            </div>
+                          </div>
+                          
+                        </div>
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label for="promotion-employee-date promoted">Date Promoted</label>
+                            <input type="text" formControlName="date" [class.is.invalid]="welfareform.get('date').invalid && welfareform.get('date').touched" mwlFlatpickr class="form-control" name="datePromoted"
+                              placeholder="YYYY/MM/DD" [(ngModel)]="welfareEventObj.promoteDate" >
+                              <div *ngIf="welfareform.get('date').invalid && welfareform.get('date').touched ">
+                                <small class="text-danger" *ngIf="welfareform.get('date').errors?.required">Date is Required
+                                </small>
+                              </div>
+                          </div>
+                        </div>
+    
+                        <div class="col-md-6">
+                            <label class="form-check-label"> Directors Approval:</label>
+                            <div class="row" ngModel required #directorApproval="ngModel">
+                              <div class="col-md-3">
+                                <label class="container">
+                                  <div class="top-padding1">Approve</div>
+                                  <input type="radio" class="form-check-input" 
+                                    name="directorApproval" value="Approve" [(ngModel)]="welfareEventObj.status">
+                                  <div class="checkmark"></div>
+                                </label>
+                              </div>
+                              <div class="col-md-3" style="margin-left: 50px">
+                                <label class="container">Reject
+                                  <input type="radio" class="form-check-input" 
+                                    name="directorApproval" value="Reject" [(ngModel)]="welfareEventObj.status">
+                                  <div class="checkmark"></div>
+                                </label>
+                              </div>
+                            </div>
+                            
+                        </div>
+                     
+                      </div>
+                    </div>
+                  </form>
+                  
+                  <!-- card body end -->
+    
+                  <div class="card-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="addWelfareEvent()" >Add</button>
+                    &nbsp;
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- form end -->
+               {{ welfareEventObj | json}}
+              </div>
+            </div>
+            
+          

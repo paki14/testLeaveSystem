@@ -1,0 +1,71 @@
+<div id="select-inquire-modal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+  
+      <!-- modal content start -->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 class="card-title">Select applicant</h3>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <div class="col-md-12">
+  
+            <div class="mat-elevation-z8">
+              <mat-table [dataSource]="dataSource" matSort>
+                <!-- column 0 start -->
+                <ng-container matColumnDef="check">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header>  </mat-header-cell>
+                    <mat-cell *matCellDef="let viewEmp"><input type="checkbox"></mat-cell>
+                  </ng-container>
+
+                <ng-container matColumnDef="name">
+                  <mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>
+                  <mat-cell *matCellDef="let viewEmp">{{viewEmp.name}}</mat-cell>
+                </ng-container>
+                <!-- column 0 end -->
+  
+                <!-- column 1 start -->
+                <ng-container matColumnDef="nic">
+                  <mat-header-cell *matHeaderCellDef mat-sort-header>NIC </mat-header-cell>
+                  <mat-cell *matCellDef="let viewEmp">{{viewEmp.nic}}</mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="contact">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header>Contact No </mat-header-cell>
+                    <mat-cell *matCellDef="let viewEmp">{{viewEmp.contact}}</mat-cell>
+                  </ng-container>
+
+                  <ng-container matColumnDef="email">
+                      <mat-header-cell *matHeaderCellDef mat-sort-header>E-mail </mat-header-cell>
+                      <mat-cell *matCellDef="let viewEmp">{{viewEmp.email}}</mat-cell>
+                    </ng-container>
+
+                    <ng-container matColumnDef="hq">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header>Higher Qualification </mat-header-cell>
+                        <mat-cell *matCellDef="let viewEmp">{{viewEmp.hq}}</mat-cell>
+                      </ng-container>
+
+                      <ng-container matColumnDef="cv">
+                          <mat-header-cell *matHeaderCellDef mat-sort-header>CV </mat-header-cell>
+                          <mat-cell *matCellDef="let viewEmp">{{viewEmp.cv}}</mat-cell>
+                        </ng-container>
+  
+                <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+              </mat-table>
+  
+            </div>
+            
+        </div>
+      </div>
+      <div class="modal-footer">
+
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-dismiss="modal">Select</button>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+    <!-- modal content end -->
+
+  </div>
+</div>
+

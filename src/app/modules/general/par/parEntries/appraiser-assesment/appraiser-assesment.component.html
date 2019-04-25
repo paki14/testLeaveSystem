@@ -1,0 +1,25 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>par Id</th>
+      <th>Emp Id</th>
+      <th>Par Sheduled Date</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let par of parArray">
+      <td>{{par.id}}</td>
+      <td>{{par.empId}}</td>
+      <td>{{par.scheduleDate | date}}</td>
+      <td></td>
+      <td>
+        <button type="button" class="btn btn-primary" (click)="goToAppraiserScore(par.id)">
+          score
+        </button>
+
+      </td>
+    </tr>
+
+  </tbody>
+</table>

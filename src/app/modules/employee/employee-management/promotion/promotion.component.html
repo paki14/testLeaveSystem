@@ -1,0 +1,47 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="tab" role="tabpanel">
+                <!-- Nav tabs -->
+                <div *ngIf="role=='HR'">
+                    <ul class="nav nav-tabs" role="tablist">
+
+                        <li role="presentation" routerLinkActive="active">
+                            <a class="active" routerLink="RequestPromotionHr" aria-controls="home" role="tab"
+                                data-toggle="tab">Request
+                                Promotion</a></li>
+                        <li role="presentation" routerLinkActive="active">
+                            <a routerLink="RequestHistoryHr" aria-controls="profile" role="tab" data-toggle="tab">Request
+                                History</a></li>
+                        <li role="presentation" routerLinkActive="active">
+                            <a class="active" routerLink="PromotionHistoryHr" aria-controls="messages" role="tab"
+                                data-toggle="tab">Promotion
+                                History</a></li>
+                        <li role="presentation" routerLinkActive="active">
+                            <a routerLink="DeniedHistoryHr" aria-controls="messages" role="tab" data-toggle="tab">Denied
+                                History</a></li>                        
+                    </ul>
+                </div>
+                <div *ngIf="role=='EMPLOYEE'">
+                        <ul class="nav nav-tabs" role="tablist" >
+                            <li role="presentation" routerLinkActive="active">
+                                <a class="active" routerLink="RequestPromotionEmp" aria-controls="home" role="tab"
+                                    data-toggle="tab">Request
+                                    Promotion</a></li>
+                            <li role="presentation" routerLinkActive="active">
+                                <a routerLink="RequestHistoryEmp" aria-controls="profile" role="tab" data-toggle="tab">Request
+                                    History</a></li>
+                            <li role="presentation" routerLinkActive="active">
+                                <a class="active" routerLink="PromotionHistoryEmp" aria-controls="messages" role="tab"
+                                    data-toggle="tab">Promotion
+                                    History</a></li>
+                            <li role="presentation" routerLinkActive="active">
+                                <a routerLink="DeniedHistoryEmp" aria-controls="messages" role="tab" data-toggle="tab">Denied
+                                    History</a></li>
+                        </ul>
+                    </div>
+                <router-outlet></router-outlet>
+            </div>
+        </div>
+    </div>
+</div>

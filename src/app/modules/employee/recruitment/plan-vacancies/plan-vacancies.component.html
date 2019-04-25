@@ -1,0 +1,132 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+      <!-- card header start -->
+      <div class="card-header">
+        <h5 class="card-title">Plan Vacancies</h5>
+      </div>
+      <!-- card-header end -->
+      <!-- card body start -->
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card card-primary">
+              <!-- form start -->
+              <form #planVacancyForm="ngForm">
+
+                <!-- {{planVacancyObj| json}}
+                {{planVacancyForm.value | json}} -->
+
+                <!-- card body start -->
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-lg-6">
+                      <div class="form-group">
+                        <label for="jobTitle">Job Title</label>
+                        <select class="form-control" name="jobTitle" id="jobTitle" [(ngModel)]="planVacancyObj.job">
+                          <option default hidden selected>--Job Title-</option>
+                          <option *ngFor="let jobs of job" [value]="jobs.id">{{jobs.jobName}}</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col-lg-6">
+                      <div class="form-group">
+                        <label for="refNumber"> Job reference number</label>
+                        <input type="number" class="form-control" name="refNum" placeholder="Job reference number"
+                          readonly [(ngModel)]="planVacancyObj.job">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-lg-6">
+                      <div class="form-group">
+                        <label for="hirOfficer">Hiring Officer</label>
+                        <select class="form-control" name="hireOfficer" id="hireOfficer" [(ngModel)]="planVacancyObj.user">
+                          <option default hidden selected>--HiringOfficer-</option>
+                          <option *ngFor="let users of user" [value]="users.id">{{users.fullName}}</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col-lg-6">
+                      <div class="form-group">
+                        <label for="hirDepartment">Hiring Department</label>
+                        <select class="form-control" name="hirDep" id="hirDep" [(ngModel)]="planVacancyObj.department">
+                          <option default hidden selected>--HiringDepartment-</option>
+                          <option *ngFor="let departments of department" [value]="departments.id">{{departments.departmentName}}</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-lg-6">
+                      <div class="form-group">
+                        <label for="noOfVacancy">Number of vacancies</label>
+                        <input type="text" class="form-control" placeholder="Enter No of plan vacancies" name="noOfVacancies"
+                          [(ngModel)]="planVacancyObj.noOfVacancy">
+                       </div>
+                    </div>
+                    <div class="col-lg-6">
+                      <div class="form-group">
+                        <label for="recruitment">Type of recruitment </label>
+                        <select class="form-control" name="typeRecuitment" id="typeRecuitment" [(ngModel)]="planVacancyObj.recruitmentType">
+                          <option default hidden selected>--RecruitmentType-</option>
+                          <option *ngFor="let recruitmentTypes of recruitmentType" [value]="recruitmentTypes.id">{{recruitmentTypes.recruitmentType}}</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <label for="salary">Salary scale</label>
+                        <input type="text" class="form-control" name="salaryScal" placeholder="Enter Salary scale"
+                          [(ngModel)]="planVacancyObj.salaryScale">
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <label for="schedule-date">Schedule date if any selection exam, interviews & placement</label>
+                        <input type="date" class="form-control" name="scheduleDate" placeholder="yyyy-mm-dd"
+                          [(ngModel)]="planVacancyObj.interviewDate">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <label for="open-date">Job application Opening date</label>
+                        <input type="date" class="form-control" name="openDate" placeholder="yyyy-mm-dd" [(ngModel)]="planVacancyObj.vacancyOpenDate">
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <label for="close-date">Job application End date</label>
+                        <input type="date" class="form-control" name="endDate" placeholder="yyyy-mm-dd" [(ngModel)]="planVacancyObj.vacancyCloseDate">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <label for="key"> Key requirement</label>
+                      <textarea class="form-control" name="keyReq" placeholder="Enter Key requirement" [(ngModel)]="planVacancyObj.keyRecuitment"></textarea>
+                    </div>
+                  </div>
+                </div>
+                <!-- card body end -->
+                <div class="card-footer">
+                  <button type="button" class="btn btn-primary" (click)="createPlanVacancy()"  data-toggle="modal" name="planVacancies"
+                    data-target="#add-modal">Add</button>
+                </div>
+                <!-- </form> -->
+                <!-- form end -->
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- card body end -->
+    </div>
+  </div>
+</div>
+
+<app-view-plan-vacancies></app-view-plan-vacancies>

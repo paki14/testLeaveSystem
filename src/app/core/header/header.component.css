@@ -1,0 +1,15 @@
+.fa , .far, .fas {
+    font-size: 1.25em !important;
+}
+.dropdown-item {
+    color: rgb(136, 136, 136) !important;
+    font-size: 14px !important;
+}
+
+.dropdown-item .text-muted {
+    color: rgb(39, 38, 38) !important;
+}
+
+.fa-sign-out-alt {
+    font-size: 1em !important;
+}
