@@ -61,9 +61,8 @@
                       </div>
                     </div>
                     <div class="col-md-2">
-                      
                       <div class="form-group">
-                        <label for="apply-leave-NumberofDays" 
+                        <label for="apply-leave-NumberofDays"
                           >Number of Days</label
                         >
                         <input
@@ -93,11 +92,10 @@
                           <option
                             *ngFor="let la of leaveAllocation"
                             [ngValue]="la"
-                            >{{ la.leaveType.leaveTypeValue }}
-                            </option>
+                            >{{ la.leaveType.leaveTypeValue }}</option
+                          >
                         </select>
                       </div>
-                              
                     </div>
                     <div class="col-md-6">
                       <div class="form-group">
@@ -130,7 +128,7 @@
                           id="apply-leave-reason"
                           placeholder="Enter Reason"
                           [(ngModel)]="leaveRequest.reason"
-                          (click)="this.validatedays()"></textarea>
+                        ></textarea>
                       </div>
                     </div>
                   </div>

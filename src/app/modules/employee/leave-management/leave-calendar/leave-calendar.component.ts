@@ -1,33 +1,43 @@
-import { Colors } from "./../../../../models/leave-management/holiday";
-import { AcceptLeaveService } from "./../../../../services/leave-management/accept-leave.service";
-import { HolidayCalendarService } from "./../../../../services/leave-management/holiday-calendar.service";
-import { Component, ViewChild, TemplateRef, OnInit } from "@angular/core";
-import { isSameDay, isSameMonth } from "date-fns";
-import { Subject } from "rxjs";
-import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
+import { Colors } from './../../../../models/leave-management/holiday';
+import { AcceptLeaveService } from './../../../../services/leave-management/accept-leave.service';
+import { HolidayCalendarService } from './../../../../services/leave-management/holiday-calendar.service';
+import {
+  Component,
+  ViewChild,
+  TemplateRef,
+  OnInit
+} from '@angular/core';
+import {
+  isSameDay,
+  isSameMonth
+} from 'date-fns';
+import { Subject } from 'rxjs';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import {
   CalendarEventAction,
   CalendarEventTimesChangedEvent,
   CalendarView
-} from "angular-calendar";
-import { TokenStorageService } from "src/app/services/login/token-storage.service";
-import { InteractionService } from "src/app/services/interaction.service";
-import { CalendarEvent } from "src/app/models/leave-management/CalendarEvent";
+} from 'angular-calendar';
+import { TokenStorageService } from 'src/app/services/login/token-storage.service';
+import { InteractionService } from 'src/app/services/interaction.service';
+import { CalendarEvent } from 'src/app/models/leave-management/CalendarEvent';
 
 const colors: any = {
   gray: {
-    primary: "#464646",
-    secondary: "#FFFFFF"
+    primary: '#464646',
+    secondary: '#FFFFFF'
   }
 };
 
 @Component({
-  selector: "app-leave-calendar",
-  templateUrl: "./leave-calendar.component.html",
-  styleUrls: ["./leave-calendar.component.css"]
+  selector: 'app-leave-calendar',
+  templateUrl: './leave-calendar.component.html',
+  styleUrls: ['./leave-calendar.component.css']
 })
 export class LeaveCalendarComponent implements OnInit {
-  @ViewChild("modalContent")
+
+  @ViewChild('modalContent')
+
   modalContent: TemplateRef<any>;
   view: CalendarView = CalendarView.Month;
   CalendarView = CalendarView;
@@ -42,7 +52,7 @@ export class LeaveCalendarComponent implements OnInit {
     {
       label: '<i class="fa fa-fw fa-pencil"></i>',
       onClick: ({ event }: { event: CalendarEvent }): void => {
-        this.handleEvent("Edited", event);
+        this.handleEvent('Edited', event);
       }
     },
     {
@@ -50,7 +60,7 @@ export class LeaveCalendarComponent implements OnInit {
       onClick: ({ event }: { event: CalendarEvent }): void => {
         console.log(event);
         this.events = this.events.filter(iEvent => iEvent !== event);
-        this.handleEvent("Deleted", event);
+        this.handleEvent('Deleted', event);
       }
     }
   ];
@@ -58,17 +68,16 @@ export class LeaveCalendarComponent implements OnInit {
   refresh: Subject<any> = new Subject();
   events: CalendarEvent[] = [];
   activeDayIsOpen: boolean = true;
-  info: { token; username; authorities };
+  info: {token, username, authorities}
   colors: Colors[];
   color: Colors;
-  today = new Date();
-  constructor(
-    private modal: NgbModal,
+  
+  constructor(private modal: NgbModal,
     private holidayCalendarService: HolidayCalendarService,
     private acceptLeaveService: AcceptLeaveService,
     private token: TokenStorageService,
     private interactionService: InteractionService
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.info = {
@@ -77,7 +86,7 @@ export class LeaveCalendarComponent implements OnInit {
       authorities: this.token.getAuthorities()
     };
     this.getAllHolidays();
-    if (this.info.authorities == "HR" || this.info.authorities == "ADMIN") {
+    if (this.info.authorities == 'HR' || this.info.authorities == 'ADMIN') {
       this.getAllLeaveRequest();
     }
     this.getSuccessMsg();
@@ -104,23 +113,23 @@ export class LeaveCalendarComponent implements OnInit {
   }: CalendarEventTimesChangedEvent): void {
     event.start = newStart;
     event.end = newEnd;
-    this.handleEvent("Dropped or resized", event);
+    this.handleEvent('Dropped or resized', event);
     this.refresh.next();
   }
 
   handleEvent(action: string, event: CalendarEvent): void {
     this.modalData = { event, action };
     console.log(event);
-    if (this.info.authorities != "EMPLOYEE") {
+    if (this.info.authorities != 'EMPLOYEE') {
       if (event.id != null) {
-        this.modal.open(this.modalContent, { size: "lg" });
+        this.modal.open(this.modalContent, { size: 'lg' });
       }
     }
   }
 
   getAllHolidays() {
     this.holidayCalendarService.getAllHoliday().subscribe(data => {
-      if (this.info.authorities == "HR" || this.info.authorities == "ADMIN") {
+      if (this.info.authorities == 'HR' || this.info.authorities == 'ADMIN') {
         data.forEach(holiday => {
           this.events.push({
             id: holiday.id,
@@ -131,11 +140,11 @@ export class LeaveCalendarComponent implements OnInit {
             draggable: holiday.draggable,
             actions: this.actions,
             allDay: holiday.allDay,
-            resizable: holiday.resizable
+            resizable: holiday.resizable            
           });
           this.refresh.next();
         });
-      } else if (this.info.authorities == "EMPLOYEE") {
+      } else if (this.info.authorities == 'EMPLOYEE') {
         data.forEach(holiday => {
           this.events.push({
             id: holiday.id,
@@ -150,7 +159,7 @@ export class LeaveCalendarComponent implements OnInit {
           this.refresh.next();
         });
       }
-    });
+    })
   }
 
   getAllLeaveRequest() {
@@ -163,20 +172,18 @@ export class LeaveCalendarComponent implements OnInit {
           end: new Date(leave.leaveRequest.endDate),
           color: colors.gray,
           draggable: false,
-          allDay: true
+          allDay: true,          
         });
         this.refresh.next();
       });
-    });
+    })
   }
 
-  updateEvent() {
+  updateEvent(){
     this.modalData.event.postedBy = this.info.username;
-    this.holidayCalendarService
-      .updateEvent(this.modalData.event.id, this.modalData.event)
-      .subscribe(data => {
-        console.log(data);
-      });
+    this.holidayCalendarService.updateEvent(this.modalData.event.id, this.modalData.event).subscribe(data => {
+      console.log(data);
+    })
   }
 
   getSuccessMsg() {

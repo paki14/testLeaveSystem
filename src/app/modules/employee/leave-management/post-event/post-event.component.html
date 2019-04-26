@@ -7,7 +7,7 @@
     <div class="card-tools">
       <button type="button" class="btn btn-tool" data-widget="collapse">
         <i class="fa fa-minus"></i>
-      </button>
+      </button>      
     </div>
   </div>
   <!-- Termination request card-header end -->
@@ -22,14 +22,7 @@
               <div class="col-md-12">
                 <div class="form-group">
                   <label for="title">Event Title</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    name="title"
-                    id="title"
-                    placeholder="Title"
-                    [(ngModel)]="holiday.title"
-                  />
+                  <input type="text" class="form-control" name="title" id="title" placeholder="Title" [(ngModel)]="holiday.title">
                 </div>
               </div>
             </div>
@@ -37,31 +30,15 @@
               <div class="col-md-6">
                 <div class="form-group">
                   <label for="startAt">Starts At</label>
-                  <input
-                    type="text"
-                    mwlFlatpickr
-                    minDate="today"
-                    class="form-control"
-                    name="startAt"
-                    id="startAt"
-                    placeholder="yyyy/mm/dd"
-                    [(ngModel)]="holiday.start"
-                  />
+                  <input type="text" mwlFlatpickr class="form-control" name="startAt" id="startAt" placeholder="yyyy/mm/dd"
+                    [(ngModel)]="holiday.start">
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="form-group">
                   <label for="endAt">Ends At</label>
-                  <input
-                    type="text"
-                    mwlFlatpickr
-                    minDate="today ||{{ holiday.start }}"
-                    class="form-control"
-                    name="endAt"
-                    id="endAt"
-                    placeholder="yyyy/mm/dd"
-                    [(ngModel)]="holiday.end"
-                  />
+                  <input type="text" mwlFlatpickr class="form-control" name="endAt" id="endAt" placeholder="yyyy/mm/dd"
+                    [(ngModel)]="holiday.end">
                 </div>
               </div>
             </div>
@@ -69,45 +46,24 @@
               <div class="col-md-6">
                 <div class="form-group">
                   <label for="primaryColor">Color</label>
-                  <select
-                    class="form-control"
-                    name="color"
-                    id="color"
-                    [(ngModel)]="holiday.color"
-                  >
-                    <option selected default hidden [ngValue]="default"
-                      >select color</option
-                    >
-                    <option *ngFor="let color of colors" [ngValue]="color">{{
-                      color.name
-                    }}</option>
+                  <select class="form-control" name="color" id="color" [(ngModel)]="holiday.color">
+                    <option selected default hidden [ngValue]="default">select color</option>
+                    <option *ngFor="let color of colors" [ngValue]="color">{{color.name}}</option>
                   </select>
                 </div>
               </div>
               <div class="col-md-3">
                 <div class="form-group">
                   <label for="primaryColor">Primary</label>
-                  <input
-                    type="color"
-                    class="form-control"
-                    name="primaryColor"
-                    id="primaryColor"
-                    [(ngModel)]="holiday.color.primary"
-                    disabled
-                  />
+                  <input type="color" class="form-control" name="primaryColor" id="primaryColor" [(ngModel)]="holiday.color.primary"
+                    disabled>
                 </div>
               </div>
               <div class="col-md-3">
                 <div class="form-group">
                   <label for="secondaryColor">Secondary</label>
-                  <input
-                    type="color"
-                    class="form-control"
-                    name="secondaryColor"
-                    id="secondaryColor"
-                    [(ngModel)]="holiday.color.secondary"
-                    disabled
-                  />
+                  <input type="color" class="form-control" name="secondaryColor" id="secondaryColor" [(ngModel)]="holiday.color.secondary"
+                    disabled>
                 </div>
               </div>
             </div>
@@ -115,30 +71,14 @@
             <div class="row">
               <div class="col-md-6">
                 <div class="form-group">
-                  <mat-checkbox
-                    name="allDay"
-                    class="example-margin"
-                    [(ngModel)]="holiday.allDay"
-                    (ngValue)="(checked)"
-                    (change)="onClicked($event)"
-                    [disabled]="
-                      holiday.resizable.beforeStart ||
-                      holiday.resizable.afterEnd
-                    "
-                    >All Day</mat-checkbox
-                  >
+                  <mat-checkbox name="allDay" class="example-margin" [(ngModel)]="holiday.allDay" (ngValue)="checked"
+                    (change)="onClicked($event)" [disabled] = "holiday.resizable.beforeStart || holiday.resizable.afterEnd">All Day</mat-checkbox>
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="form-group">
-                  <mat-checkbox
-                    name="draggable"
-                    class="example-margin"
-                    [(ngModel)]="holiday.draggable"
-                    (ngValue)="(checked)"
-                    (change)="onClicked($event)"
-                    >Draggable</mat-checkbox
-                  >
+                  <mat-checkbox name="draggable" class="example-margin" [(ngModel)]="holiday.draggable" (ngValue)="checked"
+                    (change)="onClicked($event)">Draggable</mat-checkbox>
                 </div>
               </div>
             </div>
@@ -148,26 +88,12 @@
                   <label for="secondaryColor">Resizable</label>
                   <div class="row">
                     <div class="col-md-6">
-                      <mat-checkbox
-                        name="beforeStart"
-                        class="example-margin"
-                        [(ngModel)]="holiday.resizable.beforeStart"
-                        (ngValue)="(checked)"
-                        (change)="onClicked($event)"
-                        [disabled]="holiday.allDay"
-                        >Before Start</mat-checkbox
-                      >&nbsp;&nbsp;
+                      <mat-checkbox name="beforeStart" class="example-margin" [(ngModel)]="holiday.resizable.beforeStart"
+                        (ngValue)="checked" (change)="onClicked($event)"  [disabled] = "holiday.allDay">Before Start</mat-checkbox>&nbsp;&nbsp;
                     </div>
                     <div class="col-md-6">
-                      <mat-checkbox
-                        name="afterEnd"
-                        class="example-margin"
-                        [(ngModel)]="holiday.resizable.afterEnd"
-                        (ngValue)="(checked)"
-                        (change)="onClicked($event)"
-                        [disabled]="holiday.allDay"
-                        >After End</mat-checkbox
-                      >
+                      <mat-checkbox name="afterEnd" class="example-margin" [(ngModel)]="holiday.resizable.afterEnd"
+                        (ngValue)="checked" (change)="onClicked($event)" [disabled] = "holiday.allDay">After End</mat-checkbox>
                     </div>
                   </div>
                 </div>
@@ -180,15 +106,7 @@
   </div>
   <!-- card body end -->
   <div class="card-footer">
-    <button
-      type="button"
-      class="btn btn-primary"
-      data-toggle="modal"
-      data-target="#add-modal"
-      (click)="postEvent()"
-    >
-      Submit
-    </button>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#add-modal" (click)="postEvent();">Submit</button>
     &nbsp;
   </div>
 </div>
