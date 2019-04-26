@@ -4,29 +4,29 @@
       <app-allocate-leave></app-allocate-leave>
     </mat-tab> -->
 
-    <mat-tab label="Leave Requests">
+    <mat-tab label="Leave Requests" *ngIf="info.authorities == 'HR'" >
       <app-approve-leave></app-approve-leave>
       <app-view-specific-emp-leave></app-view-specific-emp-leave>
     </mat-tab>
-    <mat-tab label="Leave History">
+    <mat-tab label="Leave History" *ngIf=" info.authorities == 'HR'" >
       <app-leave-history></app-leave-history>
     </mat-tab>
-    <mat-tab label="Leave-Cancel Requests">
+    <mat-tab label="Leave-Cancel Requests" *ngIf="info.authorities == 'HR'" >
       <app-approve-cancel-leave></app-approve-cancel-leave>
     </mat-tab>
-    <mat-tab label="Request Leave">
+    <mat-tab label="Request Leave" *ngIf="info.authorities == 'EMPLOYEE'">
       <div class="row">
         <div class="col-md-8">
           <app-apply-leave></app-apply-leave>
         </div>
         <div class="col-md-4">
           <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-12" *ngIf="info.authorities == 'EMPLOYEE'">
               <app-remain-leave></app-remain-leave>
             </div>
           </div>
           <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-12" *ngIf="info.authorities == 'EMPLOYEE'">
               <app-carry-forward-leave-request></app-carry-forward-leave-request>
             </div>
           </div>
@@ -35,7 +35,7 @@
       <app-view-my-leave></app-view-my-leave>
     </mat-tab>
 
-    <mat-tab label="Leave Calender">
+    <mat-tab label="Leave Calender"*ngIf="info.authorities == 'HR'">
       <div class="row">
         <div class="col-md-5">
           <app-post-event></app-post-event>
@@ -50,7 +50,7 @@
         </div>
       </div>
     </mat-tab>
-
+    
     <mat-tab
       label="Carryforward Requests"
       *ngIf="info.authorities == 'ADMIN' || info.authorities == 'HR'"
