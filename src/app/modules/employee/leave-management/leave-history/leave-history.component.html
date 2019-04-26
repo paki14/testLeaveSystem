@@ -10,9 +10,9 @@
             <button type="button" class="btn btn-tool" data-widget="collapse">
               <i class="fa fa-minus"></i>
             </button>
-            <button type="button" class="btn btn-tool" data-widget="remove">
+            <!-- <button type="button" class="btn btn-tool" data-widget="remove">
               <i class="fa fa-times"></i>
-            </button>
+            </button> -->
           </div>
         </div>
         <!-- card header end -->
@@ -23,13 +23,18 @@
             <ul class="nav nav-tabs" role="tablist">
               <li routerLinkActive="active">
                 <a routerLink="allrequests" role="tab" data-toggle="tab">
-                  All requests</a>
+                  All requests</a
+                >
               </li>
               <li routerLinkActive="active">
-                <a routerLink="accepted" role="tab" data-toggle="tab"> Accepted</a>
+                <a routerLink="accepted" role="tab" data-toggle="tab">
+                  Accepted</a
+                >
               </li>
               <li routerLinkActive="active">
-                <a routerLink="rejected"   role="tab" data-toggle="tab"> rejected</a>
+                <a routerLink="rejected" role="tab" data-toggle="tab">
+                  rejected</a
+                >
               </li>
             </ul>
             <router-outlet></router-outlet>
