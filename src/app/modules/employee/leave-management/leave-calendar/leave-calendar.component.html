@@ -83,7 +83,6 @@
     [viewDate]="viewDate"
     [events]="events"
     [refresh]="refresh"
-    (eventClicked)="handleEvent('Clicked', $event.event)"
     (eventTimesChanged)="eventTimesChanged($event)"
   >
   </mwl-calendar-day-view>
@@ -124,7 +123,6 @@
             mwlFlatpickr
             [(ngModel)]="modalData?.event.start"
             (ngModelChange)="refresh.next()"
-            minDate="today"
             [altInput]="true"
             [convertModelValue]="true"
             [enableTime]="true"
@@ -148,7 +146,6 @@
             (ngModelChange)="refresh.next()"
             [altInput]="true"
             [convertModelValue]="true"
-            minDate="today"
             [enableTime]="true"
             dateFormat="Y-m-dTH:i"
             altFormat="F j, Y H:i"

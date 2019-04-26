@@ -20,7 +20,7 @@ export class LeaveManagementComponent implements OnInit {
   leaveCalenderObj = new StateUpdate();
   carryForwardLeaveObj = new StateUpdate();
   carryForwardLeaveRequestObj = new StateUpdate();
-
+  
   constructor(
     private token: TokenStorageService,
     private interactionService: InteractionService,
@@ -33,7 +33,7 @@ export class LeaveManagementComponent implements OnInit {
       username: this.token.getUsername(),
       authorities: this.token.getAuthorities()
     };
-
+    
     // this.getLeaveRequestPrivilegeStatus(this.leaveRequestObj, "Leave Requests", "Read");
     // this.getLeaveRequestPrivilegeStatus(this.cancelLeaveRequestObj, "Approve or Cancel Leave", "Read");
     // this.getLeaveRequestPrivilegeStatus(this.leaveHistoryObj, "Leave History", "Read");
