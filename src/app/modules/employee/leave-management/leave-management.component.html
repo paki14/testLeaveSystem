@@ -35,17 +35,18 @@
       <app-view-my-leave></app-view-my-leave>
     </mat-tab>
 
-    <mat-tab label="Leave Calender"*ngIf="info.authorities == 'HR'">
+    <mat-tab label="Leave Calender">
       <div class="row">
-        <div class="col-md-5">
+        <div class="col-md-5"*ngIf="info.authorities == 'HR'">
           <app-post-event></app-post-event>
         </div>
-        <div
+        <!-- <div
           class="col-md-7"
           [ngClass]="{
             'd-flex justify-content-center': info.authorities == 'EMPLOYEE'
           }"
-        >
+        > -->
+        <div class="col-md-7" *ngIf="info.authorities == 'EMPLOYEE'">
           <app-leave-calendar></app-leave-calendar>
         </div>
       </div>
