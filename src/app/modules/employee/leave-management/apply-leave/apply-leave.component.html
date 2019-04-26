@@ -63,7 +63,7 @@
                     <div class="col-md-2">
                       
                       <div class="form-group">
-                        <label for="apply-leave-NumberofDays"
+                        <label for="apply-leave-NumberofDays" 
                           >Number of Days</label
                         >
                         <input
@@ -130,7 +130,7 @@
                           id="apply-leave-reason"
                           placeholder="Enter Reason"
                           [(ngModel)]="leaveRequest.reason"
-                        ></textarea>
+                          (click)="this.validatedays()"></textarea>
                       </div>
                     </div>
                   </div>

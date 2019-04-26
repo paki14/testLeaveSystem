@@ -66,11 +66,15 @@ export class ApplyLeaveComponent implements OnInit {
 
   sendLeaveRequest() {
     
-    if(this.leaveRequest.leaveAllocation.allocatedDays-this.leaveRequest.leaveAllocation.utilizedDays>=this.leaveRequest.noOfDays){
+    // if(this.leaveRequest.leaveAllocation.allocatedDays-this.leaveRequest.leaveAllocation.utilizedDays>this.leaveRequest.noOfDays){
       this.interactionService.sendLeaveRequest(this.leaveRequest);
+    
+  }
+  validatedays(){
+    if(this.leaveRequest.leaveAllocation.allocatedDays-this.leaveRequest.leaveAllocation.utilizedDays>=this.leaveRequest.noOfDays){
+     
     }else{
       alert("pleace check remaining days")
-
     }
   }
 
