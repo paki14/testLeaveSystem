@@ -37,7 +37,7 @@
 
     <mat-tab label="Leave Calender">
       <div class="row">
-        <div class="col-md-5"*ngIf="info.authorities == 'HR'">
+        <div class="col-md-5"*ngIf="info.authorities == 'HR'|| info.authorities == 'ADMIN'">
           <app-post-event></app-post-event>
         </div>
         <!-- <div
@@ -46,7 +46,7 @@
             'd-flex justify-content-center': info.authorities == 'EMPLOYEE'
           }"
         > -->
-        <div class="col-md-7" *ngIf="info.authorities == 'EMPLOYEE'">
+        <div class="col-md-7" *ngIf="info.authorities == 'EMPLOYEE' || info.authorities == 'HR'">
           <app-leave-calendar></app-leave-calendar>
         </div>
       </div>
@@ -61,7 +61,7 @@
   </mat-tab-group>
 </div>
 
-<app-leave-accept-modal></app-leave-accept-modal>
+<!-- <app-leave-accept-modal></app-leave-accept-modal>
 <app-leave-reject-modal></app-leave-reject-modal>
 <app-cancel-leave-accept></app-cancel-leave-accept>
 <app-cancel-leave-reject></app-cancel-leave-reject>
@@ -71,4 +71,4 @@
 <app-request-conform-modal></app-request-conform-modal>
 <app-confirm-carryforward-request></app-confirm-carryforward-request>
 <app-accept-carryforward-request></app-accept-carryforward-request>
-<app-reject-carryforward-request></app-reject-carryforward-request>
+<app-reject-carryforward-request></app-reject-carryforward-request> -->
