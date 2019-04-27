@@ -77,12 +77,13 @@
                     </div>
                     <div class="col-md-6">
                       <div class="form-group">
-                        <label for="apply-leave-TypeofLeave">Type of Leave</label>
+                        <label for="apply-leave-TypeofLeave"
+                          >Type of Leave</label
+                        >
                         <select
                           class="form-control"
                           id="apply-leave-TypeofLeave"
-                          name="apply-leave-TypeofLeave"
-                          [(ngModel)]="leaveRequest.leaveAllocation"
+                          name="apply-leave-TypeofLeave"[(ngModel)]="leaveRequest.leaveAllocation"
                         >
                           <option selected default hidden [ngValue]="default"
                             >select leave type</option
@@ -126,7 +127,6 @@
                           id="apply-leave-reason"
                           placeholder="Enter Reason"
                           [(ngModel)]="leaveRequest.reason"
-                          (click)="this.validatedays()"
                         ></textarea>
                       </div>
                     </div>

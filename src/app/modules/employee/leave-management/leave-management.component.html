@@ -4,10 +4,10 @@
       <app-approve-leave></app-approve-leave>
       <app-view-specific-emp-leave></app-view-specific-emp-leave>
     </mat-tab>
-    <mat-tab label="Leave History" *ngIf=" info.authorities == 'HR'" >
+    <mat-tab label="Leave History" *ngIf="info.authorities == 'HR'">
       <app-leave-history></app-leave-history>
     </mat-tab>
-    <mat-tab label="Leave-Cancel Requests" *ngIf="info.authorities == 'HR'" >
+    <mat-tab label="Leave-Cancel Requests" *ngIf="info.authorities == 'HR'">
       <app-approve-cancel-leave></app-approve-cancel-leave>
     </mat-tab>
     <mat-tab label="Request Leave" *ngIf="info.authorities == 'EMPLOYEE'">
@@ -33,7 +33,10 @@
 
     <mat-tab label="Leave Calender">
       <div class="row">
-        <div class="col-md-5"*ngIf="info.authorities == 'HR'|| info.authorities == 'ADMIN'">
+        <div
+          class="col-md-5"
+          *ngIf="info.authorities == 'HR' || info.authorities == 'ADMIN'"
+        >
           <app-post-event></app-post-event>
         </div>
         <div class="col-md-7" *ngIf="info.authorities == 'EMPLOYEE' || info.authorities == 'HR'">
@@ -41,7 +44,7 @@
         </div>
       </div>
     </mat-tab>
-    
+
     <mat-tab
       label="Carryforward Requests"
       *ngIf="info.authorities == 'ADMIN' || info.authorities == 'HR'">
