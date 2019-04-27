@@ -13,7 +13,7 @@ import { CarryforwardRequestData } from '../../../../models/leave-management/car
 })
 export class CarryForwardLeaveComponent implements OnInit {
 
-  displayedColumns: string[] = ['employeename', 'employeeid', 'carryforwarded', 'status'];
+  displayedColumns: string[] = ['employeeid','employeename',  'carryforwarded', 'status'];
   carryforwardLeave: CarryforwardRequestData[];
   info: any;
 
