@@ -34,6 +34,7 @@ import { RemainLeaveComponent } from './remain-leave/remain-leave.component';
 import { ConfirmCarryforwardRequestComponent } from './carry-forward-leave-request/Modal/confirm-carryforward-request/confirm-carryforward-request.component';
 import { AcceptCarryforwardRequestComponent } from './carry-forward-leave/Modal/accept-carryforward-request/accept-carryforward-request.component';
 import { RejectCarryforwardRequestComponent } from './carry-forward-leave/Modal/reject-carryforward-request/reject-carryforward-request.component';
+import { ApplyLeaveViewComponent } from './apply-leave-view/apply-leave-view.component';
 
 const routes: Routes = [
   {
@@ -41,21 +42,35 @@ const routes: Routes = [
     component: LeaveManagementComponent,
 
         children: [
+         
           {
-            path: 'allrequests',
-            component: AllLeaveComponent
+            path:'requestedLeaves',
+            component:ApproveLeaveComponent
           },
           {
-            path: 'accepted',
-            component: AcceptedLeaveComponent
+              path: 'leaveHistory',
+              loadChildren: './leave-history/leave-history.module#LeaveHistoryModule'
           },
           {
-            path: 'rejected',
-            component: RejectedLeaveComponent
+            path:'LeaveCancelRequests',
+            component:ApproveCancelLeaveComponent
           },
-          
-        ]
-      }
+          {
+            path:'RequestLeave',
+            component:ApplyLeaveViewComponent
+          },
+          {
+            path:'leaveCalender',
+            component:LeaveCalendarComponent
+          },
+          {
+            path:'carryforwardRequests',
+            component:CarryForwardLeaveComponent
+          },
+        ],
+        
+      },
+     
 
     ]
   
@@ -81,7 +96,7 @@ const routes: Routes = [
     AllocateLeaveComponent,
     ApplyLeaveComponent,
     ApproveLeaveComponent,
-    LeaveHistoryComponent,
+    // LeaveHistoryComponent,
     LeaveAcceptModalComponent,
     LeaveRejectModalComponent,
     LeaveCalendarComponent,
@@ -91,9 +106,9 @@ const routes: Routes = [
     CancelLeaveAcceptComponent,
     CancelLeaveRejectComponent,
     ViewLeaveDetailsComponent,
-    AllLeaveComponent,
-    RejectedLeaveComponent,
-    AcceptedLeaveComponent,
+    // AllLeaveComponent,
+    // RejectedLeaveComponent,
+    // AcceptedLeaveComponent,
     ViewMyLeaveComponent,
     ConformCancelLeaveRequestModelComponent,
     EmployeeLeaveHistoryComponent,
@@ -101,7 +116,8 @@ const routes: Routes = [
     RequestConformModalComponent,
     ConfirmCarryforwardRequestComponent,
     AcceptCarryforwardRequestComponent,
-    RejectCarryforwardRequestComponent
+    RejectCarryforwardRequestComponent,
+    ApplyLeaveViewComponent
   ],
   providers: []
 })

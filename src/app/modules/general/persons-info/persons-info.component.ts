@@ -18,7 +18,6 @@ info:any
       token: this.token.getToken(),
       username: this.token.getUsername(),
       authorities: this.token.getAuthorities()
-      
     };
     // this.getRoleRoute();
     // this.userrole;

@@ -28,6 +28,7 @@ export class ViewSpecificEmpLeaveComponent implements OnInit {
 
   ngOnInit() {
     this.getUser();
+    
   }
   getUser() {
     this.interactionService.userDataSource$.subscribe(data => {
