@@ -1,65 +1,68 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>HRM | SGIC</title>
+    <base href="/" />
 
-<head>
-  <meta charset="utf-8">
-  <title>HRM | SGIC</title>
-  <base href="/">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <!-- Admin Template -->
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+    />
+    <link rel="stylesheet" href="./assets/dist/css/adminlte.min.css" />
+    <link rel="stylesheet" href="./assets/css/now-ui-kit.css" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <!-- Admin Template -->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <!-- Admin Template -->
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
-  <link rel="stylesheet" href="./assets/dist/css/adminlte.min.css">
-  <link rel="stylesheet" href="./assets/css/now-ui-kit.css">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <!-- Admin Template -->
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- print page cdn start -->
+    <script src="https://printjs-4de6.kxcdn.com/print.min.js"></script>
+    <script src="https://rawgit.com/ismarslomic/angular-read-more/master/dist/readmore.min.js"></script>
 
-<!-- print page cdn start -->
-<script src="https://printjs-4de6.kxcdn.com/print.min.js"></script>
-<link rel="stylesheet" href="https://printjs-4de6.kxcdn.com/print.min.css">
-<script type="text/javascript">
-  
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular-sanitize/1.6.4/angular-sanitize.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://printjs-4de6.kxcdn.com/print.min.css"
+    />
+    <script type="text/javascript"></script>
+  </head>
 
- 
-  
-  </script>
+  <body class="hold-transition sidebar-mini">
+    <app-root></app-root>
+    <!--===============================================================================================-->
 
-</head>
+    <!-- Admin Template -->
+    <!-- jQuery -->
+    <script src="./assets/plugins/jquery/jquery.min.js"></script>
 
-<body class="hold-transition sidebar-mini">
-  <app-root></app-root>
-  <!--===============================================================================================-->
+    <script src="src/assets/login/js/main.js"></script>
+    <!-- Bootstrap -->
+    <script src="./assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="./assets/dist/js/adminlte.js"></script>
+    <!-- Admin Template -->
 
-  <!-- Admin Template -->
-  <!-- jQuery -->
-  <script src="./assets/plugins/jquery/jquery.min.js"></script>
+    <!-- offerletter see more -->
+    <script src="./assets/build/js/offerletter-see-more.js"></script>
+    <script>
+      function linkOrFile() {
+        if (document.getElementById("linkCheck").checked) {
+          document.getElementById("iflink").style.visibility = "visible";
+        } else document.getElementById("iflink").style.visibility = "hidden";
 
-  <script src="src/assets/login/js/main.js"></script>
-  <!-- Bootstrap -->
-  <script src="./assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <!-- AdminLTE App -->
-  <script src="./assets/dist/js/adminlte.js"></script>
-  <!-- Admin Template -->
-  
-  <!-- offerletter see more -->
-  <script src="./assets/build/js/offerletter-see-more.js"></script>
-  <script>
-    function linkOrFile() {
-                  if (document.getElementById('linkCheck').checked) {
-                      document.getElementById('iflink').style.visibility = 'visible';
-                  }
-                  else document.getElementById('iflink').style.visibility = 'hidden';
-
-                  if (document.getElementById('fileCheck').checked) {
-                      document.getElementById('iffile').style.visibility = 'visible';
-                  }
-                  else document.getElementById('iffile').style.visibility = 'hidden';
-              
-              }
-  </script>
-
-</body>
-
+        if (document.getElementById("fileCheck").checked) {
+          document.getElementById("iffile").style.visibility = "visible";
+        } else document.getElementById("iffile").style.visibility = "hidden";
+      }
+    </script>
+  </body>
 </html>

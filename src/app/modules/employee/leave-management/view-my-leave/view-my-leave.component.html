@@ -60,7 +60,18 @@
               <mat-header-cell *matHeaderCellDef mat-sort-header>
                 Reason</mat-header-cell
               >
-              <mat-cell *matCellDef="let leave"> {{ leave.reason }}</mat-cell>
+              <mat-cell *matCellDef="let leave">
+                {{ leave.reason }}
+                <!-- <div
+                  hm-read-more
+                  hm-text="{{ leave.reason }}"
+                  hm-limit="{{ limit }}"
+                  hm-more-text="{{ moreText }}"
+                  hm-less-text="{{ lessText }}"
+                  hm-dots-class="{{ dotsClass }}"
+                  hm-link-class="{{ linkClass }}"
+                ></div> -->
+              </mat-cell>
             </ng-container>
 
             <ng-container matColumnDef="status">
