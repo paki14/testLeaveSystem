@@ -13,7 +13,7 @@ import { CarryforwardRequestData } from '../../../../models/leave-management/car
 })
 export class CarryForwardLeaveComponent implements OnInit {
 
-  displayedColumns: string[] = ['employeename', 'employeeid', 'carryforwarded', 'status'];
+  displayedColumns: string[] = ['employeeid','employeename',  'carryforwarded', 'status'];
   carryforwardLeave: CarryforwardRequestData[];
   info: any;
 
@@ -53,8 +53,6 @@ export class CarryForwardLeaveComponent implements OnInit {
   sendSuccessMessage() {
     this.interactionService.upadateMsg("CarryforwardRequestAccepted");
   }
-
-
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
     if (this.dataSource.paginator) {
