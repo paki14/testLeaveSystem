@@ -41,7 +41,6 @@ export class CarryForwardLeaveComponent implements OnInit {
       this.dataSource = new MatTableDataSource<CarryforwardRequestData>(this.carryforwardLeave);
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
-      this.getPendingCarryforwardRequest();
     }
     );
   }

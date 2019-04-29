@@ -1,17 +1,16 @@
-import { InteractionService } from 'src/app/services/interaction.service';
-import { ColorsService } from './../../../../services/leave-management/colors.service';
-import { Holiday, Colors } from './../../../../models/leave-management/holiday';
-import { HolidayCalendarService } from './../../../../services/leave-management/holiday-calendar.service';
-import { Component, OnInit } from '@angular/core';
-import { TokenStorageService } from 'src/app/services/login/token-storage.service';
+import { InteractionService } from "src/app/services/interaction.service";
+import { ColorsService } from "./../../../../services/leave-management/colors.service";
+import { Holiday, Colors } from "./../../../../models/leave-management/holiday";
+import { HolidayCalendarService } from "./../../../../services/leave-management/holiday-calendar.service";
+import { Component, OnInit } from "@angular/core";
+import { TokenStorageService } from "src/app/services/login/token-storage.service";
 
 @Component({
-  selector: 'app-post-event',
-  templateUrl: './post-event.component.html',
-  styleUrls: ['./post-event.component.css']
+  selector: "app-post-event",
+  templateUrl: "./post-event.component.html",
+  styleUrls: ["./post-event.component.css"]
 })
 export class PostEventComponent implements OnInit {
-
   holiday: Holiday = new Holiday();
   colors: Colors[];
   info: any;
@@ -24,7 +23,7 @@ export class PostEventComponent implements OnInit {
     private token: TokenStorageService,
     private interactionService: InteractionService,
     private colorsService: ColorsService
-  ) { }
+  ) {}
 
   ngOnInit() {
     this.info = {
@@ -41,20 +40,40 @@ export class PostEventComponent implements OnInit {
     this.holidayCalendarService.addEvent(this.holiday).subscribe(data => {
       console.log(data);
       this.sendSuccessMsg();
-    })
+    });
   }
 
   getColors() {
     this.colorsService.getAllColors().subscribe(data => {
       this.colors = data;
-    })
+    });
   }
   onClicked(evt) {
-    evt.checked ? this.checked = true : this.checked = false;
+    evt.checked ? (this.checked = true) : (this.checked = false);
     console.log(this.checked);
   }
-
+  // getSuccessMsg() {
+  //   this.interactionService.msgDataSource$.subscribe(data => {
+  //     if (data == "eventAdded") {
+  //     }
+  //     this.responseMsg = "success";
+  //     this.responseMsgTimeOut();
+  //   });
+  //
+  // }
   sendSuccessMsg() {
     this.interactionService.upadateMsg("eventAdded");
+
+    this.clearfunction();
+  }
+  clearfunction() {
+    this.holiday.start = null;
+    this.holiday.title = null;
+    this.holiday.color = new Colors();
+    this.holiday.end = null;
+    this.holiday.allDay = false;
+    this.holiday.draggable = false;
+    this.holiday.resizable.afterEnd = false;
+    this.holiday.resizable.beforeStart = false;
   }
 }
