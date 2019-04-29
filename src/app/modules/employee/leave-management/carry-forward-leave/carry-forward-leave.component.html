@@ -19,18 +19,6 @@
       <div class="card-body">
         <div class="mat-elevation-z8">
           <mat-table [dataSource]="dataSource" matSort>
-            <!-- carryforwarded column start -->
-            <ng-container matColumnDef="carryforwarded">
-              <mat-header-cell *matHeaderCellDef mat-sort-header> No of Days </mat-header-cell>
-              <mat-cell *matCellDef="let carryLeave"> {{carryLeave.carryForwardDays}} </mat-cell>
-            </ng-container>
-            <!-- carry forwarded column end -->
-            <!-- employee name column start -->
-            <ng-container matColumnDef="employeename">
-              <mat-header-cell *matHeaderCellDef mat-sort-header> Employee Name </mat-header-cell>
-              <mat-cell *matCellDef="let carryLeave"> {{carryLeave.user.fullName}}</mat-cell>
-            </ng-container>
-            <!-- employee name column end -->
             
             <!-- Employee Id column start -->
             <ng-container matColumnDef="employeeid">
@@ -38,6 +26,19 @@
               <mat-cell *matCellDef="let carryLeave"> {{carryLeave.user.id}}</mat-cell>
             </ng-container>
             <!-- Employee Id column end -->
+            <!-- employee name column start -->
+            <ng-container matColumnDef="employeename">
+              <mat-header-cell *matHeaderCellDef mat-sort-header> Employee Name </mat-header-cell>
+              <mat-cell *matCellDef="let carryLeave"> {{carryLeave.user.fullName}}</mat-cell>
+            </ng-container>
+            <!-- employee name column end -->
+            <!-- carryforwarded column start -->
+            <ng-container matColumnDef="carryforwarded">
+              <mat-header-cell *matHeaderCellDef mat-sort-header> No of Days </mat-header-cell>
+              <mat-cell *matCellDef="let carryLeave"> {{carryLeave.carryForwardDays}} </mat-cell>
+            </ng-container>
+            <!-- carry forwarded column end -->
+            
             <!-- Department column start -->
             <!-- <ng-container matColumnDef="department">
             <mat-header-cell *matHeaderCellDef mat-sort-header> Department</mat-header-cell>

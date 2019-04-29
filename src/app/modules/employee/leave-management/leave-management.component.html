@@ -76,22 +76,22 @@
   </a>
   </nav> -->
   <nav mat-tab-nav-bar>
-  <a mat-tab-link *ngIf="info.authorities == 'HR'"
+  <a mat-tab-link *ngIf="info.authorities == 'HR'||info.authorities == 'ADMIN'"
       routerLink="./requestedLeaves"
       routerLinkActive ="active">
       View Leave Requests
   </a>
-  <a mat-tab-link *ngIf="info.authorities == 'HR'"
+  <a mat-tab-link *ngIf="info.authorities == 'HR'||info.authorities == 'ADMIN'"
     routerLink="./leaveHistory/allrequests"
     routerLinkActive ="active">
     Leave History
 </a>
-<a mat-tab-link *ngIf="info.authorities == 'HR'"
+<a mat-tab-link *ngIf="info.authorities == 'HR'||info.authorities == 'ADMIN'"
     routerLink="./LeaveCancelRequests"
     routerLinkActive ="active">
     Leave Cancel Requests
 </a>
-<a mat-tab-link *ngIf="info.authorities == 'HR' || info.authorities == 'EMPLOYEE'"
+<a mat-tab-link 
     routerLink="./RequestLeave"
     routerLinkActive ="active">
     Apply Leave
@@ -101,7 +101,7 @@
     routerLinkActive ="active">
     Leave Calender
 </a>
-<a mat-tab-link *ngIf="info.authorities == 'HR'"
+<a mat-tab-link *ngIf="info.authorities == 'HR'||info.authorities == 'ADMIN'"
     routerLink="./carryforwardRequests"
     routerLinkActive ="active">
     Carryforward Requests
