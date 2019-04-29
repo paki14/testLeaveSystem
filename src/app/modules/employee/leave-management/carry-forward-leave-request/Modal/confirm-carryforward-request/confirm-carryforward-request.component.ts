@@ -3,6 +3,8 @@ import { CarryforwardLeaveRequest } from '../../../../../../models/leave-managem
 import { InteractionService } from '../../../../../../services/interaction.service';
 import { CarryforwardLeaveRequestService } from '../../../../../../services/leave-management/carryforward-leave-request.service';
 import { TokenStorageService } from '../../../../../../services/login/token-storage.service';
+import { LeaveAllocation } from 'src/app/models/leave-management/leave-allocation';
+import { LeaveAllocationService } from 'src/app/services/leave-management/leave-allocation.service';
 
 @Component({
   selector: 'app-confirm-carryforward-request',
@@ -12,11 +14,13 @@ import { TokenStorageService } from '../../../../../../services/login/token-stor
 export class ConfirmCarryforwardRequestComponent implements OnInit {
 
   info: any;
+  annualLeaveByUsername: LeaveAllocation;
   carryforwardResquest: CarryforwardLeaveRequest = new CarryforwardLeaveRequest();
   error:boolean = false;
 
   constructor(
     private interactionService: InteractionService,
+    private leaveAllocationService: LeaveAllocationService,
     private carryforwardLeaveRequestService: CarryforwardLeaveRequestService,
     private token: TokenStorageService
   ) { }
@@ -29,8 +33,16 @@ export class ConfirmCarryforwardRequestComponent implements OnInit {
     };
     this.getErrorMessage();
     this.getCarryforwardLeaveRequest();
+    //..............................
+    // this.getLeaveAllocation();
   }
-
+// ..........................................
+// getLeaveAllocation() {
+//   this.leaveAllocationService.getCarryForwardAnualLeave(this.info.username).subscribe(data => {
+//     this.annualLeaveByUsername = data;
+//   })
+// }
+// ...........................................
   getCarryforwardLeaveRequest() {
     this.interactionService.carryforwardRequestDataSource$.subscribe(data => {
       this.carryforwardResquest = data;     
