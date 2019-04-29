@@ -1,25 +1,21 @@
-import { Cancel } from "src/app/models/leave-management/cancel";
-import { CancelRequestService } from "./../../../../../services/leave-management/cancel-request.service";
-import { Component, OnInit, ViewChild } from "@angular/core";
-import { MatTableDataSource, MatPaginator, MatSort } from "@angular/material";
-import { InteractionService } from "src/app/services/interaction.service";
+import { Cancel } from 'src/app/models/leave-management/cancel';
+import { CancelRequestService } from './../../../../../services/leave-management/cancel-request.service';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatTableDataSource, MatPaginator, MatSort } from '@angular/material';
+import { InteractionService } from 'src/app/services/interaction.service';
 @Component({
-  selector: "app-approve-cancel-leave",
-  templateUrl: "./approve-cancel-leave.component.html",
-  styleUrls: ["./approve-cancel-leave.component.css"]
+  selector: 'app-approve-cancel-leave',
+  templateUrl: './approve-cancel-leave.component.html',
+  styleUrls: ['./approve-cancel-leave.component.css']
 })
 export class ApproveCancelLeaveComponent implements OnInit {
-  displayedColumns: string[] = [
-    "name",
-    "requestId",
-    "type",
-    "reason",
-    "accept/reject"
-  ];
+
+  displayedColumns: string[] = ['name', 'requestId', 'type', 'reason', 'accept/reject'];
 
   cancelLeaveRequest: Cancel[];
 
   dataSource = new MatTableDataSource<any>(this.cancelLeaveRequest);
+
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
@@ -27,7 +23,7 @@ export class ApproveCancelLeaveComponent implements OnInit {
   constructor(
     private cancelRequestService: CancelRequestService,
     private interactionService: InteractionService
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.getPendingCancelLeaveRequest();
@@ -48,7 +44,7 @@ export class ApproveCancelLeaveComponent implements OnInit {
       this.dataSource = new MatTableDataSource<any>(this.cancelLeaveRequest);
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
-    });
+    })
   }
 
   sendLeaveRequest(leaveRequest) {
@@ -64,16 +60,6 @@ export class ApproveCancelLeaveComponent implements OnInit {
       if (data == "cancelRequestAccepted" || data == "cancelRequestRejected") {
         this.getPendingCancelLeaveRequest();
       }
-      this.responseMsg = "success";
-      this.responseMsgTimeOut();
-    });
-    // this.responseMsg = "fail";
-    // this.responseMsgTimeOut();
-  }
-  responseMsg: string;
-  responseMsgTimeOut() {
-    setTimeout(() => {
-      this.responseMsg = null;
-    }, 3000);
+    })
   }
 }
