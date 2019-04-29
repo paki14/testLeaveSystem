@@ -186,7 +186,15 @@ export class LeaveCalendarComponent implements OnInit {
         this.events = [];
         this.getAllHolidays();
         this.getAllLeaveRequest();
+        this.responseMsg = "success";
+        this.responseMsgTimeOut();
       }
     });
+  }
+  responseMsg: string;
+  responseMsgTimeOut() {
+    setTimeout(() => {
+      this.responseMsg = null;
+    }, 3000);
   }
 }

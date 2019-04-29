@@ -68,14 +68,9 @@ export class CarryForwardLeaveRequestComponent implements OnInit {
     if ((this.annualLeaveByUsername.allocatedDays - this.annualLeaveByUsername.utilizedDays) < this.carryforwardRequest.carryforwardDays) {
       this.interactionService.upadateMsg("error");
     }
-    else if(0 > this.carryforwardRequest.carryforwardDays)
-        {
-          this.interactionService.upadateMsg("error");
-        }
-          else
-          {
-            this.interactionService.sendCarryForwardLeaveRequest(this.carryforwardRequest);
-          }
+    else {
+      this.interactionService.sendCarryForwardLeaveRequest(this.carryforwardRequest);
+    }
   }
   //End
 }

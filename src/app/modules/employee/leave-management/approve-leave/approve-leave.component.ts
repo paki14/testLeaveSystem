@@ -1,31 +1,39 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatTableDataSource, MatPaginator, MatSort } from '@angular/material';
-import { LeaveRequest } from 'src/app/models/leave-management/leave-request';
-import { LeaveRequestService } from 'src/app/services/leave-management/leave-request.service';
-import { InteractionService } from 'src/app/services/interaction.service';
+import { Component, OnInit, ViewChild } from "@angular/core";
+import { MatTableDataSource, MatPaginator, MatSort } from "@angular/material";
+import { LeaveRequest } from "src/app/models/leave-management/leave-request";
+import { LeaveRequestService } from "src/app/services/leave-management/leave-request.service";
+import { InteractionService } from "src/app/services/interaction.service";
 
 @Component({
-  selector: 'app-approve-leave',
-  templateUrl: './approve-leave.component.html',
-  styleUrls: ['./approve-leave.component.css']
+  selector: "app-approve-leave",
+  templateUrl: "./approve-leave.component.html",
+  styleUrls: ["./approve-leave.component.css"]
 })
 export class ApproveLeaveComponent implements OnInit {
+  displayedColumns: string[] = [
+    "name",
+    "startdate",
+    "enddate",
+    "numberofdays",
+    "type",
+    "reason",
+    "accept/reject"
+  ];
 
-  displayedColumns: string[] = ['name','startdate','enddate','numberofdays','type','reason','accept/reject'];
-
-  leave : LeaveRequest[];
+  leave: LeaveRequest[];
   dataSource = new MatTableDataSource<any>(this.leave);
-
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor(private leaveRequestService: LeaveRequestService, 
-    private interactionService : InteractionService) { }
+  constructor(
+    private leaveRequestService: LeaveRequestService,
+    private interactionService: InteractionService
+  ) {}
 
-  ngOnInit() {    
+  ngOnInit() {
     this.getAllLeaveRequest();
-    this.getSuccessMsg();   
+    this.getSuccessMsg();
   }
 
   applyFilter(filterValue: string) {
@@ -42,10 +50,10 @@ export class ApproveLeaveComponent implements OnInit {
       this.dataSource = new MatTableDataSource<any>(data);
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
-    })
+    });
   }
 
-  sentLeaveId(leaveId){
+  sentLeaveId(leaveId) {
     this.interactionService.setLeaveId(leaveId);
   }
 
@@ -54,10 +62,10 @@ export class ApproveLeaveComponent implements OnInit {
   }
 
   getSuccessMsg() {
-    this.interactionService.msgDataSource$.subscribe(data =>{
+    this.interactionService.msgDataSource$.subscribe(data => {
       if (data == "AcceptSuccess" || data == "RejectSuccess") {
         this.getAllLeaveRequest();
       }
-    })
+    });
   }
 }
