@@ -62,5 +62,3 @@ export class ConformCancelLeaveRequestModelComponent implements OnInit {
   }
 }
 
-}
-
