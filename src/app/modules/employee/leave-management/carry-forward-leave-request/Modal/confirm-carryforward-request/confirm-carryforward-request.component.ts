@@ -49,14 +49,6 @@ export class ConfirmCarryforwardRequestComponent implements OnInit {
     this.carryforwardResquest.carryforwardDays = null;
     this.carryforwardResquest = null;
   }
-
-  // getErrorMessage() {
-  //   this.interactionService.msgDataSource$.subscribe(data =>{
-  //     if(data === "error") {
-  //       this.error = true;
-  //     }
-  //   })
-  // }
   getErrorMessage() {
     this.interactionService.msgDataSource$.subscribe(data =>{
       if(data === "error") {

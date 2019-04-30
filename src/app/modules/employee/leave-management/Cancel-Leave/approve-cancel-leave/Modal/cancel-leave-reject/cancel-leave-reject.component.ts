@@ -34,7 +34,7 @@ export class CancelLeaveRejectComponent implements OnInit {
   getCancelRequestId() {
     this.interactionService.cancelRequestIdDataSource$.subscribe(data => {
       this.rejectCancelRequest.cancelRequestId = data;
-      this.setValidate()
+      this.setValidate();
     });
   }
   
