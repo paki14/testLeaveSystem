@@ -33,16 +33,16 @@ export class ConfirmCarryforwardRequestComponent implements OnInit {
 
   getCarryforwardLeaveRequest() {
     this.interactionService.carryforwardRequestDataSource$.subscribe(data => {
-      this.carryforwardResquest = data;     
+      this.carryforwardResquest = data;
     })
   }
 
   sendCarryforwardLeaveRequest() {
     this.carryforwardResquest.userName = this.info.username;
     this.carryforwardLeaveRequestService.addCarryforwardLeaveRequest(this.carryforwardResquest).subscribe(data => {
-      this.resetCarryforwardLeaveRequest();
+      // this.resetCarryforwardLeaveRequest();
       this.interactionService.upadateMsg("carryforwardLeaveRequestSent");
-    })
+    });
   }
 
   resetCarryforwardLeaveRequest() {
@@ -55,6 +55,11 @@ export class ConfirmCarryforwardRequestComponent implements OnInit {
       if(data === "error") {
         this.error = true;
       }
+      else{
+        this.error=false
+      }
     })
   }
+  
+  
 }

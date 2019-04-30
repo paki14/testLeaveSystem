@@ -13,13 +13,21 @@
       <div class="modal-body">
         <div class="col-md-12">
           <!-- form start -->
-          <form role="form">
+          <form [formGroup]="rejectForm">
             <!-- card body start -->
             <div class="card-body">
               <div class="col-md-12">
                   <div class="form-group">
                     <label for="cancel_leave_reject_reason"> Reason</label>
-                    <textarea type="text" class="form-control"rows="4"  name="reject_carryforward_reason" id="reject_carryforward_reason"  placeholder="Enter Reject reason Here" [(ngModel)]="rejectCarryforwardRequestData.reason"></textarea>
+                    <textarea type="text" class="form-control"rows="4" formControlName="reject_cf_reason" [class.is-invalid]="rejectForm.get('reject_cf_reason').invalid && rejectForm.get('reject_cf_reason').touched " 
+                    name="reject_carryforward_reason" id="reject_carryforward_reason"  placeholder="Enter Reject reason Here" [(ngModel)]="rejectCarryforwardRequestData.reason">
+                  </textarea>
+                  <div *ngIf="rejectForm.get('reject_cf_reason').invalid && rejectForm.get('reject_cf_reason').touched ">
+                    <small class="text-danger" *ngIf="rejectForm.get('reject_cf_reason').errors?.required">Reject reason is required!
+                    </small>
+                    <small class="text-danger" *ngIf="rejectForm.get('reject_cf_reason').errors?.pattern">Reject reason is only allow letters.
+                    </small>
+                  </div>
                   </div>
                 </div>
             </div>

@@ -42,6 +42,7 @@ export class CarryForwardLeaveRequestComponent implements OnInit {
     this.carryforwardRequestService.getCarryforwardLeaveRequestByUser(this.info.username).subscribe(data => {
       this.carryforwardLeave = data;
     })
+    
   }
 
   clearAfterAdd() {
@@ -65,12 +66,27 @@ export class CarryForwardLeaveRequestComponent implements OnInit {
   }
 
   giveAlertMessage() {
-    if ((this.annualLeaveByUsername.allocatedDays - this.annualLeaveByUsername.utilizedDays) < this.carryforwardRequest.carryforwardDays) {
+    if(this.carryforwardRequest.carryforwardDays==null){
       this.interactionService.upadateMsg("error");
+    }else{
+
+        if ((this.annualLeaveByUsername.allocatedDays - this.annualLeaveByUsername.utilizedDays) < this.carryforwardRequest.carryforwardDays) {
+          this.interactionService.upadateMsg("error");
+          this.clearAfterAdd();
+        }
+        else if (0 > this.carryforwardRequest.carryforwardDays) {
+          this.interactionService.upadateMsg("error");
+          this.clearAfterAdd();
+        }
+        else
+        {
+          this.interactionService.upadateMsg("null");
+          this.interactionService.sendCarryForwardLeaveRequest(this.carryforwardRequest);
+    
+          console.log(this.carryforwardRequest)
+          this.clearAfterAdd();
+        }
+      }
     }
-    else {
-      this.interactionService.sendCarryForwardLeaveRequest(this.carryforwardRequest);
-    }
-  }
   //End
 }

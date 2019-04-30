@@ -3,6 +3,7 @@ import { Component, OnInit } from "@angular/core";
 import { RejectCancelRequest } from "src/app/models/leave-management/reject-cancel-request";
 import { TokenStorageService } from "src/app/services/login/token-storage.service";
 import { InteractionService } from "src/app/services/interaction.service";
+import { FormGroup, FormControl, Validators } from "@angular/forms";
 
 @Component({
   selector: "app-cancel-leave-reject",
@@ -47,4 +48,13 @@ export class CancelLeaveRejectComponent implements OnInit {
     this.interactionService.upadateMsg("cancelRequestRejected");
     this.rejectCancelRequest.rejectReason = null;
   }
+   // ..................validatation..........
+   rejectForm = new FormGroup({
+    reject_lr_reason: new FormControl('', Validators.compose([
+      Validators.required,
+      Validators.maxLength(100),
+      Validators.minLength(3),
+      Validators.pattern("[A-Za-z0-9]+")
+    ]))
+  })
 }
