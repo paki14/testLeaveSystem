@@ -184,7 +184,50 @@
             [enableTime]="true"
             dateFormat="Y-m-dTH:i"
             altFormat="F j, Y H:i"
-            placeholder="Not set"
+            placeholder="{{ modalData?.event.start | date: 'yyyy-MM-dd' }}"
+          />
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="primaryColor">Color</label>
+          <select
+            class="form-control"
+            name="color"
+            id="color"
+            [(ngModel)]="modalData?.event.color"
+          >
+            <option *ngFor="let color of colors" [ngValue]="color">{{
+              color.name
+            }}</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="form-group">
+          <label for="primaryColor">Primary</label>
+          <input
+            type="color"
+            class="form-control"
+            name="primaryColor"
+            id="primaryColor"
+            [(ngModel)]="modalData?.event.color.primary"
+            readonly
+          />
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="form-group">
+          <label for="secondaryColor">Secondary</label>
+          <input
+            type="color"
+            class="form-control"
+            name="secondaryColor"
+            id="secondaryColor"
+            [(ngModel)]="modalData?.event.color.secondary"
+            readonly
           />
         </div>
       </div>
@@ -240,10 +283,12 @@
     <button
       type="button"
       class="btn btn-outline-secondary"
+      data-dismiss="modal"
       (click)="updateEvent(); close()"
     >
       OK
     </button>
   </div>
+  <!-- </div> -->
 </ng-template>
-<!-- </div> -->
+

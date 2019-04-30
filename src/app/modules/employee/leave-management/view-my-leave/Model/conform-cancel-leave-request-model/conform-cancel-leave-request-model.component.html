@@ -5,23 +5,43 @@
     <div class="modal-content">
       <div class="modal-header">
         <h6 class="modal-title">Cancel Leave</h6>
+
         <button type="button" class="close" data-dismiss="modal"(click)="clearField()">&times;</button>
+
       </div>
       <div class="modal-body">
         <div class="col-md-12">
           Are you sure you want to cancel?
         </div>
-        <div class="col-md-12" *ngIf= "cancelObj.leaveRequest && cancelObj.leaveRequest.status == 'ACCEPTED'">
+        <div
+          class="col-md-12"
+          *ngIf="
+            cancelObj.leaveRequest &&
+            cancelObj.leaveRequest.status == 'ACCEPTED'
+          "
+        >
           <div class="form-group">
             <label for="apply-leave-reason"></label>
-            <textarea type="textarea" class="form-control" rows="4" name="apply-leave-reason" id="apply-leave-reason"
-              placeholder="Enter Reason" [(ngModel)]="cancelObj.reason" ></textarea>
+            <textarea
+              type="textarea"
+              #input
+              maxlength="150"
+              class="form-control"
+              rows="4"
+              name="apply-leave-reason"
+              id="apply-leave-reason"
+              placeholder="Enter Reason"
+              [(ngModel)]="cancelObj.reason"
+            ></textarea>
+            {{ input.value?.length || 0 }}/150
           </div>
         </div>
       </div>
+
       <div class="modal-footer">        
         <button type="button" class=" btn btn-primary btn-sm" data-dismiss="modal" (click)="cancelLeaveRequest();">Yes</button>
         <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal" (click)="clearField()">No</button>
+
       </div>
     </div>
     <!-- modal content end -->
