@@ -76,8 +76,6 @@ export class ApplyLeaveComponent implements OnInit {
         this.clearField();
         this.responseMsg = "success";
         this.responseMsgTimeOut();
-        
-      
     });
   }
   responseMsg: string;
