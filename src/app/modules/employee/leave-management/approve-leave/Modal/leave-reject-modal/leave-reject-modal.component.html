@@ -16,20 +16,35 @@
           <form role="form">
             <!-- card body start -->
             <div class="card-body">
-              <div class="col-md-12">
-                <div class="form-group">
-                  <label for="promotion-employee-name"> Reason</label>
-                  <textarea
-                    type="text"
-                    class="form-control"
-                    rows="4"
-                    name="promotion-datepromoted"
-                    id="promotion-datepromoted"
-                    [(ngModel)]="rejectObj.rejectReason"
-                    placeholder="Enter Reject reason Here"
-                  ></textarea>
-                </div>
-              </div>
+              <!-- <div class="col-md-12">
+                <div class="form-group"> -->
+              <!-- <label for="promotion-employee-name"> Reason</label> -->
+              <!-- <mat-form-field hintLabel="Max 150 characters">
+                <textarea
+                  matInput
+                  #input
+                  maxlength="150"
+                  placeholder="Enter Reject reason Here"
+                  [(ngModel)]="rejectObj.rejectReason"
+                ></textarea>
+                <mat-hint align="end"
+                  >{{ input.value?.length || 0 }}/150</mat-hint
+                >
+              </mat-form-field> -->
+              <textarea
+                type="text"
+                #input
+                maxlength="150"
+                class="form-control"
+                rows="4"
+                name="promotion-datepromoted"
+                id="promotion-datepromoted"
+                [(ngModel)]="rejectObj.rejectReason"
+                placeholder="Enter Reject reason Here"
+              ></textarea>
+              {{ input.value?.length || 0 }}/150
+              <!-- </div>
+              </div> -->
             </div>
             <!-- card body end -->
           </form>
