@@ -36,6 +36,10 @@ export class ApproveLeaveComponent implements OnInit {
     this.getSuccessMsg();
   }
 
+  // clearField() {
+    
+  // }
+
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
 
@@ -65,6 +69,7 @@ export class ApproveLeaveComponent implements OnInit {
     this.interactionService.msgDataSource$.subscribe(data => {
       if (data == "AcceptSuccess" || data == "RejectSuccess") {
         this.getAllLeaveRequest();
+        // this.clearField();
       }
     });
   }
