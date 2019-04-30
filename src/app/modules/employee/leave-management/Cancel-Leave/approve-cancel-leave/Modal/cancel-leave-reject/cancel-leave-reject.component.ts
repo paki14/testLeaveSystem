@@ -4,6 +4,7 @@ import { RejectCancelRequest } from "src/app/models/leave-management/reject-canc
 import { TokenStorageService } from "src/app/services/login/token-storage.service";
 import { InteractionService } from "src/app/services/interaction.service";
 import { FormGroup, FormControl, Validators } from "@angular/forms";
+import { isValid } from "date-fns";
 
 @Component({
   selector: "app-cancel-leave-reject",
@@ -13,6 +14,7 @@ import { FormGroup, FormControl, Validators } from "@angular/forms";
 export class CancelLeaveRejectComponent implements OnInit {
   info: any;
   rejectCancelRequest: RejectCancelRequest = new RejectCancelRequest();
+  isValid:boolean
   constructor(
     private interactionService: InteractionService,
     private cancelRequestService: CancelRequestService,
@@ -26,13 +28,16 @@ export class CancelLeaveRejectComponent implements OnInit {
       authorities: this.token.getAuthorities()
     };
     this.getCancelRequestId();
+    
   }
 
   getCancelRequestId() {
     this.interactionService.cancelRequestIdDataSource$.subscribe(data => {
       this.rejectCancelRequest.cancelRequestId = data;
+      this.setValidate()
     });
   }
+  
   rejectCancelLeaveRequest() {
     this.rejectCancelRequest.userName = this.info.username;
     console.log(this.rejectCancelRequest);
@@ -42,7 +47,8 @@ export class CancelLeaveRejectComponent implements OnInit {
         console.log(data);
         this.sendSuccessMessage();
       });
-    this.rejectCancelRequest.rejectReason = null;
+    // this.rejectCancelRequest.rejectReason = null;
+    this.clearImmediate();
   }
 
   sendSuccessMessage() {
@@ -57,8 +63,19 @@ export class CancelLeaveRejectComponent implements OnInit {
       Validators.pattern("^[a-zA-Z ]*$")
     ]))
   })
-  
+ 
   clearImmediate(){
     this.rejectCancelRequest.rejectReason = null;
+    this.rejectForm.get('reject_lr_reason').clearValidators();
   }
+setValidate(){
+  
+  this.rejectForm.get('reject_lr_reason').setValidators([
+    Validators.required,
+    Validators.maxLength(100),
+    Validators.minLength(3),
+    Validators.pattern("^[a-zA-Z ]*$")
+  ])
+  this.rejectForm.updateValueAndValidity();
+}
 }
