@@ -5,6 +5,7 @@ import { TokenStorageService } from '../../../../services/login/token-storage.se
 import { InteractionService } from '../../../../services/interaction.service';
 import { LeaveAllocationService } from '../../../../services/leave-management/leave-allocation.service';
 import { LeaveAllocation } from '../../../../models/leave-management/leave-allocation';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-carry-forward-leave-request',
@@ -42,7 +43,6 @@ export class CarryForwardLeaveRequestComponent implements OnInit {
     this.carryforwardRequestService.getCarryforwardLeaveRequestByUser(this.info.username).subscribe(data => {
       this.carryforwardLeave = data;
     })
-    
   }
 
   clearAfterAdd() {
@@ -65,28 +65,18 @@ export class CarryForwardLeaveRequestComponent implements OnInit {
     })
   }
 
-  giveAlertMessage() {
-    if(this.carryforwardRequest.carryforwardDays==null){
+  giveAlertMessage(carryforwardRequest) {
+    if ((this.annualLeaveByUsername.allocatedDays - this.annualLeaveByUsername.utilizedDays) < this.carryforwardRequest.carryforwardDays) 
+    {
       this.interactionService.upadateMsg("error");
-    }else{
-
-        if ((this.annualLeaveByUsername.allocatedDays - this.annualLeaveByUsername.utilizedDays) < this.carryforwardRequest.carryforwardDays) {
-          this.interactionService.upadateMsg("error");
-          this.clearAfterAdd();
-        }
-        else if (0 > this.carryforwardRequest.carryforwardDays) {
-          this.interactionService.upadateMsg("error");
-          this.clearAfterAdd();
-        }
-        else
-        {
-          this.interactionService.upadateMsg("null");
-          this.interactionService.sendCarryForwardLeaveRequest(this.carryforwardRequest);
-    
-          console.log(this.carryforwardRequest)
-          this.clearAfterAdd();
-        }
-      }
-    }
+    } else if (0 >= this.carryforwardRequest.carryforwardDays) {
+                this.interactionService.upadateMsg("error");
+            } else {
+              this.interactionService.sendCarryForwardLeaveRequest(this.carryforwardRequest);
+              this.interactionService.upadateMsg("null");
+            } 
+  }
+  
+  
   //End
 }

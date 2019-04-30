@@ -47,15 +47,18 @@ export class CancelLeaveRejectComponent implements OnInit {
 
   sendSuccessMessage() {
     this.interactionService.upadateMsg("cancelRequestRejected");
-    // this.rejectCancelRequest.rejectReason = null;
   }
-   // ..................validatation..........
-   rejectForm = new FormGroup({
+  // ..................validatation..........
+  rejectForm = new FormGroup({
     reject_lr_reason: new FormControl('', Validators.compose([
       Validators.required,
       Validators.maxLength(100),
       Validators.minLength(3),
-      Validators.pattern("[A-Za-z0-9]+")
+      Validators.pattern("^[a-zA-Z ]*$")
     ]))
   })
+  
+  clearImmediate(){
+    this.rejectCancelRequest.rejectReason = null;
+  }
 }
