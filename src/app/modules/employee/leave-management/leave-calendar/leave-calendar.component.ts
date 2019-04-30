@@ -13,6 +13,7 @@ import {
 import { TokenStorageService } from "src/app/services/login/token-storage.service";
 import { InteractionService } from "src/app/services/interaction.service";
 import { CalendarEvent } from "src/app/models/leave-management/CalendarEvent";
+import { ColorsService } from "src/app/services/leave-management/colors.service";
 
 const colors: any = {
   gray: {
@@ -67,7 +68,8 @@ export class LeaveCalendarComponent implements OnInit {
     private holidayCalendarService: HolidayCalendarService,
     private acceptLeaveService: AcceptLeaveService,
     private token: TokenStorageService,
-    private interactionService: InteractionService
+    private interactionService: InteractionService,
+    private colorsService: ColorsService
   ) {}
 
   ngOnInit() {
@@ -81,6 +83,7 @@ export class LeaveCalendarComponent implements OnInit {
       this.getAllLeaveRequest();
     }
     this.getSuccessMsg();
+    this.getColors();
   }
 
   dayClicked({ date, events }: { date: Date; events: CalendarEvent[] }): void {
@@ -153,7 +156,11 @@ export class LeaveCalendarComponent implements OnInit {
       }
     });
   }
-
+  getColors() {
+    this.colorsService.getAllColors().subscribe(data => {
+      this.colors = data;
+    });
+  }
   getAllLeaveRequest() {
     this.acceptLeaveService.getAllAcceptData().subscribe(data => {
       data.forEach(leave => {
