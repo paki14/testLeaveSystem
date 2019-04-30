@@ -67,6 +67,7 @@ export class ApproveCancelLeaveComponent implements OnInit {
       this.responseMsg = "success";
       this.responseMsgTimeOut();
     });
+    
     // this.responseMsg = "fail";
     // this.responseMsgTimeOut();
   }
