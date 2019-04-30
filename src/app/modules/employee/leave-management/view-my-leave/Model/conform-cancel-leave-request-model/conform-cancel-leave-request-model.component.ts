@@ -39,6 +39,7 @@ export class ConformCancelLeaveRequestModelComponent implements OnInit {
     if (this.cancelObj.leaveRequest.status == "PENDING") {
       this.deleteLeaveRequest();
     }
+    this.clearField();
   }
 
   deleteLeaveRequest() {
@@ -51,6 +52,9 @@ export class ConformCancelLeaveRequestModelComponent implements OnInit {
 
   sendSuccessMsg() {
     this.interactionService.upadateMsg("cancelSuccess");
-    this.cancelObj.reason = null;
+    this.clearField()
+  }
+  clearField(){
+    this.cancelObj.reason=null;
   }
 }

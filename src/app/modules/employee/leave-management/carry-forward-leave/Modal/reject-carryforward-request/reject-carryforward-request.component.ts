@@ -3,6 +3,8 @@ import { InteractionService } from '../../../../../../services/interaction.servi
 import { TokenStorageService } from '../../../../../../services/login/token-storage.service';
 import { CarryforwardLeaveRequestService } from '../../../../../../services/leave-management/carryforward-leave-request.service';
 import { RejectCarryforwardData } from '../../../../../../models/leave-management/carryforward-leave-request';
+import { validateHorizontalPosition } from '@angular/cdk/overlay';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-reject-carryforward-request',
@@ -39,5 +41,22 @@ export class RejectCarryforwardRequestComponent implements OnInit {
     this.carryforwardLeaveRequestService.rejectCarryforwardRequest(this.info.username, this.rejectCarryforwardRequestData).subscribe(data => {
       console.log(data);
     });
+    this.getCarryforwardLeave();
+    this.clear()
   }
+  clear(){
+    this.rejectCarryforwardRequestData.reason=null;
+    this.rejectForm.get('reject_cf_reason').clearValidators();
+
+  }
+  // ..................validatation..........
+  rejectForm = new FormGroup({
+    reject_cf_reason: new FormControl('', Validators.compose([
+      Validators.required,
+      Validators.maxLength(50),
+      Validators.minLength(3),
+      Validators.pattern("^[a-zA-Z ]*$")
+    ]))
+  })
+  
 }

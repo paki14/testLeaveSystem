@@ -70,9 +70,18 @@ export class ApplyLeaveComponent implements OnInit {
 
   getSuccessMsg() {
     this.interactionService.msgDataSource$.subscribe(data => {
-      if (data == "leaveRequestSent") {
-        this.clearField();
+      if (data == "leaveRequestSent" || data == "leaveRequestSent") {
+        this.getLeaveAllocation();
       }
+        this.clearField();
+        this.responseMsg = "success";
+        this.responseMsgTimeOut();
     });
+  }
+  responseMsg: string;
+  responseMsgTimeOut() {
+    setTimeout(() => {
+      this.responseMsg = null;
+    }, 3000);
   }
 }

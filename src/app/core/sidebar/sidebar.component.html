@@ -124,13 +124,19 @@
               </li>
             </ul>
             <li class="nav-item">
-              <a routerLink="leaveManagement/RequestLeave" class="nav-link" routerLinkActive="active" *ngIf="info.authorities=='EMPLOYEE'">
+              <a routerLink="leaveManagement/RequestLeave" class="nav-link" routerLinkActive="active" *ngIf="info.authorities=='EMPLOYEE'||info.authorities=='ACCOUNTANT'">
                 <i class="far fa-circle nav-icon"></i>
                 <p>Leave Management</p>
               </a>
             </li>
             <li class="nav-item">
               <a routerLink="leaveManagement/requestedLeaves" class="nav-link" routerLinkActive="active" *ngIf="info.authorities=='HR'">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Leave Management</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a routerLink="leaveManagement" class="nav-link" routerLinkActive="active" *ngIf="info.authorities=='ADMIN'||info.authorities=='DIRECTOR'||info.authorities=='HR_MANAGER'||info.authorities=='MANAGER'">
                 <i class="far fa-circle nav-icon"></i>
                 <p>Leave Management</p>
               </a>

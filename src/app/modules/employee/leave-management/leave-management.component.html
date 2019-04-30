@@ -79,7 +79,7 @@
   <a mat-tab-link *ngIf="info.authorities == 'HR'"
       routerLink="./requestedLeaves"
       routerLinkActive ="active">
-      Leave Requests
+      View Leave Requests
   </a>
   <a mat-tab-link *ngIf="info.authorities == 'HR'"
     routerLink="./leaveHistory/allrequests"
@@ -94,7 +94,7 @@
 <a mat-tab-link *ngIf="info.authorities == 'HR' || info.authorities == 'EMPLOYEE'"
     routerLink="./RequestLeave"
     routerLinkActive ="active">
-    Request Leave
+    Apply Leave
 </a>
 <a mat-tab-link 
     routerLink="./leaveCalender"
@@ -104,7 +104,7 @@
 <a mat-tab-link *ngIf="info.authorities == 'HR'"
     routerLink="./carryforwardRequests"
     routerLinkActive ="active">
-    Carryforward Requests
+    Carry Forward Requests
 </a>
   </nav>
   <router-outlet></router-outlet>

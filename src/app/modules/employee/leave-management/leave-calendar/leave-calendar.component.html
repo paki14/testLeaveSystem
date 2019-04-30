@@ -232,6 +232,52 @@
         </div>
       </div>
     </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="primaryColor">Color</label>
+          <select
+            class="form-control"
+            name="color"
+            id="color"
+            [(ngModel)]="modalData?.event.color"
+          >
+            <option selected default hidden [ngValue]="default"
+              >select color</option
+            >
+            <option *ngFor="let color of colors" [ngValue]="color">{{
+              color.name
+            }}</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="form-group">
+          <label for="primaryColor">Primary</label>
+          <input
+            type="color"
+            class="form-control"
+            name="primaryColor"
+            id="primaryColor"
+            [(ngModel)]="modalData?.event.color.primary"
+            disabled
+          />
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="form-group">
+          <label for="secondaryColor">Secondary</label>
+          <input
+            type="color"
+            class="form-control"
+            name="secondaryColor"
+            id="secondaryColor"
+            [(ngModel)]="modalData?.event.color.secondary"
+            disabled
+          />
+        </div>
+      </div>
+    </div>
   </div>
   <div class="modal-footer">
     <button
@@ -245,6 +291,4 @@
   </div>
   <!-- </div> -->
 </ng-template>
-<!-- </div>
-  </div>
-</div> -->
+
