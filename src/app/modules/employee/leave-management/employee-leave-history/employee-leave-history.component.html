@@ -1,7 +1,24 @@
+<!-- alert message start-->
+<div
+  class="alert alert-success1 notification"
+  id="alert-success1"
+  *ngIf="responseMsg === 'success1'"
+>
+  <span class="bold-font">Success:</span> Successfully Leave Request Cancelled!!!
+</div>
+<div
+  class="alert alert-danger notification"
+  id="alert-danger1"
+  *ngIf="responseMsg === 'fail'"
+>
+  <span class="bold-font">Error:</span> Something went wrong.
+</div>
+
+<!-- alert message end-->
+
 <div class="mat-elevation-z8 mb-3">
   <mat-table [dataSource]="dataSource" matSort>
     
-
     <!-- column 2 start -->
     <ng-container matColumnDef="startdate">
       <mat-header-cell *matHeaderCellDef mat-sort-header> Start Date </mat-header-cell>
