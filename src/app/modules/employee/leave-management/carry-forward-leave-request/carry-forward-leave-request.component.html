@@ -40,7 +40,7 @@
               <div class="row">
                 <div class="col-md-12">
                   <div class="form-group">
-                    <label for="Number-of-balance-annual-leave">Number of balance annual leave</label>
+                    <label for="Number-of-balance-annual-leave">Remaining days of Annual leave</label>
                     <input class="form-control " name="Number-of-balance-annual-leave" id="Number-of-balance-annual-leave"
                       [value]="annualLeaveByUsername?.allocatedDays - annualLeaveByUsername?.utilizedDays" readonly>
                   </div>
@@ -51,7 +51,7 @@
                   <div class="form-group">
                     <label for="carry-forwarded">Number of leaves to be carry forwarded</label>
                     <input type="number" class="form-control" name="carry-forwarded" id="carry-forwarded" [(ngModel)]="carryforwardRequest.carryforwardDays"
-                      min="0" max={{annualLeaveByUsername?.allocatedDays-annualLeaveByUsername?.utilizedDays}}>
+                      min="1" max={{annualLeaveByUsername?.allocatedDays-annualLeaveByUsername?.utilizedDays}}>
                   </div>
                 </div>
               </div>
@@ -64,7 +64,7 @@
     <!--Add button Model-->
     <div class="card-footer">
       <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#conform-carryforward-request"
-        (click)="giveAlertMessage()">Submit</button>
+        (click)="giveAlertMessage(carryforwardRequest)">Submit</button>
       &nbsp;
     </div>
     <!--Add button Model end-->
