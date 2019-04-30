@@ -51,21 +51,15 @@
           <div class="card">
             <div class="mat-elevation-z8">
               <mat-table [dataSource]="dataSource" matSort>
+                
                 <!-- column 3 start -->
                 <ng-container matColumnDef="requestId">
-                  <mat-header-cell *matHeaderCellDef mat-sort-header>
-                    Leave Request
-                  </mat-header-cell>
+                  <mat-header-cell *matHeaderCellDef mat-sort-header> View Leave </mat-header-cell>
                   <mat-cell *matCellDef="let CancelRequest">
-                    <a
-                      href="#"
-                      data-toggle="modal"
-                      data-target="#cancel-view-leave-request-modal"
-                      (click)="sendLeaveRequest(CancelRequest.leaveRequest)"
-                      ><span>{{ CancelRequest.leaveRequest.id }}</span></a
-                    >
+                    <a href="#" data-toggle="modal" data-target="#cancel-view-leave-request-modal" (click)="sendLeaveRequest(CancelRequest.leaveRequest)"><span class="glyphicon glyphicon-eye-open"></span></a>
                   </mat-cell>
                 </ng-container>
+              
                 <!-- column 3 end -->
 
                 <!-- column 1 start -->
