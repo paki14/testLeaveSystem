@@ -118,7 +118,10 @@
     </div>
   </div>
 </div>
+<!-- <div class="modal fade" role="dialog" id="modalContent"> -->
 <ng-template #modalContent let-close="close">
+  <!-- <div class="modal-dialog"> -->
+  <!-- <div class="modal-content"> -->
   <div class="modal-header">
     <h5 class="modal-title">Event action occurred</h5>
     <button type="button" class="close" (click)="close()">
@@ -186,6 +189,52 @@
         </div>
       </div>
     </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="primaryColor">Color</label>
+          <select
+            class="form-control"
+            name="color"
+            id="color"
+            [(ngModel)]="modalData?.event.color"
+          >
+            <option selected default hidden [ngValue]="default"
+              >select color</option
+            >
+            <option *ngFor="let color of colors" [ngValue]="color">{{
+              color.name
+            }}</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="form-group">
+          <label for="primaryColor">Primary</label>
+          <input
+            type="color"
+            class="form-control"
+            name="primaryColor"
+            id="primaryColor"
+            [(ngModel)]="modalData?.event.color.primary"
+            disabled
+          />
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="form-group">
+          <label for="secondaryColor">Secondary</label>
+          <input
+            type="color"
+            class="form-control"
+            name="secondaryColor"
+            id="secondaryColor"
+            [(ngModel)]="modalData?.event.color.secondary"
+            disabled
+          />
+        </div>
+      </div>
+    </div>
   </div>
   <div class="modal-footer">
     <button
@@ -197,3 +246,4 @@
     </button>
   </div>
 </ng-template>
+<!-- </div> -->
