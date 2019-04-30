@@ -41,10 +41,13 @@ export class RejectCarryforwardRequestComponent implements OnInit {
     this.carryforwardLeaveRequestService.rejectCarryforwardRequest(this.info.username, this.rejectCarryforwardRequestData).subscribe(data => {
       console.log(data);
     });
+    this.getCarryforwardLeave();
     this.clear()
   }
   clear(){
     this.rejectCarryforwardRequestData.reason=null;
+    this.rejectForm.get('reject_cf_reason').clearValidators();
+
   }
   // ..................validatation..........
   rejectForm = new FormGroup({
@@ -52,7 +55,8 @@ export class RejectCarryforwardRequestComponent implements OnInit {
       Validators.required,
       Validators.maxLength(50),
       Validators.minLength(3),
-      Validators.pattern(" (/^[A-Za-z]+$/)")
+      Validators.pattern("^[a-zA-Z ]*$")
     ]))
   })
+  
 }

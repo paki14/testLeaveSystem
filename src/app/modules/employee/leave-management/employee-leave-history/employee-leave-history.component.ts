@@ -53,17 +53,17 @@ export class EmployeeLeaveHistoryComponent implements OnInit {
       if (data == "cancelRequestAccepted" || data == "cancelRequestRejected") {
         this.getAllLeaveRequest();
       }
-      this.responseMsg = "success1";
-      this.responseMsgTimeOut();
+      // this.responseMsg1 = "success1";
+      // this.responseMsgTimeOut();
     });
     
-    // this.responseMsg = "fail";
+    // this.responseMsg = "fail1";
     // this.responseMsgTimeOut();
   }
-  responseMsg: string;
-  responseMsgTimeOut() {
-    setTimeout(() => {
-      this.responseMsg = null;
-    }, 3000);
-  }
+  // responseMsg1: string;
+  // responseMsgTimeOut() {
+  //   setTimeout(() => {
+  //     this.responseMsg1 = null;
+  //   }, 3000);
+  // }
 }

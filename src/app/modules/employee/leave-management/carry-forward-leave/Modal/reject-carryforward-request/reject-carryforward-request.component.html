@@ -37,7 +37,7 @@
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary" data-dismiss="modal" (click) = "rejectCarryforwardRequestMethod()">Send</button>        
+        <button type="button" class="btn btn-primary" data-dismiss="modal"  [disabled]="!rejectForm.valid"(click) = "rejectCarryforwardRequestMethod()">Send</button>        
       </div>
     </div>
     <!-- modal content end -->
