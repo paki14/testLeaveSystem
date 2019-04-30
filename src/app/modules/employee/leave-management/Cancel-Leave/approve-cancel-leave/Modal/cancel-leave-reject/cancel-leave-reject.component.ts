@@ -42,11 +42,12 @@ export class CancelLeaveRejectComponent implements OnInit {
         console.log(data);
         this.sendSuccessMessage();
       });
+    this.rejectCancelRequest.rejectReason = null;
   }
 
   sendSuccessMessage() {
     this.interactionService.upadateMsg("cancelRequestRejected");
-    this.rejectCancelRequest.rejectReason = null;
+    // this.rejectCancelRequest.rejectReason = null;
   }
    // ..................validatation..........
    rejectForm = new FormGroup({

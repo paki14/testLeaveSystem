@@ -45,7 +45,12 @@
                     id="startAt"
                     placeholder="yyyy/mm/dd"
                     [(ngModel)]="holiday.start"
+                    [altInput]="true"
                     minDate="today"
+                    [convertModelValue]="true"
+                    [enableTime]="true"
+                    dateFormat="Y-m-dTH:i"
+                    altFormat="F j, Y H:i"
                   />
                 </div>
               </div>
@@ -58,9 +63,14 @@
                     class="form-control"
                     name="endAt"
                     id="endAt"
-                    minDate="{{ holiday.start }} || today"
+                    minDate="{{ holiday.start | date: 'yyyy-MM-dd HH:mm' }}"
                     placeholder="yyyy/mm/dd"
                     [(ngModel)]="holiday.end"
+                    [altInput]="true"
+                    [convertModelValue]="true"
+                    [enableTime]="true"
+                    dateFormat="Y-m-dTH:i"
+                    altFormat="F j, Y H:i"
                   />
                 </div>
               </div>
