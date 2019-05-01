@@ -70,10 +70,21 @@ export class ViewMyLeaveComponent implements OnInit {
 
   getSuccessMessage() {
     this.interactionService.msgDataSource$.subscribe(data => {
-      if (data == "leaveRequestSent" || data == "cancelSuccess") {
+      if (data == "leaveRequestSent" ) {
         this.getLeaveRequestByUser();
       }
+      else if (data == "cancelSuccess") {
+        this.getLeaveRequestByUser();
+        this.responseMsg = "success";
+        this.responseMsgTimeOut();
+      }
     });
+  }
+  responseMsg: string;
+  responseMsgTimeOut() {
+    setTimeout(() => {
+      this.responseMsg = null;
+    }, 3000);
   }
   sortReason($scope) {
     $scope.limit = 5;
