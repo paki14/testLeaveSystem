@@ -33,6 +33,9 @@ export class ApproveLeaveComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    this.dataSource = new MatTableDataSource<any>(this.leave);
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
     this.getAllLeaveRequest();
     this.getSuccessMsg();
   }

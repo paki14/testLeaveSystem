@@ -30,6 +30,9 @@ export class ApproveCancelLeaveComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    this.dataSource = new MatTableDataSource<any>(this.cancelLeaveRequest);
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
     this.getPendingCancelLeaveRequest();
     this.getSuccessMsg();
   }
@@ -65,17 +68,7 @@ export class ApproveCancelLeaveComponent implements OnInit {
       if (data == "cancelRequestAccepted" || data == "cancelRequestRejected") {
         this.getPendingCancelLeaveRequest();
       }
-      this.responseMsg = "success";
-      this.responseMsgTimeOut();
     });
-    
-    // this.responseMsg = "fail";
-    // this.responseMsgTimeOut();
   }
-  responseMsg: string;
-  responseMsgTimeOut() {
-    setTimeout(() => {
-      this.responseMsg = null;
-    }, 3000);
-  }
+  
 }
