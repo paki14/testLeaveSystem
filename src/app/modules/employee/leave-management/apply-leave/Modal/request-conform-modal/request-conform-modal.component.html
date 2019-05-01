@@ -41,10 +41,10 @@
           *ngIf="
             leaveRequest.noOfDays >
               leaveRequest.leaveAllocation.allocatedDays -
-                leaveRequest.leaveAllocation.utilizedDays &&
+                leaveRequest.leaveAllocation.utilizedDays ||
               leaveRequest.leaveAllocation.allocatedDays -
-                leaveRequest.leaveAllocation.utilizedDays >=
-                1;
+                leaveRequest.leaveAllocation.utilizedDays <=
+                0;
             else checkAttachment
           "
         >
