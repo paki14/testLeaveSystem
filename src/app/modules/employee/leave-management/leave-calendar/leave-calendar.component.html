@@ -208,43 +208,52 @@
             </select>
           </div>
         </div>
-        <div class="col-md-3">
-          <div class="form-group">
-            <label for="primaryColor">Primary</label>
-            <input
-              type="color"
-              class="form-control"
-              name="primaryColor"
-              id="primaryColor"
-              [(ngModel)]="modalData?.event.color.primary"
-              disabled
-            />
-          </div>
+      </div>
+      <div class="col-md-3">
+        <div class="form-group">
+          <label for="primaryColor">Primary</label>
+          <input
+            type="color"
+            class="form-control"
+            name="primaryColor"
+            id="primaryColor"
+            [(ngModel)]="modalData?.event.color.primary"
+            readonly
+          />
         </div>
-        <div class="col-md-3">
-          <div class="form-group">
-            <label for="secondaryColor">Secondary</label>
-            <input
-              type="color"
-              class="form-control"
-              name="secondaryColor"
-              id="secondaryColor"
-              [(ngModel)]="modalData?.event.color.secondary"
-              disabled
-            />
-          </div>
+      </div>
+      <div class="col-md-3">
+        <div class="form-group">
+          <label for="secondaryColor">Secondary</label>
+          <input
+            type="color"
+            class="form-control"
+            name="secondaryColor"
+            id="secondaryColor"
+            [(ngModel)]="modalData?.event.color.secondary"
+            readonly
+          />
         </div>
       </div>
     </div>
-    <div class="modal-footer">
-      <button
-        type="button"
-        class="btn btn-outline-secondary"
-        (click)="updateEvent(); close()"
-      >
-        OK
-      </button>
-    </div>
+  </div>
+  <div class="modal-footer">
+    <button
+      type="button"
+      class="btn btn-outline-secondary"
+      data-dismiss="modal"
+      (click)="updateEvent(); close()"
+    >
+      OK
+    </button>
+    <button
+      type="button"
+      class="btn btn-outline-danger"
+      data-dismiss="modal"
+      (click)="close()"
+    >
+      Cancel
+    </button>
   </div>
 </ng-template>
 <!-- </div> -->
