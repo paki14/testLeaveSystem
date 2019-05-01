@@ -1,18 +1,10 @@
 <!-- alert message start-->
-<!-- <div
-  class="alert alert-success notification"
-  id="alert-success"
-  *ngIf="responseMsg === 'success'"
->
+<div class="alert alert-success notification" id="alert-success" *ngIf="responseMsg === 'success'">
   <span class="bold-font">Success:</span> Successfully leave Applied !!!
 </div>
-<div
-  class="alert alert-danger notification"
-  id="alert-danger"
-  *ngIf="responseMsg === 'fail'"
->
+<div class="alert alert-danger notification" id="alert-danger" *ngIf="responseMsg === 'fail'">
   <span class="bold-font">Error:</span> Something went wrong !!!
-</div> -->
+</div>
 
 <!-- alert message end-->
 
@@ -48,68 +40,35 @@
                     <div class="col-md-5">
                       <div class="form-group">
                         <label for="apply-leave-startdate">Start Date</label>
-                        <input
-                          type="date"
-                          class="form-control"
-                          id="apply-leave-startdate"
-                          name="apply-leave-startdate"
-                          placeholder="yyyy/mm/dd"
-                          [(ngModel)]="leaveRequest.startDate"
-                          (change)="noOfDays()"
+                        <input type="date" class="form-control" id="apply-leave-startdate" name="apply-leave-startdate"
+                          placeholder="yyyy/mm/dd" [(ngModel)]="leaveRequest.startDate" (change)="noOfDays()"
                           min="{{ today | date: 'yyyy-MM-dd' }}"
-                          max="{{ leaveRequest.endDate | date: 'yyyy-MM-dd' }}"
-                        />
+                          max="{{ leaveRequest.endDate | date: 'yyyy-MM-dd' }}" />
                       </div>
                     </div>
                     <div class="col-md-5">
                       <div class="form-group">
                         <label for="apply-leave-enddate">End Date</label>
-                        <input
-                          type="date"
-                          class="form-control"
-                          name="apply-leave-enddate"
-                          id="apply-leave-enddate"
-                          placeholder="yyyy/mm/dd"
-                          [(ngModel)]="leaveRequest.endDate"
-                          (change)="noOfDays()"
-                          min="{{
+                        <input type="date" class="form-control" name="apply-leave-enddate" id="apply-leave-enddate"
+                          placeholder="yyyy/mm/dd" [(ngModel)]="leaveRequest.endDate" (change)="noOfDays()" min="{{
                             leaveRequest.startDate | date: 'yyyy-MM-dd'
-                          }}"
-                        />
+                          }}" />
                       </div>
                     </div>
                     <div class="col-md-2">
                       <div class="form-group">
-                        <label for="apply-leave-NumberofDays"
-                          >Number of Days</label
-                        >
-                        <input
-                          type="text"
-                          class="form-control"
-                          name="apply-leave-NumberofDays"
-                          id="apply-leave-NumberofDays"
-                          disabled
-                          [(ngModel)]="leaveRequest.noOfDays"
-                        />
+                        <label for="apply-leave-NumberofDays">Number of Days</label>
+                        <input type="text" class="form-control" name="apply-leave-NumberofDays"
+                          id="apply-leave-NumberofDays" disabled [(ngModel)]="leaveRequest.noOfDays" />
                       </div>
                     </div>
                     <div class="col-md-6">
                       <div class="form-group">
-                        <label for="apply-leave-TypeofLeave"
-                          >Type of Leave</label
-                        >
-                        <select
-                          class="form-control"
-                          id="apply-leave-TypeofLeave"
-                          name="apply-leave-TypeofLeave"[(ngModel)]="leaveRequest.leaveAllocation"
-                        >
-                          <option selected default hidden [ngValue]="default"
-                            >select leave type</option
-                          >
-                          <option
-                            *ngFor="let la of leaveAllocation"
-                            [ngValue]="la"
-                            >{{ la.leaveType.leaveTypeValue }}
+                        <label for="apply-leave-TypeofLeave">Type of Leave</label>
+                        <select class="form-control" id="apply-leave-TypeofLeave" name="apply-leave-TypeofLeave"
+                          [(ngModel)]="leaveRequest.leaveAllocation">
+                          <option selected default hidden [ngValue]="default">select leave type</option>
+                          <option *ngFor="let la of leaveAllocation" [ngValue]="la">{{ la.leaveType.leaveTypeValue }}
                           </option>
                         </select>
                       </div>
@@ -117,15 +76,9 @@
                     <div class="col-md-6">
                       <div class="form-group">
                         <label for="apply-leave-attachments">Attachments</label>
-                        <input
-                          type="file"
-                          class="form-control"
-                          name="apply-leave-attachments"
-                          id="apply-leave-attachments"
-                          accept="file_extension"
-                          [(ngModel)]="leaveRequest.attachment"
-                          (change)="fileChange($event)"
-                        />
+                        <input type="file" class="form-control" name="apply-leave-attachments"
+                          id="apply-leave-attachments" accept="file_extension" [(ngModel)]="leaveRequest.attachment"
+                          (change)="fileChange($event)" />
                       </div>
                     </div>
                     <!-- <div class="col-md-12">
@@ -138,36 +91,21 @@
                     <div class="col-md-12">
                       <div class="form-group">
                         <label for="apply-leave-reason">Reason</label>
-                        <textarea
-                          type="textarea"
-                          class="form-control"
-                          rows="4"
-                          name="apply-leave-reason"
-                          id="apply-leave-reason"
-                          placeholder="Enter Reason"
-                          [(ngModel)]="leaveRequest.reason"
-                        ></textarea>
+                        <textarea type="textarea" class="form-control" rows="4" name="apply-leave-reason"
+                          id="apply-leave-reason" placeholder="Enter Reason"
+                          [(ngModel)]="leaveRequest.reason"></textarea>
                       </div>
                     </div>
                   </div>
                 </div>
                 <!-- card body end -->
                 <div class="card-footer">
-                  <button
-                    type="button"
-                    class="btn btn-secondary"
-                    (click)="clearField()"
-                  >
+                  <button type="button" class="btn btn-secondary" (click)="clearField()">
                     Clear
                   </button>
                   &nbsp;&nbsp;
-                  <button
-                    type="button"
-                    class="btn btn-primary"
-                    data-toggle="modal"
-                    data-target="#conform-leave"
-                    (click)="sendLeaveRequest()"
-                  >
+                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#conform-leave"
+                    (click)="sendLeaveRequest()">
                     Request
                   </button>
                 </div>
