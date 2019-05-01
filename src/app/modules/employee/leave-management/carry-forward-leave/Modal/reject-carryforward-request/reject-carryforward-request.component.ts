@@ -40,11 +40,13 @@ export class RejectCarryforwardRequestComponent implements OnInit {
     console.log(this.rejectCarryforwardRequestData);
     this.carryforwardLeaveRequestService.rejectCarryforwardRequest(this.info.username, this.rejectCarryforwardRequestData).subscribe(data => {
       console.log(data);
+      this.sendSuccessMessage();
     });
-    this.getCarryforwardLeave();
     this.clear()
     this.rejectForm.get('reject_cf_reason').clearValidators();
-
+  }
+  sendSuccessMessage() {
+    this.interactionService.upadateMsg("CarryforwardRequestRejected");
   }
   clear(){
     this.rejectCarryforwardRequestData.reason=null;

@@ -1,21 +1,21 @@
 
   <nav mat-tab-nav-bar>
-  <a mat-tab-link *ngIf="info.authorities == 'HR'|| info.authorities == 'MANAGER'||info.authorities == 'DIRECTOR'"
+  <a mat-tab-link *ngIf="info.authorities == 'HR'|| info.authorities == 'MANAGER'||info.authorities == 'DIRECTOR'||info.authorities == 'ADMIN'"
       routerLink="./requestedLeaves"
       routerLinkActive ="active">
       View Leave Requests
   </a>
-  <a mat-tab-link *ngIf="info.authorities == 'HR'|| info.authorities == 'MANAGER'||info.authorities == 'DIRECTOR'"
+  <a mat-tab-link *ngIf="info.authorities == 'HR'|| info.authorities == 'MANAGER'||info.authorities == 'DIRECTOR'||info.authorities == 'ADMIN'"
     routerLink="./leaveHistory/allrequests"
     routerLinkActive ="active">
     Leave History
 </a>
-<a mat-tab-link *ngIf="info.authorities == 'HR'|| info.authorities == 'MANAGER'||info.authorities == 'DIRECTOR'"
+<a mat-tab-link *ngIf="info.authorities == 'HR'|| info.authorities == 'MANAGER'||info.authorities == 'DIRECTOR'||info.authorities == 'ADMIN'"
     routerLink="./LeaveCancelRequests"
     routerLinkActive ="active">
     Leave Cancel Requests
 </a>
-<a mat-tab-link *ngIf="info.authorities == 'HR' || info.authorities == 'EMPLOYEE'"
+<a mat-tab-link 
     routerLink="./RequestLeave"
     routerLinkActive ="active">
     Apply Leave
