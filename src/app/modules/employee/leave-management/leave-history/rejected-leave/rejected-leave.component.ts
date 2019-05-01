@@ -24,10 +24,12 @@ export class RejectedLeaveComponent implements OnInit {
   constructor(private rejectLeaveService: RejectLeaveService) { }
 
   ngOnInit() {
-    
-    
     this.getAllLeaveRequest();
   }
+
+  
+
+
 
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
@@ -44,6 +46,7 @@ export class RejectedLeaveComponent implements OnInit {
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
       console.log(this.rejectLeave);
+     
     })
   }
 }

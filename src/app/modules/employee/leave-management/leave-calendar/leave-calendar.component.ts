@@ -13,6 +13,7 @@ import {
 import { TokenStorageService } from "src/app/services/login/token-storage.service";
 import { InteractionService } from "src/app/services/interaction.service";
 import { CalendarEvent } from "src/app/models/leave-management/CalendarEvent";
+import { ColorsService } from "src/app/services/leave-management/colors.service";
 
 const colors: any = {
   gray: {
@@ -42,7 +43,9 @@ export class LeaveCalendarComponent implements OnInit {
     {
       label: '<i class="fa fa-fw fa-pencil"></i>',
       onClick: ({ event }: { event: CalendarEvent }): void => {
-        this.handleEvent("Edited", event);
+        if (event.end < this.viewDate) {
+          this.handleEvent("Edited", event);
+        }
       }
     },
     {
@@ -67,7 +70,8 @@ export class LeaveCalendarComponent implements OnInit {
     private holidayCalendarService: HolidayCalendarService,
     private acceptLeaveService: AcceptLeaveService,
     private token: TokenStorageService,
-    private interactionService: InteractionService
+    private interactionService: InteractionService,
+    private colorsService: ColorsService
   ) {}
 
   ngOnInit() {
@@ -81,6 +85,7 @@ export class LeaveCalendarComponent implements OnInit {
       this.getAllLeaveRequest();
     }
     this.getSuccessMsg();
+    this.getColors();
   }
 
   dayClicked({ date, events }: { date: Date; events: CalendarEvent[] }): void {
@@ -153,7 +158,11 @@ export class LeaveCalendarComponent implements OnInit {
       }
     });
   }
-
+  getColors() {
+    this.colorsService.getAllColors().subscribe(data => {
+      this.colors = data;
+    });
+  }
   getAllLeaveRequest() {
     this.acceptLeaveService.getAllAcceptData().subscribe(data => {
       data.forEach(leave => {
@@ -186,7 +195,15 @@ export class LeaveCalendarComponent implements OnInit {
         this.events = [];
         this.getAllHolidays();
         this.getAllLeaveRequest();
+        this.responseMsg = "success";
+        this.responseMsgTimeOut();
       }
     });
+  }
+  responseMsg: string;
+  responseMsgTimeOut() {
+    setTimeout(() => {
+      this.responseMsg = null;
+    }, 3000);
   }
 }

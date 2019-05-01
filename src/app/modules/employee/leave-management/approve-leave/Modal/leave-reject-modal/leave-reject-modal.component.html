@@ -1,13 +1,14 @@
 <!--reject model start-->
-  
-<div id="reject-modal" class="modal fade" role="dialog">
-  <div class="modal-dialog">
 
+<div id="reject-modal" data-refresh="true" class="modal fade" role="dialog">
+  <div class="modal-dialog">
     <!-- modal content start -->
     <div class="modal-content">
       <div class="modal-header">
         <h3 class="card-title">Reject</h3>
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <button type="button" class="close" data-dismiss="modal">
+          &times;
+        </button>
       </div>
       <div class="modal-body">
         <div class="col-md-12">
@@ -15,12 +16,35 @@
           <form role="form">
             <!-- card body start -->
             <div class="card-body">
-              <div class="col-md-12">
-                  <div class="form-group">
-                    <label for="promotion-employee-name"> Reason</label>
-                    <textarea type="text" class="form-control"rows="4"  name="promotion-datepromoted" id="promotion-datepromoted" [(ngModel)]="rejectObj.rejectReason" placeholder="Enter Reject reason Here"></textarea>
-                  </div>
-                </div>
+              <!-- <div class="col-md-12">
+                <div class="form-group"> -->
+              <!-- <label for="promotion-employee-name"> Reason</label> -->
+              <!-- <mat-form-field hintLabel="Max 150 characters">
+                <textarea
+                  matInput
+                  #input
+                  maxlength="150"
+                  placeholder="Enter Reject reason Here"
+                  [(ngModel)]="rejectObj.rejectReason"
+                ></textarea>
+                <mat-hint align="end"
+                  >{{ input.value?.length || 0 }}/150</mat-hint
+                >
+              </mat-form-field> -->
+              <textarea
+                type="text"
+                #input
+                maxlength="150"
+                class="form-control"
+                rows="4"
+                name="promotion-datepromoted"
+                id="promotion-datepromoted"
+                [(ngModel)]="rejectObj.rejectReason"
+                placeholder="Enter Reject reason Here"
+              ></textarea>
+              {{ input.value?.length || 0 }}/150
+              <!-- </div>
+              </div> -->
             </div>
             <!-- card body end -->
           </form>
@@ -28,8 +52,14 @@
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary" data-dismiss="modal" (click) = "rejectLeaverequest(); sendSuccessMsg();">Send</button>
-        
+        <button
+          type="button"
+          class="btn btn-primary"
+          data-dismiss="modal"
+          (click)="rejectLeaverequest(); sendSuccessMsg(); getLeaveRequestId()"
+        >
+          Send
+        </button>
       </div>
     </div>
     <!-- modal content end -->

@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { LeaveRequest } from 'src/app/models/leave-management/leave-request';
 import { MatTableDataSource, MatPaginator, MatSort } from '@angular/material';
 import { LeaveRequestService } from 'src/app/services/leave-management/leave-request.service';
+import { InteractionService } from 'src/app/services/interaction.service';
 
 @Component({
   selector: 'app-employee-leave-history',
@@ -21,7 +22,9 @@ export class EmployeeLeaveHistoryComponent implements OnInit {
   
   
 
-  constructor(private leaveRequestService: LeaveRequestService) { }
+  constructor(private leaveRequestService: LeaveRequestService,
+    private interactionService: InteractionService) { }
+  
 
   ngOnInit() {    
     this.getAllLeaveRequest();
@@ -44,4 +47,23 @@ export class EmployeeLeaveHistoryComponent implements OnInit {
       console.log(data);
     })
   }
+
+  getSuccessMsg() {
+    this.interactionService.msgDataSource$.subscribe(data => {
+      if (data == "cancelRequestAccepted" || data == "cancelRequestRejected") {
+        this.getAllLeaveRequest();
+      }
+      // this.responseMsg1 = "success1";
+      // this.responseMsgTimeOut();
+    });
+    
+    // this.responseMsg = "fail1";
+    // this.responseMsgTimeOut();
+  }
+  // responseMsg1: string;
+  // responseMsgTimeOut() {
+  //   setTimeout(() => {
+  //     this.responseMsg1 = null;
+  //   }, 3000);
+  // }
 }

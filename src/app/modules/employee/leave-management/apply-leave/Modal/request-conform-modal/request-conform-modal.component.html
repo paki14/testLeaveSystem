@@ -9,6 +9,7 @@
           &times;
         </button>
       </div>
+
       <div
         *ngIf="
           !leaveRequest ||
@@ -34,16 +35,17 @@
           </button>
         </div>
       </div>
+
       <ng-template #check>
         <div
           *ngIf="
             leaveRequest.noOfDays >
               leaveRequest.leaveAllocation.allocatedDays -
-                leaveRequest.leaveAllocation.utilizedDays &&
+                leaveRequest.leaveAllocation.utilizedDays ||
               leaveRequest.leaveAllocation.allocatedDays -
-                leaveRequest.leaveAllocation.utilizedDays >=
-                1;
-            else confirm
+                leaveRequest.leaveAllocation.utilizedDays <=
+                0;
+            else checkAttachment
           "
         >
           <div class="modal-body">
@@ -59,6 +61,32 @@
               data-dismiss="modal"
             >
               Ok
+            </button>
+          </div>
+        </div>
+      </ng-template>
+      <ng-template #checkAttachment>
+        <div
+          *ngIf="
+            leaveRequest.leaveAllocation.leaveType.id == 3 &&
+              leaveRequest.noOfDays > 3 &&
+              !leaveRequest.attachment;
+            else confirm
+          "
+        >
+          <div class="modal-body">
+            <div class="col-md-12">
+              Please choose an attachment (such as a copy of Medical
+              certificate).
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-primary btn-sm"
+              data-dismiss="modal"
+            >
+              OK
             </button>
           </div>
         </div>

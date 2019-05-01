@@ -1,24 +1,32 @@
 <!--reject model start-->
   
-<div id="cancel-leave-reject-modal" class="modal fade" role="dialog">
+<div id="cancel-leave-reject-modal" data-toggle="modal" class="modal fade" role="dialog">
   <div class="modal-dialog">
 
     <!-- modal content start -->
     <div class="modal-content">
       <div class="modal-header">
         <h3 class="card-title">Reject Request</h3>
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <button type="button" class="close" data-dismiss="modal"(click)="clearImmediate()">&times;</button>
       </div>
       <div class="modal-body">
         <div class="col-md-12">
           <!-- form start -->
-          <form role="form">
+          <form [formGroup]="rejectForm">
             <!-- card body start -->
             <div class="card-body">
               <div class="col-md-12">
                   <div class="form-group">
                     <label for="cancel_leave_reject_reason"> Reason</label>
-                    <textarea type="text" class="form-control"  name="cancel_leave_reject_reason" id="cancel_leave_reject_reason"  placeholder="Enter Reject reason Here" [(ngModel)]="rejectCancelRequest.rejectReason"></textarea>
+                    <textarea type="text" class="form-control"  name="cancel_leave_reject_reason" id="cancel_leave_reject_reason"  placeholder="Enter Reject reason Here" [(ngModel)]="rejectCancelRequest.rejectReason"
+                    formControlName="reject_lr_reason" [class.is-invalid]="rejectForm.get('reject_lr_reason').invalid && rejectForm.get('reject_lr_reason').touched " required>
+                  </textarea>
+                  <div *ngIf="rejectForm.get('reject_lr_reason').invalid && rejectForm.get('reject_lr_reason').touched ">
+                    <small class="text-danger" *ngIf="rejectForm.get('reject_lr_reason').errors?.required">Reject reason is required!
+                    </small>
+                    <small class="text-danger" *ngIf="rejectForm.get('reject_lr_reason').errors?.pattern">Reject reason is only allow letters.
+                    </small>
+                  </div>
                   </div>
                 </div>
             </div>
@@ -28,7 +36,8 @@
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary" data-dismiss="modal" (click) = "rejectCancelLeaveRequest();">Send</button>        
+        <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="clearImmediate()">close</button>        
+        <button type="button" class="btn btn-primary" data-dismiss="modal" [disabled]="!rejectForm.valid" (click) = "rejectCancelLeaveRequest()">Send</button>        
       </div>
     </div>
     <!-- modal content end -->

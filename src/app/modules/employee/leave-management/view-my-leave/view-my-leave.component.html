@@ -1,3 +1,21 @@
+<!-- alert message start-->
+<!-- <div
+  class="alert alert-success notification"
+  id="alert-success"
+  *ngIf="responseMsg === 'success'"
+>
+  <span class="bold-font">Success:</span> Cancelled Applied Leave////
+</div>
+<div
+  class="alert alert-danger notification"
+  id="alert-danger"
+  *ngIf="responseMsg === 'fail'"
+>
+  <span class="bold-font">Error:</span> Something went wrong.
+</div> -->
+
+<!-- alert message end-->
+
 <div class="row">
   <div class="col-md-12">
     <div class="card">
@@ -60,7 +78,19 @@
               <mat-header-cell *matHeaderCellDef mat-sort-header>
                 Reason</mat-header-cell
               >
-              <mat-cell *matCellDef="let leave"> {{ leave.reason }}</mat-cell>
+              <mat-cell *matCellDef="let leave">
+                {{ leave.reason }}
+                <!-- <p ng-text-truncate="{{ leave.reason }}" ng-tt-chars-threshold="40"></p> -->
+                <!-- <div
+                  hm-read-more
+                  hm-text="{{ leave.reason }}"
+                  hm-limit="{{ limit }}"
+                  hm-more-text="{{ moreText }}"
+                  hm-less-text="{{ lessText }}"
+                  hm-dots-class="{{ dotsClass }}"
+                  hm-link-class="{{ linkClass }}"
+                ></div> -->
+              </mat-cell>
             </ng-container>
 
             <ng-container matColumnDef="status">
@@ -75,7 +105,7 @@
               </mat-header-cell>
               <mat-cell *matCellDef="let leave">
                 <button
-                  class="btn btn-primary"
+                  class="btn btn-outline-danger"
                   data-toggle="modal"
                   data-target="#cancel-modal"
                   *ngIf="

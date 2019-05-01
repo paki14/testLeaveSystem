@@ -1,92 +1,16 @@
-<!-- <div id="hr-leave-tab-group">
-  <mat-tab-group>
-     <mat-tab label="Leave Requests" *ngIf="info.authorities == 'HR'" >
-      <app-approve-leave></app-approve-leave>
-      <app-view-specific-emp-leave></app-view-specific-emp-leave>
-    </mat-tab>
-    <mat-tab label="Leave History" *ngIf="info.authorities == 'HR'">
-      <app-leave-history></app-leave-history>
-    </mat-tab>
-    <mat-tab label="Leave-Cancel Requests" *ngIf="info.authorities == 'HR'">
-      <app-approve-cancel-leave></app-approve-cancel-leave>
-    </mat-tab>
-    <mat-tab label="Request Leave" *ngIf="info.authorities == 'EMPLOYEE'">
-      <div class="row">
-        <div class="col-md-8">
-          <app-apply-leave></app-apply-leave>
-        </div>
-        <div class="col-md-4">
-          <div class="row">
-            <div class="col-md-12" *ngIf="info.authorities == 'EMPLOYEE'">
-              <app-remain-leave></app-remain-leave>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-12" *ngIf="info.authorities == 'EMPLOYEE'">
-              <app-carry-forward-leave-request></app-carry-forward-leave-request>
-            </div>
-          </div>
-        </div>
-      </div>
-      <app-view-my-leave></app-view-my-leave>
-    </mat-tab>
 
-    <mat-tab label="Leave Calender">
-      <div class="row">
-        <div
-          class="col-md-5"
-          *ngIf="info.authorities == 'HR' || info.authorities == 'ADMIN'"
-        >
-          <app-post-event></app-post-event>
-        </div>
-        <div class="col-md-7" *ngIf="info.authorities == 'EMPLOYEE' || info.authorities == 'HR'">
-          <app-leave-calendar></app-leave-calendar>
-        </div>
-      </div>
-    </mat-tab>
-
-    <mat-tab
-      label="Carryforward Requests"
-      *ngIf="info.authorities == 'ADMIN' || info.authorities == 'HR'">
-      <app-carry-forward-leave></app-carry-forward-leave>
-    </mat-tab>
-  </mat-tab-group>
-</div>
-
-<app-leave-accept-modal></app-leave-accept-modal>
-<app-leave-reject-modal></app-leave-reject-modal>
-<app-cancel-leave-accept></app-cancel-leave-accept>
-<app-cancel-leave-reject></app-cancel-leave-reject>
-<app-view-leave-details></app-view-leave-details>
-<app-view-leave-details></app-view-leave-details>
-
-<app-conform-cancel-leave-request-model></app-conform-cancel-leave-request-model>
-<app-request-conform-modal></app-request-conform-modal>
-<app-confirm-carryforward-request></app-confirm-carryforward-request>
-<app-accept-carryforward-request></app-accept-carryforward-request>
-<app-reject-carryforward-request></app-reject-carryforward-request> -->
-
-<!-- <nav mat-tab-nav-bar>
-    <a mat-tab-link
-    *ngFor="let link of navLinks"
-    [routerLink]="link.link"
-    routerLinkActive #rla="routerLinkActive"
-    [active]="rla.isActive">
-   {{link.label}}
-  </a>
-  </nav> -->
   <nav mat-tab-nav-bar>
-  <a mat-tab-link *ngIf="info.authorities == 'HR'"
+  <a mat-tab-link *ngIf="info.authorities == 'HR'|| info.authorities == 'MANAGER'||info.authorities == 'DIRECTOR'"
       routerLink="./requestedLeaves"
       routerLinkActive ="active">
-      Leave Requests
+      View Leave Requests
   </a>
-  <a mat-tab-link *ngIf="info.authorities == 'HR'"
+  <a mat-tab-link *ngIf="info.authorities == 'HR'|| info.authorities == 'MANAGER'||info.authorities == 'DIRECTOR'"
     routerLink="./leaveHistory/allrequests"
     routerLinkActive ="active">
     Leave History
 </a>
-<a mat-tab-link *ngIf="info.authorities == 'HR'"
+<a mat-tab-link *ngIf="info.authorities == 'HR'|| info.authorities == 'MANAGER'||info.authorities == 'DIRECTOR'"
     routerLink="./LeaveCancelRequests"
     routerLinkActive ="active">
     Leave Cancel Requests
@@ -94,17 +18,17 @@
 <a mat-tab-link *ngIf="info.authorities == 'HR' || info.authorities == 'EMPLOYEE'"
     routerLink="./RequestLeave"
     routerLinkActive ="active">
-    Request Leave
+    Apply Leave
 </a>
 <a mat-tab-link 
     routerLink="./leaveCalender"
     routerLinkActive ="active">
     Leave Calender
 </a>
-<a mat-tab-link *ngIf="info.authorities == 'HR'"
+<a mat-tab-link *ngIf="info.authorities == 'HR'|| info.authorities == 'MANAGER'||info.authorities == 'DIRECTOR'"
     routerLink="./carryforwardRequests"
     routerLinkActive ="active">
-    Carryforward Requests
+    Carry Forward Requests
 </a>
   </nav>
   <router-outlet></router-outlet>
