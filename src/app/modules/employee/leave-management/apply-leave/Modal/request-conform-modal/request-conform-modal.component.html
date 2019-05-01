@@ -9,7 +9,6 @@
           &times;
         </button>
       </div>
-
       <div
         *ngIf="
           !leaveRequest ||
@@ -17,7 +16,7 @@
             !leaveRequest.startDate ||
             !leaveRequest.reason ||
             !leaveRequest.leaveAllocation.id;
-          else check
+          else zerovalid
         "
       >
         <div class="modal-body">
@@ -35,17 +34,16 @@
           </button>
         </div>
       </div>
-
       <ng-template #check>
         <div
           *ngIf="
             leaveRequest.noOfDays >
               leaveRequest.leaveAllocation.allocatedDays -
-                leaveRequest.leaveAllocation.utilizedDays ||
+                leaveRequest.leaveAllocation.utilizedDays &&
               leaveRequest.leaveAllocation.allocatedDays -
-                leaveRequest.leaveAllocation.utilizedDays <=
-                0;
-            else checkAttachment
+                leaveRequest.leaveAllocation.utilizedDays >=
+                1;
+            else confirm
           "
         >
           <div class="modal-body">
@@ -65,28 +63,28 @@
           </div>
         </div>
       </ng-template>
-      <ng-template #checkAttachment>
+      <ng-template #zerovalid>
         <div
           *ngIf="
-            leaveRequest.leaveAllocation.leaveType.id == 3 &&
-              leaveRequest.noOfDays > 3 &&
-              !leaveRequest.attachment;
-            else confirm
+            leaveRequest.leaveAllocation.allocatedDays -
+              leaveRequest.leaveAllocation.utilizedDays ==
+              0;
+            else check
           "
         >
           <div class="modal-body">
             <div class="col-md-12">
-              Please choose an attachment (such as a copy of Medical
-              certificate).
+              Your remaining day is Zero
             </div>
           </div>
           <div class="modal-footer">
+            <!-- <button type="button" class=" btn btn-primary btn-sm" data-dismiss="modal" (click)="addLeaveRequest()">Yes</button> -->
             <button
               type="button"
               class="btn btn-primary btn-sm"
               data-dismiss="modal"
             >
-              OK
+              Ok
             </button>
           </div>
         </div>

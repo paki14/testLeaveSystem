@@ -73,9 +73,9 @@ export class ApplyLeaveComponent implements OnInit {
       if (data == "leaveRequestSent" || data == "leaveRequestSent") {
         this.getLeaveAllocation();
       }
-      this.clearField();
-      this.responseMsg = "success";
-      this.responseMsgTimeOut();
+        this.clearField();
+        this.responseMsg = "success";
+        this.responseMsgTimeOut();
     });
   }
   responseMsg: string;
