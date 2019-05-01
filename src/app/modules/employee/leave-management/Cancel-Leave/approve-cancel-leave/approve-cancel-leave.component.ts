@@ -65,17 +65,17 @@ export class ApproveCancelLeaveComponent implements OnInit {
       if (data == "cancelRequestAccepted" || data == "cancelRequestRejected") {
         this.getPendingCancelLeaveRequest();
       }
-      // this.responseMsg = "success";
-      // this.responseMsgTimeOut();
+      this.responseMsg = "success";
+      this.responseMsgTimeOut();
     });
     
     // this.responseMsg = "fail";
     // this.responseMsgTimeOut();
   }
-  // responseMsg: string;
-  // responseMsgTimeOut() {
-  //   setTimeout(() => {
-  //     this.responseMsg = null;
-  //   }, 3000);
-  // }
+  responseMsg: string;
+  responseMsgTimeOut() {
+    setTimeout(() => {
+      this.responseMsg = null;
+    }, 3000);
+  }
 }
