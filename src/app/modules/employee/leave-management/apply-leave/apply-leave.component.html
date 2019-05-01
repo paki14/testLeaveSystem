@@ -125,6 +125,7 @@
                           id="apply-leave-attachments"
                           accept="file_extension"
                           [(ngModel)]="leaveRequest.attachment"
+                          (change)="fileChange($event)"
                         />
                       </div>
                     </div>

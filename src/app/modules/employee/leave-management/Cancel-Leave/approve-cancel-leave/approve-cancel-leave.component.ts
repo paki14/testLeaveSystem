@@ -57,6 +57,7 @@ export class ApproveCancelLeaveComponent implements OnInit {
 
   sendCancelRequestId(cancelLeaveRequestId) {
     this.interactionService.sendCancelRequestId(cancelLeaveRequestId);
+    this.ngOnInit();
   }
 
   getSuccessMsg() {

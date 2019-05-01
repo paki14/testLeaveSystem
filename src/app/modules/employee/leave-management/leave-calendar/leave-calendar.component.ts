@@ -43,7 +43,9 @@ export class LeaveCalendarComponent implements OnInit {
     {
       label: '<i class="fa fa-fw fa-pencil"></i>',
       onClick: ({ event }: { event: CalendarEvent }): void => {
-        this.handleEvent("Edited", event);
+        if (event.end < this.viewDate) {
+          this.handleEvent("Edited", event);
+        }
       }
     },
     {
