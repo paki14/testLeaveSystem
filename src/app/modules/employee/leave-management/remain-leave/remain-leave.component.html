@@ -6,12 +6,32 @@
     <div class="row row-custom">
       <div class="col-md-6  col-sm-6" *ngFor="let allocation of allocationLeaveByUsername">
         <div class="card sub-card">
-          <div *ngIf="true" class="card-header-custom card-ok">
+          <div *ngIf= "1<(allocation.allocatedDays - allocation.utilizedDays)&&(allocation.allocatedDays - allocation.utilizedDays)<5">
+          <div class="card-header-custom card-warning">
             <div class="row">
               <div class="remain">{{allocation.allocatedDays - allocation.utilizedDays}}</div>
               <div class="devider">/</div>
               <div class="total">{{allocation.allocatedDays}}</div>
             </div>
+          </div>
+          </div>
+          <div *ngIf= "(allocation.allocatedDays - allocation.utilizedDays)>=5">
+              <div class="card-header-custom card-ok">
+                <div class="row">
+                  <div class="remain">{{allocation.allocatedDays - allocation.utilizedDays}}</div>
+                  <div class="devider">/</div>
+                  <div class="total">{{allocation.allocatedDays}}</div>
+                </div>
+              </div>
+              </div>
+          <div *ngIf= "(allocation.allocatedDays - allocation.utilizedDays)<=1">
+              <div class="card-header-custom card-danger">
+                <div class="row">
+                  <div class="remain">{{allocation.allocatedDays - allocation.utilizedDays}}</div>
+                  <div class="devider">/</div>
+                  <div class="total">{{allocation.allocatedDays}}</div>
+                </div>
+              </div>
           </div>
           <div class="card-body card-body-custom">
             <span class="float-right">{{allocation.leaveType.leaveTypeValue | uppercase}}</span>

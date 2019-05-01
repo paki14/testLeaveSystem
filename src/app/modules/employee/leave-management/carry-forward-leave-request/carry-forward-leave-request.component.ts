@@ -14,7 +14,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 })
 export class CarryForwardLeaveRequestComponent implements OnInit {
   //Mayu
-  info: { token: string; username: string; authorities: string[]; };
+  info: { token: string; username: string; authorities: string[];};
   annualLeaveByUsername: LeaveAllocation;
   carryforwardRequest = new CarryforwardLeaveRequest();
   carryforwardLeave: CarryforwardRequestData = new CarryforwardRequestData();
@@ -31,7 +31,7 @@ export class CarryForwardLeaveRequestComponent implements OnInit {
     this.info = {
       token: this.token.getToken(),
       username: this.token.getUsername(),
-      authorities: this.token.getAuthorities()
+      authorities: this.token.getAuthorities(),
     };
     this.getCarryforwardLeaveRequest()
     this.getLeaveAllocation();
@@ -73,7 +73,7 @@ export class CarryForwardLeaveRequestComponent implements OnInit {
               this.interactionService.upadateMsg("error");
               this.clearAfterAdd()
               
-            } else if (0 >= this.carryforwardRequest.carryforwardDays) {
+            } else if (1 > this.carryforwardRequest.carryforwardDays) {
                         this.interactionService.upadateMsg("error");
                         this.clearAfterAdd()
 

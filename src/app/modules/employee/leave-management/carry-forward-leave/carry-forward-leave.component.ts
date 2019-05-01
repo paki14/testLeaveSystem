@@ -33,6 +33,7 @@ export class CarryForwardLeaveComponent implements OnInit {
       authorities: this.token.getAuthorities()
     };
     this.getPendingCarryforwardRequest();
+    this.getSuccessMsg();
   }
 
   getPendingCarryforwardRequest() {
@@ -44,13 +45,16 @@ export class CarryForwardLeaveComponent implements OnInit {
     }
     );
   }
-
+  getSuccessMsg() {
+    this.interactionService.msgDataSource$.subscribe(data => {
+      if (data == "CarryforwardRequestAccepted" || data == "CarryforwardRequestRejected") {
+        this.getPendingCarryforwardRequest();
+      }
+      
+    });
+  }
   sendCarryforward(carryforward) {
     this.interactionService.sendCarryforward(carryforward);
-  }
-
-  sendSuccessMessage() {
-    this.interactionService.upadateMsg("CarryforwardRequestAccepted");
   }
 
   applyFilter(filterValue: string) {

@@ -33,9 +33,13 @@ export class AcceptCarryforwardRequestComponent implements OnInit {
     })
   }
 
+   sendSuccessMessage() {
+    this.interactionService.upadateMsg("CarryforwardRequestAccepted");
+  }
   accecptCarryforwardRequestMethod() {
     this.carryforwardLeaveRequestService.acceptCarryforwardRequest(this.info.username, this.carryforwardRequestData).subscribe(data => {
       console.log(data);
+      this.sendSuccessMessage()
     });
   }
 }
