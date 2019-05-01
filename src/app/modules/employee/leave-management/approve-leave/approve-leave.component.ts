@@ -17,6 +17,7 @@ export class ApproveLeaveComponent implements OnInit {
     "numberofdays",
     "type",
     "reason",
+    // "attachment",
     "accept/reject"
   ];
 
