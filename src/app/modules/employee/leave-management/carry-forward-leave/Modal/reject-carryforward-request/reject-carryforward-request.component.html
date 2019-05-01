@@ -8,7 +8,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <h3 class="card-title">Reject Request</h3>
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <button type="button" class="close" data-dismiss="modal"(click)="clear()">&times;</button>
       </div>
       <div class="modal-body">
         <div class="col-md-12">
@@ -20,7 +20,7 @@
                   <div class="form-group">
                     <label for="cancel_leave_reject_reason"> Reason</label>
                     <textarea type="text" class="form-control"rows="4" formControlName="reject_cf_reason" [class.is-invalid]="rejectForm.get('reject_cf_reason').invalid && rejectForm.get('reject_cf_reason').touched " 
-                    name="reject_carryforward_reason" id="reject_carryforward_reason"  placeholder="Enter Reject reason Here" [(ngModel)]="rejectCarryforwardRequestData.reason">
+                    name="reject_carryforward_reason" id="reject_carryforward_reason"  placeholder="Enter Reject reason Here" [(ngModel)]="rejectCarryforwardRequestData.reason" required>
                   </textarea>
                   <div *ngIf="rejectForm.get('reject_cf_reason').invalid && rejectForm.get('reject_cf_reason').touched ">
                     <small class="text-danger" *ngIf="rejectForm.get('reject_cf_reason').errors?.required">Reject reason is required!

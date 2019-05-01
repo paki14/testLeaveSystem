@@ -53,7 +53,6 @@ export class CarryForwardLeaveComponent implements OnInit {
     this.interactionService.upadateMsg("CarryforwardRequestAccepted");
   }
 
-
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
     if (this.dataSource.paginator) {

@@ -14,7 +14,6 @@ import { isValid } from "date-fns";
 export class CancelLeaveRejectComponent implements OnInit {
   info: any;
   rejectCancelRequest: RejectCancelRequest = new RejectCancelRequest();
-  isValid:boolean
   constructor(
     private interactionService: InteractionService,
     private cancelRequestService: CancelRequestService,
@@ -47,8 +46,9 @@ export class CancelLeaveRejectComponent implements OnInit {
         console.log(data);
         this.sendSuccessMessage();
       });
-    // this.rejectCancelRequest.rejectReason = null;
-    this.clearImmediate();
+    this.rejectCancelRequest.rejectReason = null;
+    this.rejectForm.get('reject_lr_reason').clearValidators();
+    // this.clearImmediate();
   }
 
   sendSuccessMessage() {
@@ -60,21 +60,19 @@ export class CancelLeaveRejectComponent implements OnInit {
       Validators.required,
       Validators.maxLength(100),
       Validators.minLength(3),
-      Validators.pattern("^[a-zA-Z ]*$")
+      Validators.pattern("^[a-zA-Z,.' ]*$")
     ]))
   })
  
   clearImmediate(){
     this.rejectCancelRequest.rejectReason = null;
-    this.rejectForm.get('reject_lr_reason').clearValidators();
   }
-setValidate(){
-  
+  setValidate(){
   this.rejectForm.get('reject_lr_reason').setValidators([
     Validators.required,
-    Validators.maxLength(100),
+    Validators.maxLength(150),
     Validators.minLength(3),
-    Validators.pattern("^[a-zA-Z ]*$")
+    Validators.pattern("^[a-zA-Z,.' ]*$")
   ])
   this.rejectForm.updateValueAndValidity();
 }

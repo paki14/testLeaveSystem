@@ -19,7 +19,7 @@
                   <div class="form-group">
                     <label for="cancel_leave_reject_reason"> Reason</label>
                     <textarea type="text" class="form-control"  name="cancel_leave_reject_reason" id="cancel_leave_reject_reason"  placeholder="Enter Reject reason Here" [(ngModel)]="rejectCancelRequest.rejectReason"
-                    formControlName="reject_lr_reason" [class.is-invalid]="rejectForm.get('reject_lr_reason').invalid && rejectForm.get('reject_lr_reason').touched ">
+                    formControlName="reject_lr_reason" [class.is-invalid]="rejectForm.get('reject_lr_reason').invalid && rejectForm.get('reject_lr_reason').touched " required>
                   </textarea>
                   <div *ngIf="rejectForm.get('reject_lr_reason').invalid && rejectForm.get('reject_lr_reason').touched ">
                     <small class="text-danger" *ngIf="rejectForm.get('reject_lr_reason').errors?.required">Reject reason is required!
