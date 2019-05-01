@@ -43,20 +43,30 @@ export class RejectCarryforwardRequestComponent implements OnInit {
     });
     this.getCarryforwardLeave();
     this.clear()
+    this.rejectForm.get('reject_cf_reason').clearValidators();
+
   }
   clear(){
     this.rejectCarryforwardRequestData.reason=null;
-    this.rejectForm.get('reject_cf_reason').clearValidators();
 
   }
   // ..................validatation..........
   rejectForm = new FormGroup({
     reject_cf_reason: new FormControl('', Validators.compose([
       Validators.required,
-      Validators.maxLength(50),
+      Validators.maxLength(150),
       Validators.minLength(3),
-      Validators.pattern("^[a-zA-Z ]*$")
+      Validators.pattern("^[a-zA-Z,.' ]*$")
     ]))
   })
-  
+  setValidate(){
+    this.rejectForm.get('reject_cf_reason').setValidators([
+      Validators.required,
+      Validators.maxLength(150),
+      Validators.minLength(3),
+      Validators.pattern("^[a-zA-Z,.' ]*$")
+    ])
+    this.rejectForm.updateValueAndValidity();
+    // *ngIf="((myForm.controls['contact_no'].touched)&& myForm.controls['contact_no'].hasError('pattern')))"
+  }
 }
