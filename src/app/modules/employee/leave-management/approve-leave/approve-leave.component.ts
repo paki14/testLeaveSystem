@@ -30,18 +30,18 @@ export class ApproveLeaveComponent implements OnInit {
   constructor(
     private leaveRequestService: LeaveRequestService,
     private interactionService: InteractionService
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.dataSource = new MatTableDataSource<any>(this.leave);
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
     this.getAllLeaveRequest();
-    this.getSuccessMsg();
+    // this.getSuccessMsg();
+    // this.getSuccessMessage() 
   }
-
-  // clearField() {
-    
+  // getSuccessMsg() {
+  //   throw new Error("Method not implemented.");
   // }
 
   applyFilter(filterValue: string) {
@@ -69,12 +69,26 @@ export class ApproveLeaveComponent implements OnInit {
     this.interactionService.sendUserId(user);
   }
 
-  getSuccessMsg() {
+
+  getSuccessMessage() {
     this.interactionService.msgDataSource$.subscribe(data => {
-      if (data == "AcceptSuccess" || data == "RejectSuccess") {
+      console.log(data)
+      if (data == "AcceptSuccess") {
         this.getAllLeaveRequest();
-        // this.clearField();
+        this.responseMsg = "success";
+        this.responseMsgTimeOut();
+      }
+      else if (data == "RejectSuccess") {
+        this.getAllLeaveRequest();
+        this.responseMsg = "success2";
+        this.responseMsgTimeOut();
       }
     });
+  }
+  responseMsg: string;
+  responseMsgTimeOut() {
+    setTimeout(() => {
+      this.responseMsg = null;
+    }, 3000);
   }
 }

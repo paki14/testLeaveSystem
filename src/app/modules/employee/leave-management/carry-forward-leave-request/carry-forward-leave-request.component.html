@@ -3,7 +3,7 @@
   <!-- Carry Forward leave request card header start -->
   <div class="card-header">
     <h5 class="card-title">Carry Forward Leave Request </h5>
-    <!-- <div class="card-tools">
+    <!-- <div class="card-tools" >
       <button type="button" class="btn btn-tool" data-widget="collapse">
         <i class="fa fa-minus"></i>
       </button>
@@ -16,7 +16,7 @@
       <div class="card-body">
         <div class="row">
           <div class="col-md-12 caryforward" *ngIf="carryforwardLeave.status == 'PENDING';">
-            You have requested {{carryforwardLeave.carryForwardDays}} days for carryforwarding.
+           <a >You have requested {{carryforwardLeave.carryForwardDays}} days for carryforwarding.</a> 
           </div>
           <div class="col-md-12 caryforwardg" *ngIf="carryforwardLeave.status == 'ACCEPTED';">
             You have {{carryforwardLeave.carryForwardDays}} days carryforwarded for next year.
@@ -51,7 +51,7 @@
                   <div class="form-group">
                     <label for="carry-forwarded">Number of leaves to be carry forwarded</label>
                     <input type="number" class="form-control" name="carry-forwarded" id="carry-forwarded" [(ngModel)]="carryforwardRequest.carryforwardDays"
-                      min="1" max={{annualLeaveByUsername?.allocatedDays-annualLeaveByUsername?.utilizedDays}}>
+                     >
                   </div>
                 </div>
               </div>

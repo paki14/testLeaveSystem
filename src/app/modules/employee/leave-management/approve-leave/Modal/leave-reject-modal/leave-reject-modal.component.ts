@@ -46,11 +46,16 @@ export class LeaveRejectModalComponent implements OnInit {
     this.rejectObj.rejectReason = null;
   }
 
-  clearImmediate(){
-    this.rejectObj.rejectReason = null;
-  }
   sendSuccessMsg() {
     this.interactionService.upadateMsg("RejectSuccess");
     this.clearField();
-  }
+    this.responseMsg = "success2";
+    this.responseMsgTimeOut();
+}
+responseMsg: string;
+responseMsgTimeOut() {
+setTimeout(() => {
+  this.responseMsg = null;
+}, 3000);
+}
 }
