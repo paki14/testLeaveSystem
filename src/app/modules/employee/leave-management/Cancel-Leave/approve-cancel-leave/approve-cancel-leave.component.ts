@@ -50,10 +50,10 @@ export class ApproveCancelLeaveComponent implements OnInit {
     });
   }
 
-  // sendLeaveRequest(leaveRequest) {
-  //   this.interactionService.sendLeaveRequest(leaveRequest);
+  sendLeaveRequest(leaveRequest) {
+    this.interactionService.sendLeaveRequest(leaveRequest);
     
-  // }
+  }
 
   sendCancelRequestId(cancelLeaveRequestId) {
     this.interactionService.sendCancelRequestId(cancelLeaveRequestId);
