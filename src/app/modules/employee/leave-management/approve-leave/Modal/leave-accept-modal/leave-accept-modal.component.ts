@@ -42,10 +42,18 @@ export class LeaveAcceptModalComponent implements OnInit {
   getLeaveRequestId() {
     this.interactionService.leaveIdDataSource$.subscribe(data =>{
         this.acceptObj.leaveRequestId = data;
-        this.sendSuccessMsg();
+        // this.sendSuccessMsg();
     })
   }
   sendSuccessMsg() {
     this.interactionService.upadateMsg("AcceptSuccess");
+    this.responseMsg = "success";
+        this.responseMsgTimeOut();
+  }
+  responseMsg: string;
+  responseMsgTimeOut() {
+    setTimeout(() => {
+      this.responseMsg = null;
+    }, 3000);
   }
 }
