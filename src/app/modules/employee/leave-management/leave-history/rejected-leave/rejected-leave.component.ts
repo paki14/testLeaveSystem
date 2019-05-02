@@ -24,9 +24,9 @@ export class RejectedLeaveComponent implements OnInit {
   constructor(private rejectLeaveService: RejectLeaveService) { }
 
   ngOnInit() {
-    this.dataSource = new MatTableDataSource<any>(this.rejectLeave);
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
+    // this.dataSource = new MatTableDataSource<any>(this.rejectLeave);
+    // this.dataSource.paginator = this.paginator;
+    // this.dataSource.sort = this.sort;
     this.getAllLeaveRequest();
   }
   applyFilter(filterValue: string) {

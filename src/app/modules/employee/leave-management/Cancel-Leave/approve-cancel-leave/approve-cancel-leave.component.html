@@ -32,7 +32,7 @@
         <div class="col-md-12">
           <div class="card">
             <div class="mat-elevation-z8">
-              <mat-table [dataSource]="dataSource" matSort>
+              <mat-table [dataSource]="dataSource" sort>
                 
                 <!-- column 3 start -->
                 <ng-container matColumnDef="requestId">
@@ -45,14 +45,14 @@
                 <!-- column 3 end -->
 
                 <!-- column 1 start -->
-                <ng-container matColumnDef="name">
+                <ng-container matColumnDef="fullName">
                   <mat-header-cell *matHeaderCellDef mat-sort-header>
                     Employee Name
                   </mat-header-cell>
                   <mat-cell *matCellDef="let CancelRequest">
-                    <div class="link">
+                    
                       {{ CancelRequest.leaveRequest.user.fullName }}
-                    </div>
+                    
                   </mat-cell>
                 </ng-container>
                 <!-- column 1 end -->
@@ -67,8 +67,8 @@
                 <!-- column 4 start -->
                 <ng-container matColumnDef="type">
                   <mat-header-cell *matHeaderCellDef mat-sort-header>
-                    Leave Type</mat-header-cell
-                  >
+                    Leave Type
+                  </mat-header-cell>
                   <mat-cell *matCellDef="let CancelRequest">
                     {{
                       CancelRequest.leaveRequest.leaveAllocation.leaveType
@@ -77,9 +77,9 @@
                   >
                 </ng-container>
                 <!-- column 4 end -->
-
+                
                 <!-- column 5 start -->
-                <ng-container matColumnDef="reason">
+                <ng-container matColumnDef="cancelreason">
                   <mat-header-cell *matHeaderCellDef mat-sort-header>
                     Cancel Reason
                   </mat-header-cell>

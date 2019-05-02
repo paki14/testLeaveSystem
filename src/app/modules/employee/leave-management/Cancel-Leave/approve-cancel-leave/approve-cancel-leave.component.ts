@@ -10,10 +10,10 @@ import { InteractionService } from "src/app/services/interaction.service";
 })
 export class ApproveCancelLeaveComponent implements OnInit {
   displayedColumns: string[] = [
-    "name",
+    "fullName",
     "requestId",
     "type",
-    "reason",
+    "cancelreason",
     "accept/reject"
   ];
 
@@ -30,16 +30,12 @@ export class ApproveCancelLeaveComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.dataSource = new MatTableDataSource<any>(this.cancelLeaveRequest);
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
     this.getPendingCancelLeaveRequest();
     this.getSuccessMsg();
   }
 
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
-
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
@@ -54,9 +50,10 @@ export class ApproveCancelLeaveComponent implements OnInit {
     });
   }
 
-  sendLeaveRequest(leaveRequest) {
-    this.interactionService.sendLeaveRequest(leaveRequest);
-  }
+  // sendLeaveRequest(leaveRequest) {
+  //   this.interactionService.sendLeaveRequest(leaveRequest);
+    
+  // }
 
   sendCancelRequestId(cancelLeaveRequestId) {
     this.interactionService.sendCancelRequestId(cancelLeaveRequestId);
