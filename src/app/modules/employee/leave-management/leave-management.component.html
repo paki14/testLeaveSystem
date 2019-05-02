@@ -1,16 +1,16 @@
 
   <nav mat-tab-nav-bar>
-  <a mat-tab-link *ngIf="info.authorities == 'HR'|| info.authorities == 'MANAGER'||info.authorities == 'DIRECTOR'||info.authorities == 'ADMIN'"
+  <a mat-tab-link *ngIf="info.authorities == 'HR'|| info.authorities == 'MANAGER'||info.authorities == 'DIRECTOR'"
       routerLink="./requestedLeaves"
       routerLinkActive ="active">
       View Leave Requests
   </a>
-  <a mat-tab-link *ngIf="info.authorities == 'HR'|| info.authorities == 'MANAGER'||info.authorities == 'DIRECTOR'||info.authorities == 'ADMIN'"
+  <a mat-tab-link *ngIf="info.authorities == 'HR'|| info.authorities == 'MANAGER'||info.authorities == 'DIRECTOR'"
     routerLink="./leaveHistory/allrequests"
     routerLinkActive ="active">
     Leave History
 </a>
-<a mat-tab-link *ngIf="info.authorities == 'HR'|| info.authorities == 'MANAGER'||info.authorities == 'DIRECTOR'||info.authorities == 'ADMIN'"
+<a mat-tab-link *ngIf="info.authorities == 'HR'|| info.authorities == 'MANAGER'||info.authorities == 'DIRECTOR'"
     routerLink="./LeaveCancelRequests"
     routerLinkActive ="active">
     Leave Cancel Requests
