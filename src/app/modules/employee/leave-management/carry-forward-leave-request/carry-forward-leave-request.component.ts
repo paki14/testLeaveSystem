@@ -19,7 +19,7 @@ export class CarryForwardLeaveRequestComponent implements OnInit {
   carryforwardRequest = new CarryforwardLeaveRequest();
   carryforwardLeave: CarryforwardRequestData = new CarryforwardRequestData();
   //End
-
+  carry:boolean
   constructor(
     private carryforwardRequestService: CarryforwardLeaveRequestService,
     private token: TokenStorageService,
@@ -59,8 +59,9 @@ export class CarryForwardLeaveRequestComponent implements OnInit {
 
   getSuccessMessage() {
     this.interactionService.msgDataSource$.subscribe(data => {
-      if (data == "carryforwardLeaveRequestSent") {
-        this.getCarryforwardLeaveRequest();        
+      if (data == "carryforwardLeaveRequestSent"||data == "leaveRequestSent") {
+        this.getCarryforwardLeaveRequest(); 
+        this.getLeaveAllocation();       
       }
     })
   }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { InteractionService } from 'src/app/services/interaction.service';
 
 @Component({
   selector: 'app-apply-leave-view',
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ApplyLeaveViewComponent implements OnInit {
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {
+    
   }
-
+  
 }

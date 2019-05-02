@@ -44,10 +44,6 @@ export class ApproveLeaveComponent implements OnInit {
   //   throw new Error("Method not implemented.");
   // }
 
-  // clearField() {
-    
-  // }
-
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
 

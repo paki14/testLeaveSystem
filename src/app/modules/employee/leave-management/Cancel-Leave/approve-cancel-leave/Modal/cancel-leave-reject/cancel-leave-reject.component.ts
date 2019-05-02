@@ -46,9 +46,8 @@ export class CancelLeaveRejectComponent implements OnInit {
         console.log(data);
         this.sendSuccessMessage();
       });
-    this.rejectCancelRequest.rejectReason = null;
-    this.rejectForm.get('reject_lr_reason').clearValidators();
-    // this.clearImmediate();
+      this.clearImmediate();
+      this.rejectForm.get('reject_lr_reason').clearValidators();
   }
 
   sendSuccessMessage() {
