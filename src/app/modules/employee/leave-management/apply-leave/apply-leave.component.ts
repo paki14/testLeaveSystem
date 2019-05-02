@@ -32,7 +32,7 @@ export class ApplyLeaveComponent implements OnInit {
     this.leaveRequest.noOfDays = 0;
     this.leaveRequest.leaveAllocation = this.default;
     this.getLeaveAllocation();
-    this.getSuccessMsg();
+    this.getSuccessMsg1();
   }
 
   clearField() {
@@ -68,14 +68,14 @@ export class ApplyLeaveComponent implements OnInit {
     this.interactionService.sendLeaveRequest(this.leaveRequest);
   }
 
-  getSuccessMsg() {
+  getSuccessMsg1() {
     this.interactionService.msgDataSource$.subscribe(data => {
-      if (data == "leaveRequestSent" || data == "leaveRequestSent") {
+      if (data == "leaveRequestSent") {
         this.getLeaveAllocation();
+        this.responseMsg = "success1";
+        this.responseMsgTimeOut();
       }
         this.clearField();
-        this.responseMsg = "success";
-        this.responseMsgTimeOut();
     });
   }
   responseMsg: string;

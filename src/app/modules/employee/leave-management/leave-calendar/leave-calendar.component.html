@@ -76,14 +76,8 @@
       <div class="col-md-12">
         <div class="form-group">
           <label for="title">Event Title</label>
-          <input
-            type="text"
-            class="form-control"
-            name="title"
-            id="title"
-            [(ngModel)]="modalData?.event.title"
-            (keyup)="refresh.next()"
-          />
+          <input type="text" class="form-control" name="title" id="title" [(ngModel)]="modalData?.event.title"
+            (keyup)="refresh.next()" />
         </div>
       </div>
     </div>
@@ -91,44 +85,20 @@
       <div class="col-md-6">
         <div class="form-group">
           <label for="startAt">Start At</label>
-          <input
-            type="text"
-            class="form-control"
-            name="startAt"
-            id="startAt"
-            mwlFlatpickr
-            [(ngModel)]="modalData?.event.start"
-            (ngModelChange)="refresh.next()"
-            [altInput]="true"
-            minDate="today"
-            [convertModelValue]="true"
-            [enableTime]="true"
-            dateFormat="Y-m-dTH:i"
-            altFormat="F j, Y H:i"
-            placeholder="Not set"
-          />
+          <input type="text" class="form-control" name="startAt" id="startAt" mwlFlatpickr
+            [(ngModel)]="modalData?.event.start" (ngModelChange)="refresh.next()" [altInput]="true" minDate="today"
+            [convertModelValue]="true" [enableTime]="true" dateFormat="Y-m-dTH:i" altFormat="F j, Y H:i"
+            placeholder="Not set" />
         </div>
       </div>
       <div class="col-md-6">
         <div class="form-group">
           <label for="endAt">Ends At</label>
-          <input
-            type="text"
-            class="form-control"
-            name="endAt"
-            id="endAt"
-            placeholder="yyyy/mm/dd"
-            mwlFlatpickr
-            [(ngModel)]="modalData?.event.end"
-            (ngModelChange)="refresh.next()"
-            [altInput]="true"
-            minDate="{{ modalData?.event.start | date: 'yyyy-MM-dd' }}"
-            [convertModelValue]="true"
-            [enableTime]="true"
-            dateFormat="Y-m-dTH:i"
-            altFormat="F j, Y H:i"
-            placeholder="{{ modalData?.event.start | date: 'yyyy-MM-dd' }}"
-          />
+          <input type="text" class="form-control" name="endAt" id="endAt" placeholder="yyyy/mm/dd" mwlFlatpickr
+            [(ngModel)]="modalData?.event.end" (ngModelChange)="refresh.next()" [altInput]="true"
+            minDate="{{ modalData?.event.start | date: 'yyyy-MM-dd' }}" [convertModelValue]="true" [enableTime]="true"
+            dateFormat="Y-m-dTH:i" altFormat="F j, Y H:i"
+            placeholder="{{ modalData?.event.start | date: 'yyyy-MM-dd' }}" />
         </div>
       </div>
     </div>
@@ -136,15 +106,8 @@
       <div class="col-md-6">
         <div class="form-group">
           <label for="primaryColor">Color</label>
-          <select
-            class="form-control"
-            name="color"
-            id="color"
-            [(ngModel)]="modalData?.event.color"
-          >
-            <option selected default hidden [ngValue]="default"
-              >select color</option
-            >
+          <select class="form-control" name="color" id="color" [(ngModel)]="modalData?.event.color">
+            <option selected default hidden [ngValue]="default">select color</option>
             <option *ngFor="let color of colors" [ngValue]="color">{{
               color.name
             }}</option>
