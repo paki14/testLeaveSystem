@@ -59,7 +59,7 @@ export class CarryForwardLeaveRequestComponent implements OnInit {
 
   getSuccessMessage() {
     this.interactionService.msgDataSource$.subscribe(data => {
-      if (data == "carryforwardLeaveRequestSent") {
+      if (data == "carryforwardLeaveRequestSent"||data == "leaveRequestSent") {
         this.getCarryforwardLeaveRequest(); 
         this.getLeaveAllocation();       
       }
