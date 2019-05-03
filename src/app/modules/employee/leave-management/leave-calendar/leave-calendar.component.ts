@@ -39,19 +39,21 @@ export class LeaveCalendarComponent implements OnInit {
   view: CalendarView = CalendarView.Month;
   CalendarView = CalendarView;
   viewDate: Date = new Date();
+  today: Date = new Date();
   calevent: Holiday = new Holiday();
   modalData: {
     action: string;
     event: CalendarEvent;
   };
+  // time =
+  //   new Date(this.modalData.event.end).getTime() -
+  //   new Date(this.today).getTime();
 
   actions: CalendarEventAction[] = [
     {
       label: '<i class="fa fa-fw fa-edit"></i>',
       onClick: ({ event }: { event: CalendarEvent }): void => {
-        // this.calevent.start = this.modalData.event.start;
-
-        if (event.end < this.viewDate) {
+        if (event.end < this.today) {
           this.handleEvent("Edited", event);
           // this.editEvent()
         } else {
@@ -76,7 +78,7 @@ export class LeaveCalendarComponent implements OnInit {
   info: { token; username; authorities };
   colors: Colors[];
   color: Colors;
-
+  // time: number;
   constructor(
     private modal: NgbModal,
     private holidayCalendarService: HolidayCalendarService,
@@ -131,15 +133,16 @@ export class LeaveCalendarComponent implements OnInit {
     this.modalData = { event, action };
     console.log(event);
     console.log(action);
+
     if (this.info.authorities != "EMPLOYEE") {
       if (event.id != null) {
-        if (action == "Edit") {
-          this.modal.open(this.modalContent, { size: "lg" });
+        if (action == "Clicked" || action == "Edited") {
+          this.modal.open(this.modalContent, { size: "sm" });
         }
         if (action == "Deleted") {
           this.modal.open(this.deleteContent, { size: "lg" });
         }
-        if (action == "Dropped or resized") {
+        if (action == "Dropped or resized" || action == "Edit") {
           this.modal.open(this.moveContent, { size: "lg" });
         }
       }
@@ -202,74 +205,23 @@ export class LeaveCalendarComponent implements OnInit {
     });
   }
 
-  // updateEvent() {
-  //   this.modalData.event.postedBy = this.info.username;
-  //   // this.modalData.event.id = this.calevent.id;
-  //   // this.modalData.event.title = this.calevent.title;
-  //   // this.modalData.event.start = this.calevent.start;
-  //   // this.modalData.event.end = this.calevent.end;
-  //   // this.modalData.event.color = this.calevent.color;
-  //   // alert(this.modalData.event.title);
-  //   this.holidayCalendarService
-  //     .updateEvent(this.modalData.event.id, this.modalData.event)
-  //     .subscribe(data => {
-  //       console.log(data);
-  //     });
-  //   this.refresh.next();
-  //   // this.refresh.next();
-  //   // this.clear();
-  // }
-
   deleteEvent() {
     this.holidayCalendarService
       .deleteEvent(this.modalData.event.id)
       .subscribe(data => {
         console.log(data);
       });
-    // this.getAllHolidays();
-    // this.getSuccessMsg();
-    // this.refresh.next();
   }
 
   editEvent() {
     this.modalData.event.postedBy = this.info.username;
-    //this.modalData.event.id = this.calevent.id;
-
-    // if (
-    //   this.calevent.title == null ||
-    //   this.calevent.start == null ||
-    //   this.calevent.end == null ||
-    //   this.calevent.end == null
-    // ) {
-    //   this.calevent.title = this.modalData.event.title;
-    //   this.calevent.start = this.modalData.event.start;
-    //   this.calevent.end = this.modalData.event.end;
-    //   this.calevent.color.primary = this.modalData.event.color.primary;
-    // } else {
-    this.modalData.event.title = this.calevent.title;
-    this.modalData.event.start = this.calevent.start;
-    this.modalData.event.end = this.calevent.end;
-    this.modalData.event.color = this.calevent.color;
-
-    // this.modalData.event.color.primary = this.calevent.color.primary;
-    // this.modalData.event.color.secondary = this.calevent.color.secondary;
-
-    // alert(this.calevent.title);
     this.holidayCalendarService
       .updateEvent(this.modalData.event.id, this.modalData.event)
       .subscribe(data => {
         console.log(data);
       });
-    // }
-
     this.refresh.next();
   }
-  // clear() {
-  //   this.calevent.end = null;
-  //   this.calevent.color = null;
-  //   this.calevent.start = null;
-  //   this.calevent.title = null;
-  // }
   getSuccessMsg() {
     this.interactionService.msgDataSource$.subscribe(data => {
       this.getAllLeaveRequest();

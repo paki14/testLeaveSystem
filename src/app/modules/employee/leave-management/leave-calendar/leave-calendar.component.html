@@ -118,7 +118,7 @@
     </div>
   </div>
 </div>
-<!-- <div class="modal fade" role="dialog" id="modalContent"> -->
+<!-- view event details -->
 <ng-template #modalContent let-close="close">
   <!-- <div class="modal-dialog"> -->
   <!-- <div class="modal-content"> -->
@@ -131,113 +131,23 @@
   <div class="modal-body">
     <div class="row">
       <div class="col-md-12">
-        <div class="form-group">
-          <label for="title">Event Title</label>
-          <input
-            type="text"
-            class="form-control"
-            name="title"
-            id="title"
-            [ngModel]="modalData?.event.title"
-            [(ngModel)]="calevent.title"
-            (keyup)="refresh.next()"
-          />
+        <div class="form-group" text-center>
+          <label for="title">Event Title : </label>
+          {{ modalData?.event.title }}
         </div>
       </div>
     </div>
-    <div class="row">
-      <div class="col-md-6">
-        <div class="form-group">
-          <label for="startAt">Start At</label>
-          <input
-            type="text"
-            class="form-control"
-            name="startAt"
-            id="startAt"
-            mwlFlatpickr
-            [ngModel]="modalData?.event.start"
-            [(ngModel)]="calevent.start"
-            (ngModelChange)="refresh.next()"
-            [altInput]="true"
-            minDate="today"
-            [convertModelValue]="true"
-            [enableTime]="true"
-            dateFormat="Y-m-dTH:i"
-            altFormat="F j, Y H:i"
-            placeholder="Not set"
-          />
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="form-group">
-          <label for="endAt">Ends At</label>
-          <input
-            type="text"
-            class="form-control"
-            name="endAt"
-            id="endAt"
-            placeholder="yyyy/mm/dd"
-            mwlFlatpickr
-            [ngModel]="modalData?.event.end"
-            [(ngModel)]="calevent.end"
-            (ngModelChange)="refresh.next()"
-            [altInput]="true"
-            minDate="{{ modalData?.event.start | date: 'yyyy-MM-dd' }}"
-            [convertModelValue]="true"
-            [enableTime]="true"
-            dateFormat="Y-m-dTH:i"
-            altFormat="F j, Y H:i"
-            placeholder="{{ modalData?.event.start | date: 'yyyy-MM-dd' }}"
-          />
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-6">
-        <div class="form-group">
-          <label for="primaryColor">Color</label>
-          <select
-            class="form-control"
-            name="color"
-            id="color"
-            [ngModel]="modalData?.event.color"
-            [(ngModel)]="calevent.color"
-          >
-            <option selected default hidden [ngValue]="default"
-              >select color</option
-            >
-            <option *ngFor="let color of colors" [ngValue]="color">{{
-              color.name
-            }}</option>
-          </select>
-        </div>
-      </div>
 
-      <div class="col-md-3">
-        <div class="form-group">
-          <label for="primaryColor">Primary</label>
-          <input
-            type="color"
-            class="form-control"
-            name="primaryColor"
-            id="primaryColor"
-            [(ngModel)]="calevent.color.primary"
-            readonly
-          />
-        </div>
+    <div class="col-md-6">
+      <div class="form-group">
+        <label for="startAt">Start At : </label>
+        {{ modalData?.event.start | date: "yyyy-MM-dd HH:mm" }}
       </div>
-      <div class="col-md-3">
-        <div class="form-group">
-          <label for="secondaryColor">Secondary</label>
-          <input
-            type="color"
-            class="form-control"
-            name="secondaryColor"
-            id="secondaryColor"
-            [(ngModel)]="calevent.color.secondary"
-            readonly
-          />
-        </div>
+    </div>
+    <div class="col-md-6">
+      <div class="form-group">
+        <label for="endAt">Ends At : </label>
+        {{ modalData?.event.end | date: "yyyy-MM-dd HH:mm" }}
       </div>
     </div>
   </div>
@@ -246,23 +156,14 @@
       type="button"
       class="btn btn-outline-secondary"
       data-dismiss="modal"
-      (click)="editEvent(); close()"
+      (click)="close()"
     >
       OK
     </button>
-    <button
-      type="button"
-      class="btn btn-outline-danger"
-      data-dismiss="modal"
-      (click)="close()"
-    >
-      Cancel
-    </button>
   </div>
 </ng-template>
-<!-- </div> -->
-<!-- </div> -->
 
+<!-- delete event modal -->
 <ng-template #deleteContent let-close="close">
   <div class="modal-header">
     <h5 class="modal-title">Event Delete</h5>
@@ -289,6 +190,142 @@
       (click)="close()"
     >
       No
+    </button>
+  </div>
+</ng-template>
+<!-- Edit Or Move Event modal -->
+<ng-template #moveContent let-close="close">
+  <!-- <div class="modal-dialog"> -->
+  <!-- <div class="modal-content"> -->
+  <div class="modal-header">
+    <h5 class="modal-title">Event move action</h5>
+    <button type="button" class="close" (click)="close()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="form-group">
+          <label for="title">Event Title</label>
+          <input
+            type="text"
+            class="form-control"
+            name="title"
+            id="title"
+            [(ngModel)]="modalData?.event.title"
+            (keyup)="refresh.next()"
+          />
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="startAt">Start At</label>
+          <input
+            type="text"
+            class="form-control"
+            name="startAt"
+            id="startAt"
+            mwlFlatpickr
+            [(ngModel)]="modalData?.event.start"
+            [altInput]="true"
+            minDate="today"
+            [convertModelValue]="true"
+            [enableTime]="true"
+            dateFormat="Y-m-dTH:i"
+            altFormat="F j, Y H:i"
+            placeholder="{{ modalData?.event.start | date: 'yyyy-MM-dd' }}"
+          />
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="endAt">Ends At</label>
+          <input
+            type="text"
+            class="form-control"
+            name="endAt"
+            id="endAt"
+            placeholder="yyyy/mm/dd"
+            mwlFlatpickr
+            [(ngModel)]="modalData?.event.end"
+            [altInput]="true"
+            minDate="{{ modalData?.event.start | date: 'yyyy-MM-dd' }}"
+            [convertModelValue]="true"
+            [enableTime]="true"
+            dateFormat="Y-m-dTH:i"
+            altFormat="F j, Y H:i"
+            placeholder="{{ modalData?.event.end | date: 'yyyy-MM-dd' }}"
+          />
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="primaryColor">Color</label>
+          <select
+            class="form-control"
+            name="color"
+            id="color"
+            [(ngModel)]="modalData?.event.color"
+          >
+            <option selected default hidden [ngValue]="default"
+              >select color</option
+            >
+            <option *ngFor="let color of colors" [ngValue]="color">{{
+              color.name
+            }}</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="form-group">
+          <label for="primaryColor">Primary</label>
+          <input
+            type="color"
+            class="form-control"
+            name="primaryColor"
+            id="primaryColor"
+            [(ngModel)]="modalData?.event.color.primary"
+            readonly
+          />
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="form-group">
+          <label for="secondaryColor">Secondary</label>
+          <input
+            type="color"
+            class="form-control"
+            name="secondaryColor"
+            id="secondaryColor"
+            [(ngModel)]="modalData?.event.color.secondary"
+            readonly
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button
+      type="button"
+      class="btn btn-outline-secondary"
+      data-dismiss="modal"
+      (click)="editEvent(); close()"
+    >
+      OK
+    </button>
+    <button
+      type="button"
+      class="btn btn-outline-danger"
+      data-dismiss="modal"
+      (click)="close()"
+    >
+      Cancel
     </button>
   </div>
 </ng-template>
