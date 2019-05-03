@@ -35,6 +35,11 @@ export class ApplyLeaveComponent implements OnInit {
     this.getSuccessMsg1();
   }
 
+  autoGrowTextZone(e) {
+    e.target.style.height = "0px";
+    e.target.style.height = e.target.scrollHeight + 10 + "px";
+  }
+
   clearField() {
     this.leaveRequest.reason = null;
     this.leaveRequest.startDate = null;
@@ -70,12 +75,15 @@ export class ApplyLeaveComponent implements OnInit {
 
   getSuccessMsg1() {
     this.interactionService.msgDataSource$.subscribe(data => {
-      if (data == "leaveRequestSent"||data == "carryforwardLeaveRequestSent") {
+      if (
+        data == "leaveRequestSent" ||
+        data == "carryforwardLeaveRequestSent"
+      ) {
         this.getLeaveAllocation();
         this.responseMsg = "success1";
         this.responseMsgTimeOut();
       }
-        this.clearField();
+      this.clearField();
     });
   }
   responseMsg: string;
@@ -85,5 +93,3 @@ export class ApplyLeaveComponent implements OnInit {
     }, 3000);
   }
 }
-
-
