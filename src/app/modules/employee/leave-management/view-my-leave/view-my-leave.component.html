@@ -112,13 +112,17 @@
               </mat-header-cell>
               <mat-cell *matCellDef="let leave">
                 <button class="btn btn-outline-danger" data-toggle="modal" data-target="#cancel-modal" *ngIf="
-                    leave.status == 'PENDING' || leave.status == 'ACCEPTED' 
-                  " (click)="sendLeaveRequest(leave)">
-                  Cancel
-                </button></mat-cell>
+                leave.status == 'PENDING' || leave.status == 'ACCEPTED' 
+                " (click)="sendLeaveRequest(leave)">
+                Cancel
+              </button>
+              <button class="btn btn-outline-danger" data-toggle="modal" data-target="#view-reject-cancel-leave-request-modal" 
+              *ngIf="leave.status == 'TAKE_LEAVE'" (click)="sendLeaveRequestId(leave)">
+                View
+              </button>
+            </mat-cell>
             </ng-container>
-
-            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+           <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
             <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
           </mat-table>
           <!-- column for carry forward end -->
@@ -132,3 +136,4 @@
     </div>
   </div>
 </div>
+<app-view-reject-details></app-view-reject-details>
