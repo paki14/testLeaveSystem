@@ -92,9 +92,13 @@
                     <div class="col-md-12">
                       <div class="form-group">
                         <label for="apply-leave-reason">Reason</label>
-                        <textarea type="textarea" class="form-control" rows="4" name="apply-leave-reason"
+                        <!-- <textarea type="textarea" class="form-control" rows="4" name="apply-leave-reason"
                           id="apply-leave-reason" placeholder="Enter Reason"
-                          [(ngModel)]="leaveRequest.reason"></textarea>
+                          [(ngModel)]="leaveRequest.reason"></textarea> -->
+                          <textarea type="text" #input maxlength="150" class="form-control" rows="4" name="promotion-datepromoted"
+                          id="promotion-datepromoted" [(ngModel)]="leaveRequest.reason"
+                          placeholder="Enter Reject reason Here"></textarea>
+                        {{ input.value?.length || 0 }}/150
                       </div>
                     </div>
                   </div>

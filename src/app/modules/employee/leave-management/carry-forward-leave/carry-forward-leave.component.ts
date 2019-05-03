@@ -37,7 +37,7 @@ export class CarryForwardLeaveComponent implements OnInit {
   }
 
   getPendingCarryforwardRequest() {
-    this.carryforwardLeaveRequestService.getPendingCarryforwardLeaveRequest().subscribe(data => {
+    this.carryforwardLeaveRequestService.getPendingCarryforwardLeaveRequest(this.info.username).subscribe(data => {
       this.carryforwardLeave = data;
       this.dataSource = new MatTableDataSource<CarryforwardRequestData>(this.carryforwardLeave);
       this.dataSource.paginator = this.paginator;
