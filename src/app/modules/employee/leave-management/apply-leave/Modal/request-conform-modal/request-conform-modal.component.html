@@ -1,5 +1,4 @@
-
-  <!-- leave conform modal start -->
+<!-- leave conform modal start -->
 <div id="conform-leave" class="modal fade" role="dialog">
   <div class="modal-dialog">
     <!-- modal content start -->
@@ -17,7 +16,7 @@
             !leaveRequest.startDate ||
             !leaveRequest.reason ||
             !leaveRequest.leaveAllocation.id;
-          else zerovalid
+          else check
         "
       >
         <div class="modal-body">
@@ -35,16 +34,17 @@
           </button>
         </div>
       </div>
+
       <ng-template #check>
         <div
           *ngIf="
             leaveRequest.noOfDays >
               leaveRequest.leaveAllocation.allocatedDays -
-                leaveRequest.leaveAllocation.utilizedDays &&
+                leaveRequest.leaveAllocation.utilizedDays ||
               leaveRequest.leaveAllocation.allocatedDays -
-                leaveRequest.leaveAllocation.utilizedDays >=
-                1;
-            else confirm
+                leaveRequest.leaveAllocation.utilizedDays <=
+                0;
+            else checkAttachment
           "
         >
           <div class="modal-body">
@@ -64,32 +64,34 @@
           </div>
         </div>
       </ng-template>
-      <ng-template #zerovalid>
+      <!-- If a medical leave exceeded 3 days, then it should ask for an attachment -->
+      <ng-template #checkAttachment>
         <div
           *ngIf="
-            leaveRequest.leaveAllocation.allocatedDays -
-              leaveRequest.leaveAllocation.utilizedDays ==
-              0;
-            else check
+            leaveRequest.leaveAllocation.leaveType.id == 3 &&
+              leaveRequest.noOfDays > 3 &&
+              !leaveRequest.attachment;
+            else confirm
           "
         >
           <div class="modal-body">
             <div class="col-md-12">
-              Your remaining day is Zero
+              Please choose an attachment (such as a copy of Medical
+              certificate).
             </div>
           </div>
           <div class="modal-footer">
-            <!-- <button type="button" class=" btn btn-primary btn-sm" data-dismiss="modal" (click)="addLeaveRequest()">Yes</button> -->
             <button
               type="button"
               class="btn btn-primary btn-sm"
               data-dismiss="modal"
             >
-              Ok
+              OK
             </button>
           </div>
         </div>
       </ng-template>
+
       <ng-template #confirm>
         <div class="modal-body">
           <div class="col-md-12">

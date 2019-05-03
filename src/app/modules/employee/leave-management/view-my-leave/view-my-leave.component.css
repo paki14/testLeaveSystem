@@ -1,5 +1,30 @@
 .mat-cell,
 .mat-footer-cell {
   padding-left: 10px;
-  text-align-last: center;
+  text-align: center;
+  /* width: 40px; */
+  /* height: 10px; */
+  box-sizing: border-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.cell2 {
+  position: absolute;
+
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  box-sizing: border-box;
+  display: block;
+  padding: 8px;
+  width: 100%;
+}
+
+.cell-overflow2 {
+  box-sizing: border-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }

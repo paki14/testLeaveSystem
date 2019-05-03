@@ -74,10 +74,9 @@ export class ViewMyLeaveComponent implements OnInit {
 
   getSuccessMessage() {
     this.interactionService.msgDataSource$.subscribe(data => {
-      if (data == "leaveRequestSent" ) {
+      if (data == "leaveRequestSent") {
         this.getLeaveRequestByUser();
-      }
-      else if (data == "cancelSuccess") {
+      } else if (data == "cancelSuccess") {
         this.getLeaveRequestByUser();
         this.responseMsg = "success";
         this.responseMsgTimeOut();
