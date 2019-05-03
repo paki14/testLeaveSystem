@@ -14,6 +14,7 @@ import { TokenStorageService } from "src/app/services/login/token-storage.servic
 import { InteractionService } from "src/app/services/interaction.service";
 import { CalendarEvent } from "src/app/models/leave-management/CalendarEvent";
 import { ColorsService } from "src/app/services/leave-management/colors.service";
+import { timingSafeEqual } from "crypto";
 
 const colors: any = {
   gray: {
@@ -30,6 +31,11 @@ const colors: any = {
 export class LeaveCalendarComponent implements OnInit {
   @ViewChild("modalContent")
   modalContent: TemplateRef<any>;
+  @ViewChild("deleteContent")
+  deleteContent: TemplateRef<any>;
+  @ViewChild("moveContent")
+  moveContent: TemplateRef<any>;
+
   view: CalendarView = CalendarView.Month;
   CalendarView = CalendarView;
   viewDate: Date = new Date();
@@ -57,9 +63,9 @@ export class LeaveCalendarComponent implements OnInit {
     {
       label: '<i class="fa fa-fw fa-times"></i>',
       onClick: ({ event }: { event: CalendarEvent }): void => {
-        console.log(event);
-        this.events = this.events.filter(iEvent => iEvent != event);
+        // console.log(events);
         this.handleEvent("Deleted", event);
+        // this.events = this.events.filter(iEvent => iEvent != event);
       }
     }
   ];
@@ -92,7 +98,8 @@ export class LeaveCalendarComponent implements OnInit {
     }
     this.getSuccessMsg();
     this.getColors();
-    this.editEvent();
+    // this.editEvent();
+    // this.deleteEvent();
   }
 
   dayClicked({ date, events }: { date: Date; events: CalendarEvent[] }): void {
@@ -128,6 +135,12 @@ export class LeaveCalendarComponent implements OnInit {
       if (event.id != null) {
         if (action == "Edit") {
           this.modal.open(this.modalContent, { size: "lg" });
+        }
+        if (action == "Deleted") {
+          this.modal.open(this.deleteContent, { size: "lg" });
+        }
+        if (action == "Dropped or resized") {
+          this.modal.open(this.moveContent, { size: "lg" });
         }
       }
     }
@@ -189,23 +202,35 @@ export class LeaveCalendarComponent implements OnInit {
     });
   }
 
-  updateEvent() {
-    this.modalData.event.postedBy = this.info.username;
-    // this.modalData.event.id = this.calevent.id;
-    // this.modalData.event.title = this.calevent.title;
-    // this.modalData.event.start = this.calevent.start;
-    // this.modalData.event.end = this.calevent.end;
-    // this.modalData.event.color = this.calevent.color;
-    // alert(this.modalData.event.title);
+  // updateEvent() {
+  //   this.modalData.event.postedBy = this.info.username;
+  //   // this.modalData.event.id = this.calevent.id;
+  //   // this.modalData.event.title = this.calevent.title;
+  //   // this.modalData.event.start = this.calevent.start;
+  //   // this.modalData.event.end = this.calevent.end;
+  //   // this.modalData.event.color = this.calevent.color;
+  //   // alert(this.modalData.event.title);
+  //   this.holidayCalendarService
+  //     .updateEvent(this.modalData.event.id, this.modalData.event)
+  //     .subscribe(data => {
+  //       console.log(data);
+  //     });
+  //   this.refresh.next();
+  //   // this.refresh.next();
+  //   // this.clear();
+  // }
+
+  deleteEvent() {
     this.holidayCalendarService
-      .updateEvent(this.modalData.event.id, this.modalData.event)
+      .deleteEvent(this.modalData.event.id)
       .subscribe(data => {
         console.log(data);
       });
-    this.refresh.next();
+    // this.getAllHolidays();
+    // this.getSuccessMsg();
     // this.refresh.next();
-    // this.clear();
   }
+
   editEvent() {
     this.modalData.event.postedBy = this.info.username;
     //this.modalData.event.id = this.calevent.id;
@@ -224,11 +249,12 @@ export class LeaveCalendarComponent implements OnInit {
     this.modalData.event.title = this.calevent.title;
     this.modalData.event.start = this.calevent.start;
     this.modalData.event.end = this.calevent.end;
-    // this.modalData.event.color
+    this.modalData.event.color = this.calevent.color;
+
     // this.modalData.event.color.primary = this.calevent.color.primary;
     // this.modalData.event.color.secondary = this.calevent.color.secondary;
 
-    alert(this.calevent.color);
+    // alert(this.calevent.title);
     this.holidayCalendarService
       .updateEvent(this.modalData.event.id, this.modalData.event)
       .subscribe(data => {
@@ -246,10 +272,10 @@ export class LeaveCalendarComponent implements OnInit {
   // }
   getSuccessMsg() {
     this.interactionService.msgDataSource$.subscribe(data => {
+      this.getAllLeaveRequest();
       if (data == "eventAdded" || data == "Edited") {
         this.events = [];
         this.getAllHolidays();
-        this.getAllLeaveRequest();
         this.responseMsg = "success";
         this.responseMsgTimeOut();
       }

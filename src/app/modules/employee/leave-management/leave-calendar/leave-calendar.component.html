@@ -221,7 +221,6 @@
             class="form-control"
             name="primaryColor"
             id="primaryColor"
-            [ngModel]="modalData?.event.color.primary"
             [(ngModel)]="calevent.color.primary"
             readonly
           />
@@ -235,7 +234,6 @@
             class="form-control"
             name="secondaryColor"
             id="secondaryColor"
-            [ngModel]="modalData?.event.color.secondary"
             [(ngModel)]="calevent.color.secondary"
             readonly
           />
@@ -264,3 +262,33 @@
 </ng-template>
 <!-- </div> -->
 <!-- </div> -->
+
+<ng-template #deleteContent let-close="close">
+  <div class="modal-header">
+    <h5 class="modal-title">Event Delete</h5>
+    <button type="button" class="close" (click)="close()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    Are you delete this event?
+  </div>
+  <div class="modal-footer">
+    <button
+      type="button"
+      class="btn btn-outline-primary"
+      data-dismiss="modal"
+      (click)="deleteEvent(); close()"
+    >
+      Yes
+    </button>
+    <button
+      type="button"
+      class="btn btn-outline-danger"
+      data-dismiss="modal"
+      (click)="close()"
+    >
+      No
+    </button>
+  </div>
+</ng-template>
