@@ -52,9 +52,9 @@ export class ConformCancelLeaveRequestModelComponent implements OnInit {
 
   sendSuccessMsg() {
     this.interactionService.upadateMsg("cancelSuccess");
-    this.clearField()
+    this.clearField();
   }
-  clearField(){
-    this.cancelObj.reason=null;
+  clearField() {
+    this.cancelObj.reason = null;
   }
 }

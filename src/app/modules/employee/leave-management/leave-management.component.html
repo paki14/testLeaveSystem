@@ -15,7 +15,7 @@
     routerLinkActive ="active">
     Leave Cancel Requests
 </a>
-<a mat-tab-link 
+<a mat-tab-link *ngIf="info.authorities == 'EMPLOYEE'|| info.authorities == 'HR'|| info.authorities == 'MANAGER'||info.authorities == 'DIRECTOR'"
     routerLink="./RequestLeave"
     routerLinkActive ="active">
     Apply Leave

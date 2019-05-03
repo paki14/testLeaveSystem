@@ -20,7 +20,7 @@ export class ViewMyLeaveComponent implements OnInit {
     "numberOfDays",
     "reason",
     "status",
-    "cancel"
+    "cancel",
   ];
   leaveRequestByUsername: LeaveRequest[];
   dataSource = new MatTableDataSource<any>(this.leaveRequestByUsername);
@@ -67,13 +67,16 @@ export class ViewMyLeaveComponent implements OnInit {
   sendLeaveRequest(leaveRequest) {
     this.interactionService.sendLeaveRequest(leaveRequest);
   }
+  sendLeaveRequestId(leaveRequest) {
+    this.interactionService.sendLeaveRequest(leaveRequest);
+    // console.log(leaveRequest)
+  }
 
   getSuccessMessage() {
     this.interactionService.msgDataSource$.subscribe(data => {
-      if (data == "leaveRequestSent" ) {
+      if (data == "leaveRequestSent") {
         this.getLeaveRequestByUser();
-      }
-      else if (data == "cancelSuccess") {
+      } else if (data == "cancelSuccess") {
         this.getLeaveRequestByUser();
         this.responseMsg = "success";
         this.responseMsgTimeOut();
