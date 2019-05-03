@@ -35,6 +35,13 @@ export class CarryForwardLeaveComponent implements OnInit {
     this.getPendingCarryforwardRequest();
     this.getSuccessMsg();
   }
+  
+  applyFilter(filterValue: string) {
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
+  }
 
   getPendingCarryforwardRequest() {
     this.carryforwardLeaveRequestService.getPendingCarryforwardLeaveRequest().subscribe(data => {
@@ -45,22 +52,34 @@ export class CarryForwardLeaveComponent implements OnInit {
     }
     );
   }
-  getSuccessMsg() {
-    this.interactionService.msgDataSource$.subscribe(data => {
-      if (data == "CarryforwardRequestAccepted" || data == "CarryforwardRequestRejected") {
-        this.getPendingCarryforwardRequest();
-      }
-      
-    });
-  }
+  
   sendCarryforward(carryforward) {
     this.interactionService.sendCarryforward(carryforward);
   }
-
-  applyFilter(filterValue: string) {
-    this.dataSource.filter = filterValue.trim().toLowerCase();
-    if (this.dataSource.paginator) {
-      this.dataSource.paginator.firstPage();
-    }
+  getSuccessMsg() {
+    this.interactionService.msgDataSource$.subscribe(data => {
+      if (data == "CarryforwardRequestAccepted") {
+        this.getPendingCarryforwardRequest();
+        this.responseMsg = "success3";
+        this.responseMsgTimeOut();
+      }
+      else if (data == "CarryforwardRequestRejected") {
+        this.getPendingCarryforwardRequest();
+        this.responseMsg = "success2";
+        this.responseMsgTimeOut();
+      }
+    });
+  }
+  responseMsg: string;
+  responseMsgTimeOut() {
+    setTimeout(() => {
+      this.responseMsg = null;
+    }, 3000);
   }
 }
+      
+  
+
+
+
+ 
