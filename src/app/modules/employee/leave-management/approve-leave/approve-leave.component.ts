@@ -38,7 +38,7 @@ export class ApproveLeaveComponent implements OnInit {
     this.dataSource.sort = this.sort;
     this.getAllLeaveRequest();
     // this.getSuccessMsg();
-    // this.getSuccessMessage() 
+    this.getSuccessMessage() 
   }
   // getSuccessMsg() {
   //   throw new Error("Method not implemented.");
@@ -68,8 +68,6 @@ export class ApproveLeaveComponent implements OnInit {
   sendUserId(user) {
     this.interactionService.sendUserId(user);
   }
-
-
   getSuccessMessage() {
     this.interactionService.msgDataSource$.subscribe(data => {
       console.log(data)
