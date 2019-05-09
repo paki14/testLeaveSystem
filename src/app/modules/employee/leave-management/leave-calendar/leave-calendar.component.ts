@@ -136,7 +136,7 @@ export class LeaveCalendarComponent implements OnInit {
 
     if (this.info.authorities != "EMPLOYEE") {
       if (event.id != null) {
-        if (action == "Clicked" || action == "Edited") {
+        if (action == "Edited") {
           this.modal.open(this.modalContent, { size: "sm" });
         }
         if (action == "Deleted") {
@@ -146,6 +146,9 @@ export class LeaveCalendarComponent implements OnInit {
           this.modal.open(this.moveContent, { size: "lg" });
         }
       }
+    }
+    if (action == "Clicked") {
+      this.modal.open(this.modalContent, { size: "sm" });
     }
   }
 
