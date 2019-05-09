@@ -52,7 +52,6 @@ export class ApproveCancelLeaveComponent implements OnInit {
 
   sendLeaveRequest(leaveRequest) {
     this.interactionService.sendLeaveRequest(leaveRequest);
-    
   }
 
   sendCancelRequestId(cancelLeaveRequestId) {
@@ -65,7 +64,14 @@ export class ApproveCancelLeaveComponent implements OnInit {
       if (data == "cancelRequestAccepted" || data == "cancelRequestRejected") {
         this.getPendingCancelLeaveRequest();
       }
+      this.responseMsg = "success";
+      this.responseMsgTimeOut();
     });
   }
-  
+  responseMsg: string;
+  responseMsgTimeOut() {
+    setTimeout(() => {
+      this.responseMsg = null;
+    }, 3000);
+  }
 }
