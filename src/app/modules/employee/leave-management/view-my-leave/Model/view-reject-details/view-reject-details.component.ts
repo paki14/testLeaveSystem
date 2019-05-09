@@ -16,7 +16,7 @@ export class ViewRejectDetailsComponent implements OnInit {
 
   ngOnInit() {
     this.getLeaveRequest()
-    this.getRejectCancelRequest()
+  
   }
   getLeaveRequest(){
     this.interactionService.leaveRequestDataSource$.subscribe(data=>{
