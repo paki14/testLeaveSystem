@@ -1,5 +1,5 @@
 export class RejectCancelRequest {
-    cancelRequestId: number;
+    cancelRequestId: Number;
     reason:String
     rejectedBy: String;
     userName: string;
