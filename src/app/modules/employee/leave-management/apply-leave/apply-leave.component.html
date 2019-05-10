@@ -46,8 +46,13 @@
                   <div class="row">
                     <div class="col-md-5">
                       <div class="form-group">
-                        <label for="apply-leave-startdate">Start Date</label>
+                        <label for="apply-leave-startdate"
+                          >Start Date
+                          <!-- {{ leaveRequest.leaveAllocation.leaveType.id } -->
+                          }</label
+                        >
                         <input
+                          id="check"
                           type="date"
                           class="form-control"
                           id="apply-leave-startdate"
@@ -101,7 +106,9 @@
                           id="apply-leave-TypeofLeave"
                           name="apply-leave-TypeofLeave"
                           [(ngModel)]="leaveRequest.leaveAllocation"
-                        >
+                          >{{
+                            leaveRequest.leaveAllocation.leaveType
+                          }}
                           <option selected default hidden [ngValue]="default"
                             >select leave type</option
                           >
@@ -113,6 +120,7 @@
                         </select>
                       </div>
                     </div>
+
                     <div class="col-md-6">
                       <div class="form-group">
                         <label for="apply-leave-attachments">Attachments</label>
