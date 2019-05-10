@@ -6,6 +6,8 @@ import { InteractionService } from '../../../../services/interaction.service';
 import { LeaveAllocationService } from '../../../../services/leave-management/leave-allocation.service';
 import { LeaveAllocation } from '../../../../models/leave-management/leave-allocation';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { RejectCarryforwardRequestService } from 'src/app/services/leave-management/reject-carryforward-request.service';
+import { RejectCarryforward } from 'src/app/models/leave-management/reject-carryforward';
 
 @Component({
   selector: 'app-carry-forward-leave-request',
@@ -20,10 +22,12 @@ export class CarryForwardLeaveRequestComponent implements OnInit {
   carryforwardLeave: CarryforwardRequestData = new CarryforwardRequestData();
   //End
   carry:boolean
+  
   constructor(
     private carryforwardRequestService: CarryforwardLeaveRequestService,
     private token: TokenStorageService,
     private leaveAllocationService: LeaveAllocationService,
+    private rejectCarryRequestService: RejectCarryforwardRequestService,
     private interactionService: InteractionService) { }
 
   ngOnInit() {
@@ -65,7 +69,6 @@ export class CarryForwardLeaveRequestComponent implements OnInit {
       }
     })
   }
-
   giveAlertMessage(carryforwardRequest) {
     if (this.carryforwardRequest.carryforwardDays==null) {
       this.interactionService.upadateMsg("error");

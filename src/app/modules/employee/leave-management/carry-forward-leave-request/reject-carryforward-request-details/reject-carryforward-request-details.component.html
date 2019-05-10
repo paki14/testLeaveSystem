@@ -1,0 +1,45 @@
+<div id="view-reject-carry-leave-request-modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- modal content start -->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="card-title">CancelLeave Rejected Details</h3>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body" >
+        <div class="col-md-12">
+          <div class="card">
+            <div class="row mb-3 mt-3">
+              <div class="col-md-12 offset-1">
+                <div class="row">
+                  <div class="col-md-4 custom bold-font">
+                    Reason
+                  </div>
+                  <div class="col-md-1 custom">
+                    :
+                  </div>
+                  <div class="col-md-7 custom">
+                    {{rejectCarryRequest?.reason}}
+                  </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 custom bold-font">
+                      Rejected By
+                    </div>
+                    <div class="col-md-1 custom">
+                      :
+                    </div>
+                    <div class="col-md-7 custom">
+                      {{rejectCarryRequest?.rejectedBy.fullName}}
+                    </div>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- modal content end -->
+  </div>
+</div>

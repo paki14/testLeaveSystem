@@ -36,6 +36,7 @@ import { AcceptCarryforwardRequestComponent } from './carry-forward-leave/Modal/
 import { RejectCarryforwardRequestComponent } from './carry-forward-leave/Modal/reject-carryforward-request/reject-carryforward-request.component';
 import { ApplyLeaveViewComponent } from './apply-leave-view/apply-leave-view.component';
 import { ViewRejectDetailsComponent } from './view-my-leave/Model/view-reject-details/view-reject-details.component';
+import { RejectCarryforwardRequestDetailsComponent } from './carry-forward-leave-request/reject-carryforward-request-details/reject-carryforward-request-details.component';
 
 const routes: Routes = [
   {
@@ -119,7 +120,8 @@ const routes: Routes = [
     AcceptCarryforwardRequestComponent,
     RejectCarryforwardRequestComponent,
     ApplyLeaveViewComponent,
-    ViewRejectDetailsComponent
+    ViewRejectDetailsComponent,
+    RejectCarryforwardRequestDetailsComponent
   ],
   providers: []
 })

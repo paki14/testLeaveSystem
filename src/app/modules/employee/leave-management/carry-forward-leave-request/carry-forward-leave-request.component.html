@@ -22,7 +22,9 @@
             You have {{carryforwardLeave.carryForwardDays}} days carryforwarded for next year.
           </div>
           <div class="col-md-12 caryforwardr" *ngIf="carryforwardLeave.status == 'REJECTED';">
-            Sorry, Your carryforward request has rejected.
+           <a>Sorry, Your carryforward request has rejected.</a> <br><br>
+           <button type="button" class=" btn btn-view btn-primary" data-toggle="modal" data-target="#view-reject-carry-leave-request-modal"
+           >View</button>
           </div>
         </div>
       </div>
@@ -70,3 +72,4 @@
     <!--Add button Model end-->
   </ng-template>
 </div>
+<app-reject-carryforward-request-details></app-reject-carryforward-request-details>
