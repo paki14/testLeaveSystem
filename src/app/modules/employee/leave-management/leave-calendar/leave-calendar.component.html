@@ -19,13 +19,13 @@
 <div class="row">
   <div
     class="col-md-5"
-    *ngIf="info.authorities == 'HR' || info.authorities == 'ADMIN'"
+    *ngIf="info.authorities == 'HR' "
   >
     <app-post-event></app-post-event>
   </div>
   <div
     class="col-md-7"
-    *ngIf="info.authorities == 'EMPLOYEE' || info.authorities == 'HR'"
+    *ngIf="info.authorities == 'EMPLOYEE' || info.authorities == 'HR'|| info.authorities == 'ADMIN'"
   >
     <div class="row text-center mt-3">
       <div class="col-md-4">
