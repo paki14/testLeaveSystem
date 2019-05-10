@@ -55,7 +55,6 @@
                           placeholder="yyyy/mm/dd"
                           [(ngModel)]="leaveRequest.startDate"
                           (change)="noOfDays()"
-                          min="{{ today | date: 'yyyy-MM-dd' }}"
                           max="{{ leaveRequest.endDate | date: 'yyyy-MM-dd' }}"
                         />
                       </div>
@@ -74,6 +73,7 @@
                           min="{{
                             leaveRequest.startDate | date: 'yyyy-MM-dd'
                           }}"
+                          max="{{ leaveRequest.endDate | date: 'yyyy-MM-dd' }}"
                         />
                       </div>
                     </div>

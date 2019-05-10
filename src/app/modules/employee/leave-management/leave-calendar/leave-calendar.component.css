@@ -1,16 +1,18 @@
 .btn {
-    width: 70px;
-    font-size: 13px !important;
+  width: 70px;
+  font-size: 13px !important;
 }
 
-input[type="color"] {   
-    padding: 4px 20px 4px 20px;
-    height: 39px;
-    width: 100%;
+input[type="color"] {
+  padding: 4px 20px 4px 20px;
+  height: 39px;
+  width: 100%;
 }
 
-.custom-calendar{
-    height: 451px;
-    overflow: scroll;
+.custom-calendar {
+  height: 451px;
+  overflow: scroll;
 }
-
+.modal-body {
+  text-align: center;
+}
