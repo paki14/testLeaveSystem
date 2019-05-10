@@ -102,7 +102,8 @@ export class LeaveCalendarComponent implements OnInit {
       authorities: this.token.getAuthorities()
     };
     this.getAllHolidays();
-    if (this.info.authorities == "HR" || this.info.authorities == "ADMIN") {
+    // if (this.info.authorities == "HR" || this.info.authorities == "ADMIN") {
+      if (this.info.authorities == "HR") {
       this.getAllLeaveRequest();
     }
     this.getSuccessMsg();

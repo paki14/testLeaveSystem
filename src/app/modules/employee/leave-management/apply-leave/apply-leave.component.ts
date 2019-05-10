@@ -22,8 +22,21 @@ export class ApplyLeaveComponent implements OnInit {
   leaveAllocation: LeaveAllocation[];
   info: any;
   default: LeaveAllocation = new LeaveAllocation();
+  maxStartDate = "2019-12-31";
+  maxEndDate = "2019-12-31";
+  minDate: "2019-01-01";
 
   ngOnInit() {
+    // let today = new Date();
+    // let month = today.getMonth();
+    // let year = today.getFullYear();
+    // let prevMonth = month === 0 ? 11 : month - 1;
+    // let nextMonth = month === 11 ? 0 : month + 4;
+    // this.minDate = new Date();
+    // this.maxDate = new Date();
+    // this.minDate.setMonth(prevMonth);
+    // this.maxDate.setMonth(nextMonth);
+
     this.info = {
       token: this.token.getToken(),
       username: this.token.getUsername(),
