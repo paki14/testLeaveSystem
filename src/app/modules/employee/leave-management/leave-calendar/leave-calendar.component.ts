@@ -14,7 +14,7 @@ import { TokenStorageService } from "src/app/services/login/token-storage.servic
 import { InteractionService } from "src/app/services/interaction.service";
 import { CalendarEvent } from "src/app/models/leave-management/CalendarEvent";
 import { ColorsService } from "src/app/services/leave-management/colors.service";
-import { timingSafeEqual } from "crypto";
+// import { timingSafeEqual } from "crypto";
 
 const colors: any = {
   gray: {
@@ -66,10 +66,17 @@ export class LeaveCalendarComponent implements OnInit {
       label: '<i class="fa fa-fw fa-times"></i>',
       onClick: ({ event }: { event: CalendarEvent }): void => {
         // console.log(events);
-        this.handleEvent("Deleted", event);
-        // this.events = this.events.filter(iEvent => iEvent != event);
+        this.handleEvent("Delete", event);
       }
     }
+    // {
+    //   label: "#delete",
+    //   onClick: ({ event }: { event: CalendarEvent }): void => {
+    //     // console.log(events);
+    //     this.handleEvent("Deleted", event);
+    //     this.events = this.events.filter(iEvent => iEvent != event);
+    //   }
+    // }
   ];
 
   refresh: Subject<any> = new Subject();
@@ -127,6 +134,7 @@ export class LeaveCalendarComponent implements OnInit {
     event.start = newStart;
     event.end = newEnd;
     this.handleEvent("Dropped or resized", event);
+    // this.events = this.events.filter(iEvent => iEvent != this.modalData.event);
     this.refresh.next();
   }
 
@@ -137,12 +145,15 @@ export class LeaveCalendarComponent implements OnInit {
 
     if (this.info.authorities != "EMPLOYEE") {
       if (event.id != null) {
-        if (action == "Edited") {
+        if (action == "Edited" || action == "Clicked") {
           this.modal.open(this.modalContent, { size: "sm" });
         }
-        if (action == "Deleted") {
+        if (action == "Delete") {
           this.modal.open(this.deleteContent, { size: "lg" });
         }
+        // if (action == "Deleted") {
+        //   this.events = this.events.filter(iEvent => iEvent != event);
+        // }
         if (action == "Dropped or resized" || action == "Edit") {
           this.modal.open(this.moveContent, { size: "lg" });
         }
@@ -213,8 +224,11 @@ export class LeaveCalendarComponent implements OnInit {
     this.holidayCalendarService
       .deleteEvent(this.modalData.event.id)
       .subscribe(data => {
-        console.log(data);
+        // console.log(data);
       });
+    // this.modalData.action = "Deleted";
+    this.events = this.events.filter(iEvent => iEvent != this.modalData.event);
+    this.refresh.next();
   }
 
   editEvent() {
@@ -229,7 +243,12 @@ export class LeaveCalendarComponent implements OnInit {
   getSuccessMsg() {
     this.interactionService.msgDataSource$.subscribe(data => {
       this.getAllLeaveRequest();
-      if (data == "eventAdded" || data == "Edited") {
+      if (
+        data == "eventAdded" ||
+        data == "Edited" ||
+        data == "Edit" ||
+        data == "Deleted"
+      ) {
         this.events = [];
         this.getAllHolidays();
         this.responseMsg = "success";
