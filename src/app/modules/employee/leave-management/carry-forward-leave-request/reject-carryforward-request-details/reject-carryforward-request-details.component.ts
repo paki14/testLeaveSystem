@@ -25,8 +25,7 @@ rejectCarryRequest=new RejectCarryforward();
   }
   getRejectCarryForward(){
     this.rejectCarryRequestService.getRejectCarryrequest(this.info.username).subscribe(data=>{
-      console.log(data)
-      this.rejectCarryRequest=data
+      this.rejectCarryRequest=data;
     })
   }
   

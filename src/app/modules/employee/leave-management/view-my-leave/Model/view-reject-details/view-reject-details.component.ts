@@ -19,9 +19,8 @@ export class ViewRejectDetailsComponent implements OnInit {
   
   }
   getLeaveRequest(){
-    this.interactionService.leaveRequestDataSource$.subscribe(data=>{
+    this.interactionService.leaveRequestDataIndividualSource$.subscribe(data=>{
       this.requestId=data.id;
-      console.log(this.requestId)
       this.getRejectCancelRequest()
     })
   }
@@ -29,7 +28,6 @@ export class ViewRejectDetailsComponent implements OnInit {
   getRejectCancelRequest(){
     this.rejectcancelLeaveService.getRejectCancelRequest(this.requestId).subscribe(data=>{
       this.rejectCancelRequest=data;
-      console.log(this.rejectCancelRequest)
     });
   }
 }

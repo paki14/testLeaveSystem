@@ -32,6 +32,8 @@ export class InteractionService {
   private leaveRequestDataSource = new Subject<LeaveRequest>();
   private cancelRequestIdDataSource = new Subject<number>();
   private profileObservable = new Subject<string>();
+  //jananthan for view reject cancel request
+  private leaveRequestDataIndividualSource =new Subject<LeaveRequest>();
   //Mayu Start
   private carryforwardRequestDataSource = new Subject<CarryforwardLeaveRequest>();
   private carryforwardLeaveDataSource = new Subject<CarryforwardRequestData>();
@@ -54,7 +56,8 @@ export class InteractionService {
   //MayuStart
   carryforwardRequestDataSource$ = this.carryforwardRequestDataSource.asObservable();
   carryforwardRequestIdDataSource$ = this.carryforwardLeaveDataSource.asObservable();
-
+  //jananthan
+  leaveRequestDataIndividualSource$=this.leaveRequestDataIndividualSource.asObservable();
   pushRouteRole(role: string) {
     this.profileObservable.next(role);
   }
@@ -108,6 +111,9 @@ export class InteractionService {
 
   sendCancelRequestId(cancelRequestId: number) {
     this.cancelRequestIdDataSource.next(cancelRequestId);
+  }
+  sendLeaveRequestIndividual(leaveRequest: LeaveRequest){
+    this.leaveRequestDataIndividualSource.next(leaveRequest);
   }
 
 }
