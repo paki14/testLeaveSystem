@@ -40,10 +40,6 @@ export class RequestConformModalComponent implements OnInit {
     this.leaveRequestService.addLeaveRequest(this.leaveRequest).subscribe(data => {
       this.resetLeaveRequest();
       this.interactionService.upadateMsg("leaveRequestSent");
-     
-      this.interactionService.msgDataSource$.subscribe(data=>{
-       console.log(data)
-     })
     })
   }
 

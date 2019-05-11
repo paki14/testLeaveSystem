@@ -131,7 +131,7 @@
                 Cancel
               </button>
               <button class="btn btn-outline-danger" data-toggle="modal" data-target="#view-reject-cancel-leave-request-modal" 
-              *ngIf="leave.status == 'TAKE_LEAVE'" (click)="sendLeaveRequestId(leave)">
+              *ngIf="leave.status == 'TAKE_LEAVE'" (click)="sendLeaveRequestIndividual(leave)">
                 View
               </button>
             </mat-cell>
