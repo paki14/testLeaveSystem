@@ -104,14 +104,13 @@
                 Reason</mat-header-cell
               >
               <mat-cell *matCellDef="let leave">
-                <a
-                  href="#"
+                <p
                   data-toggle="modal"
                   data-target="#view-leave-request-modal-reson"
                   (click)="sendLeaveRequest(leave)"
                 >
                   {{ leave.reason }}
-                </a>
+                </p>
               </mat-cell>
             </ng-container>
 
