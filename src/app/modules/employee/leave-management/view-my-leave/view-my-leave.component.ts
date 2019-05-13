@@ -20,7 +20,7 @@ export class ViewMyLeaveComponent implements OnInit {
     "numberOfDays",
     "reason",
     "status",
-    "cancel",
+    "cancel"
   ];
   leaveRequestByUsername: LeaveRequest[];
   dataSource = new MatTableDataSource<any>(this.leaveRequestByUsername);
