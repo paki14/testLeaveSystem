@@ -19,7 +19,6 @@ export class LeaveRequestService {
   public getAllLeaveRequest(){
     return this.http.get<LeaveRequest[]>(this.baseUrl)
   }
-
   public addLeaveRequest(leaveRequest){
     return this.http.post<LeaveRequest>(this.baseUrl+'/'+ leaveRequest.userName,leaveRequest)
   }
@@ -28,8 +27,8 @@ export class LeaveRequestService {
     return this.http.get<LeaveRequest[]>(this.baseUrl+"/user/"+userId)
   }
 
-  public getPendingLeaveRequest(){
-    return this.http.get<LeaveRequest[]>(this.baseUrl+"/pending")
+  public getPendingLeaveRequest(userName){
+    return this.http.get<LeaveRequest[]>(this.baseUrl + "/pending/" + userName);
   }
 
   public acceptLeaveRequest(accept){
