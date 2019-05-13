@@ -87,6 +87,6 @@ export class ApproveLeaveComponent implements OnInit {
   responseMsgTimeOut() {
     setTimeout(() => {
       this.responseMsg = null;
-    }, 3000);
+    }, 1000);
   }
 }
