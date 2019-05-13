@@ -42,7 +42,7 @@ export class AcceptCarryforwardRequestComponent implements OnInit {
     responseMsgTimeOut() {
       setTimeout(() => {
         this.responseMsg = null;
-      }, 3000);
+      }, 1000);
     }
   accecptCarryforwardRequestMethod() {
     this.carryforwardLeaveRequestService.acceptCarryforwardRequest(this.info.username, this.carryforwardRequestData).subscribe(data => {

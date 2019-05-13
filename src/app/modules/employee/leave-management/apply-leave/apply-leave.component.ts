@@ -48,10 +48,10 @@ export class ApplyLeaveComponent implements OnInit {
     this.getSuccessMsg1();
   }
 
-  autoGrowTextZone(e) {
-    e.target.style.height = "0px";
-    e.target.style.height = e.target.scrollHeight + 10 + "px";
-  }
+  // autoGrowTextZone(e) {
+  //   e.target.style.height = "0px";
+  //   e.target.style.height = e.target.scrollHeight + 10 + "px";
+  // }
 
   clearField() {
     this.leaveRequest.reason = null;
