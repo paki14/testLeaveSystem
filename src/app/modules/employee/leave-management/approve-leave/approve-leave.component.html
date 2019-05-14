@@ -1,18 +1,18 @@
   <!-- alert message start-->
-  <!-- <div class="alert alert-success notification" id="alert-success" *ngIf="responseMsg === 'success'">
-    <span class="bold-font">Success:</span> Successfully leave Accepted!!!
+  <div class="alert alert-success notification" id="alert-success" *ngIf="responseMsg === 'success'">
+    <span class="bold-font"></span> Successfully leave Accepted!!!
   </div>
   <div class="alert alert-danger notification" id="alert-danger" *ngIf="responseMsg === 'fail'">
-    <span class="bold-font">Error:</span> Something went wrong !!!
+    <span class="bold-font"></span> Something went wrong !!!
   </div>
   
-  <div class="alert alert-success notification" id="alert-success" *ngIf="responseMsg === 'success2'">
-    <span class="bold-font">Success:</span> Successfully leave Rejected!!!
+  <div class="alert alert-danger notification" id="alert-success" *ngIf="responseMsg === 'success2'">
+    <span class="bold-font"></span> Successfully leave Rejected!!!
   </div>
   <div class="alert alert-danger notification" id="alert-danger" *ngIf="responseMsg === 'fail'">
-    <span class="bold-font">Error:</span> Something went wrong !!!
+    <span class="bold-font"></span> Something went wrong !!!
   </div>
-   -->
+  
   <!-- alert message end--><!-- HR and Employee view -->
 <div class="row">
   <div class="col-md-12">
@@ -23,7 +23,10 @@
         <div class="card-tools">
           <button type="button" class="btn btn-tool" data-widget="collapse">
             <i class="fa fa-minus"></i>
-          </button>          
+          </button> 
+          <button type="button" class="btn btn-tool" (click)="getAllLeaveRequest()">
+              <a>&#8635;</a>
+          </button>         
         </div>
       </div>
       <!-- card header end -->

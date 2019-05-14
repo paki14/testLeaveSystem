@@ -3,6 +3,7 @@ import { MatTableDataSource, MatPaginator, MatSort } from "@angular/material";
 import { LeaveRequest } from "src/app/models/leave-management/leave-request";
 import { LeaveRequestService } from "src/app/services/leave-management/leave-request.service";
 import { InteractionService } from "src/app/services/interaction.service";
+import { TokenStorageService } from "src/app/services/login/token-storage.service";
 
 @Component({
   selector: "app-approve-leave",
@@ -26,19 +27,29 @@ export class ApproveLeaveComponent implements OnInit {
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
+  info: any;
 
   constructor(
     private leaveRequestService: LeaveRequestService,
-    private interactionService: InteractionService
+    private interactionService: InteractionService,
+    private token: TokenStorageService
   ) { }
 
   ngOnInit() {
     this.dataSource = new MatTableDataSource<any>(this.leave);
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
-    this.getAllLeaveRequest();
+    
     // this.getSuccessMsg();
-    this.getSuccessMessage() 
+    this.getSuccessMessage();
+    this.info = {
+      token: this.token.getToken(),
+      username: this.token.getUsername(),
+      authorities: this.token.getAuthorities()
+    };
+    console.log(this.info.username)
+
+    this.getAllLeaveRequest();
   }
   // getSuccessMsg() {
   //   throw new Error("Method not implemented.");
@@ -53,13 +64,23 @@ export class ApproveLeaveComponent implements OnInit {
   }
 
   getAllLeaveRequest() {
-    this.leaveRequestService.getPendingLeaveRequest().subscribe(data => {
+    this.leaveRequestService.getPendingLeaveRequest(this.info.username).subscribe(data => {
       this.leave = data;
       this.dataSource = new MatTableDataSource<any>(data);
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
     });
   }
+
+  //   getAllLeaveRequest() {
+  //   this.leaveRequestService.getLeaveRequestByUserNot(this.info.username).subscribe(data => {
+  //     this.leave = data;
+  //     this.dataSource = new MatTableDataSource<any>(data);
+  //     this.dataSource.paginator = this.paginator;
+  //     this.dataSource.sort = this.sort;
+  //   });
+  // }
+  
 
   sentLeaveId(leaveId) {
     this.interactionService.setLeaveId(leaveId);
@@ -87,6 +108,6 @@ export class ApproveLeaveComponent implements OnInit {
   responseMsgTimeOut() {
     setTimeout(() => {
       this.responseMsg = null;
-    }, 3000);
+    }, 1000);
   }
 }

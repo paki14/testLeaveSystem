@@ -1,52 +1,71 @@
-<!-- alert message start-->
-<div class="alert alert-danger notification" id="alert-success" *ngIf="responseMsg === 'success2'">
-  <span class="bold-font">Success:</span> Successfully leave Rejected!!!
-</div>
-<div class="alert alert-success notification" id="alert-danger" *ngIf="responseMsg === 'fail'">
-  <span class="bold-font">Error:</span> Something went wrong !!!
-</div>
-
-<!-- alert message end-->
 
 <!--reject model start-->
 
-<div id="reject-modal" data-refresh="true" class="modal fade" role="dialog">
+<div
+  id="reject-modal"
+  data-toggle="modal"
+  class="modal fade"
+  role="dialog"
+>
   <div class="modal-dialog">
     <!-- modal content start -->
     <div class="modal-content">
       <div class="modal-header">
         <h3 class="card-title">Reject</h3>
-        <button type="button" class="close" data-dismiss="modal" (click)="clearField()">
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          (click)="clearField()"
+        >
           &times;
         </button>
       </div>
       <div class="modal-body">
         <div class="col-md-12">
           <!-- form start -->
-          <form role="form">
+          <form [formGroup]="leaveRejectForm">
             <!-- card body start -->
             <div class="card-body">
-              <!-- <div class="col-md-12">
-                <div class="form-group"> -->
-              <!-- <label for="promotion-employee-name"> Reason</label> -->
-              <!-- <mat-form-field hintLabel="Max 150 characters">
-                <textarea
-                  matInput
-                  #input
-                  maxlength="150"
-                  placeholder="Enter Reject reason Here"
-                  [(ngModel)]="rejectObj.rejectReason"
-                ></textarea>
-                <mat-hint align="end"
-                  >{{ input.value?.length || 0 }}/150</mat-hint
-                >
-              </mat-form-field> -->
-              <textarea type="text" #input maxlength="150" class="form-control" rows="4" name="promotion-datepromoted"
-                id="promotion-datepromoted" [(ngModel)]="rejectObj.rejectReason"
-                placeholder="Enter Reject reason Here"></textarea>
-              {{ input.value?.length || 0 }}/150
-              <!-- </div>
-              </div> -->
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label for="leave_reject_reason"> Reason</label>
+                  <textarea
+                    type="text"
+                    class="form-control"
+                    name="leave_reject_reason"
+                    id="leave_reject_reason"
+                    placeholder="Enter Reject reason Here"
+                    [(ngModel)]="rejectObj.rejectReason"
+                    formControlName="reject_hr_reason"
+                    [class.is-invalid]="
+                    leaveRejectForm.get('reject_hr_reason').invalid &&
+                    leaveRejectForm.get('reject_hr_reason').touched
+                    "
+                    required
+                  >
+                  </textarea>
+                  <div
+                    *ngIf="
+                    leaveRejectForm.get('reject_hr_reason').invalid &&
+                    leaveRejectForm.get('reject_hr_reason').touched
+                    "
+                  >
+                    <small
+                      class="text-danger"
+                      *ngIf="
+                      leaveRejectForm.get('reject_hr_reason').errors?.required
+                      "
+                      >Reject reason is required!
+                    </small>
+                    <small
+                      class="text-danger"
+                      *ngIf="leaveRejectForm.get('reject_hr_reason').errors?.pattern"
+                      >Reject reason is only allow letters.
+                    </small>
+                  </div>
+                </div>
+              </div>
             </div>
             <!-- card body end -->
           </form>
@@ -54,8 +73,8 @@
         </div>
       </div>
       <div class="modal-footer">
-        <!-- <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="clearImmediate()">close</button>   -->
-        <button type="button" class="btn btn-primary" data-dismiss="modal"
+        <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="clearField()">close</button>  
+        <button type="button" class="btn btn-primary" data-dismiss="modal" [disabled]="!leaveRejectForm.valid"
           (click)="rejectLeaverequest(); sendSuccessMsg(); getLeaveRequestId()">
           Send
         </button>
